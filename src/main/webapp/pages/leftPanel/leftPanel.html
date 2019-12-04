@@ -1,0 +1,25 @@
+<wm-partial type="leftnav" name="partial1">
+    <wm-nav type="pills" layout="stacked" name="nav1" margin="10em unset unset unset">
+        <wm-nav-item name="nav_item1">
+            <wm-anchor caption="Dashboard" iconclass="" class="active" name="dashboardLink" fontsize="14" fontfamily="Roboto"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item2">
+            <wm-anchor caption="Submitted Information" iconclass="" name="submittedInfoLink" fontsize="14" fontfamily="Roboto" on-click="Actions.goToPage_SubmittedInformation.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item3">
+            <wm-anchor caption="BTMK Management" iconclass="" name="btmkMgtLink" fontsize="14" fontfamily="Roboto"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item12">
+            <wm-menu caption="User Management" autoclose="outsideClick" name="menuUserMgt" iconclass="" type="anchor" dataset="bind:Variables.userManagementMenuData.dataSet" animateitems="slide" fontsize="14" fontfamily="Roboto"></wm-menu>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item10">
+            <wm-menu caption="Surat Kuasa" autoclose="outsideClick" name="SKLink" iconclass="" type="anchor" dataset="bind:Variables.skMenu.dataSet" fontsize="14"></wm-menu>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item6">
+            <wm-anchor name="reportMgtLink" iconclass="" caption="Report Management" fontfamily="Roboto" fontsize="14"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item9">
+            <wm-anchor name="faqLink" iconclass="" caption="FAQ Management" on-click="Actions.goToPage_FAQ.invoke()" fontsize="14" fontfamily="Roboto"></wm-anchor>
+        </wm-nav-item>
+    </wm-nav>
+</wm-partial>

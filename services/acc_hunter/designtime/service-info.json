@@ -1,0 +1,6 @@
+{
+  "id" : "acc_hunter",
+  "type" : "DataService",
+  "packageNames" : [ "com.acc_hunter_web.acc_hunter" ],
+  "title" : "acc_hunter"
+}

@@ -1,0 +1,117 @@
+[ {
+  "name" : "ChangePassword",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ChangePasswordSuccess",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "FAQ",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "FAQPartial",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "id",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "ForgotPassword",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ForgotPasswordLinkSent",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MainPage",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SKAuction",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SKExtension",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "idParam",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "SKReqDetail",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SKRequest",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "idParam",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "SignIn",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SubmittedInformation",
+  "type" : "PAGE",
+  "params" : [ {
+    "name" : "idParam",
+    "type" : "integer"
+  } ]
+}, {
+  "name" : "UserManagementInformant",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "UserManagementMitra",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "UserManagementPool",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "UserManagementRemo",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "footer",
+  "type" : "FOOTER",
+  "params" : [ ]
+}, {
+  "name" : "header",
+  "type" : "HEADER",
+  "params" : [ ]
+}, {
+  "name" : "leftPanel",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+}, {
+  "name" : "rightnav",
+  "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "topnav",
+  "type" : "TOPNAV",
+  "params" : [ ]
+} ]

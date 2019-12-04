@@ -1,0 +1,61 @@
+{
+  "enforceSecurity" : true,
+  "loginConfig" : {
+    "type" : "PAGE",
+    "pageName" : "SignIn",
+    "sessionTimeout" : {
+      "type" : "PAGE",
+      "pageName" : "SignIn",
+      "timeoutValue" : 30
+    }
+  },
+  "rememberMeConfig" : {
+    "enabled" : true,
+    "tokenValiditySeconds" : 1296000
+  },
+  "tokenAuthConfig" : {
+    "enabled" : true,
+    "parameter" : "WM_AUTH_TOKEN",
+    "tokenValiditySeconds" : 1800
+  },
+  "csrfConfig" : {
+    "enforceCsrfSecurity" : true,
+    "headerName" : "X-WM-XSRF-TOKEN"
+  },
+  "authProviders" : {
+    "DEMO" : {
+      "enabled" : false,
+      "users" : [ {
+        "userid" : "user",
+        "password" : "user",
+        "roles" : [ "user" ]
+      }, {
+        "userid" : "admin",
+        "password" : "admin",
+        "roles" : [ "admin" ]
+      } ],
+      "type" : "DEMO"
+    },
+    "DATABASE" : {
+      "enabled" : true,
+      "modelName" : "acc_hunter",
+      "entityName" : "Users",
+      "tableName" : "users",
+      "unamePropertyName" : "email",
+      "unameColumnName" : "email",
+      "uidPropertyName" : "id",
+      "uidColumnName" : "id",
+      "pwPropertyName" : "password",
+      "pwColumnName" : "password",
+      "rolePropertyName" : "",
+      "roleColumnName" : "",
+      "useRolesQuery" : true,
+      "rolesByUsernameQuery" : "select r.name\nfrom roles r\njoin users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD')\nwhere u.email = :LOGGED_IN_USERNAME",
+      "tenantIdField" : null,
+      "defTenantId" : 0,
+      "tenantIdPropertyName" : null,
+      "queryType" : "NATIVE_SQL",
+      "type" : "DATABASE"
+    }
+  }
+}

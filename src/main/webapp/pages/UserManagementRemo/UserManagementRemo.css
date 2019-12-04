@@ -1,0 +1,90 @@
+.menu-title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 1px;
+    color: #404C59;
+    text-transform: uppercase;
+}
+
+.box-profile {
+    background: #FFFFFF;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    width: 299px;
+    height: 95px;
+}
+
+.text-search {
+    width: 485px;
+    height: 64px;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #A7A7A7;
+    background: #FFFFFF;
+}
+
+.icon-search {
+    position: absolute;
+}
+
+.web-button {
+    text-transform: capitalize;
+    width: 185px;
+    height: 64px;
+    background: #007AFF;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.table-header {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    color: #98A9BC;
+    text-transform: capitalize !important;
+}
+
+.table-content {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #404C59;
+}
+
+.user-status-active {
+    
+}
+
+.dialog-button {
+    background: #0E2D48;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.dialog-text {
+    background: #FFFFFF;
+    border: 1px solid #BFC4CE;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.dialog-label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #999C9F;
+}

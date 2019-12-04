@@ -1,0 +1,539 @@
+{
+  "agreementNo" : {
+    "_id" : "wm-agreementNo-wm.Variable-1575386034766",
+    "name" : "agreementNo",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "appNotification" : {
+    "_id" : "wm-appErrorHandler-wm.NotificationVariable-1454664620943",
+    "name" : "appNotification",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "list"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "list"
+    } ],
+    "operation" : "toast"
+  },
+  "getUserByEmail" : {
+    "_id" : "wm-getUserByEmail-wm.ServiceVariable-1574659920256",
+    "name" : "getUserByEmail",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetUserByEmailQueryResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetUserByEmailQuery",
+    "operationId" : "QueryExecutionController_executeGetUserByEmailQuery",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "goToPage_ChangePassword" : {
+    "_id" : "wm-goToPage_ChangePassword-wm.NavigationVariable-1574649940794",
+    "name" : "goToPage_ChangePassword",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ChangePassword",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ChangePasswordSuccess" : {
+    "_id" : "wm-goToPage_ChangePasswordSuccess-wm.NavigationVariable-1574667516463",
+    "name" : "goToPage_ChangePasswordSuccess",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ChangePasswordSuccess",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_FAQ" : {
+    "_id" : "wm-goToPage_FAQ-wm.NavigationVariable-1574906342175",
+    "name" : "goToPage_FAQ",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "FAQ",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ForgotPassword" : {
+    "_id" : "wm-goToPage_ForgotPassword-wm.NavigationVariable-1574669045879",
+    "name" : "goToPage_ForgotPassword",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ForgotPassword",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ForgotPasswordLinkSent" : {
+    "_id" : "wm-goToPage_ForgotPasswordLinkSent-wm.NavigationVariable-1574648967100",
+    "name" : "goToPage_ForgotPasswordLinkSent",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ForgotPasswordLinkSent",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Main" : {
+    "_id" : "wm-wm.NavigationVariable1389180517517",
+    "name" : "goToPage_Main",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "operation" : "gotoPage",
+    "pageName" : "Main"
+  },
+  "goToPage_MainPage" : {
+    "_id" : "wm-goToPage_MainPage-wm.NavigationVariable-1574677474040",
+    "name" : "goToPage_MainPage",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "MainPage",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SignIn" : {
+    "_id" : "wm-goToPage_SignIn-wm.NavigationVariable-1574655210733",
+    "name" : "goToPage_SignIn",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SignIn",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SKAuction" : {
+    "_id" : "wm-goToPage_SKAuction-wm.NavigationVariable-1575103577423",
+    "name" : "goToPage_SKAuction",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SKAuction",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SKExtension" : {
+    "_id" : "wm-goToPage_SKExtension-wm.NavigationVariable-1575361963255",
+    "name" : "goToPage_SKExtension",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SKExtension",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SKReqDetail" : {
+    "_id" : "wm-goToPage_SKReqDetail-wm.NavigationVariable-1575379975744",
+    "name" : "goToPage_SKReqDetail",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SKReqDetail",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SKRequest" : {
+    "_id" : "wm-goToPage_SKRequest-wm.NavigationVariable-1575093166596",
+    "name" : "goToPage_SKRequest",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SKRequest",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SubmittedInformation" : {
+    "_id" : "wm-goToPage_SubmittedInformatino-wm.NavigationVariable-1575019991978",
+    "name" : "goToPage_SubmittedInformation",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SubmittedInformation",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_UserManagementInformant" : {
+    "_id" : "wm-goToPage_Dashboard-wm.NavigationVariable-1574693174809",
+    "name" : "goToPage_UserManagementInformant",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "UserManagementInformant",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_UserManagementMitra" : {
+    "_id" : "wm-goToPage_UserManagementMitra-wm.NavigationVariable-1574737242020",
+    "name" : "goToPage_UserManagementMitra",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "UserManagementMitra",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_UserManagementPool" : {
+    "_id" : "wm-goToPage_UserManagementPool-wm.NavigationVariable-1574861409363",
+    "name" : "goToPage_UserManagementPool",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "UserManagementPool",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_UserManagementRemo" : {
+    "_id" : "wm-goToPage_UserManagementRemo-wm.NavigationVariable-1574863868453",
+    "name" : "goToPage_UserManagementRemo",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "UserManagementRemo",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "loggedInUser" : {
+    "_id" : "wm-loggedInUser-wm.Variable-1574479795608",
+    "name" : "loggedInUser",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "",
+      "id" : "",
+      "tenantId" : "",
+      "isAuthenticated" : false,
+      "isSecurityEnabled" : true,
+      "roles" : [ ]
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "loginAction" : {
+    "_id" : "wm-loginAction-wm.LoginVariable-1574666701381",
+    "name" : "loginAction",
+    "owner" : "App",
+    "category" : "wm.LoginVariable",
+    "dataBinding" : [ {
+      "target" : "j_username",
+      "value" : "bind:Widgets.j_username.datavalue"
+    }, {
+      "target" : "j_password",
+      "value" : "bind:Variables.loginEncryptPass.dataSet.value"
+    } ],
+    "dataSet" : {
+      "j_username" : "",
+      "j_password" : "",
+      "j_rememberme" : false
+    },
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "onError" : "Actions.notificationLoginFailed.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "useDefaultSuccessHandler" : true
+  },
+  "loginEncryptPass" : {
+    "_id" : "wm-serviceEncryptPass-wm.ServiceVariable-1574481110481",
+    "name" : "loginEncryptPass",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "text",
+      "value" : "bind:Widgets.j_password.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "string",
+    "service" : "MD5Encryption",
+    "operation" : "hashPassword",
+    "operationId" : "Md5encryptionController_hashPassword",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Actions.loginAction.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Md5encryption"
+  },
+  "logoutAction" : {
+    "_id" : "wm-logoutAction-wm.LogoutVariable-1574479795608",
+    "name" : "logoutAction",
+    "owner" : "App",
+    "category" : "wm.LogoutVariable",
+    "type" : "string",
+    "saveInPhonegap" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "redirectTo" : "Login",
+    "useDefaultSuccessHandler" : true
+  },
+  "newUserData" : {
+    "_id" : "wm-newUserVar-wm.Variable-1574786022255",
+    "name" : "newUserData",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "fullName" : "",
+      "email" : "",
+      "address" : "",
+      "phoneNumber" : "",
+      "identityNumber" : "-",
+      "roleId" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "newUserDetailData" : {
+    "_id" : "wm-newUserDetailData-wm.Variable-1574788731569",
+    "name" : "newUserDetailData",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "userId" : "",
+      "cityProvinceId" : "",
+      "picFullName" : "",
+      "picMobilePhoneNo" : "",
+      "picIdCardNo" : "",
+      "picEmail" : ""
+    },
+    "type" : "entry",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "nextUserId" : {
+    "_id" : "wm-nextUserId-wm.Variable-1574785283207",
+    "name" : "nextUserId",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "notificationLoginFailed" : {
+    "_id" : "wm-notificationLoginFailed-wm.NotificationVariable-1574481340468",
+    "name" : "notificationLoginFailed",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Alamat email dan password yang Anda masukan tidak sesuai",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "2000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "top center",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "sendMailService" : {
+    "_id" : "wm-sendMailService-wm.ServiceVariable-1574648913659",
+    "name" : "sendMailService",
+    "owner" : "App",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "toEmailAddress",
+      "value" : "bind:Widgets.emailAddr.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "emailSubject",
+      "value" : "Reset Password Link",
+      "type" : "string"
+    } ],
+    "type" : "object",
+    "service" : "SendMailService",
+    "operation" : "sendEmail",
+    "operationId" : "SendMailController_sendEmail",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onResult" : "sendMailServiceonResult(variable, data, options)",
+    "onSuccess" : "Actions.goToPage_ForgotPasswordLinkSent.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "SendMail"
+  },
+  "skMenu" : {
+    "_id" : "wm-skMenu-wm.Variable-1575094985777",
+    "name" : "skMenu",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "Dashboard SK",
+      "link" : "#"
+    }, {
+      "label" : "Permintaan SK",
+      "link" : "#SKRequest"
+    }, {
+      "label" : "Perpanjangan SK",
+      "link" : "#SKExtension"
+    }, {
+      "label" : "Lelang SK",
+      "link" : "#SKAuction"
+    }, {
+      "label" : "Sayembara SK",
+      "link" : "#"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "skRequestId" : {
+    "_id" : "wm-sk_request_id-wm.Variable-1575384489888",
+    "name" : "skRequestId",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "userEmail" : {
+    "_id" : "wm-userEmail-wm.Variable-1574672759969",
+    "name" : "userEmail",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "email"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "userId" : {
+    "_id" : "wm-userId-wm.Variable-1574843894527",
+    "name" : "userId",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "userManagementMenuData" : {
+    "_id" : "wm-userManagementMenuData-wm.Variable-1574745036947",
+    "name" : "userManagementMenuData",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "Informan",
+      "link" : "#UserManagementInformant"
+    }, {
+      "label" : "Registered Mitra",
+      "link" : "#UserManagementMitra"
+    }, {
+      "label" : "Pool",
+      "link" : "#UserManagementPool"
+    }, {
+      "label" : "REMO",
+      "link" : "#UserManagementRemo"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}

@@ -1,0 +1,1569 @@
+{
+  "getAllSKNew" : {
+    "name" : "getAllSKNew",
+    "description" : "This query is to list all SK New",
+    "version" : "V2",
+    "queryString" : "select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir\nfrom sk_new s\njoin remo_regions r on r.id = s.remo_id",
+    "countQueryString" : "select count(*) from (select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir\nfrom sk_new s\njoin remo_regions r on r.id = s.remo_id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAllSknewResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "remo",
+        "fieldName" : "remo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_mulai",
+        "fieldName" : "tanggalMulai",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_berakhir",
+        "fieldName" : "tanggalBerakhir",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getAllUsersInformant" : {
+    "name" : "getAllUsersInformant",
+    "description" : "A query to retrieve all users information from users table which role is 'INFORMAN'",
+    "version" : "V2",
+    "queryString" : "select u.full_name, u.email, r.name as role_name, case when u.status = true then 'Active' else 'Non-Active' end as status\r\nfrom users u\r\njoin roles r on u.role_id = r.id and r.name = 'INFORMAN'",
+    "countQueryString" : "select count(*) from (select u.full_name, u.email, r.name as role_name, case when u.status = true then 'Active' else 'Non-Active' end as status\r\nfrom users u\r\njoin roles r on u.role_id = r.id and r.name = 'INFORMAN') wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAllUsersInformantResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_name",
+        "fieldName" : "roleName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getAllUsersMitra" : {
+    "name" : "getAllUsersMitra",
+    "description" : "A query to retrieve all registered mitra users.",
+    "version" : "V2",
+    "queryString" : "select \n        u.full_name as name,\n        u.email,\n        r.name as role_type,\n        u.province,\n        u.city,\n        case when u.status = true then 'Active' else 'Non-Active' end as status\n    from users u\n    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA'",
+    "countQueryString" : "select count(*) from (select \n        u.full_name as name,\n        u.email,\n        r.name as role_type,\n        u.province,\n        u.city,\n        case when u.status = true then 'Active' else 'Non-Active' end as status\n    from users u\n    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA') wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAllUsersMitraResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_type",
+        "fieldName" : "roleType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "province",
+        "fieldName" : "province",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "city",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getAllUsersPool" : {
+    "name" : "getAllUsersPool",
+    "description" : "This is a query to retrieve all users filtered by their role name as parameter",
+    "version" : "V2",
+    "queryString" : "select \n        u.full_name,\n        u.email,\n        r.name as role_type,\n        u.province,\n        u.city,\n        case when u.status = true then 'Active' else 'Non-Active' end as status\n    from users u\n    join roles r on u.role_id = r.id and r.name = 'POOL'",
+    "countQueryString" : "select count(*) from (select \n        u.full_name,\n        u.email,\n        r.name as role_type,\n        u.province,\n        u.city,\n        case when u.status = true then 'Active' else 'Non-Active' end as status\n    from users u\n    join roles r on u.role_id = r.id and r.name = 'POOL') wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAllUsersPoolResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_type",
+        "fieldName" : "roleType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "province",
+        "fieldName" : "province",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "city",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getAllUsersRemo" : {
+    "name" : "getAllUsersRemo",
+    "description" : "Retrieve all users which role name is REMO HEAD",
+    "version" : "V2",
+    "queryString" : "select \n        u.full_name,\n        u.email,\n        r.name as role_type,\n        u.province,\n        u.city,\n        case when u.status = true then 'Active' else 'Non-Active' end as status\n    from users u\n    join roles r on u.role_id = r.id and r.name = 'REMO HEAD'",
+    "countQueryString" : "select count(*) from (select \n        u.full_name,\n        u.email,\n        r.name as role_type,\n        u.province,\n        u.city,\n        case when u.status = true then 'Active' else 'Non-Active' end as status\n    from users u\n    join roles r on u.role_id = r.id and r.name = 'REMO HEAD') wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAllUsersRemoResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_type",
+        "fieldName" : "roleType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "province",
+        "fieldName" : "province",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "city",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getCItyByProvince" : {
+    "name" : "getCItyByProvince",
+    "description" : "Retrieve a city name and the id of the table by province name given",
+    "version" : "V2",
+    "queryString" : "select id, city_name\nfrom city_provinces\nwhere province_name = :province_name",
+    "countQueryString" : "select count(*) from (select id, city_name\nfrom city_provinces\nwhere province_name = :province_name) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "province_name",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "Jawa Barat",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetCityByProvinceResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "city_name",
+        "fieldName" : "cityName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getDetailLaporanByAgreementNo" : {
+    "name" : "getDetailLaporanByAgreementNo",
+    "description" : "Retrieve detail laporan by using agreement no as parameter",
+    "version" : "V2",
+    "queryString" : "select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr\r\nfrom reports h\r\njoin users u on h.created_by = u.email\r\nwhere h.vehicle_no_aggr = :agreement_no",
+    "countQueryString" : "select count(*) from (select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr\r\nfrom reports h\r\njoin users u on h.created_by = u.email\r\nwhere h.vehicle_no_aggr = :agreement_no) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "agreement_no",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "mollit anim id est labo",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetDetailLaporanByAgreementNoResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id_lapor",
+        "fieldName" : "idLapor",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id_pelapor",
+        "fieldName" : "idPelapor",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "deskripsi",
+        "fieldName" : "deskripsi",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "vehicle_no_aggr",
+        "fieldName" : "vehicleNoAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getLelangSKAktif" : {
+    "name" : "getLelangSKAktif",
+    "description" : "Get data for all Lelang SK which is currently active. Don't have a winner yet and the End Date is still within the date",
+    "version" : "V2",
+    "queryString" : "select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id\nfrom lelang_sk_detail d\njoin lelang_sk h on d.lelang_sk_id = h.id\njoin remo_regions r on h.remo_id = r.id\nwhere h.end_date >= now() and d.winner_id is null",
+    "countQueryString" : "select count(*) from (select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id\nfrom lelang_sk_detail d\njoin lelang_sk h on d.lelang_sk_id = h.id\njoin remo_regions r on h.remo_id = r.id\nwhere h.end_date >= now() and d.winner_id is null) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangSkaktifResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "remo",
+        "fieldName" : "remo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "nomor_agreement",
+        "fieldName" : "nomorAgreement",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "judul",
+        "fieldName" : "judul",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "tawaran_terendah",
+        "fieldName" : "tawaranTerendah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_mulai",
+        "fieldName" : "tanggalMulai",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_berakhir",
+        "fieldName" : "tanggalBerakhir",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk_detail_id",
+        "fieldName" : "lelangSkDetailId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getLelangSKDetailByRemoId" : {
+    "name" : "getLelangSKDetailByRemoId",
+    "description" : "This query is used to retrieve lelang SK detail data based on given REMO ID parameter",
+    "version" : "V2",
+    "queryString" : "select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah \nfrom lelang_sk_detail d\nwhere d.remo_id = :remo_id",
+    "countQueryString" : "select count(*) from (select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah \nfrom lelang_sk_detail d\nwhere d.remo_id = :remo_id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "remo_id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangSkdetailByRemoIdResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "nomor_agreement",
+        "fieldName" : "nomorAgreement",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "judul",
+        "fieldName" : "judul",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "batas_bto",
+        "fieldName" : "batasBto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "tawaran_terendah",
+        "fieldName" : "tawaranTerendah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getLelangSKTidakAktif" : {
+    "name" : "getLelangSKTidakAktif",
+    "description" : "A query to retrieve all inactive SK which either already have a winner or the end date have expired",
+    "version" : "V2",
+    "queryString" : "select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id\nfrom lelang_sk_detail d\njoin lelang_sk h on d.lelang_sk_id = h.id\njoin remo_regions r on h.remo_id = r.id\nwhere d.winner_id is not null\nor h.end_date < now()",
+    "countQueryString" : "select count(*) from (select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id\nfrom lelang_sk_detail d\njoin lelang_sk h on d.lelang_sk_id = h.id\njoin remo_regions r on h.remo_id = r.id\nwhere d.winner_id is not null\nor h.end_date < now()) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangSktidakAktifResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "remo",
+        "fieldName" : "remo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "nomor_agreement",
+        "fieldName" : "nomorAgreement",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "judul",
+        "fieldName" : "judul",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "tawaran_terendah",
+        "fieldName" : "tawaranTerendah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_mulai",
+        "fieldName" : "tanggalMulai",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_berakhir",
+        "fieldName" : "tanggalBerakhir",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk_detail_id",
+        "fieldName" : "lelangSkDetailId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getPesertaLelangData" : {
+    "name" : "getPesertaLelangData",
+    "description" : "A query to retrieve all peserta lelang",
+    "version" : "V2",
+    "queryString" : "select \n    u.id as id_peserta,\n    u.full_name as nama_lengkap,\n    c.category_name as kategori,\n    a.area_code as kode_area,\n    a.area_name as remo,\n    d.*\nfrom (\n    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya\n    from lelang_sk_participants sk\n    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id \n    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d\njoin users u on d.user_id = u.id\nleft join user_categories c on u.category_id = c.id\nleft join master_area a on u.area_id = a.id",
+    "countQueryString" : "select count(*) from (select \n    u.id as id_peserta,\n    u.full_name as nama_lengkap,\n    c.category_name as kategori,\n    a.area_code as kode_area,\n    a.area_name as remo,\n    d.*\nfrom (\n    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya\n    from lelang_sk_participants sk\n    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id \n    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d\njoin users u on d.user_id = u.id\nleft join user_categories c on u.category_id = c.id\nleft join master_area a on u.area_id = a.id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "lelang_sk_detail_id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "4",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetPesertaLelangDataResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id_peserta",
+        "fieldName" : "idPeserta",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "nama_lengkap",
+        "fieldName" : "namaLengkap",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "kategori",
+        "fieldName" : "kategori",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "kode_area",
+        "fieldName" : "kodeArea",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "remo",
+        "fieldName" : "remo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "user_id",
+        "fieldName" : "userId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk_detail_id",
+        "fieldName" : "lelangSkDetailId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "biaya",
+        "fieldName" : "biaya",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getReportImagesById" : {
+    "name" : "getReportImagesById",
+    "description" : "This query to retrieve all images url based on report id given",
+    "version" : "V2",
+    "queryString" : "select url\nfrom report_images\nwhere report_id = :id",
+    "countQueryString" : "select count(*) from (select url\nfrom report_images\nwhere report_id = :id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "big_integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetReportImagesByIdResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "url",
+        "fieldName" : "url",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getSKRequestDetail" : {
+    "name" : "getSKRequestDetail",
+    "description" : "Request detail query",
+    "version" : "V2",
+    "queryString" : "select r.id as id_permintaan_sk,\nr.aggr_no as no_aggreement,\nr.bto_request,\nr.created_date as waktu,\ncase when r.status then 'Approved' else 'Not Approved' end as status_converted,\nr.status,\nu.full_name as nama_requestor\nfrom sk_requests r\njoin users u on r.requestor_id = u.id\nwhere r.id = :sk_request_id",
+    "countQueryString" : "select count(*) from (select r.id as id_permintaan_sk,\nr.aggr_no as no_aggreement,\nr.bto_request,\nr.created_date as waktu,\ncase when r.status then 'Approved' else 'Not Approved' end as status_converted,\nr.status,\nu.full_name as nama_requestor\nfrom sk_requests r\njoin users u on r.requestor_id = u.id\nwhere r.id = :sk_request_id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "sk_request_id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "5",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestDetailResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id_permintaan_sk",
+        "fieldName" : "idPermintaanSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggreement",
+        "fieldName" : "noAggreement",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "bto_request",
+        "fieldName" : "btoRequest",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "waktu",
+        "fieldName" : "waktu",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "status_converted",
+        "fieldName" : "statusConverted",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "nama_requestor",
+        "fieldName" : "namaRequestor",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getSubmittedInfoDetail" : {
+    "name" : "getSubmittedInfoDetail",
+    "description" : "This query to retrieve a detail information regarding submitted info",
+    "version" : "V2",
+    "queryString" : "select r.id as report_id, r.description, u.full_name, u.id as account_id, v.no_car_police, v.brand_desc, v.no_chasis, v.no_engine\nfrom reports r\njoin vehicles v on r.vehicle_no_aggr = v.no_aggr\njoin users u on r.created_by = u.email\nwhere r.id = :id",
+    "countQueryString" : "select count(*) from (select r.id as report_id, r.description, u.full_name, u.id as account_id, v.no_car_police, v.brand_desc, v.no_chasis, v.no_engine\nfrom reports r\njoin vehicles v on r.vehicle_no_aggr = v.no_aggr\njoin users u on r.created_by = u.email\nwhere r.id = :id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "big_integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSubmittedInfoDetailResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "report_id",
+        "fieldName" : "reportId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "account_id",
+        "fieldName" : "accountId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_car_police",
+        "fieldName" : "noCarPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "brand_desc",
+        "fieldName" : "brandDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_chasis",
+        "fieldName" : "noChasis",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_engine",
+        "fieldName" : "noEngine",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getUserAuth" : {
+    "name" : "getUserAuth",
+    "description" : "Retrieve user limited only to ADMIN and REMO HEAD.",
+    "version" : "V2",
+    "queryString" : "select u.*\nfrom users u\njoin roles r on u.role_id = r.id and r.name in('ADMIN', 'REMO HEAD')\nwhere u.email = :email",
+    "countQueryString" : "select count(*) from (select u.*\nfrom users u\njoin roles r on u.role_id = r.id and r.name in('ADMIN', 'REMO HEAD')\nwhere u.email = :email) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "email",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ramadhani@mail.com",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetUserAuthResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "password",
+        "fieldName" : "password",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "address",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "phone_number",
+        "fieldName" : "phoneNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_number",
+        "fieldName" : "identityNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_photo",
+        "fieldName" : "identityPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_with_person_photo",
+        "fieldName" : "identityWithPersonPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_id",
+        "fieldName" : "roleId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "created_at",
+        "fieldName" : "createdAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "reset_pass_first_login",
+        "fieldName" : "resetPassFirstLogin",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "is_request_upgrade",
+        "fieldName" : "isRequestUpgrade",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "is_request_approved",
+        "fieldName" : "isRequestApproved",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getUserByEmailQuery" : {
+    "name" : "getUserByEmailQuery",
+    "description" : "A query to retrieve user information and details based on email parameter",
+    "version" : "V2",
+    "queryString" : "select u.*\nfrom users u\nwhere u.email = :email",
+    "countQueryString" : "select count(*) from (select u.*\nfrom users u\nwhere u.email = :email) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "email",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "widodo@mail.com",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetUserByEmailQueryResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "password",
+        "fieldName" : "password",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "address",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "phone_number",
+        "fieldName" : "phoneNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_number",
+        "fieldName" : "identityNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_photo",
+        "fieldName" : "identityPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_with_person_photo",
+        "fieldName" : "identityWithPersonPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_id",
+        "fieldName" : "roleId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "created_at",
+        "fieldName" : "createdAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "reset_pass_first_login",
+        "fieldName" : "resetPassFirstLogin",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "is_request_upgrade",
+        "fieldName" : "isRequestUpgrade",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "is_request_approved",
+        "fieldName" : "isRequestApproved",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getUserIdByEmail" : {
+    "name" : "getUserIdByEmail",
+    "description" : "Retrieve user id value by given email",
+    "version" : "V2",
+    "queryString" : "select id from users where email = :email",
+    "countQueryString" : "select count(*) from (select id from users where email = :email) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "email",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "widodo@mail.com",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetUserIdByEmailResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "updatePasswordQuery" : {
+    "name" : "updatePasswordQuery",
+    "description" : "A query to update password by given email",
+    "version" : "V2",
+    "queryString" : "update users set password = :pwd where email = :email",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "pwd",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "dodo123!!",
+      "required" : true
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "widodo@mail.com",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdatePasswordQueryRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "viewLelangSKAktif" : {
+    "name" : "viewLelangSKAktif",
+    "description" : "This is a query to retrieve a detail of one SK Aktif",
+    "version" : "V2",
+    "queryString" : "select \nsd.agreement_no as nomor_agreement,\nsd.title as judul,\nsd.bto_limit as batas_bto,\nsd.lowest_bid as tawaran_terendah,\nsd.description as deskripsi,\nsh.start_date as tanggal_mulai,\nsh.end_date as tanggal_berakhir,\nr.region as remo,\nu.full_name as pemenang,\nsd.id\nfrom lelang_sk_detail sd\njoin lelang_sk sh on sd.lelang_sk_id = sh.id\njoin remo_regions r on r.id = sh.remo_id\nleft join users u on sd.winner_id = u.id\nwhere sd.agreement_no = :agreement_no",
+    "countQueryString" : "select count(*) from (select \nsd.agreement_no as nomor_agreement,\nsd.title as judul,\nsd.bto_limit as batas_bto,\nsd.lowest_bid as tawaran_terendah,\nsd.description as deskripsi,\nsh.start_date as tanggal_mulai,\nsh.end_date as tanggal_berakhir,\nr.region as remo,\nu.full_name as pemenang,\nsd.id\nfrom lelang_sk_detail sd\njoin lelang_sk sh on sd.lelang_sk_id = sh.id\njoin remo_regions r on r.id = sh.remo_id\nleft join users u on sd.winner_id = u.id\nwhere sd.agreement_no = :agreement_no) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "agreement_no",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "101202303",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.ViewLelangSkaktifResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "nomor_agreement",
+        "fieldName" : "nomorAgreement",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "judul",
+        "fieldName" : "judul",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "batas_bto",
+        "fieldName" : "batasBto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "tawaran_terendah",
+        "fieldName" : "tawaranTerendah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "deskripsi",
+        "fieldName" : "deskripsi",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_mulai",
+        "fieldName" : "tanggalMulai",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_berakhir",
+        "fieldName" : "tanggalBerakhir",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "remo",
+        "fieldName" : "remo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "pemenang",
+        "fieldName" : "pemenang",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

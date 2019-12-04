@@ -1,0 +1,7 @@
+{
+  "id" : "SendMailService",
+  "type" : "JavaService",
+  "packageNames" : [ "com.acc_hunter_web.sendmailservice" ],
+  "serviceClassNames" : [ "com.acc_hunter_web.sendmailservice.SendMailService" ],
+  "title" : "SendMailService"
+}

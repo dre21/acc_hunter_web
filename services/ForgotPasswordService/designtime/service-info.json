@@ -1,0 +1,7 @@
+{
+  "id" : "ForgotPasswordService",
+  "type" : "JavaService",
+  "packageNames" : [ "com.acc_hunter_web.forgotpasswordservice" ],
+  "serviceClassNames" : [ "com.acc_hunter_web.forgotpasswordservice.ForgotPasswordService" ],
+  "title" : "ForgotPasswordService"
+}

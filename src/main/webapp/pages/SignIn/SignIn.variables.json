@@ -1,0 +1,16 @@
+{
+  "passTypeText" : {
+    "_id" : "wm-passTypeText-wm.Variable-1574658910220",
+    "name" : "passTypeText",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : "password"
+    },
+    "type" : "string",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  }
+}

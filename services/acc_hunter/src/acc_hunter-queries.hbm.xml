@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="getAllUsersRemo">
+        <![CDATA[
+        select 
+        u.full_name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REMO HEAD'
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllUsersRemo__count">
+        <![CDATA[
+        select count(*) from (select 
+        u.full_name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REMO HEAD') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getLelangSKAktif">
+        <![CDATA[
+        select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id
+from lelang_sk_detail d
+join lelang_sk h on d.lelang_sk_id = h.id
+join remo_regions r on h.remo_id = r.id
+where h.end_date >= now() and d.winner_id is null
+        ]]>
+    </sql-query>
+
+    <sql-query name="getLelangSKAktif__count">
+        <![CDATA[
+        select count(*) from (select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id
+from lelang_sk_detail d
+join lelang_sk h on d.lelang_sk_id = h.id
+join remo_regions r on h.remo_id = r.id
+where h.end_date >= now() and d.winner_id is null) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getSubmittedInfoDetail">
+        <![CDATA[
+        select r.id as report_id, r.description, u.full_name, u.id as account_id, v.no_car_police, v.brand_desc, v.no_chasis, v.no_engine
+from reports r
+join vehicles v on r.vehicle_no_aggr = v.no_aggr
+join users u on r.created_by = u.email
+where r.id = :id
+        ]]>
+    <query-param name="id" type="java.math.BigInteger"/>
+    </sql-query>
+
+    <sql-query name="getSubmittedInfoDetail__count">
+        <![CDATA[
+        select count(*) from (select r.id as report_id, r.description, u.full_name, u.id as account_id, v.no_car_police, v.brand_desc, v.no_chasis, v.no_engine
+from reports r
+join vehicles v on r.vehicle_no_aggr = v.no_aggr
+join users u on r.created_by = u.email
+where r.id = :id) wmTempTable
+        ]]>
+    <query-param name="id" type="java.math.BigInteger"/>
+    </sql-query>
+
+    <sql-query name="getUserIdByEmail">
+        <![CDATA[
+        select id from users where email = :email
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getUserIdByEmail__count">
+        <![CDATA[
+        select count(*) from (select id from users where email = :email) wmTempTable
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getUserAuth">
+        <![CDATA[
+        select u.*
+from users u
+join roles r on u.role_id = r.id and r.name in('ADMIN', 'REMO HEAD')
+where u.email = :email
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getUserAuth__count">
+        <![CDATA[
+        select count(*) from (select u.*
+from users u
+join roles r on u.role_id = r.id and r.name in('ADMIN', 'REMO HEAD')
+where u.email = :email) wmTempTable
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="updatePasswordQuery">
+        <![CDATA[
+        update users set password = :pwd where email = :email
+        ]]>
+    <query-param name="pwd" type="java.lang.String"/>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getAllUsersPool">
+        <![CDATA[
+        select 
+        u.full_name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'POOL'
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllUsersPool__count">
+        <![CDATA[
+        select count(*) from (select 
+        u.full_name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'POOL') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getLelangSKTidakAktif">
+        <![CDATA[
+        select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id
+from lelang_sk_detail d
+join lelang_sk h on d.lelang_sk_id = h.id
+join remo_regions r on h.remo_id = r.id
+where d.winner_id is not null
+or h.end_date < now()
+        ]]>
+    </sql-query>
+
+    <sql-query name="getLelangSKTidakAktif__count">
+        <![CDATA[
+        select count(*) from (select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id
+from lelang_sk_detail d
+join lelang_sk h on d.lelang_sk_id = h.id
+join remo_regions r on h.remo_id = r.id
+where d.winner_id is not null
+or h.end_date < now()) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllSKNew">
+        <![CDATA[
+        select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir
+from sk_new s
+join remo_regions r on r.id = s.remo_id
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllSKNew__count">
+        <![CDATA[
+        select count(*) from (select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir
+from sk_new s
+join remo_regions r on r.id = s.remo_id) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getDetailLaporanByAgreementNo">
+        <![CDATA[
+        select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr
+from reports h
+join users u on h.created_by = u.email
+where h.vehicle_no_aggr = :agreement_no
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getDetailLaporanByAgreementNo__count">
+        <![CDATA[
+        select count(*) from (select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr
+from reports h
+join users u on h.created_by = u.email
+where h.vehicle_no_aggr = :agreement_no) wmTempTable
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getAllUsersMitra">
+        <![CDATA[
+        select 
+        u.full_name as name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA'
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllUsersMitra__count">
+        <![CDATA[
+        select count(*) from (select 
+        u.full_name as name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getSKRequestDetail">
+        <![CDATA[
+        select r.id as id_permintaan_sk,
+r.aggr_no as no_aggreement,
+r.bto_request,
+r.created_date as waktu,
+case when r.status then 'Approved' else 'Not Approved' end as status_converted,
+r.status,
+u.full_name as nama_requestor
+from sk_requests r
+join users u on r.requestor_id = u.id
+where r.id = :sk_request_id
+        ]]>
+    <query-param name="sk_request_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getSKRequestDetail__count">
+        <![CDATA[
+        select count(*) from (select r.id as id_permintaan_sk,
+r.aggr_no as no_aggreement,
+r.bto_request,
+r.created_date as waktu,
+case when r.status then 'Approved' else 'Not Approved' end as status_converted,
+r.status,
+u.full_name as nama_requestor
+from sk_requests r
+join users u on r.requestor_id = u.id
+where r.id = :sk_request_id) wmTempTable
+        ]]>
+    <query-param name="sk_request_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getAllUsersInformant">
+        <![CDATA[
+        select u.full_name, u.email, r.name as role_name, case when u.status = true then 'Active' else 'Non-Active' end as status
+from users u
+join roles r on u.role_id = r.id and r.name = 'INFORMAN'
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllUsersInformant__count">
+        <![CDATA[
+        select count(*) from (select u.full_name, u.email, r.name as role_name, case when u.status = true then 'Active' else 'Non-Active' end as status
+from users u
+join roles r on u.role_id = r.id and r.name = 'INFORMAN') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="getLelangSKDetailByRemoId">
+        <![CDATA[
+        select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah 
+from lelang_sk_detail d
+where d.remo_id = :remo_id
+        ]]>
+    <query-param name="remo_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getLelangSKDetailByRemoId__count">
+        <![CDATA[
+        select count(*) from (select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah 
+from lelang_sk_detail d
+where d.remo_id = :remo_id) wmTempTable
+        ]]>
+    <query-param name="remo_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getReportImagesById">
+        <![CDATA[
+        select url
+from report_images
+where report_id = :id
+        ]]>
+    <query-param name="id" type="java.math.BigInteger"/>
+    </sql-query>
+
+    <sql-query name="getReportImagesById__count">
+        <![CDATA[
+        select count(*) from (select url
+from report_images
+where report_id = :id) wmTempTable
+        ]]>
+    <query-param name="id" type="java.math.BigInteger"/>
+    </sql-query>
+
+    <sql-query name="getUserByEmailQuery">
+        <![CDATA[
+        select u.*
+from users u
+where u.email = :email
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getUserByEmailQuery__count">
+        <![CDATA[
+        select count(*) from (select u.*
+from users u
+where u.email = :email) wmTempTable
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="viewLelangSKAktif">
+        <![CDATA[
+        select 
+sd.agreement_no as nomor_agreement,
+sd.title as judul,
+sd.bto_limit as batas_bto,
+sd.lowest_bid as tawaran_terendah,
+sd.description as deskripsi,
+sh.start_date as tanggal_mulai,
+sh.end_date as tanggal_berakhir,
+r.region as remo,
+u.full_name as pemenang,
+sd.id
+from lelang_sk_detail sd
+join lelang_sk sh on sd.lelang_sk_id = sh.id
+join remo_regions r on r.id = sh.remo_id
+left join users u on sd.winner_id = u.id
+where sd.agreement_no = :agreement_no
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="viewLelangSKAktif__count">
+        <![CDATA[
+        select count(*) from (select 
+sd.agreement_no as nomor_agreement,
+sd.title as judul,
+sd.bto_limit as batas_bto,
+sd.lowest_bid as tawaran_terendah,
+sd.description as deskripsi,
+sh.start_date as tanggal_mulai,
+sh.end_date as tanggal_berakhir,
+r.region as remo,
+u.full_name as pemenang,
+sd.id
+from lelang_sk_detail sd
+join lelang_sk sh on sd.lelang_sk_id = sh.id
+join remo_regions r on r.id = sh.remo_id
+left join users u on sd.winner_id = u.id
+where sd.agreement_no = :agreement_no) wmTempTable
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getCItyByProvince">
+        <![CDATA[
+        select id, city_name
+from city_provinces
+where province_name = :province_name
+        ]]>
+    <query-param name="province_name" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getCItyByProvince__count">
+        <![CDATA[
+        select count(*) from (select id, city_name
+from city_provinces
+where province_name = :province_name) wmTempTable
+        ]]>
+    <query-param name="province_name" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getPesertaLelangData">
+        <![CDATA[
+        select 
+    u.id as id_peserta,
+    u.full_name as nama_lengkap,
+    c.category_name as kategori,
+    a.area_code as kode_area,
+    a.area_name as remo,
+    d.*
+from (
+    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya
+    from lelang_sk_participants sk
+    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id 
+    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d
+join users u on d.user_id = u.id
+left join user_categories c on u.category_id = c.id
+left join master_area a on u.area_id = a.id
+        ]]>
+    <query-param name="lelang_sk_detail_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getPesertaLelangData__count">
+        <![CDATA[
+        select count(*) from (select 
+    u.id as id_peserta,
+    u.full_name as nama_lengkap,
+    c.category_name as kategori,
+    a.area_code as kode_area,
+    a.area_name as remo,
+    d.*
+from (
+    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya
+    from lelang_sk_participants sk
+    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id 
+    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d
+join users u on d.user_id = u.id
+left join user_categories c on u.category_id = c.id
+left join master_area a on u.area_id = a.id) wmTempTable
+        ]]>
+    <query-param name="lelang_sk_detail_id" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

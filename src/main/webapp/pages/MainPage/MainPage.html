@@ -1,0 +1,175 @@
+<wm-page pagetitle="Main Page" name="page1">
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1" backgroundimage="resources/images/imagelists/Dashboard-background.png">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1" padding="2em unset">
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn1">
+                        <wm-layoutgrid name="layoutgrid6">
+                            <wm-gridrow name="gridrow13">
+                                <wm-gridcolumn columnwidth="1" name="gridcolumn28_1"></wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="11" name="gridcolumn29">
+                                    <wm-label padding="unset 0.5em unset unset" name="labelGreetings" caption="Hi, Mariesta" class="left-heading1" margin="2.1em unset unset unset"></wm-label>
+                                    <wm-label padding="unset 0.5em unset unset" name="labelSubGreetings" width="100%" caption="Selamat datang kembali di dashboard kamu, apa yang ingin kamu lakukan hari ini" class="left-sub-heading"></wm-label>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow14">
+                                <wm-gridcolumn columnwidth="1" name="gridcolumn30"></wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="11" name="gridcolumn31">
+                                    <wm-label padding="unset 0.5em" name="labelMenuTitle" caption="Menu" class="left-heading2" margin="2.5em unset 0.5em unset"></wm-label>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow15">
+                                <wm-gridcolumn columnwidth="1" name="gridcolumn50"></wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="11" name="gridcolumn33" padding="1em unset unset unset">
+                                    <wm-layoutgrid name="layoutgrid7">
+                                        <wm-gridrow name="gridrow16">
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn34" horizontalalign="center">
+                                                <wm-picture name="pictDashboard" picturesource="resources/images/imagelists/1-Dashboard.png" cursor="pointer"></wm-picture>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn38" horizontalalign="center">
+                                                <wm-picture name="picSubmittedInfo" picturesource="resources/images/imagelists/2-SubmittedInfo.png" cursor="pointer"></wm-picture>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn35" horizontalalign="center">
+                                                <wm-picture name="pictBTMK" picturesource="resources/images/imagelists/3-BTMKManagement.png" cursor="pointer"></wm-picture>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow17">
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn36" horizontalalign="center">
+                                                <wm-label padding="unset 0.5em" name="labeldashboard" class="left-menu-title" caption="Dashboard" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn39" horizontalalign="center">
+                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="Submitted Information" name="labelsubmittedinfo" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn37" horizontalalign="center">
+                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="BTMK Management" name="labelbtmk" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow24">
+                                <wm-gridcolumn columnwidth="1" name="gridcolumn55"></wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="11" name="gridcolumn56" horizontalalign="center">
+                                    <wm-layoutgrid name="layoutgrid10">
+                                        <wm-gridrow name="gridrow25" padding="4em unset unset unset">
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn57">
+                                                <wm-picture picturesource="resources/images/imagelists/4-UserManagement.png" tabindex="4" cursor="pointer" name="pictUserMgt" on-click="Actions.goToPage_UserManagementInformant.invoke()"></wm-picture>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn58">
+                                                <wm-picture picturesource="resources/images/imagelists/5-SuratKuasa.png" tabindex="5" cursor="pointer" name="picture10" on-click="Actions.goToPage_SKAuction.invoke()"></wm-picture>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn59">
+                                                <wm-picture picturesource="resources/images/imagelists/6-ReportManagement.png" tabindex="6" cursor="pointer" name="pictReportMgt"></wm-picture>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow26">
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn60">
+                                                <wm-label class="left-menu-title" caption="User Management" margin="1em unset unset unset" name="labelUserMgt"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn61">
+                                                <wm-label class="left-menu-title" caption="Surat Kuasa" margin="1em unset unset unset" name="labelSK"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn62">
+                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="Report Management" margin="1em unset unset unset" name="labelReportMgt"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-gridcolumn>
+                            </wm-gridrow>
+                            <wm-gridrow name="gridrow22" padding="9em unset unset unset" overflow="visible" class="left-pict-scroll">
+                                <wm-gridcolumn columnwidth="1" name="gridcolumn51"></wm-gridcolumn>
+                                <wm-gridcolumn columnwidth="11" name="gridcolumn52" height="5%"></wm-gridcolumn>
+                            </wm-gridrow>
+                        </wm-layoutgrid>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn5" horizontalalign="right" padding="unset unset unset 1em">
+                        <wm-picture name="picture1" picturesource="resources/images/imagelists/Group_208.png"></wm-picture>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2">
+                        <wm-container name="containerRight" class="container">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn6"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn7" horizontalalign="right">
+                                        <wm-label padding="unset 0.5em" name="fullname" margin="62px 17px 57px unset" caption="Mariesta R. Ayuningsih" width="100%"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn10" horizontalalign="center">
+                                        <wm-picture name="profilePic" picturesource="resources/images/imagelists/Ellipse_18.png" margin="41px 41px unset unset" width="56" height="56"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow4" padding="unset unset 48px unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn8" height="423px">
+                                        <wm-prefab prefabname="googlemaps" name="googlemaps"></wm-prefab>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow5">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn11">
+                                        <wm-container name="containerActiveUser" class="container-info" padding="unset 2px">
+                                            <wm-layoutgrid name="layoutgrid3">
+                                                <wm-gridrow name="gridrow6">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn13_1"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn14" class="c" horizontalalign="left">
+                                                        <wm-label padding="unset 0.5em unset unset" name="labelActiveUser" caption="Active User" class="container-info-head"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow7">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn15"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn16" horizontalalign="left">
+                                                        <wm-label padding="unset 0.5em unset unset" name="labelActiveUserVal" caption="911" class="container-info-value"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn12">
+                                        <wm-container class="container-info" name="containerSK" padding="unset 2px">
+                                            <wm-layoutgrid name="layoutgrid4">
+                                                <wm-gridrow name="gridrow8">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn17"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" class="c" horizontalalign="left" name="gridcolumn18">
+                                                        <wm-label padding="unset 0.5em unset unset" caption="SK Requested" class="container-info-head" name="label4" textalign="left"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow9">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn19"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" horizontalalign="left" name="gridcolumn20">
+                                                        <wm-label padding="unset 0.5em unset unset" caption="25" class="container-info-value" name="labelSKReqVal"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn13">
+                                        <wm-container class="container-info" name="containerSubmittedInfo" width="100%" padding="unset 2px">
+                                            <wm-layoutgrid name="layoutgrid5">
+                                                <wm-gridrow name="gridrow10">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn25"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" class="c" horizontalalign="left" name="gridcolumn22">
+                                                        <wm-label padding="unset 0.5em unset unset" caption="Submitted Information" class="container-info-head" name="labelSubmitInfo" textalign="left"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow11">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn23"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" horizontalalign="left" name="gridcolumn24">
+                                                        <wm-label padding="unset 0.5em unset unset" caption="25" class="container-info-value" name="labelSubmitInfoVal"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow12">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn26"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn27"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn28" padding="15em unset unset unset" horizontalalign="right">
+                                        <wm-label padding="unset unset unset 0.5em" name="labelDashboard" caption="Go to Dashboard" class="link" margin="unset 2em 2em unset"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

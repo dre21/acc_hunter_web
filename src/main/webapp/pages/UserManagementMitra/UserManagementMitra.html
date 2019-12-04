@@ -1,0 +1,156 @@
+<wm-page pagetitle="Registered Mitra" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5em" name="label1" class="menu-title" caption="Manage User Accounts"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right">
+                        <wm-container name="container1" class="box-profile" padding="12px unset unset unset">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label padding="1.5em 0.5em unset 0.5em" name="fullName" caption="Mariesta R Ayuningsih"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn9_1">
+                        <wm-breadcrumb dataset="User Management, Registered Mitra" name="breadcrumb1"></wm-breadcrumb>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6_1">
+                        <wm-composite name="composite1">
+                            <wm-container class="col-md-9" name="container2" width="100%">
+                                <wm-text name="text1" placeholder="Search User"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn7" horizontalalign="right"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn8">
+                        <wm-table name="executeGetAllUsersMitraTable1" title="" dataset="bind:Variables.getAllUsersMitra.dataSet" navigation="Basic">
+                            <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="email" caption="Email" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="roleType" caption="Role Type" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="city" caption="City" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="province" caption="Province" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="status" caption="Status" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                            <wm-table-action widget-type="button" key="addNewRow" display-name="Add New User" iconclass="wi wi-plus" show="true" class="btn-primary" action="Widgets.newUsersDialog.open()" position="header" shortcutkey=""></wm-table-action>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" name="newUsersDialog" title="Add New User" iconclass="" modal="true">
+        <wm-liveform errormessage="" title="" iconclass="" defaultmode="Edit" dataset="bind:Variables.UsersMitraData.dataSet" captionalign="left" captionposition="top" name="UsersLiveForm">
+            <wm-layoutgrid columns="2" name="layoutgrid6">
+                <wm-gridrow name="gridrow24">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn43">
+                        <wm-form-field name="roles" displayname="Role Type" show="true" primary-key="false" generator="assigned" key="roles" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value" dataset="bind:Variables.getAllRoles.dataSet"
+                            datafield="id" displayfield="name"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn44">
+                        <wm-form-field name="fullName" displayname="Mitra Name" show="true" primary-key="false" generator="assigned" key="fullName" type="string" readonly="false" required="true" widget="text" maxchars="50" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow25">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn45">
+                        <wm-form-field name="mitraId" displayname="Mitra ID" show="true" primary-key="false" generator="assigned" key="identityNumber" type="string" readonly="true" required="true" widget="text" maxchars="20" inputtype="text" placeholder="Enter value"
+                            defaultvalue="#"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn46">
+                        <wm-form-field name="phoneNumber" displayname="Phone Number" show="true" primary-key="false" generator="assigned" key="phoneNumber" type="string" readonly="false" required="true" widget="text" maxchars="20" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow26">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn47">
+                        <wm-form-field name="email" displayname="Email" show="true" primary-key="false" generator="assigned" key="email" type="string" readonly="false" required="true" widget="text" maxchars="50" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow27">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn49">
+                        <wm-form-field name="address" displayname="Address" show="true" primary-key="false" generator="assigned" key="address" type="text" readonly="false" required="true" widget="text" maxchars="2147483647" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow28">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn51">
+                        <wm-form-field name="province" displayname="Province" show="true" primary-key="false" generator="assigned" key="province" type="string" readonly="false" required="false" widget="select" maxchars="255" placeholder="Select value" dataset="bind:Variables.getAllProvinces.dataSet"
+                            datafield="provinceName" displayfield="provinceName"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn52">
+                        <wm-form-field name="city" displayname="CIty" required="false" show="true" generator="assigned" primary-key="false" type="string" maxchars="255" widget="select" key="form_field37" placeholder="Select value" dataset="bind:Variables.getAllCities.dataSet"
+                            datafield="cityName" displayfield="cityName"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-field name="userid" displayname="UserId" show="false" primary-key="true" generator="sequence" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+        </wm-liveform>
+        <wm-liveform errormessage="" title="PIC" iconclass="" defaultmode="Edit" dataset="bind:Variables.UserDetailsData.dataSet" captionalign="left" captionposition="top" name="UserDetailsLiveForm">
+            <wm-layoutgrid columns="2" name="layoutgrid7">
+                <wm-gridrow name="gridrow29">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn53">
+                        <wm-form-field name="picFullName" displayname="Full Name" show="true" primary-key="false" generator="assigned" key="picFullName" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn54">
+                        <wm-form-field name="picMobilePhoneNo" displayname="Mobile Phone" show="true" primary-key="false" generator="assigned" key="picMobilePhoneNo" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
+                            placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow30">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn55">
+                        <wm-form-field name="picIdCardNo" displayname="ID Card No" show="true" primary-key="false" generator="assigned" key="picIdCardNo" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn56">
+                        <wm-form-field name="picEmail" displayname="Email" show="true" primary-key="false" generator="assigned" key="picEmail" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+        </wm-liveform>
+        <wm-liveform errormessage="" title="Bank Account" iconclass="" defaultmode="Edit" dataset="bind:Variables.UserBankInfoData.dataSet" captionalign="left" captionposition="top" name="UserBankInfoLiveForm">
+            <wm-layoutgrid columns="2" name="layoutgrid8">
+                <wm-gridrow name="gridrow31">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn57">
+                        <wm-form-field name="bankId" displayname="Bank" show="true" primary-key="false" generator="assigned" key="bankId" type="integer" readonly="false" required="true" step="0" widget="select" placeholder="Select value" dataset="bind:Variables.getAllBanks.dataSet"
+                            datafield="id" displayfield="name"></wm-form-field>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn58">
+                        <wm-form-field name="accountNo" displayname="Account Number" show="true" primary-key="false" generator="assigned" key="accountNo" type="string" readonly="false" required="true" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow32">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn59">
+                        <wm-form-field name="accountName" displayname="Account Name" show="true" primary-key="false" generator="assigned" key="accountName" type="string" readonly="false" required="true" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="sequence" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+        </wm-liveform>
+        <wm-layoutgrid name="layoutgrid9">
+            <wm-gridrow name="gridrow33">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn61"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn62" horizontalalign="right">
+                    <wm-button class="btn-default" caption="Simpan" type="button" margin="unset 0.5em" name="dialogButtonSimpan" fontsize="16" color="#ffffff" backgroundcolor="#0F358E" on-click="Variables.insertNewUserMitra.createRecord()"></wm-button>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow34">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn63"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn64"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+</wm-page>

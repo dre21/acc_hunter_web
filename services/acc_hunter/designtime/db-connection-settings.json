@@ -1,0 +1,98 @@
+{
+  "username" : "postgres",
+  "password" : "7b6a43524a050949677833280f11747f493f263a21080c6812",
+  "url" : "jdbc:postgresql://68.183.191.24:5432/acc_hunter",
+  "driverClass" : "org.postgresql.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.WMPostgresSQLDialect",
+  "serviceId" : "acc_hunter",
+  "packageName" : "com.acc_hunter_web.acc_hunter",
+  "dbType" : "PostgreSQL",
+  "host" : "68.183.191.24",
+  "dbName" : "acc_hunter",
+  "port" : "5432",
+  "schemaName" : "public",
+  "tableFilter" : [ {
+    "table" : "lelang_sk_detail",
+    "schema" : "public"
+  }, {
+    "table" : "btmk",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk",
+    "schema" : "public"
+  }, {
+    "table" : "user_request_upgrades",
+    "schema" : "public"
+  }, {
+    "table" : "banks",
+    "schema" : "public"
+  }, {
+    "table" : "sk_requests",
+    "schema" : "public"
+  }, {
+    "table" : "roles",
+    "schema" : "public"
+  }, {
+    "table" : "vehicles",
+    "schema" : "public"
+  }, {
+    "table" : "otp",
+    "schema" : "public"
+  }, {
+    "table" : "appointments",
+    "schema" : "public"
+  }, {
+    "table" : "remo_regions",
+    "schema" : "public"
+  }, {
+    "table" : "user_bank_info",
+    "schema" : "public"
+  }, {
+    "table" : "faq",
+    "schema" : "public"
+  }, {
+    "table" : "user_categories",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk_detail_images",
+    "schema" : "public"
+  }, {
+    "table" : "reports",
+    "schema" : "public"
+  }, {
+    "table" : "master_area",
+    "schema" : "public"
+  }, {
+    "table" : "report_images",
+    "schema" : "public"
+  }, {
+    "table" : "users",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk_participants",
+    "schema" : "public"
+  }, {
+    "table" : "city_provinces",
+    "schema" : "public"
+  }, {
+    "table" : "user_details",
+    "schema" : "public"
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null,
+    "reImport" : false
+  },
+  "readOnly" : false
+}

@@ -1,0 +1,73 @@
+<wm-page pagetitle="Registered Mitra" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5em" name="labelTitle" class="menu-title" caption="Perpanjangan Surat Kuasa"></wm-label>
+                        <wm-breadcrumb dataset="Surat Kuasa, Perpanjangan SK" name="breadcrumb1"></wm-breadcrumb>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right">
+                        <wm-container name="container1" class="box-profile" padding="12px unset unset unset">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label padding="1.5em 0.5em unset 0.5em" name="fullName" caption="Mariesta R Ayuningsih"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow4">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn6_1">
+                        <wm-composite name="composite1">
+                            <wm-container class="col-md-9" name="container2" width="100%">
+                                <wm-text name="textSearchSKRequest" placeholder="Search"></wm-text>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn7" horizontalalign="right"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn8">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="FaqListHidden" dataset="bind:Variables.faqData.dataSet" navigation="Basic" show="false">
+                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                <wm-container class="media-left" name="container5">
+                                    <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture>
+                                </wm-container>
+                                <wm-container class="media-body" padding="unset unset unset 1.25em" name="container6">
+                                    <wm-label name="Name" class="p media-heading" caption="bind:Variables.faqData.dataSet[$i].question" fontsize="1.143" fontunit="em"></wm-label>
+                                    <wm-label name="JobTitle" caption="bind:Variables.faqData.dataSet[$i].answer" class="p text-muted"></wm-label>
+                                </wm-container>
+                                <wm-container class="media-right media-top" name="container7">
+                                    <wm-button class="btn-transparent" iconclass="wi wi-share fa-2x" name="button2"></wm-button>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-list>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn17_1">
+                        <wm-table editmode="inline" name="SKRequestsTable" title="" dataset="bind:Variables.getSKRequestData.dataSet" navigation="Basic">
+                            <wm-table-column binding="id" caption="ID Permintaan SK" primary-key="true" edit-widget-type="number" type="integer" generator="sequence" readonly="true" show="true"></wm-table-column>
+                            <wm-table-column binding="aggrNo" caption="No. Aggr" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="users.fullName" caption="Nama Requestor" primary-key="false" edit-widget-type="text" related-entity-name="Users" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                            <wm-table-column binding="createdDate" caption="Waktu" primary-key="false" edit-widget-type="date" type="datetime" generator="assigned" datepattern="yyyy-MM-dd" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-eye" title="Detail" action="SKRequestsTable_updaterowAction($event, row);Actions.goToPage_SKReqDetail.invoke()"
+                                disabled="false" widget-type="button"></wm-table-row-action>
+                            <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+</wm-page>

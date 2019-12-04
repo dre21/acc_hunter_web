@@ -1,0 +1,19 @@
+[ {
+  "name" : "ADMIN",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "MainPage"
+  }
+}, {
+  "name" : "REMO HEAD",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "MainPage"
+  }
+}, {
+  "name" : "admin",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "UserManagementInformant"
+  }
+} ]

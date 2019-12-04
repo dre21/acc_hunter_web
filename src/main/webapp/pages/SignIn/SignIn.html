@@ -1,0 +1,65 @@
+<wm-page pagetitle="Sign In" name="page1">
+    <wm-content name="content1">
+        <wm-page-content columnwidth="12" name="page_content1" backgroundcolor="#ffffff">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn1" horizontalalign="right">
+                        <wm-picture name="picture1" picturesource="resources/images/imagelists/UC-30-Login-Page-Top-Right.png"></wm-picture>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow3">
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn35"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn5">
+                        <wm-container name="container1" class="login-container" margin="-25% unset unset unset">
+                            <wm-layoutgrid name="layoutgrid3">
+                                <wm-gridrow name="gridrow9" padding="10em unset 2.5em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn21" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" name="label2" caption="Sign In to your account" class="heading1"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow10" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn22"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn23">
+                                        <wm-text name="j_username" placeholder="Ketik email anda" fontsize="14" class="login-textbox" tabindex="1"></wm-text>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn24"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11" padding="unset unset 2em unset">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn25"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26">
+                                        <wm-text placeholder="Password" fontsize="14" class="login-password" type="password" name="j_password" tabindex="2"></wm-text>
+                                        <wm-picture picturesource="resources/images/imagelists/Show-Password.png" class="show-password" name="picture4" margin="unset unset unset 20em" cursor="pointer" on-click="picture4Click($event, widget)"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn27"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow12" padding="unset unset 2em unset">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn27_1"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn28" horizontalalign="center">
+                                        <wm-button class="button" caption="Sign In" type="button" margin="unset 0.5em unset unset" name="button1" color="#ffffff" tabindex="3" width="100%" on-click="button1Click($event, widget)"></wm-button>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn29"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow13" padding="unset unset 7.5em unset">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn30"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="10" name="gridcolumn31" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" caption="Lupa Password" class="sub-button" name="label4" on-click="Actions.goToPage_ForgotPassword.invoke()"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn32"></wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn38"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-picture name="picture2" picturesource="resources/images/imagelists/UC-30-Login-Page-Bottom-Left.png"></wm-picture>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4" horizontalalign="right">
+                        <wm-label padding="11.5em 3.5em unset 0.5em" name="label3" caption="Astra Credit Company"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

@@ -1,0 +1,72 @@
+.container {
+    background: #FFFFFF;
+    border-radius: 26px;
+}
+
+.container-info {
+    background: #EFF2F4;
+    border-radius: 13px;
+}
+
+.container-info-head {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    color: #8796A3;
+}
+
+.container-info-value {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 38px;
+    text-align: center;
+    color: #404C59;
+}
+
+.link {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: #007AFF;
+}
+
+.left-heading1 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 65px;
+    color: #FFFFFF;
+}
+
+.left-heading2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    color: #FFFFFF;
+}
+
+.left-sub-heading {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.left-menu-title {
+    font-style: normal;
+    /*font-weight: 600;*/
+    font-size: 14px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.left-pict-scroll {
+    overflow: none;
+}

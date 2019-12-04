@@ -1,0 +1,7 @@
+{
+  "id" : "FileService",
+  "type" : "JavaService",
+  "packageNames" : [ "com.acc_hunter_web.fileservice" ],
+  "serviceClassNames" : [ "com.acc_hunter_web.fileservice.FileService" ],
+  "title" : "FileService"
+}

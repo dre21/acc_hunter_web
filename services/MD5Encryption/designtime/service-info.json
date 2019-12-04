@@ -1,0 +1,7 @@
+{
+  "id" : "MD5Encryption",
+  "type" : "JavaService",
+  "packageNames" : [ "com.acc_hunter_web.md5encryption" ],
+  "serviceClassNames" : [ "com.acc_hunter_web.md5encryption.MD5Encryption" ],
+  "title" : "MD5Encryption"
+}
