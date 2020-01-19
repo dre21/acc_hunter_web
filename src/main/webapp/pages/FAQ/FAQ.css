@@ -88,3 +88,24 @@
     line-height: 18px;
     color: #999C9F;
 }
+
+.custom-button {
+    background-color: #0F358E !important;
+    border-radius: 6px;
+    color: #FFFFFF !important;
+}
+
+.cancel-button {
+    background-color: #EBEFF0 !important;
+    border-radius: 6px;
+    color: #285073 !important;
+}
+
+.custom-dialog {
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+
+.custom-header {
+    background: #0E2D48;
+}

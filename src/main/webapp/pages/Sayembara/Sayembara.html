@@ -1,0 +1,147 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="SAYEMBARA SK" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="Surat Kuasa" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="Sayembara SK" class="breadcumb" color="#565656"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1" padding="unset unset 1% unset">
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn9_1">
+                        <wm-label padding="unset 0.5em" name="label6" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_2">
+                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="No Aggreement" class="theader" color="#98A9BC"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_2">
+                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="Tanggal Mulai" class="theader" color="#98A9BC"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_3">
+                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="Tanggal Berakhir" class="theader" color="#98A9BC"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn10_1">
+                        <wm-label padding="unset 0.5em unset unset" name="label8" caption="Dokumen" class="theader" color="#98A9BC"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn11">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="SayembaraList" dataset="bind:Variables.GetSayembaraList.dataSet" navigation="Basic" nodatamessage="Tidak ada badge yang ditemukan"
+                            navigationalign="right">
+                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                <wm-container class="media-body" name="container3" height="64px">
+                                    <wm-layoutgrid name="layoutgrid3">
+                                        <wm-gridrow name="gridrow7">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetSayembaraList.dataSet[$i].value" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetSayembaraList.dataSet[$i].noAggr" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetSayembaraList.dataSet[$i].appDate | toDate: 'yyyy-MM-dd'" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn15">
+                                                <wm-label padding="unset 0.5em" name="label12" caption="bind:Variables.GetSayembaraList.dataSet[$i].endDate | toDate: 'yyyy-MM-dd'" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn22">
+                                                <wm-label padding="unset 0.5em unset 1em" caption="bind:(Variables.GetSayembaraList.dataSet[$i].flagDigisign != &quot;Y&quot; || Variables.GetSayembaraList.dataSet[$i].flagEcontract != &quot;Y&quot; || Variables.GetSayembaraList.dataSet[$i].flagFidusia != &quot;Y&quot; || Variables.GetSayembaraList.dataSet[$i].flagTrnschedule != &quot;Y&quot;) ? &quot;Not Ready&quot; : &quot;Ready&quot;"
+                                                    textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label18_1"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                <wm-layoutgrid name="layoutgrid4">
+                                                    <wm-gridrow name="gridrow9">
+                                                        <wm-gridcolumn columnwidth="6" name="gridcolumn19" horizontalalign="left">
+                                                            <wm-container name="container5" width="100%">
+                                                                <wm-picture name="picture3" picturesource="resources/images/imagelists/tiga-bulet.png" margin="unset unset 1.7em unset" on-click="Widgets.editDialog.open()" on-tap="Widgets.editDialog.open()"
+                                                                    height="15px" class="action-button"></wm-picture>
+                                                            </wm-container>
+                                                        </wm-gridcolumn>
+                                                    </wm-gridrow>
+                                                </wm-layoutgrid>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-list>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Status Dokumen" iconclass="" name="editDialog" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="3" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="SK" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-select name="select1" class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.SayembaraList.selecteditem.flagDigisign == null || Widgets.SayembaraList.selecteditem.flagDigisign == &quot;&quot;  || Widgets.SayembaraList.selecteditem.flagDigisign == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.SayembaraList.selecteditem.flagDigisign == &quot;Y&quot; ? true : false" readonly="bind:Widgets.SayembaraList.selecteditem.flagDigisign == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite6">
+                        <wm-label class="col-md-3 control-label" caption="Kontrak" color="#999C9F" name="label22"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container9">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" name="select5" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.SayembaraList.selecteditem.flagEcontract == null || Widgets.SayembaraList.selecteditem.flagEcontract == &quot;&quot; || Widgets.SayembaraList.selecteditem.flagEcontract == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.SayembaraList.selecteditem.flagEcontract == &quot;Y&quot; ? true : false" readonly="bind:Widgets.SayembaraList.selecteditem.flagEcontract == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn23" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite3">
+                        <wm-label class="col-md-3 control-label" caption="Payment Schedule" color="#999C9F" name="label19"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container6">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" name="select3" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.SayembaraList.selecteditem.flagTrnschedule == null || Widgets.SayembaraList.selecteditem.flagTrnschedule == &quot;&quot; || Widgets.SayembaraList.selecteditem.flagTrnschedule == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.SayembaraList.selecteditem.flagTrnschedule == &quot;Y&quot; ? true : false" readonly="bind:Widgets.SayembaraList.selecteditem.flagTrnschedule == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn24" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite4">
+                        <wm-label class="col-md-3 control-label" caption="Fidusia" color="#999C9F" name="label20"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container7">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" name="select4" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.SayembaraList.selecteditem.flagFidusia == null || Widgets.SayembaraList.selecteditem.flagFidusia == &quot;&quot;  || Widgets.SayembaraList.selecteditem.flagFidusia == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.SayembaraList.selecteditem.flagFidusia == &quot;Y&quot; ? true : false" readonly="bind:Widgets.SayembaraList.selecteditem.flagFidusia == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" on-click="Variables.UpdateFlagSayembara.invoke();Widgets.editDialog.close()" name="button1" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset"
+                show="bind:Widgets.SayembaraList.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.SayembaraList.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.SayembaraList.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.SayembaraList.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+</wm-page>

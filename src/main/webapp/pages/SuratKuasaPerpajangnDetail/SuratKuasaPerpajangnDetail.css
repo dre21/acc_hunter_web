@@ -1,0 +1,91 @@
+.submenu {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 18px;
+    color: #285073;
+}
+
+.input-text {
+    background: #EBEFF0;
+    border-radius: 5px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #ABAFB3;
+}
+
+.input-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #999C9F;
+}
+
+th {
+    background: #F3F5F6 !important;
+}
+
+table {
+    border: none !important;
+}
+
+li.app-list-item.list-group-item {
+    border-radius: 3px;
+    margin-bottom: 0.75% !important;
+    height: auto;
+}
+
+.theader {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    color: #98A9BC;
+}
+
+.content-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;  
+}
+
+.action-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.modal-header {
+    background: #0E2D48;
+    border-radius: 15px 15px 0px 0px !important;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #F7F8FB;
+}
+
+.modal-content {
+    border-radius: 15px 15px 15px 15px !important;
+}
+
+button.app-dialog-close > span {
+    color: #FFFFFF !important;
+}
+
+button.app-dialog-close > span:hover {
+    color: #FFFFFF !important;
+}

@@ -1,4 +1,4 @@
-<wm-page pagetitle="Registered Mitra" name="page1">
+<wm-page pagetitle="Dashboard" name="page1">
     <wm-header name="header1"></wm-header>
     <wm-content name="content1">
         <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
@@ -6,14 +6,14 @@
             <wm-layoutgrid name="layoutgrid1">
                 <wm-gridrow name="gridrow1">
                     <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
-                        <wm-label padding="unset 0.5em" name="labelTitle" class="menu-title" caption="Manage Information"></wm-label>
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="MANAGE INFORMATION" color="#404C59"></wm-label>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right">
-                        <wm-container name="container1" class="box-profile" padding="12px unset unset unset">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label padding="1.5em 0.5em unset 0.5em" name="fullName" caption="Mariesta R Ayuningsih"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -23,142 +23,166 @@
                         </wm-container>
                     </wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow4">
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn6_1">
-                        <wm-composite name="composite1">
-                            <wm-container class="col-md-9" name="container2" width="100%">
-                                <wm-text name="textSearchUser" placeholder="Search User"></wm-text>
-                            </wm-container>
-                        </wm-composite>
-                    </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn7" horizontalalign="right"></wm-gridcolumn>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow5">
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn8">
-                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="FaqListHidden" dataset="bind:Variables.faqData.dataSet" navigation="Basic" show="false">
-                            <wm-listtemplate layout="inline" name="listtemplate2">
-                                <wm-container class="media-left" name="container5">
-                                    <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture>
-                                </wm-container>
-                                <wm-container class="media-body" padding="unset unset unset 1.25em" name="container6">
-                                    <wm-label name="Name" class="p media-heading" caption="bind:Variables.faqData.dataSet[$i].question" fontsize="1.143" fontunit="em"></wm-label>
-                                    <wm-label name="JobTitle" caption="bind:Variables.faqData.dataSet[$i].answer" class="p text-muted"></wm-label>
-                                </wm-container>
-                                <wm-container class="media-right media-top" name="container7">
-                                    <wm-button class="btn-transparent" iconclass="wi wi-share fa-2x" name="button2"></wm-button>
+                <wm-gridrow name="gridrow6" padding="unset unset 5% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 4% unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn18_2">
+                        <wm-text name="search" placeholder="search..." height="48px" class="search"></wm-text>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn20"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11" padding="unset unset 5% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn19_1">
+                        <wm-container name="container7">
+                            <wm-prefab prefabname="googlemaps" name="locationInformation" zoom="NaN" locations="bind:Variables.GetReportListMap.dataSet" lat="latitude" lng="longitute" apikey="AIzaSyCrFzKbllFhq3-wLNhDF23Lt2UCgigMjuE" viewtype="Hybrid" height="500px"></wm-prefab>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1" padding="unset unset 1% unset">
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn9_1">
+                        <wm-label padding="unset 0.5em" name="label6" caption="Report ID" class="theader" color="#98A9BC" margin="unset unset unset 2%"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn21">
+                        <wm-label padding="unset 0.5em unset unset" caption="No Polisi" class="theader" color="#98A9BC" name="label15"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn22">
+                        <wm-label padding="unset 0.5em unset unset" caption="Nama" class="theader" color="#98A9BC" name="label16"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn23">
+                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Dibuat" class="theader" color="#98A9BC" name="label17_1"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn24">
+                        <wm-label padding="unset 0.5em unset unset" caption="Longitude" class="theader" color="#98A9BC" name="label18_1"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn9">
+                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="Latitude" class="theader" color="#98A9BC"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn10_1">
+                        <wm-label padding="unset 0.5em unset unset" name="label8" caption="Action" class="theader" color="#98A9BC"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn11">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="submitInformationList" navigation="Basic" nodatamessage="Tidak ada badge yang ditemukan" navigationalign="right"
+                            dataset="bind:Variables.GetReportsList.dataSet">
+                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                <wm-container class="media-body" name="container3" height="64px">
+                                    <wm-layoutgrid name="layoutgrid3">
+                                        <wm-gridrow name="gridrow7">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetReportsList.dataSet[$i].id" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn25">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportsList.dataSet[$i].noCarPolice" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label19"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn26">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportsList.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label20"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn27">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportsList.dataSet[$i].createdAt | toDate: 'dd-MMM-yyyy HH:mm:ss'" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                    name="label21"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn28">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportsList.dataSet[$i].longitute" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label22"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn15">
+                                                <wm-label padding="unset 0.5em" name="label12" caption="bind:Variables.GetReportsList.dataSet[$i].latitude" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                <wm-layoutgrid name="layoutgrid4">
+                                                    <wm-gridrow name="gridrow9">
+                                                        <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                            <wm-container name="container5" width="100%" on-click="Widgets.detailDialog.open()" class="detail">
+                                                                <wm-picture name="picture3" picturesource="resources/images/imagelists/tiga-bulet.png" margin="unset unset 1.7em unset" on-click="Widgets.detailDialog.open()" height="20px" class="detail"></wm-picture>
+                                                            </wm-container>
+                                                        </wm-gridcolumn>
+                                                    </wm-gridrow>
+                                                </wm-layoutgrid>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
                                 </wm-container>
                             </wm-listtemplate>
                         </wm-list>
-                    </wm-gridcolumn>
-                </wm-gridrow>
-                <wm-gridrow name="gridrow10_1">
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn17_1">
-                        <wm-table editmode="inline" name="ReportsTable2" title="" dataset="bind:Variables.submittedInfoData.dataSet" navigation="Basic">
-                            <wm-table-column binding="id" caption="ID Lapor" primary-key="true" edit-widget-type="number" type="integer" generator="sequence" readonly="true" show="true"></wm-table-column>
-                            <wm-table-column binding="vehicles.noCarPolice" caption="No. Car Police" edit-widget-type="text" related-entity-name="Vehicles" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
-                            <wm-table-column binding="createdBy" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false" required="true"></wm-table-column>
-                            <wm-table-column binding="createdAt" caption="Date Created" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false" required="true"></wm-table-column>
-                            <wm-table-column binding="longitute" caption="Long" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false" required="true"></wm-table-column>
-                            <wm-table-column binding="latitude" caption="Lat" edit-widget-type="number" type="big_decimal" generator="assigned" show="true" readonly="false" required="true"></wm-table-column>
-                            <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
-                            <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-eye" title="Show" action="ReportsTable2_updaterowAction($event, row);Widgets.reportsDialog.open()"
-                                disabled="false" widget-type="button"></wm-table-row-action>
-                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false" widget-type="button"></wm-table-row-action>
-                        </wm-table>
                     </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
         </wm-page-content>
     </wm-content>
     <wm-footer name="footer1"></wm-footer>
-    <wm-dialog dialogtype="design-dialog" name="reportsDialog" title="Report Details" iconclass="" modal="true" on-opened="Variables.getSubmittedInfoDetail.invoke();Variables.getReportImagesByReportId.invoke()">
-        <wm-label padding="unset 0.5em" name="reportIdHidden" show="false"></wm-label>
-        <wm-carousel height="480" type="dynamic" name="dynamicCarousel" dataset="bind:Variables.getReportImagesByReportId.dataSet">
-            <wm-carousel-template horizontalalign="center" name="carousel_template2">
-                <wm-picture width="100%" name="picture7" picturesource="bind:Variables.getReportImagesByReportId.dataSet[$i].url"></wm-picture>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Detail Information" iconclass="" name="detailDialog" width="60%">
+        <wm-carousel height="480" type="dynamic" name="carousel1" dataset="bind:Variables.GetReportImagesByReportID.dataSet">
+            <wm-carousel-template horizontalalign="center" name="carousel_template1">
+                <wm-picture width="100%" name="picture3_1" picturesource="bind:Variables.GetReportImagesByReportID.dataSet[$i].url"></wm-picture>
             </wm-carousel-template>
         </wm-carousel>
-        <wm-layoutgrid name="layoutgrid4">
-            <wm-gridrow name="gridrow6">
-                <wm-gridcolumn columnwidth="6" name="gridcolumn9">
-                    <wm-composite name="composite2">
-                        <wm-container class="col-md-9" name="container6_1" width="95%">
-                            <wm-label class="col-md-3 control-label" name="label6" caption="ID Report" width="100%"></wm-label>
-                            <wm-text name="dialogIdReport" width="100%" placeholder="" readonly="false" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].reportId | numberToString"></wm-text>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 1.5em">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Report ID" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="text1" datavalue="bind:Widgets.submitInformationList.selecteditem.id" class="input" height="48" color="#565656" disabled="true" readonly="true"></wm-text>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>
-                <wm-gridcolumn columnwidth="6" name="gridcolumn10"></wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 1.5em"></wm-gridcolumn>
             </wm-gridrow>
-            <wm-gridrow name="gridrow7">
-                <wm-gridcolumn columnwidth="6" name="gridcolumn11">
-                    <wm-composite name="composite3">
-                        <wm-container class="col-md-9" width="95%" name="container7_1">
-                            <wm-label class="col-md-3 control-label" caption="Car Police No" width="100%" name="label7"></wm-label>
-                            <wm-text width="100%" name="dialogCarPoliceNo" placeholder="" readonly="false" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].noCarPolice"></wm-text>
+            <wm-gridrow name="gridrow12" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn29" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite3">
+                        <wm-label class="col-md-3 control-label" caption="No Polisi" color="#999C9F" name="label18_2"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container7_1">
+                            <wm-text datavalue="bind:Widgets.submitInformationList.selecteditem.noCarPolice" class="input" height="48" color="#565656" name="text4" readonly="true" disabled="true"></wm-text>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>
-                <wm-gridcolumn columnwidth="6" name="gridcolumn12">
-                    <wm-composite name="composite4">
-                        <wm-container class="col-md-9" width="95%" name="container8">
-                            <wm-label class="col-md-3 control-label" caption="Brand / Type / Model" width="100%" name="label9"></wm-label>
-                            <wm-text width="100%" name="dialogBrandDesc" placeholder="" readonly="false" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].brandDesc"></wm-text>
-                        </wm-container>
-                    </wm-composite>
-                </wm-gridcolumn>
-            </wm-gridrow>
-            <wm-gridrow name="gridrow8">
-                <wm-gridcolumn columnwidth="6" name="gridcolumn13">
-                    <wm-composite name="composite5">
-                        <wm-container class="col-md-9" width="95%" name="container9">
-                            <wm-label class="col-md-3 control-label" caption="Chassis No" width="100%" name="label10"></wm-label>
-                            <wm-text width="100%" placeholder="" readonly="false" name="dialogChassisNo" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].noChasis"></wm-text>
-                        </wm-container>
-                    </wm-composite>
-                </wm-gridcolumn>
-                <wm-gridcolumn columnwidth="6" name="gridcolumn14">
-                    <wm-composite name="composite6">
-                        <wm-container class="col-md-9" width="95%" name="container10">
-                            <wm-label class="col-md-3 control-label" caption="Machine No" width="100%" name="label11"></wm-label>
-                            <wm-text width="100%" placeholder="" readonly="false" name="dialogMachineNo" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].noEngine"></wm-text>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn30" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite4">
+                        <wm-label class="col-md-3 control-label" caption="Brand / Type / Model" color="#999C9F" name="label19_1"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container8">
+                            <wm-text datavalue="bind:Widgets.submitInformationList.selecteditem.brandDesc + &quot; / &quot; + Widgets.submitInformationList.selecteditem.typeDesc + &quot; / &quot; + Widgets.submitInformationList.selecteditem.modelDesc" class="input"
+                                height="48" color="#565656" name="text5" readonly="true" disabled="true"></wm-text>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>
             </wm-gridrow>
-            <wm-gridrow name="gridrow9">
-                <wm-gridcolumn columnwidth="12" name="gridcolumn15" height="100">
-                    <wm-composite name="composite7">
-                        <wm-container class="col-md-9" width="98%" name="container11" height="100%">
-                            <wm-label class="col-md-3 control-label" caption="Description" width="100%" name="label12"></wm-label>
-                            <wm-composite name="composite8">
-                                <wm-textarea name="dialogDescription" width="97%" placeholder="" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].description"></wm-textarea>
-                            </wm-composite>
+            <wm-gridrow name="gridrow13" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn31" padding="unset 1.5em">
+                    <wm-composite name="composite7" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label22_1" color="#999C9F" caption="Deskripsi"></wm-label>
+                        <wm-container class="col-md-9" name="container11" width="100%">
+                            <wm-textarea name="textarea1" datavalue="bind:Widgets.submitInformationList.selecteditem.description" class="input" readonly="true" disabled="true"></wm-textarea>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>
             </wm-gridrow>
-            <wm-gridrow name="gridrow10">
-                <wm-gridcolumn columnwidth="6" name="gridcolumn17">
-                    <wm-composite name="composite9">
-                        <wm-container class="col-md-9" width="95%" name="container13">
-                            <wm-label class="col-md-3 control-label" caption="Account ID" width="100%" name="label14"></wm-label>
-                            <wm-text width="100%" placeholder="" readonly="false" name="dialogAccountId" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].accountId | numberToString"></wm-text>
+            <wm-gridrow name="gridrow14">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn33" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite5">
+                        <wm-label class="col-md-3 control-label" caption="Email Reporter" color="#999C9F" name="label20_1"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container9">
+                            <wm-text datavalue="bind:Widgets.submitInformationList.selecteditem.createdBy" class="input" height="48" color="#565656" name="text6" readonly="true" disabled="true"></wm-text>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>
-                <wm-gridcolumn columnwidth="6" name="gridcolumn18">
-                    <wm-composite name="composite10">
-                        <wm-container class="col-md-9" width="95%" name="container14">
-                            <wm-label class="col-md-3 control-label" caption="Name" width="100%" name="label15"></wm-label>
-                            <wm-text width="100%" placeholder="" readonly="false" name="dialogAccountName" disabled="true" datavalue="bind:Variables.getSubmittedInfoDetail.dataSet[$i].fullName"></wm-text>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn34" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite6">
+                        <wm-label class="col-md-3 control-label" caption="Nama" color="#999C9F" name="label21_1"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container10">
+                            <wm-text datavalue="bind:Widgets.submitInformationList.selecteditem.fullName" class="input" height="48" color="#565656" name="text7" readonly="true" disabled="true"></wm-text>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>
-            </wm-gridrow>
-            <wm-gridrow name="gridrow11">
-                <wm-gridcolumn columnwidth="12" name="gridcolumn18_1"></wm-gridcolumn>
             </wm-gridrow>
         </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" on-click="closeDialog()" name="button1" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset"></wm-button>
+        </wm-dialogactions>
     </wm-dialog>
 </wm-page>

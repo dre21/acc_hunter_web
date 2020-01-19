@@ -21,6 +21,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
+import com.acc_hunter_web.acc_hunter.LelangSk;
 import com.acc_hunter_web.acc_hunter.MasterArea;
 import com.acc_hunter_web.acc_hunter.Users;
 
@@ -73,6 +74,14 @@ public interface MasterAreaService {
      */
     List<MasterArea> findByMultipleIds(List<Integer> masterareaIds, boolean orderedReturn);
 
+    /**
+     * Find and return the MasterArea for given areaCode  if exists.
+     *
+     * @param areaCode value of areaCode; value cannot be null.
+     * @return MasterArea associated with the given inputs.
+     * @throws EntityNotFoundException if no matching MasterArea found.
+     */
+    MasterArea getByAreaCode(String areaCode);
 
     /**
      * Updates the details of an existing MasterArea. It replaces all fields of the existing MasterArea with the given masterArea.
@@ -195,6 +204,18 @@ public interface MasterAreaService {
      * @see Page
 	 */
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
+
+    /*
+     * Returns the associated lelangSks for given MasterArea id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated LelangSk instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<LelangSk> findAssociatedLelangSks(Integer id, Pageable pageable);
 
     /*
      * Returns the associated userses for given MasterArea id.

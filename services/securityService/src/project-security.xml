@@ -105,9 +105,12 @@
         <security:intercept-url pattern="/pages/Main/**" access="isAuthenticated()"/>
         <security:intercept-url pattern="/pages/MainPage/**" access="isAuthenticated()"/>
         <security:intercept-url pattern="/pages/SignIn/**" access="permitAll"/>
+        <security:intercept-url pattern="/services/acc_hunter/Users/**" access="permitAll"/>
         <security:intercept-url pattern="/services/acc_hunter/queryExecutor/queries/updatePasswordQuery" access="permitAll" method="PUT"/>
-        <security:intercept-url pattern="/services/acc_hunter/**" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/services/acc_hunter/**" access="permitAll"/>
         <security:intercept-url pattern="/services/application/i18n/**" access="permitAll"/>
+        <security:intercept-url pattern="/services/file/downloadFile" access="permitAll" method="GET"/>
+        <security:intercept-url pattern="/services/file/downloadFileAsInline" access="permitAll" method="GET"/>
         <security:intercept-url pattern="/services/forgotPassword/**" access="permitAll"/>
         <security:intercept-url pattern="/services/mD5Encryption/**" access="permitAll"/>
         <security:intercept-url pattern="/services/prefabs/**/servicedefs" access="permitAll"/>
@@ -245,6 +248,11 @@
                         <property name="landingPage" value="UserManagementInformant"/>
                     </bean>
                 </entry>
+                <entry key="SUPER ADMIN">
+                    <bean class="com.wavemaker.commons.model.security.RoleConfig">
+                        <property name="landingPage" value="MainPage"/>
+                    </bean>
+                </entry>
             </map>
         </property>
     </bean>
@@ -300,7 +308,7 @@
         <property name="authoritiesByUsernameQuery">
             <value>select r.name
 from roles r
-join users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD')
+join users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD', 'SUPER ADMIN')
 where u.email = :LOGGED_IN_USERNAME</value>
         </property>
         <property name="rolesByQuery" value="true"/>

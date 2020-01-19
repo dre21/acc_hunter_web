@@ -40,25 +40,157 @@
                     <wm-gridcolumn columnwidth="6" name="gridcolumn11" horizontalalign="right"></wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow5_1">
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn9_1">
-                        <wm-table title="" dataset="bind:Variables.getAllUsersInformant.dataSet" navigation="Basic" name="tableUserInformant">
-                            <wm-table-column binding="fullName" caption="Name" widget-type="label" edit-widget-type="text" type="string" show="true" readonly="false">
-                                <wm-label caption="bind:row.getProperty('fullName')" class="table-content" conditionalclass="" condtionalstyle=""></wm-label>
-                            </wm-table-column>
-                            <wm-table-column binding="email" caption="Email" widget-type="label" edit-widget-type="text" type="string" show="true" readonly="false">
-                                <wm-label caption="bind:row.getProperty('email')" class="" conditionalclass="" condtionalstyle=""></wm-label>
-                            </wm-table-column>
-                            <wm-table-column binding="roleName" caption="Role Type" widget-type="label" edit-widget-type="text" type="string" show="true" readonly="false">
-                                <wm-label caption="bind:row.getProperty('roleName')" class="" conditionalclass="" condtionalstyle=""></wm-label>
-                            </wm-table-column>
-                            <wm-table-column binding="status" caption="Status" widget-type="label" edit-widget-type="text" type="string" show="true" readonly="false">
-                                <wm-label caption="bind:row.getProperty('status')" class="" conditionalclass="" condtionalstyle=""></wm-label>
-                            </wm-table-column>
-                        </wm-table>
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn9_1"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6_1">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn10_1">
+                        <wm-label padding="unset 0.5em unset 1em" name="label3" fontsize="16" color="#98A9BC" caption="ACC Name"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn11_1">
+                        <wm-label padding="unset 0.5em unset 1em" fontsize="16" color="#98A9BC" caption="Email" name="label4"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn12">
+                        <wm-label padding="unset 0.5em" fontsize="16" color="#98A9BC" caption="City" name="label5"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                        <wm-label padding="unset 0.5em" fontsize="16" color="#98A9BC" caption="Province" name="label7"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn13">
+                        <wm-label padding="unset 0.5em" fontsize="16" color="#98A9BC" caption="Status" name="label6"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn24"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow7">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn15">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="UsersList1" dataset="bind:Variables.getUsersData.dataSet" navigation="Basic" on-select="UsersList1Select(widget, $data)">
+                            <wm-listtemplate layout="media" name="listtemplate1">
+                                <wm-layoutgrid name="layoutgrid3">
+                                    <wm-gridrow name="gridrow8">
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn16">
+                                            <wm-label padding="0.5em 0.5em unset unset" name="label8" caption="bind:Variables.getUsersData.dataSet[$i].fullName"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn20">
+                                            <wm-label padding="0.5em 0.5em unset 0.5em" name="label9" caption="bind:Variables.getUsersData.dataSet[$i].email"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn21">
+                                            <wm-label padding="0.5em 0.5em unset 0.5em" name="label10" caption="bind:Variables.getUsersData.dataSet[$i].city"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn22">
+                                            <wm-label padding="0.5em 0.5em unset 0.5em" name="label11" caption="bind:Variables.getUsersData.dataSet[$i].province"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn23" horizontalalign="left">
+                                            <wm-layoutgrid name="layoutgrid4">
+                                                <wm-gridrow name="gridrow9">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn24_1">
+                                                        <wm-picture name="picture2" picturesource="resources/images/imagelists/red-circle.svg" show="bind:Widgets.UsersList1.currentItemWidgets.label12.caption == &quot;Non-Active&quot;" padding="0.5em unset unset unset"></wm-picture>
+                                                        <wm-picture picturesource="resources/images/imagelists/green-circle.svg" name="picture3" show="bind:Widgets.UsersList1.currentItemWidgets.label12.caption == &quot;Active&quot;" padding="0.5em unset unset unset"></wm-picture>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn25" horizontalalign="left">
+                                                        <wm-label padding="0.5em 0.5em unset 0.5em" name="label12" caption="bind:(Widgets.UsersList1.currentItem.status == true) ? &quot;Active&quot; : &quot;Non-Active&quot;"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn17" horizontalalign="right">
+                                            <wm-layoutgrid name="layoutgrid5">
+                                                <wm-gridrow name="gridrow10" padding="0.5em unset unset unset">
+                                                    <wm-gridcolumn columnwidth="4" name="gridcolumn25_1" horizontalalign="center">
+                                                        <wm-picture name="pictureEdit" picturesource="resources/images/imagelists/edit.svg" show="false" animation="slideInUp" padding="5px unset unset unset" on-click="Widgets.editUser.open()"></wm-picture>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26" horizontalalign="right">
+                                                        <wm-picture name="pictureDelete" picturesource="resources/images/imagelists/delete.svg" show="false" animation="slideInUp" padding="5px unset unset unset" on-click="Widgets.deleteUser.open()"></wm-picture>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn29" horizontalalign="right">
+                                                        <wm-picture name="picture4" picturesource="resources/images/imagelists/menu.svg" on-click="picture4Click($event, widget, item, currentItemWidgets)" padding="5px"></wm-picture>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-listtemplate>
+                        </wm-list>
                     </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
         </wm-page-content>
     </wm-content>
     <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="User Information" iconclass="" name="editUser" width="75%">
+        <wm-layoutgrid name="layoutgrid6">
+            <wm-gridrow name="gridrow11" padding="unset 24px 24px 24px">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn28">
+                    <wm-composite name="composite2">
+                        <wm-label class="col-md-3 control-label" name="label17" width="100%" color="#999C9F" caption="Role Type"></wm-label>
+                        <wm-container class="col-md-9" name="container3">
+                            <wm-select name="select1" backgroundcolor="#EBEFF0" datavalue="bind:Widgets.UsersList1.selecteditem.roles.id" readonly="false" dataset="bind:Variables.getRolesData.dataSet" datafield="id" displayfield="name" disabled="true"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn29_1">
+                    <wm-composite name="composite3">
+                        <wm-label class="col-md-3 control-label" name="label18" width="100%" color="#999C9F" caption="Completed Name"></wm-label>
+                        <wm-container class="col-md-9" name="container4">
+                            <wm-text name="text2" placeholder="" datavalue="bind:Widgets.UsersList1.selecteditem.fullName" readonly="true" backgroundcolor="#EBEFF0"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow12" padding="unset 24px 24px 24px">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn30">
+                    <wm-composite name="composite4">
+                        <wm-label class="col-md-3 control-label" width="100%" color="#999C9F" caption="ID Card No." name="label19"></wm-label>
+                        <wm-container class="col-md-9" name="container5">
+                            <wm-text placeholder="" name="text3" disabled="false" type="number" datavalue="bind:Widgets.UsersList1.selecteditem.identityNumber" backgroundcolor="#EBEFF0" readonly="true"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn31">
+                    <wm-composite name="composite7">
+                        <wm-label class="col-md-3 control-label" width="100%" color="#999C9F" caption="Email" name="label18_1"></wm-label>
+                        <wm-container class="col-md-9" name="container8">
+                            <wm-text placeholder="" disabled="false" type="text" name="text5" datavalue="bind:Widgets.UsersList1.selecteditem.email" readonly="true" backgroundcolor="#EBEFF0"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow15" padding="unset 24px 24px 24px">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn36">
+                    <wm-composite name="composite5">
+                        <wm-label class="col-md-3 control-label" width="100%" color="#999C9F" caption="Phone Number" name="label20"></wm-label>
+                        <wm-container class="col-md-9" name="container6">
+                            <wm-text placeholder="" disabled="false" name="text4" datavalue="bind:Widgets.UsersList1.selecteditem.phoneNumber" backgroundcolor="#EBEFF0" readonly="true"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn37"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow13" padding="unset 24px 24px 24px">
+                <wm-gridcolumn columnwidth="11" name="gridcolumn32">
+                    <wm-composite name="composite6">
+                        <wm-label class="col-md-3 control-label" name="label17_1" color="#999C9F" width="100%" caption="Address"></wm-label>
+                        <wm-container class="col-md-9" name="container7">
+                            <wm-textarea name="textarea1" datavalue="bind:Widgets.UsersList1.selecteditem.address" backgroundcolor="#EBEFF0" readonly="true"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn33"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="button" caption="Tutup" on-click="closeDialog()" name="button1" backgroundcolor="#0F358E" color="#ffffff"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Delete User" iconclass="" name="deleteUser" width="75%">
+        <wm-layoutgrid name="layoutgrid7">
+            <wm-gridrow name="gridrow15_1" padding="18px unset unset unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn36_1" horizontalalign="center">
+                    <wm-label padding="unset 0.5em" caption="Apakah anda yakin ingin menghapus akun ini?" name="label19_1" fontweight="bold" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions2">
+            <wm-button class="button" caption="Hapus" on-click="button2Click($event, widget)" name="button2" backgroundcolor="red" color="#ffffff"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
 </wm-page>

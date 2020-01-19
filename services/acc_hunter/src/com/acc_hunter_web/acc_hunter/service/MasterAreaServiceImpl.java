@@ -7,6 +7,7 @@ package com.acc_hunter_web.acc_hunter.service;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
+import com.acc_hunter_web.acc_hunter.LelangSk;
 import com.acc_hunter_web.acc_hunter.MasterArea;
 import com.acc_hunter_web.acc_hunter.Users;
 
@@ -52,6 +54,11 @@ public class MasterAreaServiceImpl implements MasterAreaService {
     @Autowired
     @Qualifier("acc_hunter.UsersService")
     private UsersService usersService;
+
+    @Lazy
+    @Autowired
+    @Qualifier("acc_hunter.LelangSkService")
+    private LelangSkService lelangSkService;
 
     @Autowired
     @Qualifier("acc_hunter.MasterAreaDao")
@@ -103,6 +110,15 @@ public class MasterAreaServiceImpl implements MasterAreaService {
         return this.wmGenericDao.findByMultipleIds(masterareaIds, orderedReturn);
     }
 
+    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
+    @Override
+    public MasterArea getByAreaCode(String areaCode) {
+        Map<String, Object> areaCodeMap = new HashMap<>();
+        areaCodeMap.put("areaCode", areaCode);
+
+        LOGGER.debug("Finding MasterArea by unique keys: {}", areaCodeMap);
+        return this.wmGenericDao.findByUniqueKey(areaCodeMap);
+    }
 
     @Transactional(rollbackFor = EntityNotFoundException.class, value = "acc_hunterTransactionManager")
     @Override
@@ -197,6 +213,17 @@ public class MasterAreaServiceImpl implements MasterAreaService {
 
     @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
     @Override
+    public Page<LelangSk> findAssociatedLelangSks(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated lelangSks");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("masterArea.id = '" + id + "'");
+
+        return lelangSkService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
+    @Override
     public Page<Users> findAssociatedUserses(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated userses");
 
@@ -213,6 +240,15 @@ public class MasterAreaServiceImpl implements MasterAreaService {
      */
     protected void setUsersService(UsersService service) {
         this.usersService = service;
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
+     * @param service LelangSkService instance
+     */
+    protected void setLelangSkService(LelangSkService service) {
+        this.lelangSkService = service;
     }
 
 }

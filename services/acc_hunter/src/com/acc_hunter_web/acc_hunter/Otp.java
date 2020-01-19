@@ -41,7 +41,7 @@ public class Otp implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`email`", nullable = false, length = 20)
+    @Column(name = "`email`", nullable = false, length = 100)
     public String getEmail() {
         return this.email;
     }

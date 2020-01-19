@@ -22,7 +22,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.LelangSkDetail;
-import com.acc_hunter_web.acc_hunter.MasterArea;
 import com.acc_hunter_web.acc_hunter.RemoRegions;
 
 /**
@@ -216,17 +215,5 @@ public interface RemoRegionsService {
      * @see Page
      */
     Page<LelangSkDetail> findAssociatedLelangSkDetails(Integer id, Pageable pageable);
-
-    /*
-     * Returns the associated masterAreas for given RemoRegions id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated MasterArea instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<MasterArea> findAssociatedMasterAreas(Integer id, Pageable pageable);
 
 }

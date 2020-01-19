@@ -1,0 +1,246 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="VIEW LEADERBOARDS" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="Manage Gamification" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="View Leaderboards" class="breadcumb" color="#565656"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 3% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn18_2">
+                        <wm-label name="peojf" id="peojf" caption="PEOJF" class="point-menu clicked" color="#A7A7A7" on-click="peojfClick($event, widget)"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="informan" name="informan" caption="Informan" class="point-menu" color="#A7A7A7" on-click="informanClick($event, widget)"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10_1" horizontalalign="center">
+                        <wm-container name="informanContainer" width="100%" horizontalalign="left" padding="5%" backgroundcolor="#ffffff" class="informan-cont" show="true">
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn14">
+                                        <wm-label name="label12" caption="Best performance for" class="title"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow10_1" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn16" padding="1em 2em unset unset">
+                                        <wm-composite name="composite3" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label13" caption="Tanggal mulai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container6" width="100%">
+                                                <wm-date name="startDateInforman" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn17_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite4" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14" caption="Tanggal selesai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container7" width="100%">
+                                                <wm-date name="endDateInforman" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn18"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11_1">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19" padding="1em 2em unset unset">
+                                        <wm-composite name="composite5" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14_1" caption="Kota" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container8" width="100%">
+                                                <wm-select name="remoInforman" class="input-form" height="48px" dataset="bind:Variables.getCities.dataSet" datafield="cityName" placeholder="Pilih Kota" displayfield="cityName"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn20_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite6" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label15" caption="Badges" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container9" width="100%">
+                                                <wm-select name="badgesInforman" class="input-form" height="48px" dataset="bind:Variables.getBadges.dataSet" placeholder="Pilih kelas" datafield="badgeType" displayfield="badgeType"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn21"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn30">
+                                        <wm-label name="label20" caption="Reset filter" class="filter" on-click="label20Click($event, widget)"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow17" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn30_1">
+                                        <wm-label name="label22" class="theader" caption="Nama" padding="unset unset unset 1em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                        <wm-label name="label23" class="theader" caption="Badges" padding="unset unset unset 0.3em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn35">
+                                        <wm-label name="label24" class="theader" caption="Kota"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn36">
+                                        <wm-label name="label25" class="theader" caption="Total Poin"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow19">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="informanLeaderBoard" navigation="Basic" nodatamessage="Tidak ada paket kredit yang ditemukan"
+                                            navigationalign="right" showrecordcount="false" dataset="bind:Variables.getInformanLeaderboards.dataSet">
+                                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                                <wm-container class="media-body" name="container3" height="64px">
+                                                    <wm-layoutgrid name="layoutgrid3">
+                                                        <wm-gridrow name="gridrow7">
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="nameInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-picture name="picture2" width="21px" height="21px" picturesource="bind:(Variables.getInformanLeaderboards.dataSet[$i].badgeType == &quot;Bronze&quot; ? &quot;resources/images/imagelists/bronze-star.png&quot; : (Variables.getInformanLeaderboards.dataSet[$i].badgeType == &quot;Silver&quot; ? &quot;resources/images/imagelists/silver-star.png&quot; : (Variables.getInformanLeaderboards.dataSet[$i].badgeType == &quot;Gold&quot; ? &quot;resources/images/imagelists/gold-star.png&quot; : &quot;&quot;)))"
+                                                                    class="imge-badge" margin="-2em unset unset -0.5em"></wm-picture>
+                                                                <wm-label padding="unset 0.5em unset 0.8em" name="badgeInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].badgeType" color="#404C59" class="content-label"
+                                                                    margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset unset" name="kotaInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].city" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset 1em" name="poinInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].poin" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn20">
+                        <wm-container name="peojfContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%">
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn14">
+                                        <wm-label name="label12" caption="Best performance for" class="title"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow10_1" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn16" padding="1em 2em unset unset">
+                                        <wm-composite name="composite3" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label13" caption="Tanggal mulai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container6" width="100%">
+                                                <wm-date name="startDatePeojf" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn17_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite4" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14" caption="Tanggal selesai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container7" width="100%">
+                                                <wm-date name="endDatePeojf" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn18"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11_1">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19" padding="1em 2em unset unset">
+                                        <wm-composite name="composite5" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14_1" caption="REMO" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container8" width="100%">
+                                                <wm-select name="remoPeojf" class="input-form" height="48px" dataset="bind:Variables.getCities.dataSet" datafield="cityName" placeholder="Pilih REMO" displayfield="cityName"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn20_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite6" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label15" caption="Badges" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container9" width="100%">
+                                                <wm-select name="badgesPeojf" class="input-form" height="48px" dataset="bind:Variables.getBadges.dataSet" placeholder="Pilih kelas" datafield="badgeType" displayfield="badgeType"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn21"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow16" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn33">
+                                        <wm-label name="label21" caption="Reset filter" class="filter" on-click="label21Click($event, widget)"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow17" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn30_1">
+                                        <wm-label name="label22" class="theader" caption="Nama" padding="unset unset unset 1em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                        <wm-label name="label23" class="theader" caption="Badges" padding="unset unset unset 0.3em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn35">
+                                        <wm-label name="label24" class="theader" caption="REMO"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn36">
+                                        <wm-label name="label25" class="theader" caption="Total Poin"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow19">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="informanLeaderBoard" navigation="Basic" nodatamessage="Tidak ada paket kredit yang ditemukan"
+                                            navigationalign="right" showrecordcount="false" dataset="bind:Variables.getMitraLeaderboards.dataSet">
+                                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                                <wm-container class="media-body" name="container3" height="64px">
+                                                    <wm-layoutgrid name="layoutgrid3">
+                                                        <wm-gridrow name="gridrow7">
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="nameInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-picture name="picture2" width="21px" height="21px" picturesource="bind:(Variables.getMitraLeaderboards.dataSet[$i].badgeType == &quot;Bronze&quot; ? &quot;resources/images/imagelists/bronze-star.png&quot; : (Variables.getMitraLeaderboards.dataSet[$i].badgeType == &quot;Silver&quot; ? &quot;resources/images/imagelists/silver-star.png&quot; : (Variables.getMitraLeaderboards.dataSet[$i].badgeType == &quot;Gold&quot; ? &quot;resources/images/imagelists/gold-star.png&quot; : &quot;&quot;)))"
+                                                                    class="imge-badge" margin="-2em unset unset -0.5em"></wm-picture>
+                                                                <wm-label padding="unset 0.5em unset 0.8em" name="badgeInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].badgeType" color="#404C59" class="content-label" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset unset" name="kotaInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].city" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset 1em" name="poinInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].poin" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+</wm-page>

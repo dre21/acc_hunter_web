@@ -1,4 +1,4065 @@
 {
+  "DeleteGamificationPeojfBadgesBonus" : {
+    "name" : "DeleteGamificationPeojfBadgesBonus",
+    "description" : "DeleteGamificationPeojfBadgesBonus",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_badges_bonus\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfBtToSaldo" : {
+    "name" : "DeleteGamificationPeojfBtToSaldo",
+    "description" : "DeleteGamificationPeojfBtToSaldo",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_bt_to_saldo\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfEfficiencySk" : {
+    "name" : "DeleteGamificationPeojfEfficiencySk",
+    "description" : "DeleteGamificationPeojfEfficiencySk",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_efficiency_sk\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfJenisSk" : {
+    "name" : "DeleteGamificationPeojfJenisSk",
+    "description" : "DeleteGamificationPeojfJenisSk",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_jenis_sk\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfPaketKredit" : {
+    "name" : "DeleteGamificationPeojfPaketKredit",
+    "description" : "DeleteGamificationPeojfPaketKredit",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_paket_kredit\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfSaldoAr" : {
+    "name" : "DeleteGamificationPeojfSaldoAr",
+    "description" : "DeleteGamificationPeojfSaldoAr",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_saldo_ar\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfSeasonalPoint" : {
+    "name" : "DeleteGamificationPeojfSeasonalPoint",
+    "description" : "DeleteGamificationPeojfSeasonalPoint",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_seasonal_point\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteGamificationPeojfUrutanSk" : {
+    "name" : "DeleteGamificationPeojfUrutanSk",
+    "description" : "DeleteGamificationPeojfUrutanSk",
+    "version" : "V2",
+    "queryString" : "delete from gamification_peojf_urutan_sk\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteLelangParticipants" : {
+    "name" : "DeleteLelangParticipants",
+    "description" : "DeleteLelangParticipants",
+    "version" : "V2",
+    "queryString" : "delete from lelang_sk_participants\nwhere lelang_sk_detail_id = :detailLelang",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "detailLelang",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteMasterReward" : {
+    "name" : "DeleteMasterReward",
+    "description" : "DeleteMasterReward",
+    "version" : "V2",
+    "queryString" : "delete from master_reward\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "4",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "DeleteRewardConfig" : {
+    "name" : "DeleteRewardConfig",
+    "description" : "DeleteRewardConfig",
+    "version" : "V2",
+    "queryString" : "delete from reward_config\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "GetAllListPesertaLelang" : {
+    "name" : "GetAllListPesertaLelang",
+    "description" : "GetAllListPesertaLelang",
+    "version" : "V2",
+    "queryString" : "select res.* from\r\n(select cd_coll, full_name, branch_id, badge_type, b.area_name, false as participant from users\r\nleft join branches a on branch_id = cast(a.cd_sp as varchar)\r\nleft join master_area b on a.cd_area = b.area_code\r\nleft join roles c on role_id = c.id\r\nwhere c.\"name\" = 'REGISTERED MITRA' and cd_coll not in (select cd_coll from lelang_participants\r\n\twhere lelang_sk_id = :idLelang)) as res\r\nwhere res.badge_type like :badge and res.area_name like :area\r\norder by participant desc, full_name asc, cd_coll desc",
+    "countQueryString" : "select count(*) from (select res.* from\r\n(select cd_coll, full_name, branch_id, badge_type, b.area_name, false as participant from users\r\nleft join branches a on branch_id = cast(a.cd_sp as varchar)\r\nleft join master_area b on a.cd_area = b.area_code\r\nleft join roles c on role_id = c.id\r\nwhere c.\"name\" = 'REGISTERED MITRA' and cd_coll not in (select cd_coll from lelang_participants\r\n\twhere lelang_sk_id = :idLelang)) as res\r\nwhere res.badge_type like :badge and res.area_name like :area\r\norder by participant desc, full_name asc, cd_coll desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "idLelang",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    }, {
+      "name" : "badge",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "area",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAllListPesertaLelangResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "cd_coll",
+        "fieldName" : "cdColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "branch_id",
+        "fieldName" : "branchId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "badge_type",
+        "fieldName" : "badgeType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "participant",
+        "fieldName" : "participant",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetCountDashboardSK" : {
+    "name" : "GetCountDashboardSK",
+    "description" : "GetCountDashboardSK",
+    "version" : "V2",
+    "queryString" : "select * from \r\n    (select count(*) as sk_aktif from sk_request_and_sayembara a\r\n    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,\r\n    (select count(*) as permohonan_sk from sk_request_and_sayembara a\r\n    where sk_parent is null and a.flag_sk = 'NRM') b,\r\n    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a\r\n    where sk_parent is not null and a.flag_sk = 'NRM') c,\r\n    (select count(*) as lelang_sk from lelang_sk_detail a) d,\r\n    (select count(*) as sayembara_sk from sk_request_and_sayembara a \r\n    where a.flag_sk = 'SYB') e",
+    "countQueryString" : "select count(*) from (select * from \r\n    (select count(*) as sk_aktif from sk_request_and_sayembara a\r\n    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,\r\n    (select count(*) as permohonan_sk from sk_request_and_sayembara a\r\n    where sk_parent is null and a.flag_sk = 'NRM') b,\r\n    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a\r\n    where sk_parent is not null and a.flag_sk = 'NRM') c,\r\n    (select count(*) as lelang_sk from lelang_sk_detail a) d,\r\n    (select count(*) as sayembara_sk from sk_request_and_sayembara a \r\n    where a.flag_sk = 'SYB') e) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetCountDashboardSkResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "sk_aktif",
+        "fieldName" : "skAktif",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "permohonan_sk",
+        "fieldName" : "permohonanSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "perpanjangan_sk",
+        "fieldName" : "perpanjanganSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk",
+        "fieldName" : "lelangSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "sayembara_sk",
+        "fieldName" : "sayembaraSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetDocumentLelang" : {
+    "name" : "GetDocumentLelang",
+    "description" : "GetDocumentLelang",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.*, b.agreement_no\nfrom lelang_sk a\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\nwhere cast(a.id as varchar) like lower(:search) or cast(b.agreement_no as varchar) like lower(:search)\norder by end_date desc, a.id desc, b.agreement_no asc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.*, b.agreement_no\nfrom lelang_sk a\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\nwhere cast(a.id as varchar) like lower(:search) or cast(b.agreement_no as varchar) like lower(:search)\norder by end_date desc, a.id desc, b.agreement_no asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetDocumentLelangResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area",
+        "fieldName" : "area",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "start_date",
+        "fieldName" : "startDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "end_date",
+        "fieldName" : "endDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "agreement_no",
+        "fieldName" : "agreementNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetLelangAktif" : {
+    "name" : "GetLelangAktif",
+    "description" : "GetLelangAktif",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangAktifResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area",
+        "fieldName" : "area",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "start_date",
+        "fieldName" : "startDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "end_date",
+        "fieldName" : "endDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "title",
+        "fieldName" : "title",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "detil_id",
+        "fieldName" : "detilId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "agreement_no",
+        "fieldName" : "agreementNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "bto_limit",
+        "fieldName" : "btoLimit",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "lowest_bid",
+        "fieldName" : "lowestBid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "winner_name",
+        "fieldName" : "winnerName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetLelangList" : {
+    "name" : "GetLelangList",
+    "description" : "GetLelangList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name\nfrom lelang_sk a\nleft join master_area b on a.area = b.area_code\nwhere lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')\norder by start_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name\nfrom lelang_sk a\nleft join master_area b on a.area = b.area_code\nwhere lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')\norder by start_date desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area",
+        "fieldName" : "area",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "start_date",
+        "fieldName" : "startDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "end_date",
+        "fieldName" : "endDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "title",
+        "fieldName" : "title",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetLelangSKDetailByIDLelangList" : {
+    "name" : "GetLelangSKDetailByIDLelangList",
+    "description" : "GetLelangSKDetailByIDLelangList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, *\nfrom lelang_sk_detail\nwhere lelang_sk_id = :lelangId and (\nlower(agreement_no) like lower(:search) or\nCAST(bto_limit AS varchar) like lower(:search))",
+    "countQueryString" : "select count(*) from (select 1 as number, *\nfrom lelang_sk_detail\nwhere lelang_sk_id = :lelangId and (\nlower(agreement_no) like lower(:search) or\nCAST(bto_limit AS varchar) like lower(:search))) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "lelangId",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "40",
+      "required" : true
+    }, {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangSkdetailByIdlelangListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "agreement_no",
+        "fieldName" : "agreementNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "bto_limit",
+        "fieldName" : "btoLimit",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "lowest_bid",
+        "fieldName" : "lowestBid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk_id",
+        "fieldName" : "lelangSkId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "remo_id",
+        "fieldName" : "remoId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "winner_id",
+        "fieldName" : "winnerId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "winner_name",
+        "fieldName" : "winnerName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetLelangTidakAktif" : {
+    "name" : "GetLelangTidakAktif",
+    "description" : "GetLelangTidakAktif",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere a.end_date <= (now() + interval '7 hour') and winner_id is not null\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere a.end_date <= (now() + interval '7 hour') and winner_id is not null\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetLelangTidakAktifResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area",
+        "fieldName" : "area",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "start_date",
+        "fieldName" : "startDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "end_date",
+        "fieldName" : "endDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "title",
+        "fieldName" : "title",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "detil_id",
+        "fieldName" : "detilId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "agreement_no",
+        "fieldName" : "agreementNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "bto_limit",
+        "fieldName" : "btoLimit",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "lowest_bid",
+        "fieldName" : "lowestBid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "winner_name",
+        "fieldName" : "winnerName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetNoAggrListLelang" : {
+    "name" : "GetNoAggrListLelang",
+    "description" : "GetNoAggrListLelang",
+    "version" : "V2",
+    "queryString" : "select no_aggr\r\nfrom vehicles where no_aggr not in (\r\n\tselect no_aggr\r\n    from sk_request_and_sayembara\r\n    where app_date is null or (app_date >= now() + interval '7 hour')\r\n    union\r\n    select agreement_no as no_aggr\r\n    from lelang_sk_detail\r\n) and lower(no_aggr) like lower(:search)",
+    "countQueryString" : "select count(*) from (select no_aggr\r\nfrom vehicles where no_aggr not in (\r\n\tselect no_aggr\r\n    from sk_request_and_sayembara\r\n    where app_date is null or (app_date >= now() + interval '7 hour')\r\n    union\r\n    select agreement_no as no_aggr\r\n    from lelang_sk_detail\r\n) and lower(no_aggr) like lower(:search)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%tes%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetNoAggrListLelangResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetParticipantLelangByLelangID" : {
+    "name" : "GetParticipantLelangByLelangID",
+    "description" : "GetParticipantLelangByLelangID",
+    "version" : "V2",
+    "queryString" : "select a.id as id_participant, a.lelang_sk_id, b.*, c.cd_area, d.area_name\nfrom lelang_participants a\nleft join users b on b.cd_coll = a.cd_coll\nleft join branches c on cast(c.cd_sp as varchar) = b.branch_id\nleft join master_area d on c.cd_area = d.area_code\nwhere a.lelang_sk_id = :detailId and (\nlower(b.cd_coll) like lower(:search) or\nlower(b.full_name) like lower(:search) or\nlower(b.badge_type) like lower(:search) or\nlower(b.branch_id) like lower(:search) or\nlower(d.area_name) like lower(:search))",
+    "countQueryString" : "select count(*) from (select a.id as id_participant, a.lelang_sk_id, b.*, c.cd_area, d.area_name\nfrom lelang_participants a\nleft join users b on b.cd_coll = a.cd_coll\nleft join branches c on cast(c.cd_sp as varchar) = b.branch_id\nleft join master_area d on c.cd_area = d.area_code\nwhere a.lelang_sk_id = :detailId and (\nlower(b.cd_coll) like lower(:search) or\nlower(b.full_name) like lower(:search) or\nlower(b.badge_type) like lower(:search) or\nlower(b.branch_id) like lower(:search) or\nlower(d.area_name) like lower(:search))) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "detailId",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    }, {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetParticipantLelangByLelangIdResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id_participant",
+        "fieldName" : "idParticipant",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk_id",
+        "fieldName" : "lelangSkId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "password",
+        "fieldName" : "password",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "address",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "phone_number",
+        "fieldName" : "phoneNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_number",
+        "fieldName" : "identityNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_photo",
+        "fieldName" : "identityPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "identity_with_person_photo",
+        "fieldName" : "identityWithPersonPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_id",
+        "fieldName" : "roleId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "created_at",
+        "fieldName" : "createdAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "reset_pass_first_login",
+        "fieldName" : "resetPassFirstLogin",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "is_request_upgrade",
+        "fieldName" : "isRequestUpgrade",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "is_request_approved",
+        "fieldName" : "isRequestApproved",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "province",
+        "fieldName" : "province",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "city",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "mitra_id",
+        "fieldName" : "mitraId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "category_id",
+        "fieldName" : "categoryId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area_id",
+        "fieldName" : "areaId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "badge_type",
+        "fieldName" : "badgeType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_coll",
+        "fieldName" : "cdColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "peojf_id",
+        "fieldName" : "peojfId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "pks_start",
+        "fieldName" : "pksStart",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "pks_end",
+        "fieldName" : "pksEnd",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "branch_id",
+        "fieldName" : "branchId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "account_no",
+        "fieldName" : "accountNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_show",
+        "fieldName" : "flagShow",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "rekening_bank",
+        "fieldName" : "rekeningBank",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rekening_no",
+        "fieldName" : "rekeningNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rekening_name",
+        "fieldName" : "rekeningName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rekening_photo",
+        "fieldName" : "rekeningPhoto",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "display_picture",
+        "fieldName" : "displayPicture",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_pool",
+        "fieldName" : "cdPool",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_area",
+        "fieldName" : "cdArea",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetParticipantLelangDetail" : {
+    "name" : "GetParticipantLelangDetail",
+    "description" : "GetParticipantLelangDetail",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.*, b.full_name\nfrom lelang_sk_participants a\nleft join users b on a.cd_coll = b.cd_coll\nwhere lelang_sk_detail_id = :idLelang",
+    "countQueryString" : "select count(*) from (select 1 as number, a.*, b.full_name\nfrom lelang_sk_participants a\nleft join users b on a.cd_coll = b.cd_coll\nwhere lelang_sk_detail_id = :idLelang) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "idLelang",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "17",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetParticipantLelangDetailResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_coll",
+        "fieldName" : "cdColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "lelang_sk_detail_id",
+        "fieldName" : "lelangSkDetailId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "bid",
+        "fieldName" : "bid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetPilihWinnerSKList" : {
+    "name" : "GetPilihWinnerSKList",
+    "description" : "GetPilihWinnerSKList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nleft join vehicles d on b.agreement_no = d.no_aggr\r\nwhere winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nleft join vehicles d on b.agreement_no = d.no_aggr\r\nwhere winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetPilihWinnerSklistResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area",
+        "fieldName" : "area",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "start_date",
+        "fieldName" : "startDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "end_date",
+        "fieldName" : "endDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "title",
+        "fieldName" : "title",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "detil_id",
+        "fieldName" : "detilId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "agreement_no",
+        "fieldName" : "agreementNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "bto_limit",
+        "fieldName" : "btoLimit",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "lowest_bid",
+        "fieldName" : "lowestBid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "winner_name",
+        "fieldName" : "winnerName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_car_police",
+        "fieldName" : "noCarPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetReportListByNoAggr" : {
+    "name" : "GetReportListByNoAggr",
+    "description" : "GetReportListByNoAggr",
+    "version" : "V2",
+    "queryString" : "select 1 as number, *\nfrom reports\nwhere vehicle_no_aggr = :noAggr\norder by created_at desc",
+    "countQueryString" : "select count(*) from (select 1 as number, *\nfrom reports\nwhere vehicle_no_aggr = :noAggr\norder by created_at desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "noAggr",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "10100000000",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetReportListByNoAggrResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "vehicle_no_aggr",
+        "fieldName" : "vehicleNoAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "latitude",
+        "fieldName" : "latitude",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "longitute",
+        "fieldName" : "longitute",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "is_draft",
+        "fieldName" : "isDraft",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "created_at",
+        "fieldName" : "createdAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "created_by",
+        "fieldName" : "createdBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "updated_at",
+        "fieldName" : "updatedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "updated_by",
+        "fieldName" : "updatedBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "deleted_at",
+        "fieldName" : "deletedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "deleted_by",
+        "fieldName" : "deletedBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "image_header",
+        "fieldName" : "imageHeader",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetReportsList" : {
+    "name" : "GetReportsList",
+    "description" : "GetReportsList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id\nfrom reports a\nleft join vehicles b on a.vehicle_no_aggr = b.no_aggr\nleft join users c on a.created_by = c.email\nwhere lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))\norder by a.created_at desc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id\nfrom reports a\nleft join vehicles b on a.vehicle_no_aggr = b.no_aggr\nleft join users c on a.created_by = c.email\nwhere lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))\norder by a.created_at desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetReportsListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "vehicle_no_aggr",
+        "fieldName" : "vehicleNoAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "latitude",
+        "fieldName" : "latitude",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "longitute",
+        "fieldName" : "longitute",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "is_draft",
+        "fieldName" : "isDraft",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "created_at",
+        "fieldName" : "createdAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "created_by",
+        "fieldName" : "createdBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "updated_at",
+        "fieldName" : "updatedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "updated_by",
+        "fieldName" : "updatedBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "deleted_at",
+        "fieldName" : "deletedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "deleted_by",
+        "fieldName" : "deletedBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "image_header",
+        "fieldName" : "imageHeader",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_sp",
+        "fieldName" : "cdSp",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "sp_coll",
+        "fieldName" : "spColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "dt_golive",
+        "fieldName" : "dtGolive",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "st_aggr",
+        "fieldName" : "stAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "day_overdue",
+        "fieldName" : "dayOverdue",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_new_used",
+        "fieldName" : "flagNewUsed",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_mgu",
+        "fieldName" : "flagMgu",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "saldo_ar",
+        "fieldName" : "saldoAr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_brand",
+        "fieldName" : "cdVehicleBrand",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "brand_desc",
+        "fieldName" : "brandDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_type",
+        "fieldName" : "cdVehicleType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "type_desc",
+        "fieldName" : "typeDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_model",
+        "fieldName" : "cdVehicleModel",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "model_desc",
+        "fieldName" : "modelDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_kind",
+        "fieldName" : "cdVehicleKind",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "category_desc",
+        "fieldName" : "categoryDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "year_of_mfg",
+        "fieldName" : "yearOfMfg",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_car_police",
+        "fieldName" : "noCarPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_chasis",
+        "fieldName" : "noChasis",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_engine",
+        "fieldName" : "noEngine",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "color",
+        "fieldName" : "color",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_bpkb",
+        "fieldName" : "noBpkb",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name_bpkb",
+        "fieldName" : "nameBpkb",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_coll",
+        "fieldName" : "cdColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "peojf_id",
+        "fieldName" : "peojfId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetSKRequestApprovedList" : {
+    "name" : "GetSKRequestApprovedList",
+    "description" : "GetSKRequestApprovedList",
+    "version" : "V2",
+    "queryString" : "select res.* from (\n    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,\n        case\n        \twhen a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'\n        \telse 'Not Ready'\n        end as dokumen\n    from sk_request_and_sayembara a\n    left join users b on a.coll_cd = b.cd_coll\n    order by a.app_date desc) res\n    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)\n        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) \n        and res.sk_parent is null and res.is_show = true",
+    "countQueryString" : "select count(*) from (select res.* from (\n    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,\n        case\n        \twhen a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'\n        \telse 'Not Ready'\n        end as dokumen\n    from sk_request_and_sayembara a\n    left join users b on a.coll_cd = b.cd_coll\n    order by a.app_date desc) res\n    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)\n        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) \n        and res.sk_parent is null and res.is_show = true) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%not ready%",
+      "required" : true
+    }, {
+      "name" : "select",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%ready%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestApprovedListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sr",
+        "fieldName" : "noSr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_police",
+        "fieldName" : "noPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sp_coll",
+        "fieldName" : "noSpColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "coll_cd",
+        "fieldName" : "collCd",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_bt",
+        "fieldName" : "reqSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date",
+        "fieldName" : "reqSkDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_sk",
+        "fieldName" : "flagSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_econtract",
+        "fieldName" : "flagEcontract",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_fidusia",
+        "fieldName" : "flagFidusia",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_trnschedule",
+        "fieldName" : "flagTrnschedule",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_digisign",
+        "fieldName" : "flagDigisign",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv01",
+        "fieldName" : "rcv01",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv02",
+        "fieldName" : "rcv02",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv03",
+        "fieldName" : "rcv03",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv04",
+        "fieldName" : "rcv04",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv05",
+        "fieldName" : "rcv05",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "sync_date",
+        "fieldName" : "syncDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "sync_stat",
+        "fieldName" : "syncStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_uid",
+        "fieldName" : "appUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_stat",
+        "fieldName" : "appStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_date",
+        "fieldName" : "appDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "add_uid",
+        "fieldName" : "addUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_stat",
+        "fieldName" : "addStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_date",
+        "fieldName" : "addDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "upd_uid",
+        "fieldName" : "updUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "upd_date",
+        "fieldName" : "updDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_parent",
+        "fieldName" : "skParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "is_show",
+        "fieldName" : "isShow",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "app_sk_bt",
+        "fieldName" : "appSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "is_signed",
+        "fieldName" : "isSigned",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "expired_date",
+        "fieldName" : "expiredDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "dokumen",
+        "fieldName" : "dokumen",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetSKRequestPendingList" : {
+    "name" : "GetSKRequestPendingList",
+    "description" : "GetSKRequestPendingList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%tra 1%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestPendingListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sr",
+        "fieldName" : "noSr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_police",
+        "fieldName" : "noPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sp_coll",
+        "fieldName" : "noSpColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "coll_cd",
+        "fieldName" : "collCd",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_bt",
+        "fieldName" : "reqSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date",
+        "fieldName" : "reqSkDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_sk",
+        "fieldName" : "flagSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_econtract",
+        "fieldName" : "flagEcontract",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_fidusia",
+        "fieldName" : "flagFidusia",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_trnschedule",
+        "fieldName" : "flagTrnschedule",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_digisign",
+        "fieldName" : "flagDigisign",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_date",
+        "fieldName" : "appDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "add_uid",
+        "fieldName" : "addUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_date",
+        "fieldName" : "addDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_parent",
+        "fieldName" : "skParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "is_show",
+        "fieldName" : "isShow",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "app_sk_bt",
+        "fieldName" : "appSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetSKRequestPerpanjangApprovedList" : {
+    "name" : "GetSKRequestPerpanjangApprovedList",
+    "description" : "GetSKRequestPerpanjangApprovedList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true\norder by a.app_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true\norder by a.app_date desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestPerpanjangApprovedListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sr",
+        "fieldName" : "noSr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_police",
+        "fieldName" : "noPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sp_coll",
+        "fieldName" : "noSpColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "coll_cd",
+        "fieldName" : "collCd",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_bt",
+        "fieldName" : "reqSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date",
+        "fieldName" : "reqSkDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_sk",
+        "fieldName" : "flagSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_econtract",
+        "fieldName" : "flagEcontract",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_fidusia",
+        "fieldName" : "flagFidusia",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_trnschedule",
+        "fieldName" : "flagTrnschedule",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_digisign",
+        "fieldName" : "flagDigisign",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv01",
+        "fieldName" : "rcv01",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv02",
+        "fieldName" : "rcv02",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv03",
+        "fieldName" : "rcv03",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv04",
+        "fieldName" : "rcv04",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv05",
+        "fieldName" : "rcv05",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "sync_date",
+        "fieldName" : "syncDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "sync_stat",
+        "fieldName" : "syncStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_uid",
+        "fieldName" : "appUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_stat",
+        "fieldName" : "appStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_date",
+        "fieldName" : "appDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "add_uid",
+        "fieldName" : "addUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_stat",
+        "fieldName" : "addStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_date",
+        "fieldName" : "addDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "upd_uid",
+        "fieldName" : "updUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "upd_date",
+        "fieldName" : "updDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_parent",
+        "fieldName" : "skParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "is_show",
+        "fieldName" : "isShow",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "app_sk_bt",
+        "fieldName" : "appSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "expired_date",
+        "fieldName" : "expiredDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetSKRequestPerpanjangPendingList" : {
+    "name" : "GetSKRequestPerpanjangPendingList",
+    "description" : "GetSKRequestPerpanjangPendingList",
+    "version" : "V2",
+    "queryString" : "select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "search",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%tra 1%",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestPerpanjangPendingListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "number",
+        "fieldName" : "number",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sr",
+        "fieldName" : "noSr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_police",
+        "fieldName" : "noPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sp_coll",
+        "fieldName" : "noSpColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "coll_cd",
+        "fieldName" : "collCd",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_bt",
+        "fieldName" : "reqSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date",
+        "fieldName" : "reqSkDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_sk",
+        "fieldName" : "flagSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_econtract",
+        "fieldName" : "flagEcontract",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_fidusia",
+        "fieldName" : "flagFidusia",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_trnschedule",
+        "fieldName" : "flagTrnschedule",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_digisign",
+        "fieldName" : "flagDigisign",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_date",
+        "fieldName" : "appDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "add_uid",
+        "fieldName" : "addUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_date",
+        "fieldName" : "addDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_parent",
+        "fieldName" : "skParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "is_show",
+        "fieldName" : "isShow",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "app_sk_bt",
+        "fieldName" : "appSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetSayembaraList" : {
+    "name" : "GetSayembaraList",
+    "description" : "GetSayembaraList",
+    "version" : "V2",
+    "queryString" : "select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date\nfrom sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc",
+    "countQueryString" : "select count(*) from (select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date\nfrom sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetSayembaraListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "value",
+        "fieldName" : "value",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sr",
+        "fieldName" : "noSr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_police",
+        "fieldName" : "noPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_sp_coll",
+        "fieldName" : "noSpColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "coll_cd",
+        "fieldName" : "collCd",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_bt",
+        "fieldName" : "reqSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date",
+        "fieldName" : "reqSkDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_sk",
+        "fieldName" : "flagSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_econtract",
+        "fieldName" : "flagEcontract",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_fidusia",
+        "fieldName" : "flagFidusia",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_trnschedule",
+        "fieldName" : "flagTrnschedule",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_digisign",
+        "fieldName" : "flagDigisign",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv01",
+        "fieldName" : "rcv01",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv02",
+        "fieldName" : "rcv02",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv03",
+        "fieldName" : "rcv03",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv04",
+        "fieldName" : "rcv04",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "rcv05",
+        "fieldName" : "rcv05",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "sync_date",
+        "fieldName" : "syncDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "sync_stat",
+        "fieldName" : "syncStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_uid",
+        "fieldName" : "appUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_stat",
+        "fieldName" : "appStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "app_date",
+        "fieldName" : "appDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "add_uid",
+        "fieldName" : "addUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_stat",
+        "fieldName" : "addStat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "add_date",
+        "fieldName" : "addDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "upd_uid",
+        "fieldName" : "updUid",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "upd_date",
+        "fieldName" : "updDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_parent",
+        "fieldName" : "skParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "is_show",
+        "fieldName" : "isShow",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "app_sk_bt",
+        "fieldName" : "appSkBt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "end_date",
+        "fieldName" : "endDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetUserParticipantLelang" : {
+    "name" : "GetUserParticipantLelang",
+    "description" : "GetUserParticipantLelang",
+    "version" : "V2",
+    "queryString" : "select a.cd_coll, b.full_name \nfrom lelang_sk_participants a\nleft join users b on a.cd_coll = b.cd_coll\nwhere lelang_sk_detail_id = :idLelang\norder by b.full_name asc",
+    "countQueryString" : "select count(*) from (select a.cd_coll, b.full_name \nfrom lelang_sk_participants a\nleft join users b on a.cd_coll = b.cd_coll\nwhere lelang_sk_detail_id = :idLelang\norder by b.full_name asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "idLelang",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "17",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetUserParticipantLelangResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "cd_coll",
+        "fieldName" : "cdColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SetPemenangLelang" : {
+    "name" : "SetPemenangLelang",
+    "description" : "SetPemenangLelang",
+    "version" : "V2",
+    "queryString" : "update lelang_sk_detail\nset winner_id = :cdColl, winner_name = :winName\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "cdColl",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "winName",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.SetPemenangLelangRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "UpdateFlagSKRequest" : {
+    "name" : "UpdateFlagSKRequest",
+    "description" : "UpdateFlagSKRequest",
+    "version" : "V2",
+    "queryString" : "update sk_request_and_sayembara\nset \nflag_digisign = :digisign,\nflag_econtract = :contract,\nflag_trnschedule = :schedule,\nflag_fidusia = :fidusia\nwhere flag_sk = 'NRM' and no_aggr = :noAggr and no_sr = :noSr",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "digisign",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "contract",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "schedule",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "fidusia",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "noAggr",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "noSr",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdateFlagSkrequestRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "checkEmailAvailable" : {
+    "name" : "checkEmailAvailable",
+    "description" : "checkEmailAvailable",
+    "version" : "V2",
+    "queryString" : "select count(*) from users u \r\nwhere u.email = :email",
+    "countQueryString" : "select count(*) from (select count(*) from users u \r\nwhere u.email = :email) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "email",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "@gmail.com",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.CheckEmailAvailableResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count",
+        "fieldName" : "_count",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "deleteLelangImages" : {
+    "name" : "deleteLelangImages",
+    "description" : "deleteLelangImages",
+    "version" : "V2",
+    "queryString" : "delete from lelang_sk_detail_images\nwhere sk_list_auction_id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "DELETE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "DELETE"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
   "getAllSKNew" : {
     "name" : "getAllSKNew",
     "description" : "This query is to list all SK New",
@@ -462,6 +4523,116 @@
       } ]
     }
   },
+  "getInformanLeaderboards" : {
+    "name" : "getInformanLeaderboards",
+    "description" : "getInformanLeaderboards",
+    "version" : "V2",
+    "queryString" : "select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin\r\nfrom (select u.email, u.full_name, u.city, u.badge_type, r.\"name\" as role_name, coalesce(c.total_poin, 0.0) as poin\r\n\tfrom users u\r\n\tleft join roles r on u.role_id = r.id\r\n\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\tfrom user_point\r\n\t\twhere point_type = 'debet' and (date(created_at) between :startDate and :endDate)\r\n\t\tgroup by created_by) c on u.email = c.email\r\n\twhere r.\"name\" = 'INFORMAN'\r\n\tand (\r\n\t\tcase when(:city = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tcity = :city\r\n\t\tend\r\n\t) and (\r\n\t\tcase when(:badgeType = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tbadge_type = :badgeType\r\n\t\tend\r\n\t)) res\r\norder by res.poin desc, res.full_name asc",
+    "countQueryString" : "select count(*) from (select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin\r\nfrom (select u.email, u.full_name, u.city, u.badge_type, r.\"name\" as role_name, coalesce(c.total_poin, 0.0) as poin\r\n\tfrom users u\r\n\tleft join roles r on u.role_id = r.id\r\n\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\tfrom user_point\r\n\t\twhere point_type = 'debet' and (date(created_at) between :startDate and :endDate)\r\n\t\tgroup by created_by) c on u.email = c.email\r\n\twhere r.\"name\" = 'INFORMAN'\r\n\tand (\r\n\t\tcase when(:city = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tcity = :city\r\n\t\tend\r\n\t) and (\r\n\t\tcase when(:badgeType = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tbadge_type = :badgeType\r\n\t\tend\r\n\t)) res\r\norder by res.poin desc, res.full_name asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "startDate",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1970-01-01",
+      "required" : true
+    }, {
+      "name" : "endDate",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1970-01-01",
+      "required" : true
+    }, {
+      "name" : "city",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "default",
+      "required" : true
+    }, {
+      "name" : "badgeType",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "default",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetInformanLeaderboardsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "city",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "badge_type",
+        "fieldName" : "badgeType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_name",
+        "fieldName" : "roleName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "poin",
+        "fieldName" : "poin",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "getLelangSKAktif" : {
     "name" : "getLelangSKAktif",
     "description" : "Get data for all Lelang SK which is currently active. Don't have a winner yet and the End Date is still within the date",
@@ -704,6 +4875,116 @@
       } ]
     }
   },
+  "getMitraLeaderboards" : {
+    "name" : "getMitraLeaderboards",
+    "description" : "getMitraLeaderboards",
+    "version" : "V2",
+    "queryString" : "select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin\r\nfrom (select u.email, u.full_name, u.city, u.badge_type, r.\"name\" as role_name, coalesce(c.total_poin, 0.0) as poin\r\n\tfrom users u\r\n\tleft join roles r on u.role_id = r.id\r\n\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\tfrom user_point\r\n\t\twhere point_type = 'debet' and (date(created_at) between :startDate and :endDate)\r\n\t\tgroup by created_by) c on u.email = c.email\r\n\twhere r.\"name\" = 'REGISTERED MITRA'\r\n\tand (\r\n\t\tcase when(:city = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tcity = :city\r\n\t\tend\r\n\t) and (\r\n\t\tcase when(:badgeType = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tbadge_type = :badgeType\r\n\t\tend\r\n\t)) res\r\norder by res.poin desc, res.full_name asc",
+    "countQueryString" : "select count(*) from (select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin\r\nfrom (select u.email, u.full_name, u.city, u.badge_type, r.\"name\" as role_name, coalesce(c.total_poin, 0.0) as poin\r\n\tfrom users u\r\n\tleft join roles r on u.role_id = r.id\r\n\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\tfrom user_point\r\n\t\twhere point_type = 'debet' and (date(created_at) between :startDate and :endDate)\r\n\t\tgroup by created_by) c on u.email = c.email\r\n\twhere r.\"name\" = 'REGISTERED MITRA'\r\n\tand (\r\n\t\tcase when(:city = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tcity = :city\r\n\t\tend\r\n\t) and (\r\n\t\tcase when(:badgeType = 'default') then \r\n\t\t\t'1' \r\n\t\telse \r\n\t\t\tbadge_type = :badgeType\r\n\t\tend\r\n\t)) res\r\norder by res.poin desc, res.full_name asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "startDate",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2019-12-12",
+      "required" : true
+    }, {
+      "name" : "endDate",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2019-12-12",
+      "required" : true
+    }, {
+      "name" : "city",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "default",
+      "required" : true
+    }, {
+      "name" : "badgeType",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "default",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetMitraLeaderboardsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "city",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "badge_type",
+        "fieldName" : "badgeType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_name",
+        "fieldName" : "roleName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "poin",
+        "fieldName" : "poin",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "getPesertaLelangData" : {
     "name" : "getPesertaLelangData",
     "description" : "A query to retrieve all peserta lelang",
@@ -808,12 +5089,62 @@
       } ]
     }
   },
+  "getRecentPointUser" : {
+    "name" : "getRecentPointUser",
+    "description" : "getRecentPointUser",
+    "version" : "V2",
+    "queryString" : "select t1.email, (t1.poin-t2.poin) as point from\r\n\t\t(select u.email, coalesce(c.total_poin, 0.0) as poin\r\n\t\tfrom users u\r\n\t\tleft join roles r on u.role_id = r.id\r\n\t\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\t\tfrom user_point\r\n\t\t\twhere point_type = 'debet'\r\n\t\t\tgroup by created_by) c on u.email = c.email\r\n\t\twhere (r.\"name\" = 'INFORMAN' or r.\"name\" = 'REGISTERED MITRA') and u.email = :email ) t1\r\n\t\tjoin\r\n\t\t(select u.email, coalesce(c.total_poin, 0.0) as poin\r\n\t\tfrom users u\r\n\t\tleft join roles r on u.role_id = r.id\r\n\t\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\t\tfrom user_point\r\n\t\t\twhere point_type = 'kredit'\r\n\t\t\tgroup by created_by) c on u.email = c.email\r\n\t\twhere (r.\"name\" = 'INFORMAN' or r.\"name\" = 'REGISTERED MITRA') and u.email = :email ) t2\r\n\t\ton (t1.email = t2.email)",
+    "countQueryString" : "select count(*) from (select t1.email, (t1.poin-t2.poin) as point from\r\n\t\t(select u.email, coalesce(c.total_poin, 0.0) as poin\r\n\t\tfrom users u\r\n\t\tleft join roles r on u.role_id = r.id\r\n\t\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\t\tfrom user_point\r\n\t\t\twhere point_type = 'debet'\r\n\t\t\tgroup by created_by) c on u.email = c.email\r\n\t\twhere (r.\"name\" = 'INFORMAN' or r.\"name\" = 'REGISTERED MITRA') and u.email = :email ) t1\r\n\t\tjoin\r\n\t\t(select u.email, coalesce(c.total_poin, 0.0) as poin\r\n\t\tfrom users u\r\n\t\tleft join roles r on u.role_id = r.id\r\n\t\tleft join (select created_by as email, sum(amount) as total_poin\r\n\t\t\tfrom user_point\r\n\t\t\twhere point_type = 'kredit'\r\n\t\t\tgroup by created_by) c on u.email = c.email\r\n\t\twhere (r.\"name\" = 'INFORMAN' or r.\"name\" = 'REGISTERED MITRA') and u.email = :email ) t2\r\n\t\ton (t1.email = t2.email)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "email",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "mitra@email.com",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetRecentPointUserResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "point",
+        "fieldName" : "point",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "getReportImagesById" : {
     "name" : "getReportImagesById",
     "description" : "This query to retrieve all images url based on report id given",
     "version" : "V2",
-    "queryString" : "select url\nfrom report_images\nwhere report_id = :id",
-    "countQueryString" : "select count(*) from (select url\nfrom report_images\nwhere report_id = :id) wmTempTable",
+    "queryString" : "select url\nfrom report_images\nwhere report_id = :id and deleted_at is null",
+    "countQueryString" : "select count(*) from (select url\nfrom report_images\nwhere report_id = :id and deleted_at is null) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -824,7 +5155,7 @@
       "list" : false,
       "variableType" : "PROMPT",
       "variableName" : "",
-      "testValue" : "2",
+      "testValue" : "3",
       "required" : true
     } ],
     "request" : {
@@ -840,6 +5171,218 @@
       "properties" : [ {
         "name" : "url",
         "fieldName" : "url",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "getReqSKDetail" : {
+    "name" : "getReqSKDetail",
+    "description" : "Get detail of reqeust SK (Permintaan SK)",
+    "version" : "V2",
+    "queryString" : "select r.id as id_permintaan_sk,\r\nr.no_aggr as nomor_agreement,\r\nu.full_name as nama_lengkap,\r\nr.req_sk_bt as bto_request,\r\nr.req_sk_date as waktu,\r\ncase when r.renewal_status = 'false' then 'Menunggu Persetujuan' else 'Disetujui' end as status,\r\nu.id as id_requestor,\r\nu.identity_number as no_ktp,\r\nu.phone_number,\r\nu.role_name,\r\nu.address as alamat,\r\nu.created_at as terdaftar_sejak,\r\nv.no_car_police as nomor_polisi,\r\nv.dt_golive as tanggal_golive,\r\nv.st_aggr as status_kontrak,\r\nv.type_desc,\r\nv.model_desc,\r\nv.brand_desc,\r\nv.category_desc,\r\nv.color\r\nfrom sk_requests r\r\njoin vehicles v on r.no_aggr = v.no_aggr and r.no_aggr = :no_aggr\r\njoin (select u.id, u.full_name, u.identity_number,\r\nu.phone_number, u.address, u.created_at, r.name as role_name\r\nfrom users u\r\njoin roles r on r.id = u.role_id) u on r.requestor_id = u.id",
+    "countQueryString" : "select count(*) from (select r.id as id_permintaan_sk,\r\nr.no_aggr as nomor_agreement,\r\nu.full_name as nama_lengkap,\r\nr.req_sk_bt as bto_request,\r\nr.req_sk_date as waktu,\r\ncase when r.renewal_status = 'false' then 'Menunggu Persetujuan' else 'Disetujui' end as status,\r\nu.id as id_requestor,\r\nu.identity_number as no_ktp,\r\nu.phone_number,\r\nu.role_name,\r\nu.address as alamat,\r\nu.created_at as terdaftar_sejak,\r\nv.no_car_police as nomor_polisi,\r\nv.dt_golive as tanggal_golive,\r\nv.st_aggr as status_kontrak,\r\nv.type_desc,\r\nv.model_desc,\r\nv.brand_desc,\r\nv.category_desc,\r\nv.color\r\nfrom sk_requests r\r\njoin vehicles v on r.no_aggr = v.no_aggr and r.no_aggr = :no_aggr\r\njoin (select u.id, u.full_name, u.identity_number,\r\nu.phone_number, u.address, u.created_at, r.name as role_name\r\nfrom users u\r\njoin roles r on r.id = u.role_id) u on r.requestor_id = u.id) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "no_aggr",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "011001030012345",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetReqSkdetailResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id_permintaan_sk",
+        "fieldName" : "idPermintaanSk",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "nomor_agreement",
+        "fieldName" : "nomorAgreement",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "nama_lengkap",
+        "fieldName" : "namaLengkap",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "bto_request",
+        "fieldName" : "btoRequest",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "waktu",
+        "fieldName" : "waktu",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "id_requestor",
+        "fieldName" : "idRequestor",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_ktp",
+        "fieldName" : "noKtp",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "phone_number",
+        "fieldName" : "phoneNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "role_name",
+        "fieldName" : "roleName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "alamat",
+        "fieldName" : "alamat",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "terdaftar_sejak",
+        "fieldName" : "terdaftarSejak",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "nomor_polisi",
+        "fieldName" : "nomorPolisi",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "tanggal_golive",
+        "fieldName" : "tanggalGolive",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "status_kontrak",
+        "fieldName" : "statusKontrak",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "type_desc",
+        "fieldName" : "typeDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "model_desc",
+        "fieldName" : "modelDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "brand_desc",
+        "fieldName" : "brandDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "category_desc",
+        "fieldName" : "categoryDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "color",
+        "fieldName" : "color",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
@@ -1405,6 +5948,589 @@
       } ]
     }
   },
+  "insertNewBTToSaldo" : {
+    "name" : "insertNewBTToSaldo",
+    "description" : "insertNewBTToSaldo",
+    "version" : "V2",
+    "queryString" : "insert into gamification_peojf_bt_to_saldo (math_operator, value_1, value_2, point, status, created_at, created_by)\nvalues (:operator, :value1, :value2, :point, :status, :created_at, :created_by)",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "operator",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : ">",
+      "required" : true
+    }, {
+      "name" : "value1",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "213",
+      "required" : true
+    }, {
+      "name" : "value2",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "3212",
+      "required" : true
+    }, {
+      "name" : "point",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    }, {
+      "name" : "status",
+      "type" : "boolean",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : true,
+      "required" : true
+    }, {
+      "name" : "created_at",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1575958439000,
+      "required" : true
+    }, {
+      "name" : "created_by",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "andri",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.InsertNewBttoSaldoRequest",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "insertNewBTToSaldoNoValue2" : {
+    "name" : "insertNewBTToSaldoNoValue2",
+    "description" : "insertNewBTToSaldoNoValue2",
+    "version" : "V2",
+    "queryString" : "insert into gamification_peojf_bt_to_saldo (math_operator, value_1, point, status, created_at, created_by)\nvalues (:operator, :value1, :point, :status, :created_at, :created_by)",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "operator",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : ">",
+      "required" : true
+    }, {
+      "name" : "value1",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "11",
+      "required" : true
+    }, {
+      "name" : "point",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    }, {
+      "name" : "status",
+      "type" : "boolean",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : true,
+      "required" : true
+    }, {
+      "name" : "created_at",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1576044650000,
+      "required" : true
+    }, {
+      "name" : "created_by",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "andri",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.InsertNewBttoSaldoNoValue2Request",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "insertNewEfficiencySK" : {
+    "name" : "insertNewEfficiencySK",
+    "description" : "insertNewEfficiencySK",
+    "version" : "V2",
+    "queryString" : "insert into gamification_peojf_efficiency_sk (math_operator, value_1, value_2, point, status, created_at, created_by)\nvalues (:operator, :value1, :value2, :point, :status, :created_at, :created_by)",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "operator",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : ">",
+      "required" : true
+    }, {
+      "name" : "value1",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    }, {
+      "name" : "value2",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "111",
+      "required" : true
+    }, {
+      "name" : "point",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    }, {
+      "name" : "status",
+      "type" : "boolean",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : true,
+      "required" : true
+    }, {
+      "name" : "created_at",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1575871359000,
+      "required" : true
+    }, {
+      "name" : "created_by",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "andri",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.InsertNewEfficiencySkRequest",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "insertNewEfficiencySKNoValue2" : {
+    "name" : "insertNewEfficiencySKNoValue2",
+    "description" : "insertNewEfficiencySKNoValue2",
+    "version" : "V2",
+    "queryString" : "insert into gamification_peojf_efficiency_sk (math_operator, value_1, point, status, created_at, created_by)\nvalues (:operator, :value1, :point, :status, :created_at, :created_by)",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "operator",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : ">",
+      "required" : true
+    }, {
+      "name" : "value1",
+      "type" : "double",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    }, {
+      "name" : "point",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    }, {
+      "name" : "status",
+      "type" : "boolean",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : true,
+      "required" : true
+    }, {
+      "name" : "created_at",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1575871260000,
+      "required" : true
+    }, {
+      "name" : "created_by",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "andri",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.InsertNewEfficiencySknoValue2Request",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "insertNewSaldoAR" : {
+    "name" : "insertNewSaldoAR",
+    "description" : "insertNewSaldoAR",
+    "version" : "V2",
+    "queryString" : "insert into gamification_peojf_saldo_ar (math_operator, value_1, value_2, point, status, created_at, created_by)\nvalues (:operator, :value1, :value2, :point, :status, :created_at, :created_by)",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "operator",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : ">",
+      "required" : true
+    }, {
+      "name" : "value1",
+      "type" : "big_integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "10",
+      "required" : true
+    }, {
+      "name" : "value2",
+      "type" : "big_integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    }, {
+      "name" : "point",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "12",
+      "required" : true
+    }, {
+      "name" : "status",
+      "type" : "boolean",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : true,
+      "required" : true
+    }, {
+      "name" : "created_at",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1576648305000,
+      "required" : true
+    }, {
+      "name" : "created_by",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "andri",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.InsertNewSaldoArRequest",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "insertNewSaldoARNoValue2" : {
+    "name" : "insertNewSaldoARNoValue2",
+    "description" : "insertNewSaldoARNoValue2",
+    "version" : "V2",
+    "queryString" : "insert into gamification_peojf_saldo_ar (math_operator, value_1, point, status, created_at, created_by)\nvalues (:operator, :value1, :point, :status, :created_at, :created_by)",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "INSERT",
+    "parameters" : [ {
+      "name" : "operator",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : ">",
+      "required" : true
+    }, {
+      "name" : "value1",
+      "type" : "big_integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1212",
+      "required" : true
+    }, {
+      "name" : "point",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    }, {
+      "name" : "status",
+      "type" : "boolean",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : true,
+      "required" : true
+    }, {
+      "name" : "created_at",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1575957191000,
+      "required" : true
+    }, {
+      "name" : "created_by",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "andri",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.InsertNewSaldoArnoValue2Request",
+      "method" : "POST"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "updateFlagRedeem" : {
+    "name" : "updateFlagRedeem",
+    "description" : "updateFlagRedeem",
+    "version" : "V2",
+    "queryString" : "update redeem_request\nset \nis_confirmed = true,\nconfirmed_at = :date_confirm\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "date_confirm",
+      "type" : "timestamp",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : 1576786742000,
+      "required" : true
+    }, {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdateFlagRedeemRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "updateFlagSayembara" : {
+    "name" : "updateFlagSayembara",
+    "description" : "updateFlagSayembara",
+    "version" : "V2",
+    "queryString" : "update sk_request_and_sayembara\nset \nflag_digisign = :digisign,\nflag_econtract = :contract,\nflag_trnschedule = :schedule,\nflag_fidusia = :fidusia\nwhere flag_sk = 'SYB' and no_aggr = :noAggr",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "digisign",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "contract",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "schedule",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "fidusia",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    }, {
+      "name" : "noAggr",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "a",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdateFlagSayembaraRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "updateFlagShowUsers" : {
+    "name" : "updateFlagShowUsers",
+    "description" : "updateFlagShowUsers",
+    "version" : "V2",
+    "queryString" : "update users\nset \nflag_show = false\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "169",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdateFlagShowUsersRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
   "updatePasswordQuery" : {
     "name" : "updatePasswordQuery",
     "description" : "A query to update password by given email",
@@ -1435,6 +6561,45 @@
     "request" : {
       "wrapped" : true,
       "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdatePasswordQueryRequest",
+      "method" : "PUT"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "java.lang.Integer",
+      "returns" : "ENTITY",
+      "responseType" : "SINGLE"
+    }
+  },
+  "updateRoleUsers" : {
+    "name" : "updateRoleUsers",
+    "description" : "updateRoleUsers",
+    "version" : "V2",
+    "queryString" : "update users\nset \nrole_id = :roleId\nwhere id = :id",
+    "countQueryString" : null,
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : false,
+    "type" : "UPDATE",
+    "parameters" : [ {
+      "name" : "roleId",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2",
+      "required" : true
+    }, {
+      "name" : "id",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "0",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : true,
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.UpdateRoleUsersRequest",
       "method" : "PUT"
     },
     "identifiers" : [ ],

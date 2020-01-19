@@ -22,6 +22,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.Reports;
+import com.acc_hunter_web.acc_hunter.Sayembara;
 import com.acc_hunter_web.acc_hunter.Vehicles;
 
 /**
@@ -195,6 +196,18 @@ public interface VehiclesService {
      * @see Page
 	 */
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
+
+    /*
+     * Returns the associated sayembaras for given Vehicles id.
+     *
+     * @param noAggr value of noAggr; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated Sayembara instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<Sayembara> findAssociatedSayembaras(String noAggr, Pageable pageable);
 
     /*
      * Returns the associated reportses for given Vehicles id.

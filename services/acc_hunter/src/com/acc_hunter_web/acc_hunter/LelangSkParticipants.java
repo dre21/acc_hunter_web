@@ -31,11 +31,10 @@ import org.hibernate.annotations.FetchMode;
 public class LelangSkParticipants implements Serializable {
 
     private Integer id;
-    private int userId;
+    private String cdColl;
     private int lelangSkDetailId;
     private Integer bid;
     private LelangSkDetail lelangSkDetail;
-    private Users users;
 
     @Id
     @SequenceGenerator(name = "generator", sequenceName = "`lelang_sk_participants_id_seq`" , allocationSize = 1)
@@ -49,13 +48,13 @@ public class LelangSkParticipants implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "`user_id`", nullable = false, scale = 0, precision = 10)
-    public int getUserId() {
-        return this.userId;
+    @Column(name = "`cd_coll`", nullable = false, length = 10)
+    public String getCdColl() {
+        return this.cdColl;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCdColl(String cdColl) {
+        this.cdColl = cdColl;
     }
 
     @Column(name = "`lelang_sk_detail_id`", nullable = false, scale = 0, precision = 10)
@@ -77,7 +76,7 @@ public class LelangSkParticipants implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`lelang_sk_detail_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_lelang_sk_participantMS492`"))
+    @JoinColumn(name = "`lelang_sk_detail_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`lelang_sk_participants_lelang_sk_detail_fkey`"))
     @Fetch(FetchMode.JOIN)
     public LelangSkDetail getLelangSkDetail() {
         return this.lelangSkDetail;
@@ -89,21 +88,6 @@ public class LelangSkParticipants implements Serializable {
         }
 
         this.lelangSkDetail = lelangSkDetail;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`user_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_lelang_sk_participantfHsDZ`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.userId = users.getId();
-        }
-
-        this.users = users;
     }
 
     @Override

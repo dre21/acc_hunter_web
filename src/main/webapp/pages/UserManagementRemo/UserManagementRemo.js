@@ -19,3 +19,10 @@ Page.onReady = function() {
 Page.insertNewUserRemoonBeforeInsertRecord = function(variable, inputData, options) {
     inputData.createdAt = new Date();
 };
+Page.picture6Click = function($event, widget, item, currentItemWidgets) {
+    if (currentItemWidgets.pictureEdit.show == false) {
+        currentItemWidgets.pictureEdit.show = true;
+    } else {
+        currentItemWidgets.pictureEdit.show = false;
+    }
+};

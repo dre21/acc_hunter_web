@@ -57,7 +57,7 @@
                             <wm-container class="col-md-9" name="container5_1">
                                 <wm-label class="col-md-3 control-label" caption="ID Permintaan SK" color="#999C9F" width="50%" name="label6"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getSKReqDetailDashboard.dataSet[$i].id" name="text1" type="number"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].idPermintaanSk" name="text1" type="number"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn10">
@@ -65,7 +65,7 @@
                             <wm-container class="col-md-9" name="container6_1">
                                 <wm-label class="col-md-3 control-label" caption="No. Agreement" color="#999C9F" width="50%" name="label7"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getSKReqDetailDashboard.dataSet[$i].aggrNo" name="text2"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].nomorAgreement" name="text2"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn11">
@@ -73,7 +73,7 @@
                             <wm-container class="col-md-9" name="container7_1">
                                 <wm-label class="col-md-3 control-label" caption="Nama Requestor" color="#999C9F" width="50%" name="label8"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getSKReqDetailDashboard.dataSet[$i].users.fullName" name="text3"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].namaLengkap" name="text3"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                 </wm-gridrow>
@@ -83,7 +83,7 @@
                             <wm-container class="col-md-9" name="container9">
                                 <wm-label class="col-md-3 control-label" caption="BTO Request" color="#999C9F" width="50%" name="label10"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getSKReqDetailDashboard.dataSet[$i].btoRequest" name="text5" type="number"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].btoRequest" name="text5" type="number"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn13">
@@ -91,12 +91,12 @@
                             <wm-container class="col-md-9" name="container10">
                                 <wm-label class="col-md-3 control-label" caption="Waktu" color="#999C9F" width="50%" name="label11"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getSKReqDetailDashboard.dataSet[$i].createdDate" name="text6" type="datetime-local"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].waktu" name="text6" type="datetime-local"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn14" horizontalalign="center">
                         <wm-label padding="1em 0.5em unset 0.5em" name="labelStatus" width="100%" height="50" margin="1em unset unset unset" textalign="center" backgroundcolor="#ffffff" class="box-status" conditionalclass="bind:{'approved': Widgets.textStatus.datavalue === 'true', 'not-approved': Widgets.textStatus.datavalue === 'false'}
-" caption="bind:Variables.getSKReqDetailDashboard.dataSet[$i].status"></wm-label>
+" caption="bind:Variables.reqSKDetailData.dataSet[$i].status"></wm-label>
                     </wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow7">
@@ -112,7 +112,7 @@
                             <wm-container class="col-md-9" name="container12">
                                 <wm-label class="col-md-3 control-label" caption="ID Requestor" color="#999C9F" width="50%" name="label14"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].id" type="number" name="text8"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].idRequestor" type="number" name="text8"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn19">
@@ -120,7 +120,7 @@
                             <wm-container class="col-md-9" name="container13">
                                 <wm-label class="col-md-3 control-label" caption="Nomor KTP" color="#999C9F" width="50%" name="label15"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].identityNumber" name="text9"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].noKtp" name="text9"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn20">
@@ -128,7 +128,7 @@
                             <wm-container class="col-md-9" name="container14">
                                 <wm-label class="col-md-3 control-label" caption="Nama Lengkap" color="#999C9F" width="50%" name="label16"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].fullName" name="text10"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].namaLengkap" name="text10"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                 </wm-gridrow>
@@ -138,7 +138,7 @@
                             <wm-container class="col-md-9" name="container15">
                                 <wm-label class="col-md-3 control-label" caption="Nomor HP" color="#999C9F" width="50%" name="label17"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].phoneNumber" name="text11"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].phoneNumber" name="text11"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn22">
@@ -146,7 +146,7 @@
                             <wm-container class="col-md-9" name="container16">
                                 <wm-label class="col-md-3 control-label" caption="Role" color="#999C9F" width="50%" name="label18"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].roles.name" name="text12"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].roleName" name="text12"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn23">
@@ -154,7 +154,7 @@
                             <wm-container class="col-md-9" name="container17">
                                 <wm-label class="col-md-3 control-label" caption="Terdaftar Sejak" color="#999C9F" width="50%" name="label19"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].createdAt" name="text13" type="datetime-local"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].terdaftarSejak" name="text13" type="datetime-local"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                 </wm-gridrow>
@@ -164,7 +164,7 @@
                             <wm-container class="col-md-9" name="container18">
                                 <wm-label class="col-md-3 control-label" caption="Alamat" color="#999C9F" width="50%" name="label20"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.getUserRequestorDetail.dataSet[$i].address" name="text14"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].alamat" name="text14"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn25"></wm-gridcolumn>
@@ -191,7 +191,7 @@
                             <wm-container class="col-md-9" name="container20">
                                 <wm-label class="col-md-3 control-label" caption="Nomor Agreement" color="#999C9F" width="50%" name="label23"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="textAggreementNo" datavalue="bind:Variables.getVehiclesByAgreementNo.dataSet[$i].noAggr"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="textAggreementNo" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].nomorAgreement"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn32">
@@ -199,7 +199,7 @@
                             <wm-container class="col-md-9" name="container21">
                                 <wm-label class="col-md-3 control-label" caption="No. Polisi" color="#999C9F" width="50%" name="label24"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="textNoPolisi" datavalue="bind:Variables.getVehiclesByAgreementNo.dataSet[$i].noCarPolice"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="textNoPolisi" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].nomorPolisi"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                 </wm-gridrow>
@@ -209,7 +209,7 @@
                             <wm-container class="col-md-9" name="container22">
                                 <wm-label class="col-md-3 control-label" caption="Tanggal Go Live" color="#999C9F" width="50%" name="label25"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="textTglGoLive" type="text" datavalue="bind:Variables.getVehiclesByAgreementNo.dataSet[$i].dtGolive | toDate: 'yyyy-MM-dd'"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="textTglGoLive" type="text" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].tanggalGolive | toDate: 'yyyy-MM-dd HH:mm'"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn34">
@@ -217,7 +217,7 @@
                             <wm-container class="col-md-9" name="container23">
                                 <wm-label class="col-md-3 control-label" caption="Status Kontrak" color="#999C9F" width="50%" name="label26"></wm-label>
                             </wm-container>
-                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="text19"></wm-text>
+                            <wm-text width="95%" class="dialog-text" placeholder="" disabled="true" name="text19" datavalue="bind:Variables.reqSKDetailData.dataSet[$i].statusKontrak"></wm-text>
                         </wm-composite>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn35"></wm-gridcolumn>

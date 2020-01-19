@@ -1,1 +1,59 @@
+ul > li.app-menu-item > a > span.anchor-caption {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #63839F !important;
+}
 
+li > a.app-anchor > span.anchor-caption {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    color: #404C59 !important;
+}
+
+.menu-label {
+    font-family: Nunito Sans !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #404C59 !important;
+}
+
+ul > li.app-menu-item.active > a > span.anchor-caption {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #007AFF !important;
+}
+
+li.active > a.app-anchor > span.anchor-caption {
+    font-family: Nunito Sans !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #285073 !important;
+}
+
+li > div.open > a.app-anchor {
+    font-family: Nunito Sans !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #285073 !important;
+    border-right: 0.33em solid #285073 !important;
+}
+
+li.active > a.app-anchor {
+    border-right: 0.33em solid #285073 !important;
+}

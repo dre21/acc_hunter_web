@@ -1,0 +1,135 @@
+{
+  "GetSKRequestApprovedList" : {
+    "_id" : "wm-GetSKRequestApprovedList-wm.ServiceVariable-1576798844484",
+    "name" : "GetSKRequestApprovedList",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "search",
+      "value" : "bind:\"%\" + Widgets.searchApprovedRequest.datavalue + \"%\"",
+      "type" : "string"
+    }, {
+      "target" : "size",
+      "value" : "bind:Widgets.sizeApproveList.datavalue",
+      "type" : "integer"
+    }, {
+      "target" : "select",
+      "value" : "bind:Widgets.selectDokumen.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestApprovedListResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetSKRequestApprovedList",
+    "operationId" : "QueryExecutionController_executeGetSKRequestApprovedList",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onBeforeUpdate" : "GetSKRequestApprovedListonBeforeUpdate(variable, inputData)",
+    "onBeforeDatasetReady" : "GetSKRequestApprovedListonBeforeDatasetReady(variable, data, options)",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "GetSKRequestPendingList" : {
+    "_id" : "wm-GetSKRequestPendingList-wm.ServiceVariable-1576795043222",
+    "name" : "GetSKRequestPendingList",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "search",
+      "value" : "bind:\"%\" + Widgets.searchPendingRequest.datavalue + \"%\"",
+      "type" : "string"
+    }, {
+      "target" : "size",
+      "value" : "bind:Widgets.totalViewPending.datavalue",
+      "type" : "integer"
+    } ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetSkrequestPendingListResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetSKRequestPendingList",
+    "operationId" : "QueryExecutionController_executeGetSKRequestPendingList",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onBeforeDatasetReady" : "GetSKRequestPendingListonBeforeDatasetReady(variable, data, options)",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "status" : {
+    "_id" : "wm-status-wm.Variable-1576799987740",
+    "name" : "status",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "OK",
+      "dataValue" : "Y"
+    }, {
+      "name" : "NOT OK",
+      "dataValue" : "N"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "UpdateFlagSKRequest" : {
+    "_id" : "wm-UpdateFlagSKRequest-wm.ServiceVariable-1577077640185",
+    "name" : "UpdateFlagSKRequest",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "contract",
+      "value" : "bind:Widgets.flagKontrak.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "fidusia",
+      "value" : "bind:Widgets.flagFidusia.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "schedule",
+      "value" : "bind:Widgets.flagSchedule.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "digisign",
+      "value" : "bind:Widgets.flagSK.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "noSr",
+      "value" : "bind:Widgets.list2.selecteditem.noSr",
+      "type" : "integer"
+    }, {
+      "target" : "noAggr",
+      "value" : "bind:Widgets.list2.selecteditem.noAggr",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",
+    "service" : "acc_hunter",
+    "operation" : "executeUpdateFlagSKRequest",
+    "operationId" : "QueryExecutionController_executeUpdateFlagSKRequest",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Actions.suksesUpdate.invoke();Variables.GetSKRequestApprovedList.invoke()",
+    "onError" : "Actions.gagalUpdate.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

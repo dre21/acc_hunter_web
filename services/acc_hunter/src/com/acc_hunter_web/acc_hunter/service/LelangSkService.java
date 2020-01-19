@@ -21,6 +21,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
+import com.acc_hunter_web.acc_hunter.LelangParticipants;
 import com.acc_hunter_web.acc_hunter.LelangSk;
 import com.acc_hunter_web.acc_hunter.LelangSkDetail;
 
@@ -73,14 +74,6 @@ public interface LelangSkService {
      */
     List<LelangSk> findByMultipleIds(List<Integer> lelangskIds, boolean orderedReturn);
 
-    /**
-     * Find and return the LelangSk for given remoId  if exists.
-     *
-     * @param remoId value of remoId; value cannot be null.
-     * @return LelangSk associated with the given inputs.
-     * @throws EntityNotFoundException if no matching LelangSk found.
-     */
-    LelangSk getByRemoId(int remoId);
 
     /**
      * Updates the details of an existing LelangSk. It replaces all fields of the existing LelangSk with the given lelangSk.
@@ -215,5 +208,17 @@ public interface LelangSkService {
      * @see Page
      */
     Page<LelangSkDetail> findAssociatedLelangSkDetails(Integer id, Pageable pageable);
+
+    /*
+     * Returns the associated lelangParticipantses for given LelangSk id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated LelangParticipants instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<LelangParticipants> findAssociatedLelangParticipantses(Integer id, Pageable pageable);
 
 }

@@ -7,6 +7,7 @@ package com.acc_hunter_web.acc_hunter.service;
 
 import java.io.OutputStream;
 import java.math.BigInteger;
+import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,22 +35,581 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
     @Qualifier("acc_hunterWMQueryExecutor")
     private WMQueryExecutor queryExecutor;
 
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeInsertNewEfficiencySK(InsertNewEfficiencySkRequest insertNewEfficiencySkRequest) {
+        Map<String, Object> params = new HashMap<>(7);
+
+        params.put("operator", insertNewEfficiencySkRequest.getOperator());
+        params.put("value1", insertNewEfficiencySkRequest.getValue1());
+        params.put("value2", insertNewEfficiencySkRequest.getValue2());
+        params.put("point", insertNewEfficiencySkRequest.getPoint());
+        params.put("status", insertNewEfficiencySkRequest.getStatus());
+        params.put("created_at", insertNewEfficiencySkRequest.getCreatedAt());
+        params.put("created_by", insertNewEfficiencySkRequest.getCreatedBy());
+
+        return queryExecutor.executeNamedQueryForUpdate("insertNewEfficiencySK", params);
+    }
+
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
-    public Page<GetAllUsersRemoResponse> executeGetAllUsersRemo(Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(0);
+    public Page<GetParticipantLelangDetailResponse> executeGetParticipantLelangDetail(Integer idLelang, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
 
+        params.put("idLelang", idLelang);
 
-        return queryExecutor.executeNamedQuery("getAllUsersRemo", params, GetAllUsersRemoResponse.class, pageable);
+        return queryExecutor.executeNamedQuery("GetParticipantLelangDetail", params, GetParticipantLelangDetailResponse.class, pageable);
     }
 
     @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportGetAllUsersRemo(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+    public void exportGetParticipantLelangDetail(Integer idLelang, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("idLelang", idLelang);
+
+        QueryProcedureInput<GetParticipantLelangDetailResponse> queryInput = new QueryProcedureInput<>("GetParticipantLelangDetail", params, GetParticipantLelangDetailResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfUrutanSk(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfUrutanSk", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfBadgesBonus(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfBadgesBonus", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfJenisSk(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfJenisSk", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetNoAggrListLelangResponse> executeGetNoAggrListLelang(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetNoAggrListLelang", params, GetNoAggrListLelangResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetNoAggrListLelang(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetNoAggrListLelangResponse> queryInput = new QueryProcedureInput<>("GetNoAggrListLelang", params, GetNoAggrListLelangResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetDetailLaporanByAgreementNoResponse> executeGetDetailLaporanByAgreementNo(String agreementNo, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("agreement_no", agreementNo);
+
+        return queryExecutor.executeNamedQuery("getDetailLaporanByAgreementNo", params, GetDetailLaporanByAgreementNoResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetDetailLaporanByAgreementNo(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("agreement_no", agreementNo);
+
+        QueryProcedureInput<GetDetailLaporanByAgreementNoResponse> queryInput = new QueryProcedureInput<>("getDetailLaporanByAgreementNo", params, GetDetailLaporanByAgreementNoResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetReqSkdetailResponse> executeGetReqSKDetail(String noAggr, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("no_aggr", noAggr);
+
+        return queryExecutor.executeNamedQuery("getReqSKDetail", params, GetReqSkdetailResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetReqSKDetail(String noAggr, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("no_aggr", noAggr);
+
+        QueryProcedureInput<GetReqSkdetailResponse> queryInput = new QueryProcedureInput<>("getReqSKDetail", params, GetReqSkdetailResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<CheckEmailAvailableResponse> executeCheckEmailAvailable(String email, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("email", email);
+
+        return queryExecutor.executeNamedQuery("checkEmailAvailable", params, CheckEmailAvailableResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportCheckEmailAvailable(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("email", email);
+
+        QueryProcedureInput<CheckEmailAvailableResponse> queryInput = new QueryProcedureInput<>("checkEmailAvailable", params, CheckEmailAvailableResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetReportsListResponse> executeGetReportsList(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetReportsList", params, GetReportsListResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetReportsList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetReportsListResponse> queryInput = new QueryProcedureInput<>("GetReportsList", params, GetReportsListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetCountDashboardSkResponse> executeGetCountDashboardSK(Pageable pageable) {
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput<GetAllUsersRemoResponse> queryInput = new QueryProcedureInput<>("getAllUsersRemo", params, GetAllUsersRemoResponse.class);
+        return queryExecutor.executeNamedQuery("GetCountDashboardSK", params, GetCountDashboardSkResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetCountDashboardSK(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput<GetCountDashboardSkResponse> queryInput = new QueryProcedureInput<>("GetCountDashboardSK", params, GetCountDashboardSkResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfSaldoAr(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfSaldoAr", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeUpdateFlagShowUsers(UpdateFlagShowUsersRequest updateFlagShowUsersRequest) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", updateFlagShowUsersRequest.getId());
+
+        return queryExecutor.executeNamedQueryForUpdate("updateFlagShowUsers", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetMitraLeaderboardsResponse> executeGetMitraLeaderboards(Date startDate, Date endDate, String city, String badgeType, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(4);
+
+        params.put("startDate", startDate);
+        params.put("endDate", endDate);
+        params.put("city", city);
+        params.put("badgeType", badgeType);
+
+        return queryExecutor.executeNamedQuery("getMitraLeaderboards", params, GetMitraLeaderboardsResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetMitraLeaderboards(Date startDate, Date endDate, String city, String badgeType, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(4);
+
+        params.put("startDate", startDate);
+        params.put("endDate", endDate);
+        params.put("city", city);
+        params.put("badgeType", badgeType);
+
+        QueryProcedureInput<GetMitraLeaderboardsResponse> queryInput = new QueryProcedureInput<>("getMitraLeaderboards", params, GetMitraLeaderboardsResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfBtToSaldo(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfBtToSaldo", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfEfficiencySk(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfEfficiencySk", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetReportListByNoAggrResponse> executeGetReportListByNoAggr(String noAggr, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("noAggr", noAggr);
+
+        return queryExecutor.executeNamedQuery("GetReportListByNoAggr", params, GetReportListByNoAggrResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetReportListByNoAggr(String noAggr, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("noAggr", noAggr);
+
+        QueryProcedureInput<GetReportListByNoAggrResponse> queryInput = new QueryProcedureInput<>("GetReportListByNoAggr", params, GetReportListByNoAggrResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeSetPemenangLelang(SetPemenangLelangRequest setPemenangLelangRequest) {
+        Map<String, Object> params = new HashMap<>(3);
+
+        params.put("cdColl", setPemenangLelangRequest.getCdColl());
+        params.put("winName", setPemenangLelangRequest.getWinName());
+        params.put("id", setPemenangLelangRequest.getId());
+
+        return queryExecutor.executeNamedQueryForUpdate("SetPemenangLelang", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteRewardConfig(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteRewardConfig", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteMasterReward(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteMasterReward", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetLelangTidakAktifResponse> executeGetLelangTidakAktif(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetLelangTidakAktif", params, GetLelangTidakAktifResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetLelangTidakAktif(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetLelangTidakAktifResponse> queryInput = new QueryProcedureInput<>("GetLelangTidakAktif", params, GetLelangTidakAktifResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteGamificationPeojfPaketKredit(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfPaketKredit", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeUpdatePasswordQuery(UpdatePasswordQueryRequest updatePasswordQueryRequest) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("pwd", updatePasswordQueryRequest.getPwd());
+        params.put("email", updatePasswordQueryRequest.getEmail());
+
+        return queryExecutor.executeNamedQueryForUpdate("updatePasswordQuery", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetAllListPesertaLelangResponse> executeGetAllListPesertaLelang(Integer idLelang, String badge, String area, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(3);
+
+        params.put("idLelang", idLelang);
+        params.put("badge", badge);
+        params.put("area", area);
+
+        return queryExecutor.executeNamedQuery("GetAllListPesertaLelang", params, GetAllListPesertaLelangResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetAllListPesertaLelang(Integer idLelang, String badge, String area, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(3);
+
+        params.put("idLelang", idLelang);
+        params.put("badge", badge);
+        params.put("area", area);
+
+        QueryProcedureInput<GetAllListPesertaLelangResponse> queryInput = new QueryProcedureInput<>("GetAllListPesertaLelang", params, GetAllListPesertaLelangResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeInsertNewSaldoAR(InsertNewSaldoArRequest insertNewSaldoArRequest) {
+        Map<String, Object> params = new HashMap<>(7);
+
+        params.put("operator", insertNewSaldoArRequest.getOperator());
+        params.put("value1", insertNewSaldoArRequest.getValue1());
+        params.put("value2", insertNewSaldoArRequest.getValue2());
+        params.put("point", insertNewSaldoArRequest.getPoint());
+        params.put("status", insertNewSaldoArRequest.getStatus());
+        params.put("created_at", insertNewSaldoArRequest.getCreatedAt());
+        params.put("created_by", insertNewSaldoArRequest.getCreatedBy());
+
+        return queryExecutor.executeNamedQueryForUpdate("insertNewSaldoAR", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetAllUsersMitraResponse> executeGetAllUsersMitra(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("getAllUsersMitra", params, GetAllUsersMitraResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetAllUsersMitra(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput<GetAllUsersMitraResponse> queryInput = new QueryProcedureInput<>("getAllUsersMitra", params, GetAllUsersMitraResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetParticipantLelangByLelangIdResponse> executeGetParticipantLelangByLelangID(Integer detailId, String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("detailId", detailId);
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetParticipantLelangByLelangID", params, GetParticipantLelangByLelangIdResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetParticipantLelangByLelangID(Integer detailId, String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("detailId", detailId);
+        params.put("search", search);
+
+        QueryProcedureInput<GetParticipantLelangByLelangIdResponse> queryInput = new QueryProcedureInput<>("GetParticipantLelangByLelangID", params, GetParticipantLelangByLelangIdResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetRecentPointUserResponse> executeGetRecentPointUser(String email, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("email", email);
+
+        return queryExecutor.executeNamedQuery("getRecentPointUser", params, GetRecentPointUserResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetRecentPointUser(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("email", email);
+
+        QueryProcedureInput<GetRecentPointUserResponse> queryInput = new QueryProcedureInput<>("getRecentPointUser", params, GetRecentPointUserResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeInsertNewEfficiencySKNoValue2(InsertNewEfficiencySknoValue2Request insertNewEfficiencySknoValue2request) {
+        Map<String, Object> params = new HashMap<>(6);
+
+        params.put("operator", insertNewEfficiencySknoValue2request.getOperator());
+        params.put("value1", insertNewEfficiencySknoValue2request.getValue1());
+        params.put("point", insertNewEfficiencySknoValue2request.getPoint());
+        params.put("status", insertNewEfficiencySknoValue2request.getStatus());
+        params.put("created_at", insertNewEfficiencySknoValue2request.getCreatedAt());
+        params.put("created_by", insertNewEfficiencySknoValue2request.getCreatedBy());
+
+        return queryExecutor.executeNamedQueryForUpdate("insertNewEfficiencySKNoValue2", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeUpdateRoleUsers(UpdateRoleUsersRequest updateRoleUsersRequest) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("roleId", updateRoleUsersRequest.getRoleId());
+        params.put("id", updateRoleUsersRequest.getId());
+
+        return queryExecutor.executeNamedQueryForUpdate("updateRoleUsers", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<ViewLelangSkaktifResponse> executeViewLelangSKAktif(String agreementNo, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("agreement_no", agreementNo);
+
+        return queryExecutor.executeNamedQuery("viewLelangSKAktif", params, ViewLelangSkaktifResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportViewLelangSKAktif(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("agreement_no", agreementNo);
+
+        QueryProcedureInput<ViewLelangSkaktifResponse> queryInput = new QueryProcedureInput<>("viewLelangSKAktif", params, ViewLelangSkaktifResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetPesertaLelangDataResponse> executeGetPesertaLelangData(Integer lelangSkDetailId, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("lelang_sk_detail_id", lelangSkDetailId);
+
+        return queryExecutor.executeNamedQuery("getPesertaLelangData", params, GetPesertaLelangDataResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetPesertaLelangData(Integer lelangSkDetailId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("lelang_sk_detail_id", lelangSkDetailId);
+
+        QueryProcedureInput<GetPesertaLelangDataResponse> queryInput = new QueryProcedureInput<>("getPesertaLelangData", params, GetPesertaLelangDataResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeUpdateFlagSayembara(UpdateFlagSayembaraRequest updateFlagSayembaraRequest) {
+        Map<String, Object> params = new HashMap<>(5);
+
+        params.put("digisign", updateFlagSayembaraRequest.getDigisign());
+        params.put("contract", updateFlagSayembaraRequest.getContract());
+        params.put("schedule", updateFlagSayembaraRequest.getSchedule());
+        params.put("fidusia", updateFlagSayembaraRequest.getFidusia());
+        params.put("noAggr", updateFlagSayembaraRequest.getNoAggr());
+
+        return queryExecutor.executeNamedQueryForUpdate("updateFlagSayembara", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetSkrequestApprovedListResponse> executeGetSKRequestApprovedList(String search, String _select, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("search", search);
+        params.put("select", _select);
+
+        return queryExecutor.executeNamedQuery("GetSKRequestApprovedList", params, GetSkrequestApprovedListResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetSKRequestApprovedList(String search, String _select, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("search", search);
+        params.put("select", _select);
+
+        QueryProcedureInput<GetSkrequestApprovedListResponse> queryInput = new QueryProcedureInput<>("GetSKRequestApprovedList", params, GetSkrequestApprovedListResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -98,6 +658,337 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
 
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
+    public Page<GetInformanLeaderboardsResponse> executeGetInformanLeaderboards(Date startDate, Date endDate, String city, String badgeType, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(4);
+
+        params.put("startDate", startDate);
+        params.put("endDate", endDate);
+        params.put("city", city);
+        params.put("badgeType", badgeType);
+
+        return queryExecutor.executeNamedQuery("getInformanLeaderboards", params, GetInformanLeaderboardsResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetInformanLeaderboards(Date startDate, Date endDate, String city, String badgeType, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(4);
+
+        params.put("startDate", startDate);
+        params.put("endDate", endDate);
+        params.put("city", city);
+        params.put("badgeType", badgeType);
+
+        QueryProcedureInput<GetInformanLeaderboardsResponse> queryInput = new QueryProcedureInput<>("getInformanLeaderboards", params, GetInformanLeaderboardsResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetSkrequestPendingListResponse> executeGetSKRequestPendingList(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetSKRequestPendingList", params, GetSkrequestPendingListResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetSKRequestPendingList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetSkrequestPendingListResponse> queryInput = new QueryProcedureInput<>("GetSKRequestPendingList", params, GetSkrequestPendingListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetLelangSkdetailByIdlelangListResponse> executeGetLelangSKDetailByIDLelangList(Integer lelangId, String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("lelangId", lelangId);
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetLelangSKDetailByIDLelangList", params, GetLelangSkdetailByIdlelangListResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetLelangSKDetailByIDLelangList(Integer lelangId, String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("lelangId", lelangId);
+        params.put("search", search);
+
+        QueryProcedureInput<GetLelangSkdetailByIdlelangListResponse> queryInput = new QueryProcedureInput<>("GetLelangSKDetailByIDLelangList", params, GetLelangSkdetailByIdlelangListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteLelangParticipants(Integer detailLelang) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("detailLelang", detailLelang);
+
+        return queryExecutor.executeNamedQueryForUpdate("DeleteLelangParticipants", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetAllSknewResponse> executeGetAllSKNew(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("getAllSKNew", params, GetAllSknewResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetAllSKNew(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput<GetAllSknewResponse> queryInput = new QueryProcedureInput<>("getAllSKNew", params, GetAllSknewResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetSayembaraListResponse> executeGetSayembaraList(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("GetSayembaraList", params, GetSayembaraListResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetSayembaraList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput<GetSayembaraListResponse> queryInput = new QueryProcedureInput<>("GetSayembaraList", params, GetSayembaraListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetLelangAktifResponse> executeGetLelangAktif(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetLelangAktif", params, GetLelangAktifResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetLelangAktif(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetLelangAktifResponse> queryInput = new QueryProcedureInput<>("GetLelangAktif", params, GetLelangAktifResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetPilihWinnerSklistResponse> executeGetPilihWinnerSKList(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetPilihWinnerSKList", params, GetPilihWinnerSklistResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetPilihWinnerSKList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetPilihWinnerSklistResponse> queryInput = new QueryProcedureInput<>("GetPilihWinnerSKList", params, GetPilihWinnerSklistResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeUpdateFlagSKRequest(UpdateFlagSkrequestRequest updateFlagSkrequestRequest) {
+        Map<String, Object> params = new HashMap<>(6);
+
+        params.put("digisign", updateFlagSkrequestRequest.getDigisign());
+        params.put("contract", updateFlagSkrequestRequest.getContract());
+        params.put("schedule", updateFlagSkrequestRequest.getSchedule());
+        params.put("fidusia", updateFlagSkrequestRequest.getFidusia());
+        params.put("noAggr", updateFlagSkrequestRequest.getNoAggr());
+        params.put("noSr", updateFlagSkrequestRequest.getNoSr());
+
+        return queryExecutor.executeNamedQueryForUpdate("UpdateFlagSKRequest", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeDeleteLelangImages(Integer id) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("id", id);
+
+        return queryExecutor.executeNamedQueryForUpdate("deleteLelangImages", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetLelangSkdetailByRemoIdResponse> executeGetLelangSKDetailByRemoId(Integer remoId, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("remo_id", remoId);
+
+        return queryExecutor.executeNamedQuery("getLelangSKDetailByRemoId", params, GetLelangSkdetailByRemoIdResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetLelangSKDetailByRemoId(Integer remoId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("remo_id", remoId);
+
+        QueryProcedureInput<GetLelangSkdetailByRemoIdResponse> queryInput = new QueryProcedureInput<>("getLelangSKDetailByRemoId", params, GetLelangSkdetailByRemoIdResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetUserByEmailQueryResponse> executeGetUserByEmailQuery(String email, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("email", email);
+
+        return queryExecutor.executeNamedQuery("getUserByEmailQuery", params, GetUserByEmailQueryResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetUserByEmailQuery(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("email", email);
+
+        QueryProcedureInput<GetUserByEmailQueryResponse> queryInput = new QueryProcedureInput<>("getUserByEmailQuery", params, GetUserByEmailQueryResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeInsertNewBTToSaldoNoValue2(InsertNewBttoSaldoNoValue2Request insertNewBttoSaldoNoValue2request) {
+        Map<String, Object> params = new HashMap<>(6);
+
+        params.put("operator", insertNewBttoSaldoNoValue2request.getOperator());
+        params.put("value1", insertNewBttoSaldoNoValue2request.getValue1());
+        params.put("point", insertNewBttoSaldoNoValue2request.getPoint());
+        params.put("status", insertNewBttoSaldoNoValue2request.getStatus());
+        params.put("created_at", insertNewBttoSaldoNoValue2request.getCreatedAt());
+        params.put("created_by", insertNewBttoSaldoNoValue2request.getCreatedBy());
+
+        return queryExecutor.executeNamedQueryForUpdate("insertNewBTToSaldoNoValue2", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetCityByProvinceResponse> executeGetCItyByProvince(String provinceName, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("province_name", provinceName);
+
+        return queryExecutor.executeNamedQuery("getCItyByProvince", params, GetCityByProvinceResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetCItyByProvince(String provinceName, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("province_name", provinceName);
+
+        QueryProcedureInput<GetCityByProvinceResponse> queryInput = new QueryProcedureInput<>("getCItyByProvince", params, GetCityByProvinceResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetLelangListResponse> executeGetLelangList(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetLelangList", params, GetLelangListResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetLelangList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetLelangListResponse> queryInput = new QueryProcedureInput<>("GetLelangList", params, GetLelangListResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetAllUsersRemoResponse> executeGetAllUsersRemo(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("getAllUsersRemo", params, GetAllUsersRemoResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetAllUsersRemo(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput<GetAllUsersRemoResponse> queryInput = new QueryProcedureInput<>("getAllUsersRemo", params, GetAllUsersRemoResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager")
+    @Override
+    public Integer executeInsertNewSaldoARNoValue2(InsertNewSaldoArnoValue2Request insertNewSaldoArnoValue2request) {
+        Map<String, Object> params = new HashMap<>(6);
+
+        params.put("operator", insertNewSaldoArnoValue2request.getOperator());
+        params.put("value1", insertNewSaldoArnoValue2request.getValue1());
+        params.put("point", insertNewSaldoArnoValue2request.getPoint());
+        params.put("status", insertNewSaldoArnoValue2request.getStatus());
+        params.put("created_at", insertNewSaldoArnoValue2request.getCreatedAt());
+        params.put("created_by", insertNewSaldoArnoValue2request.getCreatedBy());
+
+        return queryExecutor.executeNamedQueryForUpdate("insertNewSaldoARNoValue2", params);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
     public Page<GetUserIdByEmailResponse> executeGetUserIdByEmail(String email, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
@@ -140,17 +1031,6 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
 
-    @Transactional(value = "acc_hunterTransactionManager")
-    @Override
-    public Integer executeUpdatePasswordQuery(UpdatePasswordQueryRequest updatePasswordQueryRequest) {
-        Map<String, Object> params = new HashMap<>(2);
-
-        params.put("pwd", updatePasswordQueryRequest.getPwd());
-        params.put("email", updatePasswordQueryRequest.getEmail());
-
-        return queryExecutor.executeNamedQueryForUpdate("updatePasswordQuery", params);
-    }
-
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
     public Page<GetAllUsersPoolResponse> executeGetAllUsersPool(Pageable pageable) {
@@ -167,6 +1047,28 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
 
 
         QueryProcedureInput<GetAllUsersPoolResponse> queryInput = new QueryProcedureInput<>("getAllUsersPool", params, GetAllUsersPoolResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Override
+    public Page<GetDocumentLelangResponse> executeGetDocumentLelang(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        return queryExecutor.executeNamedQuery("GetDocumentLelang", params, GetDocumentLelangResponse.class, pageable);
+    }
+
+    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportGetDocumentLelang(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
+
+        params.put("search", search);
+
+        QueryProcedureInput<GetDocumentLelangResponse> queryInput = new QueryProcedureInput<>("GetDocumentLelang", params, GetDocumentLelangResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -191,64 +1093,45 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
 
-    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Transactional(value = "acc_hunterTransactionManager")
     @Override
-    public Page<GetAllSknewResponse> executeGetAllSKNew(Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(0);
+    public Integer executeUpdateFlagRedeem(UpdateFlagRedeemRequest updateFlagRedeemRequest) {
+        Map<String, Object> params = new HashMap<>(2);
 
+        params.put("date_confirm", updateFlagRedeemRequest.getDateConfirm());
+        params.put("id", updateFlagRedeemRequest.getId());
 
-        return queryExecutor.executeNamedQuery("getAllSKNew", params, GetAllSknewResponse.class, pageable);
+        return queryExecutor.executeNamedQueryForUpdate("updateFlagRedeem", params);
     }
 
-    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
+    @Transactional(value = "acc_hunterTransactionManager")
     @Override
-    public void exportGetAllSKNew(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(0);
-
-
-        QueryProcedureInput<GetAllSknewResponse> queryInput = new QueryProcedureInput<>("getAllSKNew", params, GetAllSknewResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
-    @Override
-    public Page<GetDetailLaporanByAgreementNoResponse> executeGetDetailLaporanByAgreementNo(String agreementNo, Pageable pageable) {
+    public Integer executeDeleteGamificationPeojfSeasonalPoint(Integer id) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("agreement_no", agreementNo);
+        params.put("id", id);
 
-        return queryExecutor.executeNamedQuery("getDetailLaporanByAgreementNo", params, GetDetailLaporanByAgreementNoResponse.class, pageable);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
-    @Override
-    public void exportGetDetailLaporanByAgreementNo(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("agreement_no", agreementNo);
-
-        QueryProcedureInput<GetDetailLaporanByAgreementNoResponse> queryInput = new QueryProcedureInput<>("getDetailLaporanByAgreementNo", params, GetDetailLaporanByAgreementNoResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+        return queryExecutor.executeNamedQueryForUpdate("DeleteGamificationPeojfSeasonalPoint", params);
     }
 
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
-    public Page<GetAllUsersMitraResponse> executeGetAllUsersMitra(Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(0);
+    public Page<GetSkrequestPerpanjangApprovedListResponse> executeGetSKRequestPerpanjangApprovedList(String search, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
 
+        params.put("search", search);
 
-        return queryExecutor.executeNamedQuery("getAllUsersMitra", params, GetAllUsersMitraResponse.class, pageable);
+        return queryExecutor.executeNamedQuery("GetSKRequestPerpanjangApprovedList", params, GetSkrequestPerpanjangApprovedListResponse.class, pageable);
     }
 
     @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportGetAllUsersMitra(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(0);
+    public void exportGetSKRequestPerpanjangApprovedList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
 
+        params.put("search", search);
 
-        QueryProcedureInput<GetAllUsersMitraResponse> queryInput = new QueryProcedureInput<>("getAllUsersMitra", params, GetAllUsersMitraResponse.class);
+        QueryProcedureInput<GetSkrequestPerpanjangApprovedListResponse> queryInput = new QueryProcedureInput<>("GetSKRequestPerpanjangApprovedList", params, GetSkrequestPerpanjangApprovedListResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -297,28 +1180,6 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
 
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
-    public Page<GetLelangSkdetailByRemoIdResponse> executeGetLelangSKDetailByRemoId(Integer remoId, Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("remo_id", remoId);
-
-        return queryExecutor.executeNamedQuery("getLelangSKDetailByRemoId", params, GetLelangSkdetailByRemoIdResponse.class, pageable);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
-    @Override
-    public void exportGetLelangSKDetailByRemoId(Integer remoId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("remo_id", remoId);
-
-        QueryProcedureInput<GetLelangSkdetailByRemoIdResponse> queryInput = new QueryProcedureInput<>("getLelangSKDetailByRemoId", params, GetLelangSkdetailByRemoIdResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
-    @Override
     public Page<GetReportImagesByIdResponse> executeGetReportImagesById(BigInteger id, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
@@ -341,88 +1202,60 @@ public class Acc_hunterQueryExecutorServiceImpl implements Acc_hunterQueryExecut
 
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
-    public Page<GetUserByEmailQueryResponse> executeGetUserByEmailQuery(String email, Pageable pageable) {
+    public Page<GetSkrequestPerpanjangPendingListResponse> executeGetSKRequestPerpanjangPendingList(String search, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("email", email);
+        params.put("search", search);
 
-        return queryExecutor.executeNamedQuery("getUserByEmailQuery", params, GetUserByEmailQueryResponse.class, pageable);
+        return queryExecutor.executeNamedQuery("GetSKRequestPerpanjangPendingList", params, GetSkrequestPerpanjangPendingListResponse.class, pageable);
     }
 
     @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportGetUserByEmailQuery(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+    public void exportGetSKRequestPerpanjangPendingList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("email", email);
+        params.put("search", search);
 
-        QueryProcedureInput<GetUserByEmailQueryResponse> queryInput = new QueryProcedureInput<>("getUserByEmailQuery", params, GetUserByEmailQueryResponse.class);
+        QueryProcedureInput<GetSkrequestPerpanjangPendingListResponse> queryInput = new QueryProcedureInput<>("GetSKRequestPerpanjangPendingList", params, GetSkrequestPerpanjangPendingListResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
 
-    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
+    @Transactional(value = "acc_hunterTransactionManager")
     @Override
-    public Page<ViewLelangSkaktifResponse> executeViewLelangSKAktif(String agreementNo, Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(1);
+    public Integer executeInsertNewBTToSaldo(InsertNewBttoSaldoRequest insertNewBttoSaldoRequest) {
+        Map<String, Object> params = new HashMap<>(7);
 
-        params.put("agreement_no", agreementNo);
+        params.put("operator", insertNewBttoSaldoRequest.getOperator());
+        params.put("value1", insertNewBttoSaldoRequest.getValue1());
+        params.put("value2", insertNewBttoSaldoRequest.getValue2());
+        params.put("point", insertNewBttoSaldoRequest.getPoint());
+        params.put("status", insertNewBttoSaldoRequest.getStatus());
+        params.put("created_at", insertNewBttoSaldoRequest.getCreatedAt());
+        params.put("created_by", insertNewBttoSaldoRequest.getCreatedBy());
 
-        return queryExecutor.executeNamedQuery("viewLelangSKAktif", params, ViewLelangSkaktifResponse.class, pageable);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
-    @Override
-    public void exportViewLelangSKAktif(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("agreement_no", agreementNo);
-
-        QueryProcedureInput<ViewLelangSkaktifResponse> queryInput = new QueryProcedureInput<>("viewLelangSKAktif", params, ViewLelangSkaktifResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+        return queryExecutor.executeNamedQueryForUpdate("insertNewBTToSaldo", params);
     }
 
     @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
     @Override
-    public Page<GetCityByProvinceResponse> executeGetCItyByProvince(String provinceName, Pageable pageable) {
+    public Page<GetUserParticipantLelangResponse> executeGetUserParticipantLelang(Integer idLelang, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("province_name", provinceName);
+        params.put("idLelang", idLelang);
 
-        return queryExecutor.executeNamedQuery("getCItyByProvince", params, GetCityByProvinceResponse.class, pageable);
+        return queryExecutor.executeNamedQuery("GetUserParticipantLelang", params, GetUserParticipantLelangResponse.class, pageable);
     }
 
     @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportGetCItyByProvince(String provinceName, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+    public void exportGetUserParticipantLelang(Integer idLelang, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
         Map<String, Object> params = new HashMap<>(1);
 
-        params.put("province_name", provinceName);
+        params.put("idLelang", idLelang);
 
-        QueryProcedureInput<GetCityByProvinceResponse> queryInput = new QueryProcedureInput<>("getCItyByProvince", params, GetCityByProvinceResponse.class);
-
-        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", readOnly = true)
-    @Override
-    public Page<GetPesertaLelangDataResponse> executeGetPesertaLelangData(Integer lelangSkDetailId, Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("lelang_sk_detail_id", lelangSkDetailId);
-
-        return queryExecutor.executeNamedQuery("getPesertaLelangData", params, GetPesertaLelangDataResponse.class, pageable);
-    }
-
-    @Transactional(value = "acc_hunterTransactionManager", timeout = 300, readOnly = true)
-    @Override
-    public void exportGetPesertaLelangData(Integer lelangSkDetailId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(1);
-
-        params.put("lelang_sk_detail_id", lelangSkDetailId);
-
-        QueryProcedureInput<GetPesertaLelangDataResponse> queryInput = new QueryProcedureInput<>("getPesertaLelangData", params, GetPesertaLelangDataResponse.class);
+        QueryProcedureInput<GetUserParticipantLelangResponse> queryInput = new QueryProcedureInput<>("GetUserParticipantLelang", params, GetUserParticipantLelangResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

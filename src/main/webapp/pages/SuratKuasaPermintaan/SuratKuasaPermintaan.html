@@ -1,0 +1,281 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="PERMINTAAN SURAT KUASA" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="Surat Kuasa" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="Permintaan SK" class="breadcumb" color="#565656"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 3% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn18_2">
+                        <wm-label name="pending" id="pending" caption="Pending Request" class="point-menu clicked" color="#A7A7A7" on-click="pendingClick($event, widget)"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="approved" name="approved" caption="Approved Request" class="point-menu" color="#A7A7A7" on-click="approvedClick($event, widget)"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10_1" horizontalalign="center">
+                        <wm-container name="pendingContainer" width="100%" horizontalalign="left" padding="5%" backgroundcolor="#ffffff" class="informan-cont" show="true">
+                            <wm-layoutgrid name="layoutgrid3">
+                                <wm-gridrow name="gridrow12" padding="unset unset 3em unset">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn27">
+                                        <wm-text name="searchPendingRequest" placeholder="Search here..." class="search-btn" height="48"></wm-text>
+                                        <wm-picture name="picture3_1" picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn28"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow8" padding="unset unset 1% unset">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn9_1">
+                                        <wm-label padding="unset 0.5em" name="label6" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_2">
+                                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="Nama Requestor" class="theader" color="#98A9BC"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_2">
+                                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="No Aggreement" class="theader" color="#98A9BC"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn9_3">
+                                        <wm-label padding="unset 0.5em unset unset" name="label7" caption="Tanggal Permintaan" class="theader" color="#98A9BC"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn10_1">
+                                        <wm-label padding="unset 0.5em unset unset" name="label8" caption="Action" class="theader" color="#98A9BC"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn11">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="SKrequestPending" dataset="bind:Variables.GetSKRequestPendingList.dataSet" navigation="Basic"
+                                            nodatamessage="Tidak ada surat kuasa yang ditemukan" navigationalign="right">
+                                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                                <wm-container class="media-body" name="container3" height="64px">
+                                                    <wm-layoutgrid name="layoutgrid3">
+                                                        <wm-gridrow name="gridrow7">
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetSKRequestPendingList.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetSKRequestPendingList.dataSet[$i].name" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetSKRequestPendingList.dataSet[$i].noAggr" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn15">
+                                                                <wm-label padding="unset 0.5em" name="label12" caption="bind:Variables.GetSKRequestPendingList.dataSet[$i].reqSkDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label"
+                                                                    width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                <wm-layoutgrid name="layoutgrid4">
+                                                                    <wm-gridrow name="gridrow9">
+                                                                        <wm-gridcolumn columnwidth="6" name="gridcolumn19" horizontalalign="left">
+                                                                            <wm-container name="container5" width="100%" horizontalalign="left">
+                                                                                <wm-picture name="picture3" picturesource="resources/images/imagelists/tiga-bulet.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.SKReqDetail.open()"></wm-picture>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-composite name="composite1" width="6em" class="view" captionposition="left" horizontalalign="center">
+                                <wm-container class="col-md-9" name="container6" width="100%">
+                                    <wm-select name="totalViewPending" dataset="10, 20, 30, 50, 100" datavalue="10"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn20">
+                        <wm-container name="approvedContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%">
+                            <wm-layoutgrid name="layoutgrid6">
+                                <wm-gridrow padding="unset unset 3em unset" name="gridrow13">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn25">
+                                        <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchApprovedRequest"></wm-text>
+                                        <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture4"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn48"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn26">
+                                        <wm-container class="col-md-9" width="100%" name="container15">
+                                            <wm-select dataset="Ready, Not Ready" datavalue="10" name="selectDokumen" placeholder="Pilih Jenis Dokumen" datafield="All Fields" class="search-btn"></wm-select>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow padding="unset unset 1% unset" name="gridrow14">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn27_1">
+                                        <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label18"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn28_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="ID Permintaan" class="theader" color="#98A9BC" name="label19"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn28_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Nama Requestor" class="theader" color="#98A9BC" name="label19"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn29">
+                                        <wm-label padding="unset 0.5em unset unset" caption="No Aggreement" class="theader" color="#98A9BC" name="label20"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn30">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Kadaluwarsa" class="theader" color="#98A9BC" name="label21"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn31">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Dokumen" class="theader" color="#98A9BC" name="label22"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetSKRequestApprovedList.dataSet" navigation="Basic" nodatamessage="Tidak ada surat kuasa yang ditemukan"
+                                            navigationalign="right" name="list2">
+                                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                                <wm-container class="media-body" height="64px" name="container7">
+                                                    <wm-layoutgrid name="layoutgrid7">
+                                                        <wm-gridrow name="gridrow16">
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn33">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetSKRequestApprovedList.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label23"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn44">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetSKRequestApprovedList.dataSet[$i].noSr" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label32"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetSKRequestApprovedList.dataSet[$i].name" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label24"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn35">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetSKRequestApprovedList.dataSet[$i].noAggr" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label25"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn36">
+                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetSKRequestApprovedList.dataSet[$i].expiredDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label26"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn39">
+                                                                <wm-label padding="unset 0.5em unset 1em" caption="bind:(Variables.GetSKRequestApprovedList.dataSet[$i].flagDigisign != &quot;Y&quot; || Variables.GetSKRequestApprovedList.dataSet[$i].flagEcontract != &quot;Y&quot; || Variables.GetSKRequestApprovedList.dataSet[$i].flagFidusia != &quot;Y&quot; || Variables.GetSKRequestApprovedList.dataSet[$i].flagTrnschedule != &quot;Y&quot;) ? &quot;Not Ready&quot; : &quot;Ready&quot;"
+                                                                    textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label26_1"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" padding="1em unset unset 1.5em" name="gridcolumn37">
+                                                                <wm-layoutgrid name="layoutgrid8">
+                                                                    <wm-gridrow name="gridrow17">
+                                                                        <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn38">
+                                                                            <wm-container width="100%" horizontalalign="left" name="container8">
+                                                                                <wm-picture picturesource="resources/images/imagelists/tiga-bulet.png" margin="unset unset 1.7em unset" on-click="Widgets.editStatusDocument.open()" height="15px" name="picture5"
+                                                                                    class="action-button"></wm-picture>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-composite width="6em" class="view" captionposition="left" horizontalalign="center" name="composite2">
+                                <wm-container class="col-md-9" width="100%" name="container9">
+                                    <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="sizeApproveList"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Status Dokumen" iconclass="" name="editStatusDocument" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="3" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="SK" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-select name="flagSK" class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.list2.selecteditem.flagDigisign == null || Widgets.list2.selecteditem.flagDigisign == &quot;&quot;  || Widgets.list2.selecteditem.flagDigisign == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; ? true : false" readonly="bind:Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite6">
+                        <wm-label class="col-md-3 control-label" caption="Kontrak" color="#999C9F" name="label22"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container9">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" name="flagKontrak" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.list2.selecteditem.flagEcontract == null || Widgets.list2.selecteditem.flagEcontract == &quot;&quot; || Widgets.list2.selecteditem.flagEcontract == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; ? true : false" readonly="bind:Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn23" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite3">
+                        <wm-label class="col-md-3 control-label" caption="Payment Schedule" color="#999C9F" name="label19"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container6">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" name="flagSchedule" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.list2.selecteditem.flagTrnschedule == null || Widgets.list2.selecteditem.flagTrnschedule == &quot;&quot; || Widgets.list2.selecteditem.flagTrnschedule == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? true : false" readonly="bind:Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn24" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite4">
+                        <wm-label class="col-md-3 control-label" caption="Fidusia" color="#999C9F" name="label20"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container7">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" name="flagFidusia" dataset="bind:Variables.status.dataSet" datafield="dataValue" displayfield="name" datavalue="bind:Widgets.list2.selecteditem.flagFidusia == null || Widgets.list2.selecteditem.flagFidusia == &quot;&quot;  || Widgets.list2.selecteditem.flagFidusia == &quot;N&quot; ? &quot;N&quot; : &quot;Y&quot;"
+                                disabled="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; ? true : false" readonly="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; ? true : false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" on-click="Widgets.editStatusDocument.close();Variables.UpdateFlagSKRequest.invoke()" name="button1" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset"
+                show="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Information" iconclass="wi wi-file-text" name="SKReqDetail" showheader="false" width="80%">
+        <wm-layoutgrid name="layoutgrid11">
+            <wm-gridrow name="gridrow19">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn43" horizontalalign="right">
+                    <wm-picture name="picture6" picturesource="resources/images/imagelists/close-btn.png" width="0.7em" on-click="Widgets.SKReqDetail.close()" class="close"></wm-picture>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow22" padding="1em">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn50">
+                    <wm-container name="container10" content="SuratKuasaPermintaanDetail">
+                        <wm-param name="no_aggr" value="bind:Widgets.SKrequestPending.selecteditem.noAggr" type="string"></wm-param>
+                        <wm-param name="coll_cd" value="bind:Widgets.SKrequestPending.selecteditem.collCd" type="string"></wm-param>
+                    </wm-container>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions2" show="false">
+            <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button2"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+</wm-page>

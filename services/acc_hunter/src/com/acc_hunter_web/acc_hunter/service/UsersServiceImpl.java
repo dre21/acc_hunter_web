@@ -35,7 +35,8 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.Appointments;
-import com.acc_hunter_web.acc_hunter.LelangSkParticipants;
+import com.acc_hunter_web.acc_hunter.RedeemRequest;
+import com.acc_hunter_web.acc_hunter.Sayembara;
 import com.acc_hunter_web.acc_hunter.SkRequests;
 import com.acc_hunter_web.acc_hunter.UserRequestUpgrades;
 import com.acc_hunter_web.acc_hunter.Users;
@@ -59,18 +60,23 @@ public class UsersServiceImpl implements UsersService {
 
     @Lazy
     @Autowired
+    @Qualifier("acc_hunter.RedeemRequestService")
+    private RedeemRequestService redeemRequestService;
+
+    @Lazy
+    @Autowired
     @Qualifier("acc_hunter.AppointmentsService")
     private AppointmentsService appointmentsService;
 
     @Lazy
     @Autowired
-    @Qualifier("acc_hunter.SkRequestsService")
-    private SkRequestsService skRequestsService;
+    @Qualifier("acc_hunter.SayembaraService")
+    private SayembaraService sayembaraService;
 
     @Lazy
     @Autowired
-    @Qualifier("acc_hunter.LelangSkParticipantsService")
-    private LelangSkParticipantsService lelangSkParticipantsService;
+    @Qualifier("acc_hunter.SkRequestsService")
+    private SkRequestsService skRequestsService;
 
     @Autowired
     @Qualifier("acc_hunter.UsersDao")
@@ -256,13 +262,13 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
     @Override
-    public Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated lelangSkParticipantses");
+    public Page<Sayembara> findAssociatedSayembaras(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated sayembaras");
 
         StringBuilder queryBuilder = new StringBuilder();
         queryBuilder.append("users.id = '" + id + "'");
 
-        return lelangSkParticipantsService.findAll(queryBuilder.toString(), pageable);
+        return sayembaraService.findAll(queryBuilder.toString(), pageable);
     }
 
     @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
@@ -287,6 +293,17 @@ public class UsersServiceImpl implements UsersService {
         return userRequestUpgradesService.findAll(queryBuilder.toString(), pageable);
     }
 
+    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
+    @Override
+    public Page<RedeemRequest> findAssociatedRedeemRequests(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated redeemRequests");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("users.id = '" + id + "'");
+
+        return redeemRequestService.findAll(queryBuilder.toString(), pageable);
+    }
+
     /**
      * This setter method should only be used by unit tests
      *
@@ -294,6 +311,15 @@ public class UsersServiceImpl implements UsersService {
      */
     protected void setUserRequestUpgradesService(UserRequestUpgradesService service) {
         this.userRequestUpgradesService = service;
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
+     * @param service RedeemRequestService instance
+     */
+    protected void setRedeemRequestService(RedeemRequestService service) {
+        this.redeemRequestService = service;
     }
 
     /**
@@ -308,19 +334,19 @@ public class UsersServiceImpl implements UsersService {
     /**
      * This setter method should only be used by unit tests
      *
-     * @param service SkRequestsService instance
+     * @param service SayembaraService instance
      */
-    protected void setSkRequestsService(SkRequestsService service) {
-        this.skRequestsService = service;
+    protected void setSayembaraService(SayembaraService service) {
+        this.sayembaraService = service;
     }
 
     /**
      * This setter method should only be used by unit tests
      *
-     * @param service LelangSkParticipantsService instance
+     * @param service SkRequestsService instance
      */
-    protected void setLelangSkParticipantsService(LelangSkParticipantsService service) {
-        this.lelangSkParticipantsService = service;
+    protected void setSkRequestsService(SkRequestsService service) {
+        this.skRequestsService = service;
     }
 
 }

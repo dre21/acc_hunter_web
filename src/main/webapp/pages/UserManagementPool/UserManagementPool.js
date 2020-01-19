@@ -42,3 +42,11 @@ Page.insertNewUserDetailonSuccess = function(variable, data) {
     Page.Actions.goToPage_UserManagementPool.invoke();
 
 };
+
+Page.picture6Click = function($event, widget, item, currentItemWidgets) {
+    if (currentItemWidgets.pictureEdit.show == false) {
+        currentItemWidgets.pictureEdit.show = true;
+    } else {
+        currentItemWidgets.pictureEdit.show = false;
+    }
+};

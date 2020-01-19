@@ -197,15 +197,6 @@ public class LelangSkDetailController {
         return lelangSkDetailService.getAggregatedValues(aggregationInfo, pageable);
     }
 
-    @RequestMapping(value="/{id:.+}/lelangSkParticipantses", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the lelangSkParticipantses instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated lelangSkParticipantses");
-        return lelangSkDetailService.findAssociatedLelangSkParticipantses(id, pageable);
-    }
-
     @RequestMapping(value="/{id:.+}/lelangSkDetailImageses", method=RequestMethod.GET)
     @ApiOperation(value = "Gets the lelangSkDetailImageses instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
@@ -213,6 +204,15 @@ public class LelangSkDetailController {
 
         LOGGER.debug("Fetching all associated lelangSkDetailImageses");
         return lelangSkDetailService.findAssociatedLelangSkDetailImageses(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/lelangSkParticipantses", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the lelangSkParticipantses instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated lelangSkParticipantses");
+        return lelangSkDetailService.findAssociatedLelangSkParticipantses(id, pageable);
     }
 
     /**

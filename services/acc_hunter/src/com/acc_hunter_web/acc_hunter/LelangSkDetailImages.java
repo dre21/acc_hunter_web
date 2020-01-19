@@ -66,7 +66,7 @@ public class LelangSkDetailImages implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`sk_list_auction_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_sk_list_auction_imagen041k`"))
+    @JoinColumn(name = "`sk_list_auction_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`lelang_sk_detail_images_lelang_sk_detail_fkey`"))
     @Fetch(FetchMode.JOIN)
     public LelangSkDetail getLelangSkDetail() {
         return this.lelangSkDetail;

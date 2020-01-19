@@ -4,31 +4,32 @@
 package com.acc_hunter_web.sendmailservice;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequest; 
-import javax.annotation.PostConstruct; 
-import org.slf4j.Logger; 
-import org.slf4j.LoggerFactory; 
-import org.springframework.beans.factory.annotation.Autowired; 
-import org.springframework.beans.factory.annotation.Value; 
-import java.util.Properties; 
-import javax.mail.Message; 
-import javax.mail.Authenticator; 
-import javax.mail.MessagingException; 
-import javax.mail.Session; 
-import javax.mail.Transport; 
-import javax.mail.internet.InternetAddress; 
-import javax.mail.internet.MimeMessage; 
-import javax.mail.PasswordAuthentication; 
-import com.wavemaker.runtime.security.SecurityService; 
-import com.wavemaker.runtime.service.annotations.ExposeToClient; 
-import com.wavemaker.runtime.service.annotations.HideFromClient;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import com.wavemaker.runtime.security.SecurityService;
+import com.wavemaker.runtime.service.annotations.ExposeToClient;
+import com.wavemaker.runtime.service.annotations.HideFromClient;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.annotation.PostConstruct;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import java.util.Properties;
+import javax.mail. * ;
+import javax.mail.internet. * ;
+import java.util.Properties;
+import javax.activation. * ;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.PasswordAuthentication;
 import com.wavemaker.runtime.security.SecurityService;
 import com.wavemaker.runtime.service.annotations.ExposeToClient;
 import com.wavemaker.runtime.service.annotations.HideFromClient;
@@ -59,10 +60,18 @@ public class SendMailService {
     // @Value("${app.environment.port}") private String port;
     // @Value("${app.environment.username}") private String username;
     // @Value("${app.environment.password}") private String password;
-    private String host = "smtp.gmail.com";
-    private String port = "587";
-    private String username="<Username>";
-    private String password="<password>";
+    
+    // private String host = "smtp.gmail.com";
+    // private String port = "587";
+    // private String username="acchunter2019@gmail.com";
+    // private String password="ACCHunter2019";
+    // private String fromEmailAddress = "acchunter2019@gmail.com";
+    
+    private String host = "smail.acc.co.id";
+    private String port = "465";
+    private String username = "hunter_noreply@acc.co.id";
+    private String password = "Hunter2019#!";
+    private String fromEmailAddress = "hunter_noreply@acc.co.id";
     
     @PostConstruct
     public void init() throws Exception {
@@ -83,19 +92,39 @@ public class SendMailService {
          logger.info("toEmailAddress {}, emailSubject {}, emailMessage {} ",
          toEmailAddress,emailSubject,emailMessage);
          try {
-             Message message = new MimeMessage(session);
-             message.setFrom(new InternetAddress(username));
-             String[] recipientList = toEmailAddress.split(",");
-             InternetAddress[] recipientAddresses = new InternetAddress[recipientList.length];
-             int counter = 0;
-             for (String recipient: recipientList) {
-                 recipientAddresses[counter] = new InternetAddress(recipient.trim());
-                 counter++;
-                 }
-             message.setRecipients(Message.RecipientType.TO, recipientAddresses);
-             message.setSubject(emailSubject);
-             message.setText(emailMessage);
-             Transport.send(message);
+             MimeBodyPart htmlPart = new MimeBodyPart();
+             htmlPart.setContent(emailMessage, "text/html");
+             
+             Multipart mp = new MimeMultipart();
+             mp.addBodyPart(htmlPart);
+             
+            Properties props = System.getProperties();
+            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.user", username);
+            props.put("mail.smtp.password", password);
+            props.put("mail.smtp.port", 465);
+            props.put("mail.smtp.auth", "true");
+            Session session = Session.getDefaultInstance(props);
+             
+             Transport tr = session.getTransport("smtp");
+             tr.connect(host, 465, username, password);
+             String[] listemails = toEmailAddress.split(",");
+             
+             for (int i = 0; i < listemails.length; i++) {
+                // Create email message
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(fromEmailAddress));
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(listemails[i]));
+                message.setSubject(emailSubject);
+                message.setContent(mp);
+
+                message.saveChanges();
+                tr.sendMessage(message, message.getAllRecipients());
+             }
+             tr.close();
+             
              logger.info("Sent message successfully....");
               } catch (MessagingException e) {
                  throw new RuntimeException(e);

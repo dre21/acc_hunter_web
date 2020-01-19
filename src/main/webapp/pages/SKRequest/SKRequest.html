@@ -56,15 +56,15 @@
                     <wm-gridcolumn columnwidth="12" name="gridcolumn17_1">
                         <wm-table editmode="inline" name="SKRequestsTable" title="" dataset="bind:Variables.getSKRequestData.dataSet" navigation="Basic">
                             <wm-table-column binding="id" caption="ID Permintaan SK" primary-key="true" edit-widget-type="number" type="integer" generator="sequence" readonly="true" show="true"></wm-table-column>
-                            <wm-table-column binding="aggrNo" caption="No. Aggr" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="noAggr" caption="No. Aggr" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false" required="true"></wm-table-column>
                             <wm-table-column binding="users.fullName" caption="Nama Requestor" primary-key="false" edit-widget-type="text" related-entity-name="Users" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
-                            <wm-table-column binding="createdDate" caption="Waktu" primary-key="false" edit-widget-type="date" type="datetime" generator="assigned" datepattern="yyyy-MM-dd" formatpattern="toDate" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="reqSkDate" caption="W" primary-key="false" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
                             <wm-table-column binding="users.id" caption="Users Id" primary-key="true" edit-widget-type="select" related-entity-name="Users" type="integer" generator="sequence" datafield="id" displayfield="id" show="false"
                                 filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                 readonly="false" required="true"></wm-table-column>
                             <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
                             <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-eye" title="Detail" action="SKRequestsTable_updaterowAction($event, row)" disabled="false" widget-type="button"></wm-table-row-action>
-                            <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action>
+                            <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow($event)" disabled="false" widget-type="button"></wm-table-row-action>
                         </wm-table>
                     </wm-gridcolumn>
                 </wm-gridrow>

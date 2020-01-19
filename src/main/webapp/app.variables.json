@@ -29,6 +29,126 @@
     } ],
     "operation" : "toast"
   },
+  "gagalDelete" : {
+    "_id" : "wm-gagalDelete-wm.NotificationVariable-1577353475070",
+    "name" : "gagalDelete",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Gagal Hapus Data",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "gagalInsert" : {
+    "_id" : "wm-gagalInsert-wm.NotificationVariable-1577351146353",
+    "name" : "gagalInsert",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Insert Data Gagal",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "gagalUpdate" : {
+    "_id" : "wm-gagalUpdate-wm.NotificationVariable-1575629487489",
+    "name" : "gagalUpdate",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Update data gagal",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Error",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "gamificationMenu" : {
+    "_id" : "wm-gamificationMenu-wm.Variable-1575530732033",
+    "name" : "gamificationMenu",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "Manage Point",
+      "link" : "#ManagePointConfiguration"
+    }, {
+      "label" : "Manage Badges",
+      "link" : "#ManageBadgesConfiguration"
+    }, {
+      "label" : "View Leaderboards",
+      "link" : "#Leaderboards"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "gamificationMenuREMO" : {
+    "_id" : "wm-gamificationMenuREMO-wm.Variable-1576744792037",
+    "name" : "gamificationMenuREMO",
+    "owner" : "App",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "label" : "View Leaderboards",
+      "link" : "#Leaderboards"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "getUserByEmail" : {
     "_id" : "wm-getUserByEmail-wm.ServiceVariable-1574659920256",
     "name" : "getUserByEmail",
@@ -51,6 +171,695 @@
     "saveInPhonegap" : false,
     "controller" : "QueryExecution"
   },
+  "GetUsersByEmail" : {
+    "_id" : "wm-GetUsersByID-wm.LiveVariable-1575602783608",
+    "name" : "GetUsersByEmail",
+    "owner" : "App",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Users",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "acc_hunter",
+    "ignoreCase" : true,
+    "matchMode" : "startignorecase",
+    "orderBy" : "id asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "masterArea",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "area_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "",
+        "relatedTableName" : "master_area",
+        "relatedEntityName" : "MasterArea",
+        "relatedColumnName" : "areaId",
+        "relatedFieldName" : "masterArea.id",
+        "isList" : false,
+        "targetTable" : "master_area",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "id",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "id",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "sequence",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "areaCode",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "area_code",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "areaName",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "area_name",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "roles",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "role_id",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "relatedTableName" : "roles",
+        "relatedEntityName" : "Roles",
+        "relatedColumnName" : "roleId",
+        "relatedFieldName" : "roles.id",
+        "isList" : false,
+        "targetTable" : "roles",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "id",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "id",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "sequence",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "name",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "name",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 50,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "createdAt",
+          "type" : "datetime",
+          "fullyQualifiedType" : "datetime",
+          "columnName" : "created_at",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "userCategories",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "category_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "",
+        "relatedTableName" : "user_categories",
+        "relatedEntityName" : "UserCategories",
+        "relatedColumnName" : "categoryId",
+        "relatedFieldName" : "userCategories.id",
+        "isList" : false,
+        "targetTable" : "user_categories",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "id",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "id",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "sequence",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "categoryName",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "category_name",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "defaultValue" : "",
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "badges",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "badge_type",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 20,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : true,
+        "defaultValue" : "Bronze",
+        "relatedTableName" : "badges",
+        "relatedEntityName" : "Badges",
+        "relatedColumnName" : "badgeType",
+        "relatedFieldName" : "badges.badgeType",
+        "isList" : false,
+        "targetTable" : "badges",
+        "scale" : 0,
+        "columns" : [ {
+          "fieldName" : "badgeType",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "badge_type",
+          "isPrimaryKey" : true,
+          "notNull" : true,
+          "length" : 20,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "avgSuccess",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "avg_success",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "createdAt",
+          "type" : "datetime",
+          "fullyQualifiedType" : "datetime",
+          "columnName" : "created_at",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 0,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "createdBy",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "created_by",
+          "isPrimaryKey" : false,
+          "notNull" : true,
+          "length" : 50,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "updatedAt",
+          "type" : "datetime",
+          "fullyQualifiedType" : "datetime",
+          "columnName" : "updated_at",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "updatedBy",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "updated_by",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 50,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        } ]
+      }, {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "id",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "sequence",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "email",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "email",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "password",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "password",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "fullName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "full_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "address",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "address",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "phoneNumber",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "phone_number",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 20,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "identityNumber",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "identity_number",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 20,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "identityPhoto",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "identity_photo",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "identityWithPersonPhoto",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "identity_with_person_photo",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "createdAt",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "created_at",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "resetPassFirstLogin",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "reset_pass_first_login",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "isRequestUpgrade",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "is_request_upgrade",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "isRequestApproved",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "is_request_approved",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "status",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "status",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "province",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "province",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "city",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "city",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "mitraId",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "mitra_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "cdColl",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "cd_coll",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "peojfId",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "peojf_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 15,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "pksStart",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "pks_start",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "pksEnd",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "pks_end",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "branchId",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "branch_id",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 15,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "accountNo",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "account_no",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "flagShow",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "flag_show",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "true",
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningBank",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "rekening_bank",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningNo",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "rekening_no",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "rekening_name",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningPhoto",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "rekening_photo",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "displayPicture",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "display_picture",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "cdPool",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "cd_pool",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Users",
+      "fullyQualifiedName" : "com.acc_hunter_web.acc_hunter.Users",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "bindCount" : 4,
+    "tableName" : "users",
+    "tableType" : "TABLE",
+    "properties" : [ "masterArea", "roles", "userCategories", "badges" ],
+    "relatedTables" : [ {
+      "columnName" : "masterArea",
+      "relationName" : "masterArea",
+      "type" : "MasterArea",
+      "watchOn" : "Acc_hunterMasterAreaData",
+      "package" : "com.acc_hunter_web.acc_hunter.Users"
+    }, {
+      "columnName" : "roles",
+      "relationName" : "roles",
+      "type" : "Roles",
+      "watchOn" : "Acc_hunterRolesData",
+      "package" : "com.acc_hunter_web.acc_hunter.Users"
+    }, {
+      "columnName" : "userCategories",
+      "relationName" : "userCategories",
+      "type" : "UserCategories",
+      "watchOn" : "Acc_hunterUserCategoriesData",
+      "package" : "com.acc_hunter_web.acc_hunter.Users"
+    }, {
+      "columnName" : "badges",
+      "relationName" : "badges",
+      "type" : "Badges",
+      "watchOn" : "Acc_hunterBadgesData",
+      "package" : "com.acc_hunter_web.acc_hunter.Users"
+    } ],
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "email",
+        "type" : "string",
+        "matchMode" : "anywhereignorecase",
+        "value" : "bind:Variables.loggedInUser.dataSet.name",
+        "required" : false,
+        "secondvalue" : "",
+        "isFirst" : true
+      } ]
+    },
+    "package" : "com.acc_hunter_web.acc_hunter.Users"
+  },
   "goToPage_ChangePassword" : {
     "_id" : "wm-goToPage_ChangePassword-wm.NavigationVariable-1574649940794",
     "name" : "goToPage_ChangePassword",
@@ -70,6 +879,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "ChangePasswordSuccess",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_DashboardSuratKuasa" : {
+    "_id" : "wm-goToPage_DashboardSuratKuasa-wm.NavigationVariable-1577715784150",
+    "name" : "goToPage_DashboardSuratKuasa",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "DashboardSuratKuasa",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -106,6 +926,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_Leaderboards" : {
+    "_id" : "wm-goToPage_Leaderboards-wm.NavigationVariable-1576046612700",
+    "name" : "goToPage_Leaderboards",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Leaderboards",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Main" : {
     "_id" : "wm-wm.NavigationVariable1389180517517",
     "name" : "goToPage_Main",
@@ -122,6 +953,50 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "MainPage",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ManageBadgesConfiguration" : {
+    "_id" : "wm-goToPage_ManageBadgesConfiguration-wm.NavigationVariable-1575530428539",
+    "name" : "goToPage_ManageBadgesConfiguration",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ManageBadgesConfiguration",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ManagePointConfiguration" : {
+    "_id" : "wm-goToPage_ManagePointConfiguration-wm.NavigationVariable-1575542000509",
+    "name" : "goToPage_ManagePointConfiguration",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ManagePointConfiguration",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_RewardManagement" : {
+    "_id" : "wm-goToPage_RewardManagement-wm.NavigationVariable-1576207037305",
+    "name" : "goToPage_RewardManagement",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "RewardManagement",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Sayembara" : {
+    "_id" : "wm-goToPage_Sayembara-wm.NavigationVariable-1576755240189",
+    "name" : "goToPage_Sayembara",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Sayembara",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -181,13 +1056,57 @@
     "pageTransitions" : "none"
   },
   "goToPage_SubmittedInformation" : {
-    "_id" : "wm-goToPage_SubmittedInformatino-wm.NavigationVariable-1575019991978",
+    "_id" : "wm-goToPage_SubmittedInformation-wm.NavigationVariable-1578398721100",
     "name" : "goToPage_SubmittedInformation",
     "owner" : "App",
     "category" : "wm.NavigationVariable",
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "SubmittedInformation",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SubmittedInformation1" : {
+    "_id" : "wm-goToPage_SubmittedInformatino-wm.NavigationVariable-1575019991978",
+    "name" : "goToPage_SubmittedInformation1",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SubmittedInformation1",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SuratKuasaLelang" : {
+    "_id" : "wm-goToPage_SuratKuasaLelang-wm.NavigationVariable-1577339352221",
+    "name" : "goToPage_SuratKuasaLelang",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SuratKuasaLelang",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SuratKuasaPermintaan" : {
+    "_id" : "wm-goToPage_SuratKuasaPermintaan-wm.NavigationVariable-1576792811048",
+    "name" : "goToPage_SuratKuasaPermintaan",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SuratKuasaPermintaan",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_SuratKuasaPermintaanPerpanjang" : {
+    "_id" : "wm-goToPage_SuratKuasaPermintaanPerpanjang-wm.NavigationVariable-1577000834239",
+    "name" : "goToPage_SuratKuasaPermintaanPerpanjang",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "SuratKuasaPermintaanPerpanjang",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -316,7 +1235,7 @@
     "saveInPhonegap" : false,
     "inFlightBehavior" : "executeLast",
     "transformationRequired" : false,
-    "redirectTo" : "Login",
+    "redirectTo" : "SignIn",
     "useDefaultSuccessHandler" : true
   },
   "newUserData" : {
@@ -439,19 +1358,19 @@
     "dataBinding" : [ ],
     "dataSet" : [ {
       "label" : "Dashboard SK",
-      "link" : "#"
+      "link" : "#DashboardSuratKuasa"
     }, {
       "label" : "Permintaan SK",
-      "link" : "#SKRequest"
+      "link" : "#SuratKuasaPermintaan"
     }, {
       "label" : "Perpanjangan SK",
-      "link" : "#SKExtension"
+      "link" : "#SuratKuasaPermintaanPerpanjang"
     }, {
       "label" : "Lelang SK",
-      "link" : "#SKAuction"
+      "link" : "#SuratKuasaLelang"
     }, {
       "label" : "Sayembara SK",
-      "link" : "#"
+      "link" : "#Sayembara"
     } ],
     "type" : "entry",
     "isList" : true,
@@ -471,6 +1390,90 @@
     "isList" : false,
     "twoWayBinding" : false,
     "saveInPhonegap" : false
+  },
+  "suksesDelete" : {
+    "_id" : "wm-suksesDelete-wm.NotificationVariable-1577353428485",
+    "name" : "suksesDelete",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Sukses Hapus Data",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "suksesInsert" : {
+    "_id" : "wm-suksesInsert-wm.NotificationVariable-1577351110795",
+    "name" : "suksesInsert",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Insert Data Sukses",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "suksesUpdate" : {
+    "_id" : "wm-suksesUpdate-wm.NotificationVariable-1575629448249",
+    "name" : "suksesUpdate",
+    "owner" : "App",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Update data sukses",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "1000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
   },
   "supportedLocale" : {
     "_id" : "wm-wm.Variable1402640443182",

@@ -1,0 +1,285 @@
+{
+  "getBadges" : {
+    "_id" : "wm-getBadges-wm.LiveVariable-1576128027123",
+    "name" : "getBadges",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "Badges",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "transformationRequired" : false,
+    "liveSource" : "acc_hunter",
+    "ignoreCase" : true,
+    "matchMode" : "startignorecase",
+    "orderBy" : "badgeType asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "badgeType",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "badge_type",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 20,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "avgSuccess",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "avg_success",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "createdAt",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "created_at",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "createdBy",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "created_by",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "updatedAt",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "updated_at",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "updatedBy",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "updated_by",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      } ],
+      "entityName" : "Badges",
+      "fullyQualifiedName" : "com.acc_hunter_web.acc_hunter.Badges",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "badgeType" ]
+    },
+    "bindCount" : 2,
+    "tableName" : "badges",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "",
+        "type" : "string",
+        "matchMode" : "anywhereignorecase",
+        "value" : "",
+        "required" : false,
+        "secondvalue" : ""
+      } ]
+    },
+    "package" : "com.acc_hunter_web.acc_hunter.Badges"
+  },
+  "getCities" : {
+    "_id" : "wm-getCities-wm.LiveVariable-1576128084532",
+    "name" : "getCities",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "CityProvinces",
+    "isList" : false,
+    "saveInPhonegap" : false,
+    "maxResults" : 2000,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "transformationRequired" : false,
+    "liveSource" : "acc_hunter",
+    "ignoreCase" : true,
+    "matchMode" : "startignorecase",
+    "orderBy" : "cityName asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "id",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "id",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "sequence",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "provinceName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "province_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "cityName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "city_name",
+        "isPrimaryKey" : false,
+        "notNull" : true,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      } ],
+      "entityName" : "CityProvinces",
+      "fullyQualifiedName" : "com.acc_hunter_web.acc_hunter.CityProvinces",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "id" ]
+    },
+    "bindCount" : 2,
+    "tableName" : "city_provinces",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "",
+        "type" : "string",
+        "matchMode" : "anywhereignorecase",
+        "value" : "",
+        "required" : false,
+        "secondvalue" : ""
+      } ]
+    },
+    "package" : "com.acc_hunter_web.acc_hunter.CityProvinces"
+  },
+  "getInformanLeaderboards" : {
+    "_id" : "wm-getInformanLeaderboards-wm.ServiceVariable-1576125967187",
+    "name" : "getInformanLeaderboards",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "startDate",
+      "value" : "bind:Widgets.startDateInforman.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Widgets.endDateInforman.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "city",
+      "value" : "bind:Widgets.remoInforman.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "badgeType",
+      "value" : "bind:Widgets.badgesInforman.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetInformanLeaderboardsResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetInformanLeaderboards",
+    "operationId" : "QueryExecutionController_executeGetInformanLeaderboards",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 10,
+    "onBeforeUpdate" : "getInformanLeaderboardsonBeforeUpdate(variable, inputData)",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "getMitraLeaderboards" : {
+    "_id" : "wm-getMitraLeaderboards-wm.ServiceVariable-1576142487547",
+    "name" : "getMitraLeaderboards",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "startDate",
+      "value" : "bind:Widgets.startDatePeojf.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "endDate",
+      "value" : "bind:Widgets.endDatePeojf.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "city",
+      "value" : "bind:Widgets.remoPeojf.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "badgeType",
+      "value" : "bind:Widgets.badgesPeojf.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetMitraLeaderboardsResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetMitraLeaderboards",
+    "operationId" : "QueryExecutionController_executeGetMitraLeaderboards",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 2000,
+    "onBeforeUpdate" : "getMitraLeaderboardsonBeforeUpdate(variable, inputData)",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

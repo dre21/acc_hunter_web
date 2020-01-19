@@ -35,6 +35,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import com.acc_hunter_web.acc_hunter.LelangSk;
 import com.acc_hunter_web.acc_hunter.MasterArea;
 import com.acc_hunter_web.acc_hunter.Users;
 import com.acc_hunter_web.acc_hunter.service.MasterAreaService;
@@ -118,6 +119,14 @@ public class MasterAreaController {
         return deletedMasterArea != null;
     }
 
+    @RequestMapping(value = "/areaCode/{areaCode}", method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the matching MasterArea with given unique key values.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public MasterArea getByAreaCode(@PathVariable("areaCode") String areaCode) {
+        LOGGER.debug("Getting MasterArea with uniques key AreaCode");
+        return masterAreaService.getByAreaCode(areaCode);
+    }
+
     /**
      * @deprecated Use {@link #findMasterAreas(String, Pageable)} instead.
      */
@@ -186,6 +195,15 @@ public class MasterAreaController {
 	public Page<Map<String, Object>> getMasterAreaAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return masterAreaService.getAggregatedValues(aggregationInfo, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/lelangSks", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the lelangSks instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<LelangSk> findAssociatedLelangSks(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated lelangSks");
+        return masterAreaService.findAssociatedLelangSks(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/userses", method=RequestMethod.GET)

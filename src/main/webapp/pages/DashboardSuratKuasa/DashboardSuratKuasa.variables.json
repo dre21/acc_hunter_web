@@ -1,0 +1,24 @@
+{
+  "GetCountDashboardSK" : {
+    "_id" : "wm-GetCountDashboardSK-wm.ServiceVariable-1579170183125",
+    "name" : "GetCountDashboardSK",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetCountDashboardSkResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetCountDashboardSK",
+    "operationId" : "QueryExecutionController_executeGetCountDashboardSK",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 1,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

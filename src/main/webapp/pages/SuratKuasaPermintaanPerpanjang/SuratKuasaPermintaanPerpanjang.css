@@ -1,0 +1,274 @@
+.box-profile {
+    background: #FFFFFF;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    width: 100%;
+    right: 0px;
+    position: absolute !important;
+}
+
+.web-button {
+    text-transform: capitalize;
+    width: 185px;
+    height: 64px;
+    background: #007AFF;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.table-header {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    color: #98A9BC;
+    text-transform: capitalize !important;
+}
+
+.table-content {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    color: #404C59;
+}
+
+.user-status-active {
+    
+}
+
+.page-title {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 44px;
+    letter-spacing: 1px;
+}
+
+.breadcumb {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.name-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+th {
+    background: #F3F5F6 !important;
+}
+
+table {
+    border: none !important;
+}
+
+li.app-list-item.list-group-item {
+    border-radius: 3px;
+    margin-bottom: 0.75% !important;
+    height: 5em;
+}
+
+.theader {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.05em;
+    color: #98A9BC;
+}
+
+.content-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;  
+}
+
+.action-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+li.active {
+    background-color: #FFFFFF !important;
+}
+
+.modal-header {
+    background: #0E2D48;
+    border-radius: 15px 15px 0px 0px !important;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #F7F8FB;
+}
+
+.modal-content {
+    border-radius: 15px 15px 15px 15px !important;
+}
+
+.input {
+    background: #FFFFFF;
+    border: 1px solid #BFC4CE;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.control-label {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.btn-save-badge {
+    border-radius: 6px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.point-menu {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 18px;
+}
+
+.point-menu:hover {
+    cursor: pointer;
+}
+
+.clicked {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+    color: #285073 !important;
+}
+
+.informan-cont {
+    border-radius: 12px;
+}
+
+.app-date.input-group {
+    max-width: 100% !important;
+}
+
+.title {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: #565656;
+}
+
+.input-form {
+    background: #FFFFFF;
+    border: 1px solid #BFC4CE;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 48px;
+}
+
+.wm-app .form-control, .wm-app .form-group + .form-control {
+    background-image: none;
+}
+
+.app-dateinput {
+    margin-top: 0.3em;
+}
+
+.btn-time {
+    margin-top: 0.3em;
+}
+
+.filter {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 36px;
+    color: #007AFF;
+}
+
+.filter:hover {
+    cursor: pointer;
+}
+
+ul > li.pagination-prev > a.page-link {
+    background: #FFFFFF !important;
+}
+
+ul > li.pagination-next > a.page-link {
+    background: #FFFFFF !important;
+}
+
+ul > li.pagination-page > a.page-link {
+    background-color: #FFFFFF !important;
+}
+
+ul > li.pagination-page.active > a.page-link {
+    background-color: #285073 !important;
+}
+
+ul > li > a.page-link {
+    border-radius: 8px !important;
+}
+
+.search-btn {
+    background: #FFFFFF;
+    border: 1px solid #DCE2E7;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 5%;
+    bottom: 37%;
+}
+
+.view {
+    position: absolute;
+    bottom: 5%;
+}
+
+.action-button:hover {
+    cursor: pointer;
+}
+
+
+button.app-dialog-close > span {
+    color: #FFFFFF !important;
+}
+
+button.app-dialog-close > span:hover {
+    color: #FFFFFF !important;
+}

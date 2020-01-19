@@ -35,5 +35,6 @@ Page.ReportsTable2_updaterowAction = function($event, row) {
         });
 };
 Page.SKRequestsTable_updaterowAction = function($event, row) {
-    console.log("row", row);
+    App.Variables.agreementNo.dataSet.dataValue = row.noAggr;
+    App.Actions.goToPage_SKReqDetail.invoke();
 };

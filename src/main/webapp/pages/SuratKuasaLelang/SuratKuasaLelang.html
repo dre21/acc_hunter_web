@@ -1,0 +1,1521 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="LELANG SURAT KUASA" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="Surat Kuasa" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="Lelang SK" class="breadcumb" color="#565656"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 3% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn18_2">
+                        <wm-label name="newAuction" id="newAuction" caption="Lelang SK Baru" class="point-menu clicked" color="#A7A7A7" on-click="newAuctionClick($event, widget)"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="activeAuction" name="activeAuction" caption="Lelang SK Aktif" class="point-menu" color="#A7A7A7" on-click="activeAuctionClick($event, widget)"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="winnerAuction" caption="Pilih Pemenang SK" class="point-menu" color="#A7A7A7" on-click="winnerAuctionClick($event, widget)" name="winnerAuction"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="nonActiveAuction" caption="Lelang SK Tidak Aktif" class="point-menu" color="#A7A7A7" name="nonActiveAuction" on-click="nonActiveAuctionClick($event, widget)"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="documentAuction" caption="Dokumen SK Lelang" class="point-menu" color="#A7A7A7" name="documentAuction" on-click="documentAuctionClick($event, widget)" show="false"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10_1" horizontalalign="center">
+                        <wm-container name="lelangSKBaruContainer" width="100%" horizontalalign="left" padding="5%" backgroundcolor="#ffffff" class="informan-cont" show="true">
+                            <wm-layoutgrid name="layoutgrid17">
+                                <wm-gridrow name="gridrow33">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn84">
+                                        <wm-label padding="unset 0.5em 2em unset" name="label35" caption="Daftar Wilayah Lelang" class="sub-title"></wm-label>
+                                        <wm-layoutgrid name="layoutgrid3">
+                                            <wm-gridrow name="gridrow12" padding="unset unset 3em unset">
+                                                <wm-gridcolumn columnwidth="6" name="gridcolumn27">
+                                                    <wm-text name="searchArea" placeholder="Search area here..." class="search-btn" height="48"></wm-text>
+                                                    <wm-picture name="picture3_1" picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()"></wm-picture>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="6" name="gridcolumn28" horizontalalign="right">
+                                                    <wm-button class="add-button" caption="Tambah Lelang" type="button" margin="unset 0.5em" height="48" width="50%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center" on-click="Widgets.buatLelang.open()"
+                                                        name="button3" backgroundcolor="#007AFF"></wm-button>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow8" padding="unset unset 1% unset">
+                                                <wm-gridcolumn columnwidth="1" name="gridcolumn9_1">
+                                                    <wm-label padding="unset 0.5em" name="label6" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn9_2">
+                                                    <wm-label padding="unset 0.5em unset unset" name="label7" caption="Wilayah" class="theader" color="#98A9BC"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn199_1">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Judul" class="theader" color="#98A9BC" name="label156_1"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn9_2">
+                                                    <wm-label padding="unset 0.5em unset unset" name="label7" caption="Tanggal Mulai" class="theader" color="#98A9BC"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn9_3">
+                                                    <wm-label padding="unset 0.5em unset unset" name="label7" caption="Tanggal Berakhir" class="theader" color="#98A9BC"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn10_1">
+                                                    <wm-label padding="unset 0.5em unset unset" name="label8" caption="Action" class="theader" color="#98A9BC"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow9">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn11">
+                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="newLelangArea" dataset="bind:Variables.GetLelangList.dataSet" navigation="Basic"
+                                                        nodatamessage="Tidak ada lelang yang ditemukan" navigationalign="right" selectfirstitem="true">
+                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                    <wm-gridrow name="gridrow7">
+                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetLelangList.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetLelangList.dataSet[$i].areaName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn200_1">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangList.dataSet[$i].title" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label155_1"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetLelangList.dataSet[$i].startDate | toDate: 'yyyy-MM-dd HH:mm'" color="#404C59" class="content-label" width="100%"
+                                                                                margin="1em unset unset unset"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn15">
+                                                                            <wm-label padding="unset 0.5em" name="label12" caption="bind:Variables.GetLelangList.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label"
+                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                <wm-gridrow name="gridrow9">
+                                                                                    <wm-gridcolumn columnwidth="10" name="gridcolumn19" horizontalalign="left">
+                                                                                        <wm-container name="container5" width="100%" horizontalalign="left">
+                                                                                            <wm-picture name="picture3" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.editLelang.open()"></wm-picture>
+                                                                                            <wm-picture picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.hapusLelang.open()"
+                                                                                                name="picture14_1" padding="unset unset unset 1em"></wm-picture>
+                                                                                        </wm-container>
+                                                                                    </wm-gridcolumn>
+                                                                                </wm-gridrow>
+                                                                            </wm-layoutgrid>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-container>
+                                                        </wm-listtemplate>
+                                                    </wm-list>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                        <wm-composite name="composite1" width="6em" class="view" captionposition="left" horizontalalign="center">
+                                            <wm-container class="col-md-9" name="container6" width="100%">
+                                                <wm-select name="totalViewAreaLelang" dataset="10, 20, 30, 50, 100" datavalue="10"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow34" padding="4em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn86">
+                                        <wm-label padding="unset 0.5em 2em unset" caption="bind:&quot;Daftar Nomor Kontrak yang Dilelang (&quot; + Widgets.newLelangArea.selecteditem.title + &quot;)&quot;" class="sub-title" name="label60_1"></wm-label>
+                                        <wm-layoutgrid name="layoutgrid18">
+                                            <wm-gridrow padding="unset unset 3em unset" name="gridrow36">
+                                                <wm-gridcolumn columnwidth="6" name="gridcolumn87">
+                                                    <wm-text placeholder="Search here..." class="search-btn" height="48" name="noAggrSearch"></wm-text>
+                                                    <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture11"></wm-picture>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="6" name="gridcolumn88_1" horizontalalign="right">
+                                                    <wm-button class="add-button" caption="Tambah Nomor Kontrak" type="button" margin="unset 0.5em" height="48" width="50%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center" on-click="Widgets.addNoAggr.open()"
+                                                        backgroundcolor="#007AFF" name="button5"></wm-button>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow padding="unset unset 1% unset" name="gridrow37">
+                                                <wm-gridcolumn columnwidth="1" name="gridcolumn89">
+                                                    <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label62"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="4" name="gridcolumn90">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="No Agreement" class="theader" color="#98A9BC" name="label63"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="4" name="gridcolumn92">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Batas BTO" class="theader" color="#98A9BC" name="label65"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="3" name="gridcolumn93">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label66"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow38">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn94">
+                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" navigation="Basic" nodatamessage="Tidak ada surat kuasa yang ditemukan" navigationalign="right"
+                                                        name="noAggrList" dataset="bind:Variables.GetLelangSKDetailByIDLelangList.dataSet" selectfirstitem="false">
+                                                        <wm-listtemplate layout="inline" name="listtemplate5">
+                                                            <wm-container class="media-body" height="64px" name="container23">
+                                                                <wm-layoutgrid name="layoutgrid19">
+                                                                    <wm-gridrow name="gridrow39">
+                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn95">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangSKDetailByIDLelangList.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label67"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="4" name="gridcolumn96">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangSKDetailByIDLelangList.dataSet[$i].agreementNo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label68"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="4" name="gridcolumn98">
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetLelangSKDetailByIDLelangList.dataSet[$i].btoLimit | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label"
+                                                                                width="100%" margin="1em unset unset unset" name="label70"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="3" padding="1em unset unset 1.5em" name="gridcolumn99">
+                                                                            <wm-layoutgrid name="layoutgrid20">
+                                                                                <wm-gridrow name="gridrow40">
+                                                                                    <wm-gridcolumn columnwidth="8" horizontalalign="left" name="gridcolumn100">
+                                                                                        <wm-container width="100%" horizontalalign="left" name="container24">
+                                                                                            <wm-picture picturesource="resources/images/imagelists/Show-Password.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.viewNoAggr.open()"
+                                                                                                name="picture12"></wm-picture>
+                                                                                            <wm-picture picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.editNoAggr.open()"
+                                                                                                name="picture15" padding="unset unset unset 1em"></wm-picture>
+                                                                                            <wm-picture picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.hapusDetail.open()"
+                                                                                                name="picture16" padding="unset unset unset 1em"></wm-picture>
+                                                                                        </wm-container>
+                                                                                    </wm-gridcolumn>
+                                                                                </wm-gridrow>
+                                                                            </wm-layoutgrid>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-container>
+                                                        </wm-listtemplate>
+                                                    </wm-list>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                        <wm-composite width="6em" class="view" captionposition="left" horizontalalign="center" name="composite9">
+                                            <wm-container class="col-md-9" width="100%" name="container27">
+                                                <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="noAggrView"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow35" padding="4em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn88">
+                                        <wm-label padding="unset 0.5em 2em unset" caption="bind:&quot;Daftar Peserta Lelang (&quot; + Widgets.newLelangArea.selecteditem.title + &quot;)&quot;" class="sub-title" name="label61_1"></wm-label>
+                                        <wm-layoutgrid name="layoutgrid21">
+                                            <wm-gridrow padding="unset unset 3em unset" name="gridrow41">
+                                                <wm-gridcolumn columnwidth="6" name="gridcolumn101">
+                                                    <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchParticipant"></wm-text>
+                                                    <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture13"></wm-picture>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="6" name="gridcolumn102" horizontalalign="right">
+                                                    <wm-button class="add-button" caption="Tambah Peserta" type="button" margin="unset 0.5em" height="48" width="50%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center" backgroundcolor="#007AFF"
+                                                        name="button9" on-click="Widgets.addParticipant.open()"></wm-button>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow padding="unset unset 1% unset" name="gridrow42">
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn103">
+                                                    <wm-label padding="unset 0.5em" caption="ID Peserta" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label71"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn104">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Nama Lengkap" class="theader" color="#98A9BC" name="label72"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn105">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Kategori" class="theader" color="#98A9BC" name="label73"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn130">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Kode Area" class="theader" color="#98A9BC" name="label91"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn106">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Remo" class="theader" color="#98A9BC" name="label74"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="2" name="gridcolumn107">
+                                                    <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label75"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow43">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn108">
+                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetParticipantLelangByLelangID.dataSet" navigation="Basic"
+                                                        nodatamessage="Tidak ada peserta yang ditemukan" navigationalign="right" name="participantLelangList">
+                                                        <wm-listtemplate layout="inline" name="listtemplate6">
+                                                            <wm-container class="media-body" height="64px" name="container25">
+                                                                <wm-layoutgrid name="layoutgrid22">
+                                                                    <wm-gridrow name="gridrow44">
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn109">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangByLelangID.dataSet[$i].cdColl" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label76"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn110">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangByLelangID.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label77"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn111">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangByLelangID.dataSet[$i].badgeType" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label78"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn131">
+                                                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangByLelangID.dataSet[$i].branchId" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label92"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn112">
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetParticipantLelangByLelangID.dataSet[$i].areaName" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                                name="label79"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" padding="1em unset unset 1.5em" name="gridcolumn113">
+                                                                            <wm-layoutgrid name="layoutgrid23">
+                                                                                <wm-gridrow name="gridrow45">
+                                                                                    <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn114">
+                                                                                        <wm-container width="100%" horizontalalign="left" name="container26">
+                                                                                            <wm-picture picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset" height="15px" class="action-button" on-click="Widgets.hapusPeserta.open()"
+                                                                                                name="picture14"></wm-picture>
+                                                                                        </wm-container>
+                                                                                    </wm-gridcolumn>
+                                                                                </wm-gridrow>
+                                                                            </wm-layoutgrid>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-container>
+                                                        </wm-listtemplate>
+                                                    </wm-list>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                        <wm-composite width="6em" class="view" captionposition="left" horizontalalign="center" name="composite10">
+                                            <wm-container class="col-md-9" width="100%" name="container28">
+                                                <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="viewParticipant"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn20">
+                        <wm-container name="lelangSKAktifContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%">
+                            <wm-layoutgrid name="layoutgrid6">
+                                <wm-gridrow padding="unset unset 3em unset" name="gridrow13">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn25">
+                                        <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchLelangAktif"></wm-text>
+                                        <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture4"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow padding="unset unset 1% unset" name="gridrow14">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn27_1">
+                                        <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label18"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn28_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="REMO" class="theader" color="#98A9BC" name="label19"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn28_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="No Agreement" class="theader" color="#98A9BC" name="label19"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn158_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Judul" class="theader" color="#98A9BC" name="label113"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn29">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Mulai" class="theader" color="#98A9BC" name="label20"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn30">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Berakhir" class="theader" color="#98A9BC" name="label21"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn31">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tawaran Terendah" class="theader" color="#98A9BC" name="label22"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn159">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label114"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetLelangAktif.dataSet" navigation="Basic" nodatamessage="Tidak ada surat kuasa yang ditemukan"
+                                            navigationalign="right" name="list2">
+                                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                                <wm-container class="media-body" height="64px" name="container7">
+                                                    <wm-layoutgrid name="layoutgrid7">
+                                                        <wm-gridrow name="gridrow16">
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn33">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangAktif.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label23"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn44">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangAktif.dataSet[$i].areaName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label32"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn34">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangAktif.dataSet[$i].agreementNo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label24"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn160">
+                                                                <wm-label padding="unset 0.5pt unset unset" caption="bind:Variables.GetLelangAktif.dataSet[$i].title" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label115"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn35">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangAktif.dataSet[$i].startDate | toDate: 'yyyy-MM-dd HH:mm'" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                    name="label25"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn36">
+                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetLelangAktif.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                    name="label26"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn39">
+                                                                <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetLelangAktif.dataSet[$i].lowestBid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label26_1"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" padding="1em unset unset 1.5em" name="gridcolumn37">
+                                                                <wm-layoutgrid name="layoutgrid8">
+                                                                    <wm-gridrow name="gridrow17">
+                                                                        <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn38">
+                                                                            <wm-container width="100%" horizontalalign="left" name="container8">
+                                                                                <wm-picture picturesource="resources/images/imagelists/Show-Password.png" margin="unset unset 1.7em unset" on-click="Widgets.DetailLelangAktif.open()" height="15px" name="picture5"
+                                                                                    class="action-button"></wm-picture>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-composite width="6em" class="view-new" captionposition="left" horizontalalign="center" name="composite2">
+                                <wm-container class="col-md-9" width="100%" name="container9">
+                                    <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="lelangAktifView"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow89_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn199_2">
+                        <wm-container class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%" name="selectWinnerContainer">
+                            <wm-layoutgrid name="layoutgrid37_1">
+                                <wm-gridrow padding="unset unset 3em unset" name="gridrow90_1">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn200_2">
+                                        <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchWinnerSK"></wm-text>
+                                        <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture17"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn201_1"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow padding="unset unset 1% unset" name="gridrow91_1">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn202_1">
+                                        <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label155_2"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn203_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="REMO" class="theader" color="#98A9BC" name="label156_2"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn204_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="No Agreement" class="theader" color="#98A9BC" name="label157_1"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn205_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Judul" class="theader" color="#98A9BC" name="label158_1"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn206_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Mulai" class="theader" color="#98A9BC" name="label159_1"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn207_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Berakhir" class="theader" color="#98A9BC" name="label160_1"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn208_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tawaran Terendah" class="theader" color="#98A9BC" name="label161"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn209_1">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label162"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow92_1">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn210">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetPilihWinnerSKList.dataSet" navigation="Basic" nodatamessage="Tidak ada surat kuasa yang ditemukan"
+                                            navigationalign="right" name="list15">
+                                            <wm-listtemplate layout="inline" name="listtemplate15">
+                                                <wm-container class="media-body" height="64px" name="container67">
+                                                    <wm-layoutgrid name="layoutgrid38">
+                                                        <wm-gridrow name="gridrow93">
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn211">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label163"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn212">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].areaName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label164"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn213">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].agreementNo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label165"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn214">
+                                                                <wm-label padding="unset 0.5pt unset unset" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].title" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label166"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn215">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].startDate | toDate: 'yyyy-MM-dd HH:mm'" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                    name="label167"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn216">
+                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label168"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn217">
+                                                                <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetPilihWinnerSKList.dataSet[$i].lowestBid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label169"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" padding="1em unset unset 1.5em" name="gridcolumn218">
+                                                                <wm-layoutgrid name="layoutgrid39">
+                                                                    <wm-gridrow name="gridrow94">
+                                                                        <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn219">
+                                                                            <wm-container width="100%" horizontalalign="left" name="container68">
+                                                                                <wm-picture picturesource="resources/images/imagelists/Show-Password.png" margin="unset unset 1.7em unset" on-click="Widgets.PilihWinnerSK.open()" height="15px" class="action-button"
+                                                                                    name="picture18"></wm-picture>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-composite width="6em" class="view-new" captionposition="left" horizontalalign="center" name="composite45_1">
+                                <wm-container class="col-md-9" width="100%" name="container69">
+                                    <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="select16"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow21">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn48">
+                        <wm-container class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%" name="lelangSKTidakAktifContainer">
+                            <wm-layoutgrid name="layoutgrid11_1">
+                                <wm-gridrow padding="unset unset 3em unset" name="gridrow23">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn50_1">
+                                        <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchLelangTidakAktif"></wm-text>
+                                        <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture7"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn51"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow padding="unset unset 1% unset" name="gridrow24">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn52">
+                                        <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label37"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn53">
+                                        <wm-label padding="unset 0.5em unset unset" caption="REMO" class="theader" color="#98A9BC" name="label38"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn54">
+                                        <wm-label padding="unset 0.5em unset unset" caption="No Agreement" class="theader" color="#98A9BC" name="label39"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn55">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Judul" class="theader" color="#98A9BC" name="label40"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn161">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Mulai" class="theader" color="#98A9BC" name="label116"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn56">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Berakhir" class="theader" color="#98A9BC" name="label41"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn162">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tawaran Terendah" class="theader" color="#98A9BC" name="label117"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn57">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label42"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow25">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn58">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetLelangTidakAktif.dataSet" navigation="Basic" nodatamessage="Tidak ada surat kuasa yang ditemukan"
+                                            navigationalign="right" name="list3">
+                                            <wm-listtemplate layout="inline" name="listtemplate3">
+                                                <wm-container class="media-body" height="64px" name="container16">
+                                                    <wm-layoutgrid name="layoutgrid12">
+                                                        <wm-gridrow name="gridrow26">
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn59">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label43"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn60">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].areaName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label44"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn61">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].agreementNo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label45"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" name="gridcolumn163">
+                                                                <wm-label padding="unset 0.5pt unset unset" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].title" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label118"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn62">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].startDate | toDate: 'yyyy-MM-dd HH:mm'" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                                    name="label46"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn63">
+                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label47"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn64">
+                                                                <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetLelangTidakAktif.dataSet[$i].lowestBid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label48"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" padding="1em unset unset 1.5em" name="gridcolumn65">
+                                                                <wm-layoutgrid name="layoutgrid13">
+                                                                    <wm-gridrow name="gridrow27">
+                                                                        <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn66">
+                                                                            <wm-container width="100%" horizontalalign="left" name="container17">
+                                                                                <wm-picture picturesource="resources/images/imagelists/Show-Password.png" margin="unset unset 1.7em unset" height="15px" class="action-button" name="picture8" on-click="Widgets.detailLelangTidakAktif.open()"></wm-picture>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-composite width="6em" class="view-new" captionposition="left" horizontalalign="center" name="composite7">
+                                <wm-container class="col-md-9" width="100%" name="container18">
+                                    <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="lelangTidakAktifView"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow22_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn49">
+                        <wm-container class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%" name="dokumenSKLelangContainer">
+                            <wm-layoutgrid name="layoutgrid14">
+                                <wm-gridrow padding="unset unset 3em unset" name="gridrow28">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn67">
+                                        <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchDocument"></wm-text>
+                                        <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture9"></wm-picture>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn68"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow padding="unset unset 1% unset" name="gridrow29">
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn69">
+                                        <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label50"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn70">
+                                        <wm-label padding="unset 0.5em unset unset" caption="ID Lelang" class="theader" color="#98A9BC" name="label51"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn72">
+                                        <wm-label padding="unset 0.5em unset unset" caption="No Aggreement" class="theader" color="#98A9BC" name="label53"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn73">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Tanggal Berakhir" class="theader" color="#98A9BC" name="label54"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn74">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label55"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow30">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn75">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" navigation="Basic" nodatamessage="Tidak ada surat kuasa yang ditemukan" navigationalign="right"
+                                            name="list4" dataset="bind:Variables.GetDocumentLelang.dataSet">
+                                            <wm-listtemplate layout="inline" name="listtemplate4">
+                                                <wm-container class="media-body" height="64px" name="container20">
+                                                    <wm-layoutgrid name="layoutgrid15">
+                                                        <wm-gridrow name="gridrow31">
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn76">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetDocumentLelang.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label56"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn77">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetDocumentLelang.dataSet[$i].id" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label57"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn79">
+                                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetDocumentLelang.dataSet[$i].agreementNo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label59"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn80">
+                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetDocumentLelang.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label" width="100%"
+                                                                    margin="1em unset unset unset" name="label60"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="1" padding="1em unset unset 1.5em" name="gridcolumn82">
+                                                                <wm-layoutgrid name="layoutgrid16">
+                                                                    <wm-gridrow name="gridrow32">
+                                                                        <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn83">
+                                                                            <wm-container width="100%" horizontalalign="left" name="container21">
+                                                                                <wm-picture picturesource="resources/images/imagelists/Show-Password.png" margin="unset unset 1.7em unset" on-click="Widgets.editStatusDocument.open()" height="15px" class="action-button"
+                                                                                    name="picture10"></wm-picture>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                            <wm-composite width="6em" class="view-new" captionposition="left" horizontalalign="center" name="composite8">
+                                <wm-container class="col-md-9" width="100%" name="container22">
+                                    <wm-select dataset="10, 20, 30, 50, 100" datavalue="10" name="viewDocumentTotal"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Lelang SK" iconclass="" name="buatLelang" width="60%">
+        <wm-message name="addLelangMessage" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow46" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn116" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite11">
+                        <wm-label class="col-md-3 control-label" caption="Wilayah" color="#999C9F" name="label80"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container29">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaRemo.dataSet" datafield="areaCode" displayfield="areaName" disabled="false" readonly="false" name="areaRemo" placeholder="Pilih Wilayah REMO"
+                                height="48"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn119" padding="unset 3%">
+                    <wm-composite name="composite16" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="title" color="#999C9F" caption="Judul"></wm-label>
+                        <wm-container class="col-md-9" name="container34" width="100%">
+                            <wm-text name="titleAddLelang" height="48" class="input"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Tanggal Mulai" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-datetime name="startDateLelang" class="input" mindate="CURRENT_DATE"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite captionposition="top" name="composite6">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Berakhir" color="#999C9F" name="label22"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container9">
+                            <wm-datetime name="endDateLelang" class="input" mindate="CURRENT_DATE"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Tambah" name="button1" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"
+                on-click="Variables.AddLelangSK.createRecord()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Lelang" iconclass="" name="editLelang" width="60%">
+        <wm-dialogactions name="dialogactions2">
+            <wm-button class="btn-save-badge" caption="SIMPAN" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"
+                on-click="Variables.EditLelang.updateRecord()" name="button4"></wm-button>
+        </wm-dialogactions>
+        <wm-message type="error" name="editLelangMessage" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid24">
+            <wm-gridrow padding="2em unset unset unset" name="gridrow47">
+                <wm-gridcolumn columnwidth="6" padding="unset 3%" name="gridcolumn118">
+                    <wm-composite captionposition="top" name="composite10_1">
+                        <wm-label class="col-md-3 control-label" caption="Wilayah" color="#999C9F" name="label83"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container28_1">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaRemo.dataSet" datafield="areaCode" displayfield="areaName" disabled="false" readonly="false" placeholder="Pilih Wilayah REMO" height="48"
+                                name="editAreaLelang" datavalue="bind:Widgets.newLelangArea.selecteditem.area"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn119_1" padding="unset 3%">
+                    <wm-composite name="composite16" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="title" color="#999C9F" caption="Judul"></wm-label>
+                        <wm-container class="col-md-9" name="container34" width="100%">
+                            <wm-text name="titleEditLelang" height="48" class="input" datavalue="bind:Widgets.newLelangArea.selecteditem.title"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset" name="gridrow48">
+                <wm-gridcolumn columnwidth="6" padding="unset 3%" name="gridcolumn120">
+                    <wm-composite captionposition="top" name="composite11_1">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Mulai" color="#999C9F" name="label84"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container29_1">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" name="editStartDateLelang" datavalue="bind:Widgets.newLelangArea.selecteditem.startDate"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 3%" name="gridcolumn121">
+                    <wm-composite captionposition="top" name="composite12">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Berakhir" color="#999C9F" name="label85"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container30">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" name="editEndDateLelang" datavalue="bind:Widgets.newLelangArea.selecteditem.endDate"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus" iconclass="" name="hapusLelang">
+        <wm-layoutgrid name="layoutgrid25">
+            <wm-gridrow name="gridrow49">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn122" horizontalalign="center">
+                    <wm-label padding="unset 0.5em" caption="Apakah Anda yakin ingin menghapus lelang ini?" name="label86" class="input-label" fontsize="20"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions3">
+            <wm-button class="btn-save-badge" caption="Hapus" backgroundcolor="red" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"
+                on-click="Variables.HapusLelang.deleteRecord();Widgets.hapusLelang.close()" name="button6"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus" iconclass="" name="hapusDetail">
+        <wm-layoutgrid name="layoutgrid25">
+            <wm-gridrow name="gridrow49">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn122" horizontalalign="center">
+                    <wm-label padding="unset 0.5em" caption="Apakah Anda yakin ingin menghapus nomor kontrak ini dari daftar lelang?" name="label86" class="input-label" fontsize="20"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions3">
+            <wm-button class="btn-save-badge" caption="Hapus" backgroundcolor="red" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"
+                on-click="Variables.HapusDetailLelang.deleteRecord();Widgets.hapusDetail.close()" name="button6"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus" iconclass="" name="hapusPeserta">
+        <wm-layoutgrid name="layoutgrid25">
+            <wm-gridrow name="gridrow49">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn122" horizontalalign="center">
+                    <wm-label padding="unset 0.5em" caption="Apakah Anda yakin ingin menghapus peserta ini dari daftar lelang?" name="label86" class="input-label" fontsize="20"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions3">
+            <wm-button class="btn-save-badge" caption="Hapus" backgroundcolor="red" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="bind:Widgets.list2.selecteditem.flagFidusia == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagEcontract == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagDigisign == &quot;Y&quot; &amp;&amp; Widgets.list2.selecteditem.flagTrnschedule == &quot;Y&quot; ? false : true"
+                on-click="Variables.HapusLelangParticipant.deleteRecord();Widgets.hapusPeserta.close()" name="button6"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Kontrak Lelang" iconclass="" name="addNoAggr" width="60%" on-close="addNoAggrClose($event, widget)" on-opened="addNoAggrOpened($event, widget)">
+        <wm-dialogactions name="dialogactions4">
+            <wm-button class="btn-save-badge" caption="TAMBAH" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="true" name="button7" on-click="Variables.InsertNewSKDetail.createRecord()"></wm-button>
+        </wm-dialogactions>
+        <wm-message name="errorParamNoKontrak" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid26">
+            <wm-gridrow name="gridrow88_1" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn197_1" padding="unset 1.5em">
+                    <wm-text name="search_no_aggr" class="input" height="48" placeholder="Search No. Agreement..." on-keypress="search_no_aggrKeypress($event, widget)"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn198_1"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow50">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn123">
+                    <wm-composite captionposition="top" name="composite13">
+                        <wm-label class="col-md-3 control-label" caption="No Aggreement" color="#999C9F" name="label87"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container31">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetNoAggrListLelang.dataSet" datafield="noAggr" displayfield="noAggr" disabled="false" readonly="false" placeholder="Pilih No Aggreement"
+                                height="48" name="noAggrAddLelang" orderby="noAggr:asc"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn124" padding="unset 1.5em">
+                    <wm-composite name="composite19" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="bto" caption="Batas BTO" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container37" width="100%">
+                            <wm-currency textalign="left" name="btoAddLelang" currency="IDR" height="48" class="input"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow51_1" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn125_1" padding="unset 1.5em">
+                    <wm-composite name="composite20" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label90" caption="Deskripsi" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container38" width="100%">
+                            <wm-textarea name="deskripsiAddLelang" class="input text-area"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow52_2" padding="1em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn125" padding="unset 1.5em">
+                    <wm-list listclass="list-group" itemsperrow="xs-2 sm-3 md-4 lg-6" template="true" class="list-card" name="imageUploadedList1" dataset="bind:Variables.imageUploaded.dataSet" navigation="Basic" pagesize="5" show="bind:Variables.imageUploaded.dataSet.length > 0 ? true : false">
+                        <wm-listtemplate layout="media" name="listtemplate8">
+                            <wm-card name="Picture" picturesource="bind:Variables.imageUploaded.dataSet[$i].dataValue">
+                                <!--<wm-card-content name="card_content1"></wm-card-content>--></wm-card>
+                        </wm-listtemplate>
+                    </wm-list>
+                    <wm-label padding="unset 0.5em" name="label99" caption="Reset Images" textdecoration="underline" color="blue" on-click="label99Click($event, widget)"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow52_1">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn127_1" padding="unset 1.5em">
+                    <wm-fileupload name="fileupload1" on-select="Variables.FileServiceUploadFile.invoke()" caption="" iconclass="" contenttype=".jpeg .jpg .png" maxfilesize="10" multiple="true" fileuploadmessage="bind:&quot;ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES &quot;"
+                        width="108px" height="108px" backgroundimage="resources/images/imagelists/addImage.svg" backgroundrepeat="no-repeat" backgroundposition="0.1em"></wm-fileupload>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Ubah Kontrak Lelang" iconclass="" name="editNoAggr" width="60%" on-opened="Variables.GetLelangImagesView.listRecords()">
+        <wm-dialogactions name="dialogactions4">
+            <wm-button class="btn-save-badge" caption="SIMPAN" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="true" name="button7" on-click="Variables.UpdateLelangDetail.updateRecord()"></wm-button>
+        </wm-dialogactions>
+        <wm-message name="errorParamKontrakEdit" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid26">
+            <wm-gridrow padding="2em unset unset unset" name="gridrow50">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn123">
+                    <wm-composite captionposition="top" name="composite13">
+                        <wm-label class="col-md-3 control-label" caption="No Aggreement" color="#999C9F" name="label87"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container31">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetNoAggrList.dataSet" datafield="noAggr" displayfield="noAggr" disabled="false" readonly="false" placeholder="Pilih No Aggreement" height="48"
+                                name="noAggrEditLelang" datavalue="bind:Widgets.noAggrList.selecteditem.agreementNo"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn124" padding="unset 1.5em">
+                    <wm-composite name="composite19" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="bto" caption="Batas BTO" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container37" width="100%">
+                            <wm-currency textalign="left" name="btoEditLelang" currency="IDR" height="48" class="input" datavalue="bind:Widgets.noAggrList.selecteditem.btoLimit"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow51_1" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn125_1" padding="unset 1.5em">
+                    <wm-composite name="composite20" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label90" caption="Deskripsi" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container38" width="100%">
+                            <wm-textarea name="deskripsiEditLelang" class="input text-area" datavalue="bind:Widgets.noAggrList.selecteditem.description"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow52_2" padding="1em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn125" padding="unset 1.5em">
+                    <wm-list listclass="list-group" itemsperrow="xs-2 sm-3 md-4 lg-6" template="true" class="list-card" name="imageUploadedList1" dataset="bind:Variables.imageUploaded.dataSet" navigation="Basic" pagesize="5" show="bind:Variables.imageUploaded.dataSet.length > 0 ? true : false">
+                        <wm-listtemplate layout="media" name="listtemplate8">
+                            <wm-card name="Picture" picturesource="bind:Variables.imageUploaded.dataSet[$i].dataValue">
+                                <!--<wm-card-content name="card_content1"></wm-card-content>--></wm-card>
+                        </wm-listtemplate>
+                    </wm-list>
+                    <wm-label padding="unset 0.5em" name="label100" caption="Reset Images" color="blue" textdecoration="underline" on-click="label100Click($event, widget)"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow52_1">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn127_1" padding="unset 1.5em">
+                    <wm-fileupload name="fileupload1" on-select="Variables.FileServiceUploadFile.invoke()" caption="" iconclass="" contenttype=".jpeg .jpg .png" maxfilesize="10" multiple="true" width="108px" height="108px" backgroundimage="resources/images/imagelists/addImage.svg"
+                        backgroundrepeat="no-repeat" backgroundposition="0.1em" fileuploadmessage="bind:&quot;ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES ADD IMAGES &quot;"></wm-fileupload>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Kontrak Lelang Detil" iconclass="" name="viewNoAggr" width="60%" on-opened="Variables.GetLelangImagesView.listRecords()">
+        <wm-layoutgrid name="layoutgrid26">
+            <wm-gridrow padding="2em unset unset unset" name="gridrow50">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn123">
+                    <wm-composite captionposition="top" name="composite13">
+                        <wm-label class="col-md-3 control-label" caption="No Aggreement" color="#999C9F" name="label87"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container31">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetNoAggrList.dataSet" datafield="noAggr" displayfield="noAggr" disabled="true" readonly="true" placeholder="Pilih No Aggreement" height="48"
+                                name="noAggrAddLelang" datavalue="bind:Widgets.noAggrList.selecteditem.agreementNo"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn124" padding="unset 1.5em">
+                    <wm-composite name="composite19" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="bto" caption="Batas BTO" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container37" width="100%">
+                            <wm-currency textalign="left" name="btoAddLelang" currency="IDR" height="48" class="input" datavalue="bind:Widgets.noAggrList.selecteditem.btoLimit" readonly="true" disabled="true"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow51_1" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn125_1" padding="unset 1.5em">
+                    <wm-composite name="composite20" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label90" caption="Deskripsi" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container38" width="100%">
+                            <wm-textarea name="deskripsiAddLelang" class="input" datavalue="bind:Widgets.noAggrList.selecteditem.description" readonly="true" disabled="true"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow52_2" padding="1em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn125" padding="unset 1.5em">
+                    <wm-list listclass="list-group" itemsperrow="xs-2 sm-3 md-4 lg-6" template="true" class="list-card" name="imageUploadedList1" dataset="bind:Variables.GetLelangImagesView.dataSet" navigation="Basic" pagesize="5" show="true">
+                        <wm-listtemplate layout="media" name="listtemplate8">
+                            <wm-card name="Picture" picturesource="bind:Variables.GetLelangImagesView.dataSet[$i].url">
+                                <!--<wm-card-content name="card_content1"></wm-card-content>--></wm-card>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Peserta" iconclass="" name="addParticipant" width="60%" on-opened="Variables.GetAllListPesertaLelang.invoke()">
+        <wm-dialogactions name="dialogactions8">
+            <wm-button class="btn-save-badge" caption="Tambah" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="true" name="button12" on-click="button12Click($event, widget)"></wm-button>
+        </wm-dialogactions>
+        <wm-layoutgrid name="layoutgrid31">
+            <wm-gridrow padding="2em unset unset unset" name="gridrow66">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn146">
+                    <wm-composite captionposition="top" name="composite25">
+                        <wm-label class="col-md-3 control-label" caption="Filter Berdasarkan" color="#999C9F" name="label105"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container42">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="REMO, Badges" datafield="All Fields" disabled="false" readonly="false" placeholder="Pilih Filter" height="48" name="filter" on-change="filterChange($event, widget, newVal, oldVal)"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn147">
+                    <wm-composite captionposition="top" name="composite26">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Subfilter" name="label106" show="bind:(Widgets.filter.datavalue == &quot;REMO&quot; ? true : (Widgets.filter.datavalue == &quot;Badges&quot; ? true : false))"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container43">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaRemo.dataSet" datafield="areaName" displayfield="areaName" disabled="false" readonly="false" placeholder="Pilih Subfilter" height="48"
+                                name="subfilterRemo" show="bind:Widgets.filter.datavalue == &quot;REMO&quot; ? true : false" on-change="subfilterRemoChange($event, widget, newVal, oldVal)"></wm-select>
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetBadges.dataSet" datafield="badgeType" displayfield="badgeType" disabled="false" readonly="false" placeholder="Pilih Subfilter"
+                                height="48" name="subfilterBadges" show="bind:Widgets.filter.datavalue == &quot;Badges&quot; ? true : false" on-change="subfilterBadgesChange($event, widget, newVal, oldVal)"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow68_2" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="2" name="gridcolumn103">
+                    <wm-label padding="unset 0.5em" caption="ID Peserta" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label71"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn104">
+                    <wm-label padding="unset 0.5em unset unset" caption="Nama Lengkap" class="theader" color="#98A9BC" name="label72"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn105">
+                    <wm-label padding="unset 0.5em unset unset" caption="Kode Cabang" class="theader" color="#98A9BC" name="label73"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn130">
+                    <wm-label padding="unset 0.5em unset unset" caption="REMO" class="theader" color="#98A9BC" name="label91"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn106">
+                    <wm-label padding="unset 0.5em unset unset" caption="Kategori" class="theader" color="#98A9BC" name="label74"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="2" name="gridcolumn107" horizontalalign="left">
+                    <wm-checkbox caption="Select All" class="theader" checkedvalue="true" uncheckedvalue="false" name="checkbox2" on-change="checkbox2Change($event, widget, newVal, oldVal)"></wm-checkbox>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow68">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn150">
+                    <wm-container name="container46" overflow="scroll" class="list-user">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.listParticipant.dataSet" navigation="None" nodatamessage="Tidak ada peserta yang ditemukan"
+                            navigationalign="right" name="list11">
+                            <wm-listtemplate layout="inline" name="listtemplate11">
+                                <wm-container class="media-body" height="64px" name="container47">
+                                    <wm-layoutgrid name="layoutgrid33">
+                                        <wm-gridrow name="gridrow68_1">
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn152">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.listParticipant.dataSet[$i].coll_cd" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label108"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn153">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.listParticipant.dataSet[$i].full_name" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label109"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn154">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.listParticipant.dataSet[$i].branch_id" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label110"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn155">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.listParticipant.dataSet[$i].remo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label111"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn156">
+                                                <wm-label padding="unset 0.5em" caption="bind:Variables.listParticipant.dataSet[$i].badge" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label112"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" padding="1em unset unset 1.5em" name="gridcolumn157">
+                                                <wm-layoutgrid name="layoutgrid34">
+                                                    <wm-gridrow name="gridrow69">
+                                                        <wm-gridcolumn columnwidth="12" horizontalalign="left" name="gridcolumn158">
+                                                            <wm-checkbox caption="" name="checkbox1" checkedvalue="true" uncheckedvalue="false" datavalue="bind:Variables.listParticipant.dataSet[$i].participant"></wm-checkbox>
+                                                        </wm-gridcolumn>
+                                                    </wm-gridrow>
+                                                </wm-layoutgrid>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-list>
+                    </wm-container>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Detail Lelang" iconclass="" name="DetailLelangAktif" width="60%" on-opened="Variables.GetImagesLelangAktifDetail.listRecords();Variables.GetParticipantLelangDetailAktif.invoke();Variables.GetUserParticipantLelang.invoke()">
+        <wm-dialogactions name="dialogactions9">
+            <wm-button class="btn-save-badge" caption="Tutup" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="true" on-click="Widgets.DetailLelangAktif.close()" name="button13"></wm-button>
+        </wm-dialogactions>
+        <wm-composite name="composite45" show="false">
+            <wm-label class="col-md-3 control-label" name="label154_1"></wm-label>
+            <wm-container class="col-md-9" name="container66"></wm-container>
+        </wm-composite>
+        <wm-layoutgrid name="layoutgrid34_1">
+            <wm-gridrow name="gridrow77" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn178" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite37">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Pemenang" name="label135"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container56">
+                            <wm-select name="winnerSelect" class="input" height="48" dataset="bind:Variables.GetUserParticipantLelang.dataSet" datafield="cdColl" displayfield="fullName" placeholder="Pilih Pemenang" disabled="true"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn179" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite38">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Tawaran Terendah" name="label136"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container57">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list2.selecteditem.lowestBid | toCurrency: 'Rp'" readonly="true" disabled="false" name="text16" placeholder="" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow76" padding="2.5em unset unset unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn176">
+                    <wm-label padding="unset 0.5em unset 1.5em" name="label133" caption="Detail Lelang" class="detil-label"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow71">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn168">
+                    <wm-composite captionposition="top" name="composite33">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="No Agreement" name="label129"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container52">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list2.selecteditem.agreementNo" readonly="true" disabled="false" name="text13" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn169">
+                    <wm-composite captionposition="top" name="composite34">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="REMO" name="label130"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container53">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list2.selecteditem.areaName" readonly="true" disabled="false" name="text14" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow72">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn170">
+                    <wm-composite captionposition="top" name="composite32">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Judul" name="label128"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container51">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list2.selecteditem.title" readonly="true" disabled="false" name="text12" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn171" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite31">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Batas BTO" name="label127"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container50">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list2.selecteditem.btoLimit | toCurrency: 'Rp'" readonly="true" disabled="false" name="text11" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow73">
+                <wm-gridcolumn columnwidth="12" padding="unset 1.5em" name="gridcolumn172">
+                    <wm-composite captionposition="top" name="composite30">
+                        <wm-label class="col-md-3 control-label" caption="Deskripsi" color="#999C9F" name="label126"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container49">
+                            <wm-textarea class="input" datavalue="bind:Widgets.list2.selecteditem.description" readonly="true" disabled="false" name="textarea4"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow74">
+                <wm-gridcolumn columnwidth="12" padding="unset 1.5em" name="gridcolumn173">
+                    <wm-list listclass="list-group" itemsperrow="xs-2 sm-3 md-4 lg-6" template="true" class="list-card" dataset="bind:Variables.GetImagesLelangAktifDetail.dataSet" navigation="Basic" pagesize="5" show="true" name="list11_1">
+                        <wm-listtemplate layout="media" name="listtemplate11_1">
+                            <wm-card picturesource="bind:Variables.GetImagesLelangAktifDetail.dataSet[$i].url" name="card4">
+                                <wm-card-content name="card_content4"></wm-card-content>
+                            </wm-card>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow75" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn174" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite35">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Mulai" color="#999C9F" name="label131"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container54">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" name="datetime5" readonly="true" disabled="false" datavalue="bind:Widgets.list2.selecteditem.startDate"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn175" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite36">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Selesai" color="#999C9F" name="label132"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container55">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" name="datetime6" autofocus="false" readonly="true" disabled="false" datavalue="bind:Widgets.list2.selecteditem.endDate"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow78" padding="2.5em unset 1.5em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn180">
+                    <wm-label padding="unset 0.5em unset 1.5em" caption="Detail Peserta" name="label134" class="detil-label"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow79">
+                <wm-gridcolumn columnwidth="2" name="gridcolumn103">
+                    <wm-label padding="unset 0.5em unset 1em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label71"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn104">
+                    <wm-label padding="unset 0.5em unset 1em" caption="ID" class="theader" color="#98A9BC" name="label72"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn105">
+                    <wm-label padding="unset 0.5em unset unset" caption="Nama" class="theader" color="#98A9BC" name="label73"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn130">
+                    <wm-label padding="unset 0.5em unset unset" caption="Biaya" class="theader" color="#98A9BC" name="label91"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow78_1">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn177">
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetParticipantLelangDetailAktif.dataSet" navigation="Basic" nodatamessage="Tidak ada peserta yang ditemukan"
+                        navigationalign="right" selectfirstitem="true" name="list12">
+                        <wm-listtemplate layout="inline" name="listtemplate12">
+                            <wm-container class="media-body" height="64px" name="container55_1">
+                                <wm-layoutgrid name="layoutgrid34_2">
+                                    <wm-gridrow name="gridrow79_1">
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn178_1">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangDetailAktif.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label130_1"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn179_1">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangDetailAktif.dataSet[$i].cdColl" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label131_1"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn180_1">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangDetailAktif.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label132_1"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn181">
+                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetParticipantLelangDetailAktif.dataSet[$i].bid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                name="label133_1"></wm-label>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Detail Lelang" iconclass="" name="PilihWinnerSK" width="60%" on-opened="Variables.GetImageDetailPilihWinner.listRecords();Variables.GetParticipantLelangPilihWinner.invoke();Variables.GetPilihUserWinner.invoke()">
+        <wm-dialogactions name="dialogactions9">
+            <wm-button class="btn-save-badge" caption="Simpan" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="true" on-click="Variables.SetPemenangLelang.invoke()" name="button13"></wm-button>
+        </wm-dialogactions>
+        <wm-composite name="composite45" show="false">
+            <wm-label class="col-md-3 control-label" name="label154_1"></wm-label>
+            <wm-container class="col-md-9" name="container66"></wm-container>
+        </wm-composite>
+        <wm-layoutgrid name="layoutgrid34_1">
+            <wm-gridrow name="gridrow77" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn178" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite37">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Pemenang" name="label135"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container56">
+                            <wm-select name="winnerSK" class="input" height="48" dataset="bind:Variables.GetPilihUserWinner.dataSet" datafield="cdColl" displayfield="fullName" placeholder="Pilih Pemenang" disabled="false"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn179" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite38">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Tawaran Terendah" name="label136"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container57">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list15.selecteditem.lowestBid | toCurrency: 'Rp'" readonly="true" disabled="false" name="text16" placeholder="" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow76" padding="2.5em unset unset unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn176">
+                    <wm-label padding="unset 0.5em unset 1.5em" name="label133" caption="Detail Lelang" class="detil-label"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow71">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn168">
+                    <wm-composite captionposition="top" name="composite33">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="No Agreement" name="label129"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container52">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list15.selecteditem.agreementNo" readonly="true" disabled="false" name="text13" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn169">
+                    <wm-composite captionposition="top" name="composite34">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="REMO" name="label130"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container53">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list15.selecteditem.areaName" readonly="true" disabled="false" name="text14" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow72">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn170">
+                    <wm-composite captionposition="top" name="composite32">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Judul" name="label128"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container51">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list15.selecteditem.title" readonly="true" disabled="false" name="text12" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn171" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite31">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Batas BTO" name="label127"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container50">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list15.selecteditem.btoLimit | toCurrency: 'Rp'" readonly="true" disabled="false" name="text11" autocomplete="false"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow73">
+                <wm-gridcolumn columnwidth="12" padding="unset 1.5em" name="gridcolumn172">
+                    <wm-composite captionposition="top" name="composite30">
+                        <wm-label class="col-md-3 control-label" caption="Deskripsi" color="#999C9F" name="label126"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container49">
+                            <wm-textarea class="input" datavalue="bind:Widgets.list15.selecteditem.description" readonly="true" disabled="false" name="textarea4"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow74">
+                <wm-gridcolumn columnwidth="12" padding="unset 1.5em" name="gridcolumn173">
+                    <wm-list listclass="list-group" itemsperrow="xs-2 sm-3 md-4 lg-6" template="true" class="list-card" dataset="bind:Variables.GetImageDetailPilihWinner.dataSet" navigation="Basic" pagesize="5" show="true" name="list11_1">
+                        <wm-listtemplate layout="media" name="listtemplate11_1">
+                            <wm-card picturesource="bind:Variables.GetImageDetailPilihWinner.dataSet[$i].url" name="card4">
+                                <wm-card-content name="card_content4"></wm-card-content>
+                            </wm-card>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow75" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn174" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite35">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Mulai" color="#999C9F" name="label131"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container54">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" name="datetime5" readonly="true" disabled="false" datavalue="bind:Widgets.list15.selecteditem.startDate"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn175" padding="unset 1.5em">
+                    <wm-composite captionposition="top" name="composite36">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Selesai" color="#999C9F" name="label132"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container55">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" name="datetime6" autofocus="false" readonly="true" disabled="false" datavalue="bind:Widgets.list15.selecteditem.endDate"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow78" padding="2.5em unset 1.5em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn180">
+                    <wm-label padding="unset 0.5em unset 1.5em" caption="Detail Peserta" name="label134" class="detil-label"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow79">
+                <wm-gridcolumn columnwidth="2" name="gridcolumn103">
+                    <wm-label padding="unset 0.5em unset 1em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label71"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn104">
+                    <wm-label padding="unset 0.5em unset 1em" caption="ID" class="theader" color="#98A9BC" name="label72"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn105">
+                    <wm-label padding="unset 0.5em unset unset" caption="Nama" class="theader" color="#98A9BC" name="label73"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn130">
+                    <wm-label padding="unset 0.5em unset unset" caption="Biaya" class="theader" color="#98A9BC" name="label91"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow78_1">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn177">
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetParticipantLelangPilihWinner.dataSet" navigation="Basic" nodatamessage="Tidak ada peserta yang ditemukan"
+                        navigationalign="right" selectfirstitem="true" name="list12">
+                        <wm-listtemplate layout="inline" name="listtemplate12">
+                            <wm-container class="media-body" height="64px" name="container55_1">
+                                <wm-layoutgrid name="layoutgrid34_2">
+                                    <wm-gridrow name="gridrow79_1">
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn178_1">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangPilihWinner.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label130_1"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn179_1">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangPilihWinner.dataSet[$i].cdColl" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label131_1"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn180_1">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangPilihWinner.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label132_1"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn181">
+                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetParticipantLelangPilihWinner.dataSet[$i].bid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                name="label133_1"></wm-label>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Information" iconclass="wi wi-file-text" name="detailLelangTidakAktif" width="60%" on-opened="Variables.GetParticipantLelangDetailTidakAktif.invoke();Variables.GetImagesLelangTidakAktifDetail.listRecords()">
+        <wm-dialogactions name="dialogactions10">
+            <wm-button class="btn-save-badge" caption="Simpan" backgroundcolor="#0F358E" color="#F7F8FB" height="48px" width="12em" margin="unset 1.5em unset unset" show="true" on-click="Widgets.detailLelangTidakAktif.close()" name="button14"></wm-button>
+        </wm-dialogactions>
+        <wm-layoutgrid name="layoutgrid36">
+            <wm-gridrow padding="2em unset unset unset" name="gridrow82">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn189">
+                    <wm-composite captionposition="top" name="composite36_1">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Pemenang" name="label142"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container56_1">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list3.selecteditem.winnerName" readonly="true" disabled="false" placeholder="" autocomplete="false" name="text16_1"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn190">
+                    <wm-composite captionposition="top" name="composite37_1">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Tawaran Terendah" name="label143"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container57_1">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list3.selecteditem.lowestBid | toCurrency: 'Rp'" readonly="true" disabled="false" placeholder="" autocomplete="false" name="text17"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2.5em unset unset unset" name="gridrow83">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn191">
+                    <wm-label padding="unset 0.5em unset 1.5em" caption="Detail Lelang" class="detil-label" name="label144"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow84">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn192">
+                    <wm-composite captionposition="top" name="composite38_1">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="No Agreement" name="label145"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container58">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list3.selecteditem.agreementNo" readonly="true" disabled="false" autocomplete="false" name="text18"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn193">
+                    <wm-composite captionposition="top" name="composite39">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="REMO" name="label146"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container59">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list3.selecteditem.areaName" readonly="true" disabled="false" autocomplete="false" name="text19"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow85">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn194">
+                    <wm-composite captionposition="top" name="composite40">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Judul" name="label147"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container60">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list3.selecteditem.title" readonly="true" disabled="false" autocomplete="false" name="text20"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn195">
+                    <wm-composite captionposition="top" name="composite41">
+                        <wm-label class="col-md-3 control-label" color="#999C9F" caption="Batas BTO" name="label148"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container61">
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list3.selecteditem.btoLimit | toCurrency: 'Rp'" readonly="true" disabled="false" autocomplete="false" name="text21"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow86">
+                <wm-gridcolumn columnwidth="12" padding="unset 1.5em" name="gridcolumn196">
+                    <wm-composite captionposition="top" name="composite42">
+                        <wm-label class="col-md-3 control-label" caption="Deskripsi" color="#999C9F" name="label149"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container62">
+                            <wm-textarea class="input" datavalue="bind:Widgets.list3.selecteditem.description" readonly="true" disabled="false" name="textarea5"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow87">
+                <wm-gridcolumn columnwidth="12" padding="unset 1.5em" name="gridcolumn197">
+                    <wm-list listclass="list-group" itemsperrow="xs-2 sm-3 md-4 lg-6" template="true" class="list-card" dataset="bind:Variables.GetImagesLelangTidakAktifDetail.dataSet" navigation="Basic" pagesize="5" show="true" name="list13">
+                        <wm-listtemplate layout="media" name="listtemplate13">
+                            <wm-card picturesource="bind:Variables.GetImagesLelangTidakAktifDetail.dataSet[$i].url" name="card5">
+                                <wm-card-content name="card_content5"></wm-card-content>
+                            </wm-card>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow88">
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn198">
+                    <wm-composite captionposition="top" name="composite43">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Mulai" color="#999C9F" name="label150"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container63">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" readonly="true" disabled="false" datavalue="bind:Widgets.list3.selecteditem.startDate" name="datetime7"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" padding="unset 1.5em" name="gridcolumn199">
+                    <wm-composite captionposition="top" name="composite44">
+                        <wm-label class="col-md-3 control-label" caption="Tanggal Selesai" color="#999C9F" name="label151"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container64">
+                            <wm-datetime class="input" mindate="CURRENT_DATE" autofocus="false" readonly="true" disabled="false" datavalue="bind:Widgets.list3.selecteditem.endDate" name="datetime8"></wm-datetime>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2.5em unset 1.5em unset" name="gridrow89">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn200">
+                    <wm-label padding="unset 0.5em unset 1.5em" caption="Detail Peserta" class="detil-label" name="label152"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow90">
+                <wm-gridcolumn columnwidth="2" name="gridcolumn201">
+                    <wm-label padding="unset 0.5em unset 1em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label153"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn202">
+                    <wm-label padding="unset 0.5em unset 1em" caption="ID" class="theader" color="#98A9BC" name="label154"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="4" name="gridcolumn203">
+                    <wm-label padding="unset 0.5em unset unset" caption="Nama" class="theader" color="#98A9BC" name="label155"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn204">
+                    <wm-label padding="unset 0.5em unset unset" caption="Biaya" class="theader" color="#98A9BC" name="label156"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow91">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn205">
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.GetParticipantLelangDetailTidakAktif.dataSet" navigation="Basic" nodatamessage="Tidak ada peserta yang ditemukan"
+                        navigationalign="right" selectfirstitem="true" name="list14">
+                        <wm-listtemplate layout="inline" name="listtemplate14">
+                            <wm-container class="media-body" height="64px" name="container65">
+                                <wm-layoutgrid name="layoutgrid37">
+                                    <wm-gridrow name="gridrow92">
+                                        <wm-gridcolumn columnwidth="2" name="gridcolumn206">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangDetailTidakAktif.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label157"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn207">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangDetailTidakAktif.dataSet[$i].cdColl" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label158"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="4" name="gridcolumn208">
+                                            <wm-label padding="unset 0.5pt" caption="bind:Variables.GetParticipantLelangDetailTidakAktif.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label159"></wm-label>
+                                        </wm-gridcolumn>
+                                        <wm-gridcolumn columnwidth="3" name="gridcolumn209">
+                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetParticipantLelangDetailTidakAktif.dataSet[$i].bid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                name="label160"></wm-label>
+                                        </wm-gridcolumn>
+                                    </wm-gridrow>
+                                </wm-layoutgrid>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+</wm-page>

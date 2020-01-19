@@ -20,3 +20,20 @@ Page.onReady = function() {
 Page.insertNewUserRemoonBeforeInsertRecord = function(variable, inputData, options) {
     inputData.createdAt = new Date();
 };
+
+Page.faqDataonBeforeListRecords = function(variable, dataFilter, options) {
+    console.log("Debug faqDataonBeforeListRecords", variable);
+};
+
+Page.insFaqonBeforeInsertRecord = function(variable, inputData, options) {
+    inputData.createdAt = new Date();
+};
+Page.FaqLiveForm1Success = function($event, $operation, $data) {
+    Page.Widgets.FaqTable1.refreshData();
+};
+Page.buttonBatalClick = function($event, widget) {
+    Page.Widgets.faqDialog.close();
+};
+Page.buttonSimpanClick = function($event, widget) {
+    Page.Variables.insFaq.invoke();
+};

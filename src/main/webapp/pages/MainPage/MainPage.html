@@ -27,7 +27,7 @@
                                                 <wm-picture name="pictDashboard" picturesource="resources/images/imagelists/1-Dashboard.png" cursor="pointer"></wm-picture>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" name="gridcolumn38" horizontalalign="center">
-                                                <wm-picture name="picSubmittedInfo" picturesource="resources/images/imagelists/2-SubmittedInfo.png" cursor="pointer"></wm-picture>
+                                                <wm-picture name="picSubmittedInfo" picturesource="resources/images/imagelists/2-SubmittedInfo.png" cursor="pointer" on-click="Actions.goToPage_SubmittedInformation.invoke()"></wm-picture>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" name="gridcolumn35" horizontalalign="center">
                                                 <wm-picture name="pictBTMK" picturesource="resources/images/imagelists/3-BTMKManagement.png" cursor="pointer"></wm-picture>
@@ -38,7 +38,7 @@
                                                 <wm-label padding="unset 0.5em" name="labeldashboard" class="left-menu-title" caption="Dashboard" margin="1em unset unset unset"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" name="gridcolumn39" horizontalalign="center">
-                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="Submitted Information" name="labelsubmittedinfo" margin="1em unset unset unset"></wm-label>
+                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="Submitted Information" name="labelsubmittedinfo" margin="1em unset unset unset" on-click="Actions.goToPage_SubmittedInformation.invoke()"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" name="gridcolumn37" horizontalalign="center">
                                                 <wm-label padding="unset 0.5em" class="left-menu-title" caption="BTMK Management" name="labelbtmk" margin="1em unset unset unset"></wm-label>
@@ -53,24 +53,24 @@
                                     <wm-layoutgrid name="layoutgrid10">
                                         <wm-gridrow name="gridrow25" padding="4em unset unset unset">
                                             <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn57">
-                                                <wm-picture picturesource="resources/images/imagelists/4-UserManagement.png" tabindex="4" cursor="pointer" name="pictUserMgt" on-click="Actions.goToPage_UserManagementInformant.invoke()"></wm-picture>
+                                                <wm-picture picturesource="resources/images/imagelists/6-ReportManagement.png" tabindex="6" cursor="pointer" name="pictReportMgt" on-click="Actions.goToPage_ManagePointConfiguration.invoke()" on-tap="Actions.goToPage_ManagePointConfiguration.invoke()"></wm-picture>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn58">
-                                                <wm-picture picturesource="resources/images/imagelists/5-SuratKuasa.png" tabindex="5" cursor="pointer" name="picture10" on-click="Actions.goToPage_SKAuction.invoke()"></wm-picture>
+                                                <wm-picture picturesource="resources/images/imagelists/5-SuratKuasa.png" tabindex="5" cursor="pointer" name="picture10" on-click="Actions.goToPage_DashboardSuratKuasa.invoke()"></wm-picture>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn59">
-                                                <wm-picture picturesource="resources/images/imagelists/6-ReportManagement.png" tabindex="6" cursor="pointer" name="pictReportMgt"></wm-picture>
+                                                <wm-picture picturesource="resources/images/imagelists/4-UserManagement.png" tabindex="4" cursor="pointer" name="pictUserMgt" on-click="Actions.goToPage_UserManagementInformant.invoke()" show="bind:Variables.loggedInUser.dataSet.roles[0] == &quot;SUPER ADMIN&quot;"></wm-picture>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                         <wm-gridrow name="gridrow26">
                                             <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn60">
-                                                <wm-label class="left-menu-title" caption="User Management" margin="1em unset unset unset" name="labelUserMgt"></wm-label>
+                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="Manage Gamification" margin="1em unset unset unset" name="labelReportMgt"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn61">
-                                                <wm-label class="left-menu-title" caption="Surat Kuasa" margin="1em unset unset unset" name="labelSK"></wm-label>
+                                                <wm-label class="left-menu-title" caption="Surat Kuasa" margin="1em unset unset unset" name="labelSK" on-click="Actions.goToPage_DashboardSuratKuasa.invoke()"></wm-label>
                                             </wm-gridcolumn>
                                             <wm-gridcolumn columnwidth="4" horizontalalign="center" name="gridcolumn62">
-                                                <wm-label padding="unset 0.5em" class="left-menu-title" caption="Report Management" margin="1em unset unset unset" name="labelReportMgt"></wm-label>
+                                                <wm-label class="left-menu-title" caption="User Management" margin="1em unset unset unset" name="labelUserMgt" show="bind:Variables.loggedInUser.dataSet.roles[0] == &quot;SUPER ADMIN&quot;" on-click="Actions.goToPage_UserManagementInformant.invoke()"></wm-label>
                                             </wm-gridcolumn>
                                         </wm-gridrow>
                                     </wm-layoutgrid>
@@ -104,34 +104,34 @@
                                 </wm-gridrow>
                                 <wm-gridrow name="gridrow5">
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn11">
-                                        <wm-container name="containerActiveUser" class="container-info" padding="unset 2px">
+                                        <wm-container name="containerActiveUser" class="container-info" margin="unset 1em">
                                             <wm-layoutgrid name="layoutgrid3">
                                                 <wm-gridrow name="gridrow6">
-                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn13_1"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn48"></wm-gridcolumn>
                                                     <wm-gridcolumn columnwidth="11" name="gridcolumn14" class="c" horizontalalign="left">
-                                                        <wm-label padding="unset 0.5em unset unset" name="labelActiveUser" caption="Active User" class="container-info-head"></wm-label>
+                                                        <wm-label padding="0.5em unset unset unset" name="labelActiveUser" caption="Active User" class="container-info-head"></wm-label>
                                                     </wm-gridcolumn>
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow7">
-                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn15"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn49"></wm-gridcolumn>
                                                     <wm-gridcolumn columnwidth="11" name="gridcolumn16" horizontalalign="left">
-                                                        <wm-label padding="unset 0.5em unset unset" name="labelActiveUserVal" caption="911" class="container-info-value"></wm-label>
+                                                        <wm-label name="labelActiveUserVal" caption="911" class="container-info-value"></wm-label>
                                                     </wm-gridcolumn>
                                                 </wm-gridrow>
                                             </wm-layoutgrid>
                                         </wm-container>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn12">
-                                        <wm-container class="container-info" name="containerSK" padding="unset 2px">
+                                        <wm-container class="container-info" name="containerSK" margin="unset 1em">
                                             <wm-layoutgrid name="layoutgrid4">
                                                 <wm-gridrow name="gridrow8">
-                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn17"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn50_1"></wm-gridcolumn>
                                                     <wm-gridcolumn columnwidth="11" class="c" horizontalalign="left" name="gridcolumn18">
-                                                        <wm-label padding="unset 0.5em unset unset" caption="SK Requested" class="container-info-head" name="label4" textalign="left"></wm-label>
+                                                        <wm-label padding="0.5em unset unset unset" caption="SK Requested" class="container-info-head" name="label4" textalign="left"></wm-label>
                                                     </wm-gridcolumn>
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow9">
-                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn19"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn51_1"></wm-gridcolumn>
                                                     <wm-gridcolumn columnwidth="11" horizontalalign="left" name="gridcolumn20">
                                                         <wm-label padding="unset 0.5em unset unset" caption="25" class="container-info-value" name="labelSKReqVal"></wm-label>
                                                     </wm-gridcolumn>
@@ -140,16 +140,16 @@
                                         </wm-container>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn13">
-                                        <wm-container class="container-info" name="containerSubmittedInfo" width="100%" padding="unset 2px">
+                                        <wm-container class="container-info" name="containerSubmittedInfo" margin="unset 1em">
                                             <wm-layoutgrid name="layoutgrid5">
                                                 <wm-gridrow name="gridrow10">
-                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn25"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn52_1"></wm-gridcolumn>
                                                     <wm-gridcolumn columnwidth="11" class="c" horizontalalign="left" name="gridcolumn22">
-                                                        <wm-label padding="unset 0.5em unset unset" caption="Submitted Information" class="container-info-head" name="labelSubmitInfo" textalign="left"></wm-label>
+                                                        <wm-label padding="0.5em unset unset unset" caption="Submitted Information" class="container-info-head" name="labelSubmitInfo" textalign="left"></wm-label>
                                                     </wm-gridcolumn>
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow11">
-                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn23"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn53"></wm-gridcolumn>
                                                     <wm-gridcolumn columnwidth="11" horizontalalign="left" name="gridcolumn24">
                                                         <wm-label padding="unset 0.5em unset unset" caption="25" class="container-info-value" name="labelSubmitInfoVal"></wm-label>
                                                     </wm-gridcolumn>

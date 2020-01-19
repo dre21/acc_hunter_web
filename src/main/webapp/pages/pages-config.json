@@ -1,7 +1,10 @@
 [ {
   "name" : "ChangePassword",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "email",
+    "type" : "string"
+  } ]
 }, {
   "name" : "ChangePasswordSuccess",
   "type" : "PAGE",
@@ -9,6 +12,10 @@
 }, {
   "name" : "Common",
   "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "DashboardSuratKuasa",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "FAQ",
@@ -30,6 +37,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Leaderboards",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]
@@ -39,6 +50,18 @@
   "params" : [ ]
 }, {
   "name" : "MainPage",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ManageBadgesConfiguration",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ManagePointConfiguration",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "RewardManagement",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -55,7 +78,10 @@
 }, {
   "name" : "SKReqDetail",
   "type" : "PAGE",
-  "params" : [ ]
+  "params" : [ {
+    "name" : "noAggr",
+    "type" : "string"
+  } ]
 }, {
   "name" : "SKRequest",
   "type" : "PAGE",
@@ -64,15 +90,55 @@
     "type" : "integer"
   } ]
 }, {
+  "name" : "Sayembara",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "SignIn",
   "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "SubmittedInformation",
   "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SubmittedInformation1",
+  "type" : "PAGE",
   "params" : [ {
     "name" : "idParam",
     "type" : "integer"
+  } ]
+}, {
+  "name" : "SuratKuasaLelang",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SuratKuasaPermintaan",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SuratKuasaPermintaanDetail",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "no_aggr",
+    "type" : "string"
+  }, {
+    "name" : "coll_cd",
+    "type" : "string"
+  } ]
+}, {
+  "name" : "SuratKuasaPermintaanPerpanjang",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "SuratKuasaPerpajangnDetail",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "no_aggr",
+    "type" : "string"
+  }, {
+    "name" : "coll_cd",
+    "type" : "string"
   } ]
 }, {
   "name" : "UserManagementInformant",

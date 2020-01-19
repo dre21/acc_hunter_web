@@ -1,0 +1,87 @@
+{
+  "GetSayembaraList" : {
+    "_id" : "wm-GetSayembaraList-wm.ServiceVariable-1576756816453",
+    "name" : "GetSayembaraList",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.acc_hunter_web.acc_hunter.models.query.GetSayembaraListResponse",
+    "service" : "acc_hunter",
+    "operation" : "executeGetSayembaraList",
+    "operationId" : "QueryExecutionController_executeGetSayembaraList",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onBeforeDatasetReady" : "GetSayembaraListonBeforeDatasetReady(variable, data, options)",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  },
+  "status" : {
+    "_id" : "wm-status-wm.Variable-1576759809028",
+    "name" : "status",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "OK",
+      "dataValue" : "Y"
+    }, {
+      "name" : "NOT OK",
+      "dataValue" : "N"
+    } ],
+    "type" : "entry",
+    "isList" : true,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
+  "UpdateFlagSayembara" : {
+    "_id" : "wm-UpdateFlagSayembara-wm.ServiceVariable-1576760597269",
+    "name" : "UpdateFlagSayembara",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "contract",
+      "value" : "bind:Widgets.select5.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "fidusia",
+      "value" : "bind:Widgets.select4.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "schedule",
+      "value" : "bind:Widgets.select3.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "digisign",
+      "value" : "bind:Widgets.select1.datavalue",
+      "type" : "string"
+    }, {
+      "target" : "noAggr",
+      "value" : "bind:Widgets.SayembaraList.selecteditem.noAggr",
+      "type" : "string"
+    } ],
+    "type" : "com.wavemaker.commons.wrapper.IntegerWrapper",
+    "service" : "acc_hunter",
+    "operation" : "executeUpdateFlagSayembara",
+    "operationId" : "QueryExecutionController_executeUpdateFlagSayembara",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "onSuccess" : "Actions.suksesUpdate.invoke();Variables.GetSayembaraList.invoke()",
+    "onError" : "Actions.gagalUpdate.invoke()",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

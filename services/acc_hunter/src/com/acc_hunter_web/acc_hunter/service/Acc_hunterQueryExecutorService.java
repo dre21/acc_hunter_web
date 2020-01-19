@@ -7,6 +7,7 @@ package com.acc_hunter_web.acc_hunter.service;
 
 import java.io.OutputStream;
 import java.math.BigInteger;
+import java.sql.Date;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,9 +18,107 @@ import com.acc_hunter_web.acc_hunter.models.query.*;
 
 public interface Acc_hunterQueryExecutorService {
 
-    Page<GetAllUsersRemoResponse> executeGetAllUsersRemo(Pageable pageable);
+    Integer executeInsertNewEfficiencySK(InsertNewEfficiencySkRequest insertNewEfficiencySkRequest);
 
-    void exportGetAllUsersRemo(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    Page<GetParticipantLelangDetailResponse> executeGetParticipantLelangDetail(Integer idLelang, Pageable pageable);
+
+    void exportGetParticipantLelangDetail(Integer idLelang, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeDeleteGamificationPeojfUrutanSk(Integer id);
+
+    Integer executeDeleteGamificationPeojfBadgesBonus(Integer id);
+
+    Integer executeDeleteGamificationPeojfJenisSk(Integer id);
+
+    Page<GetNoAggrListLelangResponse> executeGetNoAggrListLelang(String search, Pageable pageable);
+
+    void exportGetNoAggrListLelang(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetDetailLaporanByAgreementNoResponse> executeGetDetailLaporanByAgreementNo(String agreementNo, Pageable pageable);
+
+    void exportGetDetailLaporanByAgreementNo(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetReqSkdetailResponse> executeGetReqSKDetail(String noAggr, Pageable pageable);
+
+    void exportGetReqSKDetail(String noAggr, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<CheckEmailAvailableResponse> executeCheckEmailAvailable(String email, Pageable pageable);
+
+    void exportCheckEmailAvailable(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetReportsListResponse> executeGetReportsList(String search, Pageable pageable);
+
+    void exportGetReportsList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetCountDashboardSkResponse> executeGetCountDashboardSK(Pageable pageable);
+
+    void exportGetCountDashboardSK(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeDeleteGamificationPeojfSaldoAr(Integer id);
+
+    Integer executeUpdateFlagShowUsers(UpdateFlagShowUsersRequest updateFlagShowUsersRequest);
+
+    Page<GetMitraLeaderboardsResponse> executeGetMitraLeaderboards(Date startDate, Date endDate, String city, String badgeType, Pageable pageable);
+
+    void exportGetMitraLeaderboards(Date startDate, Date endDate, String city, String badgeType, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeDeleteGamificationPeojfBtToSaldo(Integer id);
+
+    Integer executeDeleteGamificationPeojfEfficiencySk(Integer id);
+
+    Page<GetReportListByNoAggrResponse> executeGetReportListByNoAggr(String noAggr, Pageable pageable);
+
+    void exportGetReportListByNoAggr(String noAggr, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeSetPemenangLelang(SetPemenangLelangRequest setPemenangLelangRequest);
+
+    Integer executeDeleteRewardConfig(Integer id);
+
+    Integer executeDeleteMasterReward(Integer id);
+
+    Page<GetLelangTidakAktifResponse> executeGetLelangTidakAktif(String search, Pageable pageable);
+
+    void exportGetLelangTidakAktif(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeDeleteGamificationPeojfPaketKredit(Integer id);
+
+    Integer executeUpdatePasswordQuery(UpdatePasswordQueryRequest updatePasswordQueryRequest);
+
+    Page<GetAllListPesertaLelangResponse> executeGetAllListPesertaLelang(Integer idLelang, String badge, String area, Pageable pageable);
+
+    void exportGetAllListPesertaLelang(Integer idLelang, String badge, String area, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeInsertNewSaldoAR(InsertNewSaldoArRequest insertNewSaldoArRequest);
+
+    Page<GetAllUsersMitraResponse> executeGetAllUsersMitra(Pageable pageable);
+
+    void exportGetAllUsersMitra(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetParticipantLelangByLelangIdResponse> executeGetParticipantLelangByLelangID(Integer detailId, String search, Pageable pageable);
+
+    void exportGetParticipantLelangByLelangID(Integer detailId, String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetRecentPointUserResponse> executeGetRecentPointUser(String email, Pageable pageable);
+
+    void exportGetRecentPointUser(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeInsertNewEfficiencySKNoValue2(InsertNewEfficiencySknoValue2Request insertNewEfficiencySknoValue2request);
+
+    Integer executeUpdateRoleUsers(UpdateRoleUsersRequest updateRoleUsersRequest);
+
+    Page<ViewLelangSkaktifResponse> executeViewLelangSKAktif(String agreementNo, Pageable pageable);
+
+    void exportViewLelangSKAktif(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetPesertaLelangDataResponse> executeGetPesertaLelangData(Integer lelangSkDetailId, Pageable pageable);
+
+    void exportGetPesertaLelangData(Integer lelangSkDetailId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeUpdateFlagSayembara(UpdateFlagSayembaraRequest updateFlagSayembaraRequest);
+
+    Page<GetSkrequestApprovedListResponse> executeGetSKRequestApprovedList(String search, String _select, Pageable pageable);
+
+    void exportGetSKRequestApprovedList(String search, String _select, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<GetLelangSkaktifResponse> executeGetLelangSKAktif(Pageable pageable);
 
@@ -29,6 +128,64 @@ public interface Acc_hunterQueryExecutorService {
 
     void exportGetSubmittedInfoDetail(BigInteger id, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
+    Page<GetInformanLeaderboardsResponse> executeGetInformanLeaderboards(Date startDate, Date endDate, String city, String badgeType, Pageable pageable);
+
+    void exportGetInformanLeaderboards(Date startDate, Date endDate, String city, String badgeType, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetSkrequestPendingListResponse> executeGetSKRequestPendingList(String search, Pageable pageable);
+
+    void exportGetSKRequestPendingList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetLelangSkdetailByIdlelangListResponse> executeGetLelangSKDetailByIDLelangList(Integer lelangId, String search, Pageable pageable);
+
+    void exportGetLelangSKDetailByIDLelangList(Integer lelangId, String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeDeleteLelangParticipants(Integer detailLelang);
+
+    Page<GetAllSknewResponse> executeGetAllSKNew(Pageable pageable);
+
+    void exportGetAllSKNew(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetSayembaraListResponse> executeGetSayembaraList(Pageable pageable);
+
+    void exportGetSayembaraList(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetLelangAktifResponse> executeGetLelangAktif(String search, Pageable pageable);
+
+    void exportGetLelangAktif(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetPilihWinnerSklistResponse> executeGetPilihWinnerSKList(String search, Pageable pageable);
+
+    void exportGetPilihWinnerSKList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeUpdateFlagSKRequest(UpdateFlagSkrequestRequest updateFlagSkrequestRequest);
+
+    Integer executeDeleteLelangImages(Integer id);
+
+    Page<GetLelangSkdetailByRemoIdResponse> executeGetLelangSKDetailByRemoId(Integer remoId, Pageable pageable);
+
+    void exportGetLelangSKDetailByRemoId(Integer remoId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetUserByEmailQueryResponse> executeGetUserByEmailQuery(String email, Pageable pageable);
+
+    void exportGetUserByEmailQuery(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeInsertNewBTToSaldoNoValue2(InsertNewBttoSaldoNoValue2Request insertNewBttoSaldoNoValue2request);
+
+    Page<GetCityByProvinceResponse> executeGetCItyByProvince(String provinceName, Pageable pageable);
+
+    void exportGetCItyByProvince(String provinceName, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetLelangListResponse> executeGetLelangList(String search, Pageable pageable);
+
+    void exportGetLelangList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetAllUsersRemoResponse> executeGetAllUsersRemo(Pageable pageable);
+
+    void exportGetAllUsersRemo(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Integer executeInsertNewSaldoARNoValue2(InsertNewSaldoArnoValue2Request insertNewSaldoArnoValue2request);
+
     Page<GetUserIdByEmailResponse> executeGetUserIdByEmail(String email, Pageable pageable);
 
     void exportGetUserIdByEmail(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
@@ -37,27 +194,25 @@ public interface Acc_hunterQueryExecutorService {
 
     void exportGetUserAuth(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Integer executeUpdatePasswordQuery(UpdatePasswordQueryRequest updatePasswordQueryRequest);
-
     Page<GetAllUsersPoolResponse> executeGetAllUsersPool(Pageable pageable);
 
     void exportGetAllUsersPool(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<GetDocumentLelangResponse> executeGetDocumentLelang(String search, Pageable pageable);
+
+    void exportGetDocumentLelang(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<GetLelangSktidakAktifResponse> executeGetLelangSKTidakAktif(Pageable pageable);
 
     void exportGetLelangSKTidakAktif(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<GetAllSknewResponse> executeGetAllSKNew(Pageable pageable);
+    Integer executeUpdateFlagRedeem(UpdateFlagRedeemRequest updateFlagRedeemRequest);
 
-    void exportGetAllSKNew(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    Integer executeDeleteGamificationPeojfSeasonalPoint(Integer id);
 
-    Page<GetDetailLaporanByAgreementNoResponse> executeGetDetailLaporanByAgreementNo(String agreementNo, Pageable pageable);
+    Page<GetSkrequestPerpanjangApprovedListResponse> executeGetSKRequestPerpanjangApprovedList(String search, Pageable pageable);
 
-    void exportGetDetailLaporanByAgreementNo(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
-    Page<GetAllUsersMitraResponse> executeGetAllUsersMitra(Pageable pageable);
-
-    void exportGetAllUsersMitra(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportGetSKRequestPerpanjangApprovedList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<GetSkrequestDetailResponse> executeGetSKRequestDetail(Integer skRequestId, Pageable pageable);
 
@@ -67,28 +222,18 @@ public interface Acc_hunterQueryExecutorService {
 
     void exportGetAllUsersInformant(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<GetLelangSkdetailByRemoIdResponse> executeGetLelangSKDetailByRemoId(Integer remoId, Pageable pageable);
-
-    void exportGetLelangSKDetailByRemoId(Integer remoId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
     Page<GetReportImagesByIdResponse> executeGetReportImagesById(BigInteger id, Pageable pageable);
 
     void exportGetReportImagesById(BigInteger id, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<GetUserByEmailQueryResponse> executeGetUserByEmailQuery(String email, Pageable pageable);
+    Page<GetSkrequestPerpanjangPendingListResponse> executeGetSKRequestPerpanjangPendingList(String search, Pageable pageable);
 
-    void exportGetUserByEmailQuery(String email, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportGetSKRequestPerpanjangPendingList(String search, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
-    Page<ViewLelangSkaktifResponse> executeViewLelangSKAktif(String agreementNo, Pageable pageable);
+    Integer executeInsertNewBTToSaldo(InsertNewBttoSaldoRequest insertNewBttoSaldoRequest);
 
-    void exportViewLelangSKAktif(String agreementNo, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    Page<GetUserParticipantLelangResponse> executeGetUserParticipantLelang(Integer idLelang, Pageable pageable);
 
-    Page<GetCityByProvinceResponse> executeGetCItyByProvince(String provinceName, Pageable pageable);
-
-    void exportGetCItyByProvince(String provinceName, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
-
-    Page<GetPesertaLelangDataResponse> executeGetPesertaLelangData(Integer lelangSkDetailId, Pageable pageable);
-
-    void exportGetPesertaLelangData(Integer lelangSkDetailId, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportGetUserParticipantLelang(Integer idLelang, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
 }

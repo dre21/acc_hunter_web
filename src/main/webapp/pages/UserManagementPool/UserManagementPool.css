@@ -88,3 +88,28 @@
     line-height: 18px;
     color: #999C9F;
 }
+
+.modal-header {
+    background: #0E2D48;
+    border-radius: 15px 15px 0px 0px !important;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #F7F8FB;
+}
+
+.modal-content {
+    border-radius: 15px 15px 15px 15px !important;
+}
+
+.button {
+    height: 40px;
+    width: 100px;
+    border-radius: 6px;
+}
+
+.list-group-item {
+    margin-bottom: 8px;
+}

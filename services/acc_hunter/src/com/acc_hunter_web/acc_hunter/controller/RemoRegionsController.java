@@ -36,7 +36,6 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
 import com.acc_hunter_web.acc_hunter.LelangSkDetail;
-import com.acc_hunter_web.acc_hunter.MasterArea;
 import com.acc_hunter_web.acc_hunter.RemoRegions;
 import com.acc_hunter_web.acc_hunter.service.RemoRegionsService;
 
@@ -204,15 +203,6 @@ public class RemoRegionsController {
 
         LOGGER.debug("Fetching all associated lelangSkDetails");
         return remoRegionsService.findAssociatedLelangSkDetails(id, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/masterAreas", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the masterAreas instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<MasterArea> findAssociatedMasterAreas(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated masterAreas");
-        return remoRegionsService.findAssociatedMasterAreas(id, pageable);
     }
 
     /**

@@ -1,0 +1,124 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="DASHBOARD SURAT KUASA" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="Surat Kuasa" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="Dashboard SK" class="breadcumb" color="#565656"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn8" padding="unset 1em">
+                        <wm-container name="container2" class="box-cont">
+                            <wm-layoutgrid name="layoutgrid3">
+                                <wm-gridrow name="gridrow6_1" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn13">
+                                        <wm-label padding="unset 0.5em unset 1.5em" name="label6" caption="SK Aktif" class="total-label"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow7" padding="unset unset 0.5em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn15" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" name="label11" caption="bind:Variables.GetCountDashboardSK.firstRecord.skAktif" class="total"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn9" padding="unset 1em">
+                        <wm-container name="container3" class="box-cont">
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow8" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn17">
+                                        <wm-label padding="unset 0.5em unset 1.5em" name="label7" caption="Permohonan SK" class="total-label"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow9" padding="unset unset 0.5em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn18" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" name="label12" caption="bind:Variables.GetCountDashboardSK.dataSet[$i].permohonanSk" class="total"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn10_1" padding="unset 1em">
+                        <wm-container name="container4" class="box-cont">
+                            <wm-layoutgrid name="layoutgrid5">
+                                <wm-gridrow name="gridrow10" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn19">
+                                        <wm-label padding="unset 0.5em unset 1.5em" name="label8" caption="Permohonan Perpanjangan SK" class="total-label"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11" padding="unset unset 0.5em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn20" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" name="label13" caption="bind:Variables.GetCountDashboardSK.dataSet[$i].perpanjanganSk" class="total"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn11" padding="unset 1em">
+                        <wm-container name="container5" class="box-cont">
+                            <wm-layoutgrid name="layoutgrid6">
+                                <wm-gridrow name="gridrow12" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn21">
+                                        <wm-label padding="unset 0.5em unset 1.5em" name="label9" caption="Lelang SK" class="total-label"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow13" padding="unset unset 0.5em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn22" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" name="label14" caption="bind:Variables.GetCountDashboardSK.dataSet[$i].lelangSk" class="total"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn12" padding="unset 1em">
+                        <wm-container name="container6" class="box-cont">
+                            <wm-layoutgrid name="layoutgrid7">
+                                <wm-gridrow name="gridrow14" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn23">
+                                        <wm-label padding="unset 0.5em unset 1.5em" name="label10" caption="Sayembara SK" class="total-label"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15" padding="unset unset 0.5em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn24" horizontalalign="center">
+                                        <wm-label padding="unset 0.5em" name="label15" caption="bind:Variables.GetCountDashboardSK.dataSet[$i].sayembaraSk" class="total"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn25"></wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+</wm-page>

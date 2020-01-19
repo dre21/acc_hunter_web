@@ -213,17 +213,6 @@ public class LelangSkDetailServiceImpl implements LelangSkDetailService {
 
     @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
     @Override
-    public Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated lelangSkParticipantses");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("lelangSkDetail.id = '" + id + "'");
-
-        return lelangSkParticipantsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
-    @Override
     public Page<LelangSkDetailImages> findAssociatedLelangSkDetailImageses(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated lelangSkDetailImageses");
 
@@ -231,6 +220,17 @@ public class LelangSkDetailServiceImpl implements LelangSkDetailService {
         queryBuilder.append("lelangSkDetail.id = '" + id + "'");
 
         return lelangSkDetailImagesService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
+    @Override
+    public Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated lelangSkParticipantses");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("lelangSkDetail.id = '" + id + "'");
+
+        return lelangSkParticipantsService.findAll(queryBuilder.toString(), pageable);
     }
 
     /**

@@ -110,7 +110,7 @@ public class Vehicles implements Serializable {
         this.flagNewUsed = flagNewUsed;
     }
 
-    @Column(name = "`flag_mgu`", nullable = false, length = 1)
+    @Column(name = "`flag_mgu`", nullable = true, length = 1)
     public String getFlagMgu() {
         return this.flagMgu;
     }

@@ -34,17 +34,16 @@ public class LelangSkDetail implements Serializable {
 
     private Integer id;
     private String agreementNo;
-    private String title;
     private Integer btoLimit;
     private Integer lowestBid;
     private String description;
     private Integer lelangSkId;
     private Boolean status;
     private Integer remoId;
-    private Integer winnerId;
+    private String winnerId;
     private String winnerName;
-    private LelangSk lelangSk;
     private RemoRegions remoRegions;
+    private LelangSk lelangSk;
 
     @Id
     @SequenceGenerator(name = "generator", sequenceName = "`surat_kuasa_list_id_seq`" , allocationSize = 1)
@@ -65,15 +64,6 @@ public class LelangSkDetail implements Serializable {
 
     public void setAgreementNo(String agreementNo) {
         this.agreementNo = agreementNo;
-    }
-
-    @Column(name = "`title`", nullable = true, length = 255)
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     @Column(name = "`bto_limit`", nullable = true, scale = 0, precision = 10)
@@ -130,12 +120,12 @@ public class LelangSkDetail implements Serializable {
         this.remoId = remoId;
     }
 
-    @Column(name = "`winner_id`", nullable = true, scale = 0, precision = 10)
-    public Integer getWinnerId() {
+    @Column(name = "`winner_id`", nullable = true, length = 10)
+    public String getWinnerId() {
         return this.winnerId;
     }
 
-    public void setWinnerId(Integer winnerId) {
+    public void setWinnerId(String winnerId) {
         this.winnerId = winnerId;
     }
 
@@ -146,21 +136,6 @@ public class LelangSkDetail implements Serializable {
 
     public void setWinnerName(String winnerName) {
         this.winnerName = winnerName;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`lelang_sk_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`FK_lelang_sk_detail_TO_ltelnA`"))
-    @Fetch(FetchMode.JOIN)
-    public LelangSk getLelangSk() {
-        return this.lelangSk;
-    }
-
-    public void setLelangSk(LelangSk lelangSk) {
-        if(lelangSk != null) {
-            this.lelangSkId = lelangSk.getId();
-        }
-
-        this.lelangSk = lelangSk;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -176,6 +151,21 @@ public class LelangSkDetail implements Serializable {
         }
 
         this.remoRegions = remoRegions;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`lelang_sk_id`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`lelang_sk_detail_lelang_sk_fkey`"))
+    @Fetch(FetchMode.JOIN)
+    public LelangSk getLelangSk() {
+        return this.lelangSk;
+    }
+
+    public void setLelangSk(LelangSk lelangSk) {
+        if(lelangSk != null) {
+            this.lelangSkId = lelangSk.getId();
+        }
+
+        this.lelangSk = lelangSk;
     }
 
     @Override

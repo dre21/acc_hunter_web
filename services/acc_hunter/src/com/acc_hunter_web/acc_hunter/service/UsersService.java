@@ -22,7 +22,8 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.Appointments;
-import com.acc_hunter_web.acc_hunter.LelangSkParticipants;
+import com.acc_hunter_web.acc_hunter.RedeemRequest;
+import com.acc_hunter_web.acc_hunter.Sayembara;
 import com.acc_hunter_web.acc_hunter.SkRequests;
 import com.acc_hunter_web.acc_hunter.UserRequestUpgrades;
 import com.acc_hunter_web.acc_hunter.Users;
@@ -238,16 +239,16 @@ public interface UsersService {
     Page<Appointments> findAssociatedAppointmentses(Integer id, Pageable pageable);
 
     /*
-     * Returns the associated lelangSkParticipantses for given Users id.
+     * Returns the associated sayembaras for given Users id.
      *
      * @param id value of id; value cannot be null
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated LelangSkParticipants instances.
+     * @return Paginated list of associated Sayembara instances.
      *
      * @see Pageable
      * @see Page
      */
-    Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(Integer id, Pageable pageable);
+    Page<Sayembara> findAssociatedSayembaras(Integer id, Pageable pageable);
 
     /*
      * Returns the associated skRequestses for given Users id.
@@ -272,5 +273,17 @@ public interface UsersService {
      * @see Page
      */
     Page<UserRequestUpgrades> findAssociatedUserRequestUpgradeses(Integer id, Pageable pageable);
+
+    /*
+     * Returns the associated redeemRequests for given Users id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated RedeemRequest instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<RedeemRequest> findAssociatedRedeemRequests(Integer id, Pageable pageable);
 
 }

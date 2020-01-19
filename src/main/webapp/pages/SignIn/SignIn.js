@@ -18,15 +18,24 @@ Page.onReady = function() {
 
 Page.picture4Click = function($event, widget) {
     var elem = document.getElementsByClassName("login-password")
+
     if (Page.Variables.passTypeText.dataSet.dataValue === "password") {
         $(elem).attr({
             'type': 'text'
         });
+
+        Page.Widgets.picture4_1.show = true;
+        Page.Widgets.picture4.show = false;
+
         Page.Variables.passTypeText.dataSet.dataValue = "text";
     } else {
         $(elem).attr({
             'type': 'password'
         });
+
+        Page.Widgets.picture4_1.show = false;
+        Page.Widgets.picture4.show = true;
+
         Page.Variables.passTypeText.dataSet.dataValue = "password";
     }
 };

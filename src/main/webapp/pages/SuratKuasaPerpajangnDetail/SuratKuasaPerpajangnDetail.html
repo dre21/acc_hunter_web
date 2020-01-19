@@ -1,0 +1,341 @@
+<wm-partial name="partial1">
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1" padding="unset unset 1.5em unset">
+                <wm-label padding="unset 0.5em unset unset" name="label1" class="submenu" caption="Detail Permintaan"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn3" padding="unset 1em 0.5em unset">
+                <wm-composite name="composite1" captionposition="top">
+                    <wm-label class="col-md-3 control-label input-label" name="label2" caption="ID Permintaan SK"></wm-label>
+                    <wm-container class="col-md-9" name="container1" width="100%">
+                        <wm-text name="text1" class="input-text" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetSKRequestByNoAggrAndCollCD.dataSet[$i].noSr | numberToString"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn4" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite2">
+                    <wm-label class="col-md-3 control-label input-label" name="label3" caption="Nomor Agreement"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container2">
+                        <wm-text class="input-text" name="text2" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetSKRequestByNoAggrAndCollCD.dataSet[$i].noAggr"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn5" padding="unset unset 0.5em 1em">
+                <wm-composite captionposition="top" name="composite3">
+                    <wm-label class="col-md-3 control-label input-label" name="label4" caption="Nama Requestor"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container3">
+                        <wm-text class="input-text" name="text3" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].fullName"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow3">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn6" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite4">
+                    <wm-label class="col-md-3 control-label input-label" name="label5" caption="BTO Request"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container4">
+                        <wm-text class="input-text" name="text4" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetSKRequestByNoAggrAndCollCD.dataSet[$i].reqSkBt | toCurrency: 'Rp'"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn7" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite5">
+                    <wm-label class="col-md-3 control-label input-label" name="label6" caption="Waktu Request"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container5">
+                        <wm-text class="input-text" name="text5" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetSKRequestByNoAggrAndCollCD.dataSet[$i].reqSkDate | toDate: 'yyyy-MM-dd HH:mm'"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn8" padding="unset unset 0.5em 1em"></wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow4">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn9" padding="3em unset 1.5em unset">
+                <wm-label padding="unset 0.5em unset unset" class="submenu" name="label26" caption="Detail Requestor"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow5">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn12" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite7">
+                    <wm-label class="col-md-3 control-label input-label" name="label8" caption="Email Requestor"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container7">
+                        <wm-text class="input-text" name="text7" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].email"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn13" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite8">
+                    <wm-label class="col-md-3 control-label input-label" name="label9" caption="Nomor KTP"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container8">
+                        <wm-text class="input-text" name="text8" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].identityNumber"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn14" padding="unset unset 0.5em 1em">
+                <wm-composite captionposition="top" name="composite9">
+                    <wm-label class="col-md-3 control-label input-label" name="label10" caption="Nama Lengkap"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container9">
+                        <wm-text class="input-text" name="text9" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].fullName"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow6">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn15" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite10">
+                    <wm-label class="col-md-3 control-label input-label" name="label11" caption="Nomor HP"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container10">
+                        <wm-text class="input-text" name="text10" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].phoneNumber"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn16" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite11">
+                    <wm-label class="col-md-3 control-label input-label" name="label12" caption="Role"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container11">
+                        <wm-text class="input-text" name="text11" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].roles.name"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn17" padding="unset unset 0.5em 1em">
+                <wm-composite captionposition="top" name="composite12">
+                    <wm-label class="col-md-3 control-label input-label" name="label13" caption="Terdaftar Sejak"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container12">
+                        <wm-text class="input-text" name="text12" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].pksStart | toDate: 'yyyy-MM-dd'"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow7">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn18" padding="unset 1em 0.5em unset">
+                <wm-composite name="composite25" captionposition="top">
+                    <wm-label class="col-md-3 control-label input-label" name="label30" caption="Alamat"></wm-label>
+                    <wm-container class="col-md-9" name="container25" width="100%">
+                        <wm-textarea name="textarea1" class="input-text" disabled="true" placeholder="" datavalue="bind:Variables.GetUserRequestor.dataSet[$i].address"></wm-textarea>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn19"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn20"></wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow8">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn21" padding="3em unset 1.5em unset">
+                <wm-label padding="unset 0.5em unset unset" class="submenu" name="label27" caption="Detail Kontrak"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow9">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn24" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite14">
+                    <wm-label class="col-md-3 control-label input-label" name="label15" caption="Nomor Agreement"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container14">
+                        <wm-text class="input-text" name="text14" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].noAggr"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn25" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite15">
+                    <wm-label class="col-md-3 control-label input-label" name="label16" caption="Nomor Polisi"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container15">
+                        <wm-text class="input-text" name="text15" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].noCarPolice"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn26" padding="unset unset 0.5em 1em">
+                <wm-composite captionposition="top" name="composite16">
+                    <wm-label class="col-md-3 control-label input-label" name="label17" caption="Tanggal Go Live"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container16">
+                        <wm-text class="input-text" name="text16" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].dtGolive | toDate: 'yyyy-MM-dd'"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow10">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn27" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite17">
+                    <wm-label class="col-md-3 control-label input-label" name="label18" caption="Status Kontrak"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container17">
+                        <wm-text class="input-text" name="text17" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].stAggr"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn28" padding="unset 1em 0.5em 1em"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn29"></wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow11">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn30" padding="3em unset 1.5em unset">
+                <wm-label padding="unset 0.5em unset unset" class="submenu" name="label28" caption="Detail Unit"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow12">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn33" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite19">
+                    <wm-label class="col-md-3 control-label input-label" name="label20" caption="Status Unit"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container19">
+                        <wm-text class="input-text" name="text19" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].stAggr"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn34" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite20">
+                    <wm-label class="col-md-3 control-label input-label" name="label21" caption="Type"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container20">
+                        <wm-text class="input-text" name="text20" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].typeDesc"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn35" padding="unset unset 0.5em 1em">
+                <wm-composite captionposition="top" name="composite21">
+                    <wm-label class="col-md-3 control-label input-label" name="label22" caption="Model"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container21">
+                        <wm-text class="input-text" name="text21" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].modelDesc"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow13">
+            <wm-gridcolumn columnwidth="4" name="gridcolumn36" padding="unset 1em 0.5em unset">
+                <wm-composite captionposition="top" name="composite22">
+                    <wm-label class="col-md-3 control-label input-label" name="label23" caption="Brand"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container22">
+                        <wm-text class="input-text" name="text22" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].brandDesc"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn37" padding="unset 1em 0.5em 1em">
+                <wm-composite captionposition="top" name="composite23">
+                    <wm-label class="col-md-3 control-label input-label" name="label24" caption="Sub Category"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container23">
+                        <wm-text class="input-text" name="text23" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].categoryDesc"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn38" padding="unset unset 0.5em 1em">
+                <wm-composite captionposition="top" name="composite24">
+                    <wm-label class="col-md-3 control-label input-label" name="label25" caption="Color"></wm-label>
+                    <wm-container class="col-md-9" width="100%" name="container24">
+                        <wm-text class="input-text" name="text24" height="44" disabled="true" placeholder="" datavalue="bind:Variables.GetVehicleByNoAggr.dataSet[$i].color"></wm-text>
+                    </wm-container>
+                </wm-composite>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow14">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn39" padding="3em unset 1.5em unset">
+                <wm-label padding="unset 0.5em unset unset" class="submenu" name="label29" caption="Detail Laporan"></wm-label>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow15">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn42">
+                <wm-gridrow padding="unset unset 1% unset" name="gridrow14">
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn27_1">
+                        <wm-label padding="unset 0.5em" caption="No" class="theader" color="#98A9BC" margin="unset unset unset 2%" name="label18"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn28_1">
+                        <wm-label padding="unset 0.5em unset unset" caption="ID Lapor" class="theader" color="#98A9BC" name="label19"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn28_1">
+                        <wm-label padding="unset 0.5em unset unset" caption="Email Pelapor" class="theader" color="#98A9BC" name="label19"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn29">
+                        <wm-label padding="unset 0.5em unset unset" caption="Foto" class="theader" color="#98A9BC" name="label20"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn30">
+                        <wm-label padding="unset 0.5em unset unset" caption="Deskripsi" class="theader" color="#98A9BC" name="label21"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn31">
+                        <wm-label padding="unset 0.5em unset unset" caption="Action" class="theader" color="#98A9BC" name="label22"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow15">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" navigation="Basic" nodatamessage="Tidak ada laporan yang ditemukan" navigationalign="right" name="reportList"
+                            dataset="bind:Variables.GetReportListByNoAggr.dataSet">
+                            <wm-listtemplate layout="inline" name="listtemplate2">
+                                <wm-container class="media-body" height="64px" name="container7">
+                                    <wm-layoutgrid name="layoutgrid7">
+                                        <wm-gridrow name="gridrow16">
+                                            <wm-gridcolumn columnwidth="1" name="gridcolumn33">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportListByNoAggr.dataSet[$i].number" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label23"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn44">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportListByNoAggr.dataSet[$i].id" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label32"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                                <wm-label padding="unset 0.5pt" caption="bind:Variables.GetReportListByNoAggr.dataSet[$i].createdBy" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset" name="label24"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="2" name="gridcolumn35">
+                                                <wm-container name="container25_1" width="100%">
+                                                    <wm-picture name="picture2" picturesource="bind:Variables.GetReportListByNoAggr.dataSet[$i].imageHeader" width="30%"></wm-picture>
+                                                </wm-container>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn36">
+                                                <wm-label padding="unset 0.5em" caption="bind:CutMessage(Variables.GetReportListByNoAggr.dataSet[$i].description)" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
+                                                    name="label26"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="1" padding="1em unset unset 1.5em" name="gridcolumn37">
+                                                <wm-layoutgrid name="layoutgrid8">
+                                                    <wm-gridrow name="gridrow17">
+                                                        <wm-gridcolumn columnwidth="6" horizontalalign="left" name="gridcolumn38">
+                                                            <wm-container width="100%" horizontalalign="left" name="container8">
+                                                                <wm-picture picturesource="resources/images/imagelists/tiga-bulet.png" margin="unset unset 1.7em unset" on-click="Widgets.reportDetail.open()" height="15px" name="picture5" class="action-button"></wm-picture>
+                                                            </wm-container>
+                                                        </wm-gridcolumn>
+                                                    </wm-gridrow>
+                                                </wm-layoutgrid>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-container>
+                            </wm-listtemplate>
+                        </wm-list>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Report Detail" iconclass="wi wi-file-text" name="reportDetail" showheader="true" width="60%">
+        <wm-carousel height="330" type="dynamic" name="carousel1" width="100%" dataset="bind:Variables.GetReportImagesByReportID.dataSet">
+            <wm-carousel-template horizontalalign="center" name="carousel_template1">
+                <wm-picture width="100%" name="picture7" picturesource="bind:Variables.GetReportImagesByReportID.dataSet[$i].url"></wm-picture>
+            </wm-carousel-template>
+        </wm-carousel>
+        <wm-layoutgrid name="layoutgrid11_1">
+            <wm-gridrow name="gridrow21">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn49" padding="unset unset 3.5em unset"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow22_1" padding="unset unset 1.5em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn50_1" padding="unset 1em">
+                    <wm-composite name="composite23_1" captionposition="top">
+                        <wm-label class="col-md-3 control-label input-label" name="label40" caption="ID Lapor"></wm-label>
+                        <wm-container class="col-md-9" name="container26" width="100%">
+                            <wm-text name="text22_1" class="input-text" datavalue="bind:Widgets.reportList.selecteditem.id" disabled="true"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn51" padding="unset 1em">
+                    <wm-composite name="composite24_1" captionposition="top">
+                        <wm-label class="col-md-3 control-label input-label" name="label41" caption="Email Pelapor"></wm-label>
+                        <wm-container class="col-md-9" name="container27" width="100%">
+                            <wm-text name="text23_1" class="input-text" datavalue="bind:Widgets.reportList.selecteditem.createdBy" disabled="true"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow23" padding="unset unset 1.5em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn52" padding="unset 1em">
+                    <wm-composite name="composite25_1" captionposition="top">
+                        <wm-label class="col-md-3 control-label input-label" name="label42" caption="Deskripsi"></wm-label>
+                        <wm-container class="col-md-9" name="container28" width="100%">
+                            <wm-textarea name="textarea2" class="input-text" datavalue="bind:Widgets.reportList.selecteditem.description" disabled="true"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow22">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn51_1">
+                    <wm-prefab prefabname="googlemaps" name="googlemaps1" locations="bind:Widgets.reportList.selecteditem" lat="latitude" lng="longitute" zoom="10"></wm-prefab>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+</wm-partial>

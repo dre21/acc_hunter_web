@@ -1,0 +1,965 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="REWARD MANAGEMENT" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 3% unset">
+                    <wm-gridcolumn columnwidth="11" name="gridcolumn18_2">
+                        <wm-label name="peojf" id="peojf" caption="PEOJF" class="point-menu" color="#A7A7A7" on-click="peojfClick($event, widget)" show="false"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="informan" name="informan" caption="Informan" class="point-menu" color="#A7A7A7" on-click="informanClick($event, widget)" show="false"></wm-label>
+                        <wm-label padding="unset 1em unset 0em" id="rewardMaster" caption="Reward Master List" class="point-menu clicked" color="#A7A7A7" on-click="rewardMasterClick($event, widget)" name="rewardMaster" show="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;ADMIN&quot; || Variables.loggedInUser.dataSet.roles[0]==&quot;SUPER ADMIN&quot;"></wm-label>
+                        <wm-label id="rewardConfiguration" caption="Reward Configuration" class="point-menu" color="#A7A7A7" name="rewardConfiguration" on-click="rewardConfigurationClick($event, widget)" padding="unset 1em unset unset" show="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;ADMIN&quot; || Variables.loggedInUser.dataSet.roles[0]==&quot;SUPER ADMIN&quot;"></wm-label>
+                        <wm-label id="redeemRequest" caption="Redeem Request" class="point-menu" color="#A7A7A7" name="redeemRequest" on-click="redeemRequestClick($event, widget)" padding="unset 1em unset unset" conditionalclass="bind:(Variables.loggedInUser.dataSet.roles[0]==&quot;REMO HEAD&quot;)? &quot;point-menu clicked&quot; : &quot;point-menu&quot;"></wm-label>
+                        <wm-label id="redeemHistory" caption="Redeem History" class="point-menu" color="#A7A7A7" on-click="redeemHistoryClick($event, widget)" padding="unset 1em unset unset" name="redeemHistory"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn62"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10_1" horizontalalign="center">
+                        <wm-container name="informanContainer" width="100%" horizontalalign="left" padding="5%" backgroundcolor="#ffffff" class="informan-cont" show="false">
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn14">
+                                        <wm-label name="label12" caption="Best performance for" class="title"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow10_1" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn16" padding="1em 2em unset unset">
+                                        <wm-composite name="composite3" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label13" caption="Tanggal mulai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container6" width="100%">
+                                                <wm-date name="startDateInforman" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn17_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite4" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14" caption="Tanggal selesai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container7" width="100%">
+                                                <wm-date name="endDateInforman" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn18"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11_1">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19" padding="1em 2em unset unset">
+                                        <wm-composite name="composite5" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14_1" caption="Kota" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container8" width="100%">
+                                                <wm-select name="remoInforman" class="input-form" height="48px" dataset="bind:Variables.getCities.dataSet" datafield="cityName" placeholder="Pilih Kota" displayfield="cityName"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn20_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite6" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label15" caption="Badges" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container9" width="100%">
+                                                <wm-select name="badgesInforman" class="input-form" height="48px" dataset="bind:Variables.getBadges.dataSet" placeholder="Pilih kelas" datafield="badgeType" displayfield="badgeType"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn21"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn30">
+                                        <wm-label name="label20" caption="Reset filter" class="filter" on-click="label20Click($event, widget)"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow17" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn30_1">
+                                        <wm-label name="label22" class="theader" caption="Nama" padding="unset unset unset 1em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                        <wm-label name="label23" class="theader" caption="Badges" padding="unset unset unset 0.3em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn35">
+                                        <wm-label name="label24" class="theader" caption="Kota"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn36">
+                                        <wm-label name="label25" class="theader" caption="Total Poin"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow19">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="informanLeaderBoard" navigation="Basic" nodatamessage="Tidak ada paket kredit yang ditemukan"
+                                            navigationalign="right" showrecordcount="false" dataset="bind:Variables.getInformanLeaderboards.dataSet">
+                                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                                <wm-container class="media-body" name="container3" height="64px">
+                                                    <wm-layoutgrid name="layoutgrid3">
+                                                        <wm-gridrow name="gridrow7">
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="nameInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-picture name="picture2" width="21px" height="21px" picturesource="bind:(Variables.getInformanLeaderboards.dataSet[$i].badgeType == &quot;Bronze&quot; ? &quot;resources/images/imagelists/bronze-star.png&quot; : (Variables.getInformanLeaderboards.dataSet[$i].badgeType == &quot;Silver&quot; ? &quot;resources/images/imagelists/silver-star.png&quot; : (Variables.getInformanLeaderboards.dataSet[$i].badgeType == &quot;Gold&quot; ? &quot;resources/images/imagelists/gold-star.png&quot; : &quot;&quot;)))"
+                                                                    class="imge-badge" margin="-2em unset unset -0.5em"></wm-picture>
+                                                                <wm-label padding="unset 0.5em unset 0.8em" name="badgeInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].badgeType" color="#404C59" class="content-label"
+                                                                    margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset unset" name="kotaInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].city" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset 1em" name="poinInforman" caption="bind:Variables.getInformanLeaderboards.dataSet[$i].poin" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn20">
+                        <wm-container name="peojfContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%" show="false">
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn14">
+                                        <wm-label name="label12" caption="Best performance for" class="title"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow10_1" padding="1em unset unset unset">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn16" padding="1em 2em unset unset">
+                                        <wm-composite name="composite3" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label13" caption="Tanggal mulai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container6" width="100%">
+                                                <wm-date name="startDatePeojf" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn17_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite4" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14" caption="Tanggal selesai" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container7" width="100%">
+                                                <wm-date name="endDatePeojf" class="input-form" color="#565656" maxdate="CURRENT_DATE"></wm-date>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn18"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11_1">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19" padding="1em 2em unset unset">
+                                        <wm-composite name="composite5" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label14_1" caption="REMO" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container8" width="100%">
+                                                <wm-select name="remoPeojf" class="input-form" height="48px" dataset="bind:Variables.getCities.dataSet" datafield="cityName" placeholder="Pilih REMO" displayfield="cityName"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn20_1" padding="1em 2em unset unset">
+                                        <wm-composite name="composite6" captionposition="top">
+                                            <wm-label class="col-md-3 control-label" name="label15" caption="Badges" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container9" width="100%">
+                                                <wm-select name="badgesPeojf" class="input-form" height="48px" dataset="bind:Variables.getBadges.dataSet" placeholder="Pilih kelas" datafield="badgeType" displayfield="badgeType"></wm-select>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn21"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow16" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn33">
+                                        <wm-label name="label21" caption="Reset filter" class="filter" on-click="label21Click($event, widget)"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow17" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn30_1">
+                                        <wm-label name="label22" class="theader" caption="Nama" padding="unset unset unset 1em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn34">
+                                        <wm-label name="label23" class="theader" caption="Badges" padding="unset unset unset 0.3em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn35">
+                                        <wm-label name="label24" class="theader" caption="REMO"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn36">
+                                        <wm-label name="label25" class="theader" caption="Total Poin"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow19">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="informanLeaderBoard" navigation="Basic" nodatamessage="Tidak ada paket kredit yang ditemukan"
+                                            navigationalign="right" showrecordcount="false" dataset="bind:Variables.getMitraLeaderboards.dataSet">
+                                            <wm-listtemplate layout="inline" name="listtemplate1">
+                                                <wm-container class="media-body" name="container3" height="64px">
+                                                    <wm-layoutgrid name="layoutgrid3">
+                                                        <wm-gridrow name="gridrow7">
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5pt" name="nameInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].fullName" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                <wm-picture name="picture2" width="21px" height="21px" picturesource="bind:(Variables.getMitraLeaderboards.dataSet[$i].badgeType == &quot;Bronze&quot; ? &quot;resources/images/imagelists/bronze-star.png&quot; : (Variables.getMitraLeaderboards.dataSet[$i].badgeType == &quot;Silver&quot; ? &quot;resources/images/imagelists/silver-star.png&quot; : (Variables.getMitraLeaderboards.dataSet[$i].badgeType == &quot;Gold&quot; ? &quot;resources/images/imagelists/gold-star.png&quot; : &quot;&quot;)))"
+                                                                    class="imge-badge" margin="-2em unset unset -0.5em"></wm-picture>
+                                                                <wm-label padding="unset 0.5em unset 0.8em" name="badgeInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].badgeType" color="#404C59" class="content-label" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset unset" name="kotaInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].city" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                <wm-label padding="unset 0.5em unset 1em" name="poinInforman" caption="bind:Variables.getMitraLeaderboards.dataSet[$i].poin" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow22">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn47">
+                        <wm-container name="rewardsContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%">
+                            <wm-layoutgrid name="layoutgrid8">
+                                <wm-gridrow name="gridrow23" padding="unset unset 48px unset">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn48"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn49" horizontalalign="right">
+                                        <wm-button class="add-button" caption="Tambah Reward" type="button" margin="unset 0.5em" height="64px" width="186px" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center" on-click="Widgets.addRewardDialog.open()"
+                                            name="button2"></wm-button>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow24" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn50">
+                                        <wm-label class="theader" caption="Reward" padding="unset unset unset 1em" name="label36"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn51">
+                                        <wm-label class="theader" caption="Picture" padding="unset unset unset 0.3em" name="label37"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn52">
+                                        <wm-label class="theader" caption="Actions" padding="unset unset unset 0.3em" name="label38"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow25">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn53">
+                                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="MasterRewardList1" dataset="bind:Variables.masterRewardData.dataSet"
+                                            navigation="Basic" on-select="MasterRewardList1Select(widget, $data)">
+                                            <wm-listtemplate layout="inline" name="listtemplate3">
+                                                <wm-container name="container17">
+                                                    <wm-layoutgrid name="layoutgrid9">
+                                                        <wm-gridrow name="gridrow26">
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn54">
+                                                                <wm-label class="p media-heading" name="Name" caption="bind:Variables.masterRewardData.dataSet[$i].name" fontunit="em" margin="8% unset unset unset"></wm-label>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn58">
+                                                                <wm-picture width="64pt" height="48pt" name="Picture" shape="rounded" picturesource="bind:Variables.masterRewardData.dataSet[$i].picReward" class="picture"></wm-picture>
+                                                            </wm-gridcolumn>
+                                                            <wm-gridcolumn columnwidth="4" name="gridcolumn55">
+                                                                <wm-layoutgrid name="layoutgrid10">
+                                                                    <wm-gridrow name="gridrow28" padding="8% unset unset unset">
+                                                                        <wm-gridcolumn columnwidth="5" name="gridcolumn59">
+                                                                            <wm-container width="100%" on-click="Widgets.editReward.open()" name="container18">
+                                                                                <wm-picture width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset" name="picture5"></wm-picture>
+                                                                                <wm-label padding="unset 0.5em" caption="Edit" color="#98A9BC" class="action-label" name="label40"></wm-label>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="6" name="gridcolumn60">
+                                                                            <wm-container width="100%" on-click="Widgets.deleteReward.open()" on-tap="Widgets.DeletePaketKredit.open()" name="container19">
+                                                                                <wm-picture width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset" name="picture6"></wm-picture>
+                                                                                <wm-label padding="unset 0.5em" caption="Delete" color="#98A9BC" class="action-label" name="label41"></wm-label>
+                                                                            </wm-container>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-gridcolumn>
+                                                        </wm-gridrow>
+                                                    </wm-layoutgrid>
+                                                </wm-container>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow30">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn63">
+                        <wm-container name="configContainer" width="100%" padding="5%" backgroundcolor="#ffffff" class="informan-cont">
+                            <wm-layoutgrid name="layoutgrid11">
+                                <wm-gridrow name="gridrow31" padding="unset unset 48px unset">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn64"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn65" horizontalalign="right">
+                                        <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="64px" width="215px" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center" on-click="Widgets.addRewardConfig.open()"
+                                            name="button3"></wm-button>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow32" padding="unset unset 1em unset">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn66">
+                                        <wm-label class="theader" caption="Reward" padding="unset unset unset 1em" name="label44"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn68">
+                                        <wm-label class="theader" caption="Point" name="label45"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn69">
+                                        <wm-label class="theader" caption="Availability" name="label46"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn67">
+                                        <wm-label class="theader" caption="Actions" padding="unset unset unset 0.3em" name="label47"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow33">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn70">
+                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RewardConfigList1" dataset="bind:Variables.getRewardConfig.dataSet"
+                                            navigation="Basic">
+                                            <wm-listtemplate layout="inline" name="listtemplate5">
+                                                <wm-layoutgrid name="layoutgrid12">
+                                                    <wm-gridrow name="gridrow34">
+                                                        <wm-gridcolumn columnwidth="4" name="gridcolumn71">
+                                                            <wm-label padding="unset 0.5em unset unset" name="label49" caption="bind:Variables.getRewardConfig.dataSet[$i].masterReward.name"></wm-label>
+                                                        </wm-gridcolumn>
+                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn75">
+                                                            <wm-label padding="unset 0.5em" name="label49_1" caption="bind:Variables.getRewardConfig.dataSet[$i].point"></wm-label>
+                                                        </wm-gridcolumn>
+                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn76">
+                                                            <wm-label padding="unset 0.5em" name="label50" caption="bind:Variables.getRewardConfig.dataSet[$i].availability"></wm-label>
+                                                        </wm-gridcolumn>
+                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn72">
+                                                            <wm-layoutgrid name="layoutgrid13">
+                                                                <wm-gridrow name="gridrow35">
+                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn75_1">
+                                                                        <wm-container width="100%" on-click="Widgets.editRewardConfig.open()" name="container22">
+                                                                            <wm-picture width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset" name="picture8"></wm-picture>
+                                                                            <wm-label padding="unset 0.5em" caption="Edit" color="#98A9BC" class="action-label" name="label51"></wm-label>
+                                                                        </wm-container>
+                                                                    </wm-gridcolumn>
+                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn76_1">
+                                                                        <wm-container width="100%" on-click="Widgets.deleteRewardConfiguration.open()" on-tap="Widgets.DeletePaketKredit.open()" name="container23">
+                                                                            <wm-picture width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset" name="picture9"></wm-picture>
+                                                                            <wm-label padding="unset 0.5em" caption="Delete" color="#98A9BC" class="action-label" name="label52"></wm-label>
+                                                                        </wm-container>
+                                                                    </wm-gridcolumn>
+                                                                </wm-gridrow>
+                                                            </wm-layoutgrid>
+                                                        </wm-gridcolumn>
+                                                    </wm-gridrow>
+                                                </wm-layoutgrid>
+                                            </wm-listtemplate>
+                                        </wm-list>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow45">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn90">
+                        <wm-container name="redeemRequestContainer" width="100%" class="informan-cont" backgroundcolor="#ffffff" padding="5%">
+                            <wm-layoutgrid name="layoutgrid19">
+                                <wm-gridrow name="gridrow46" padding="unset unset 48px unset">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn91_1">
+                                        <wm-label padding="1em 0.5em unset 0.5em" id="infRedeem" name="infRedeem" caption="Informan" fontsize="16" color="#A7A7A7" class="point-menu clicked" fontfamily="Nunito" on-click="infRedeemClick($event, widget)"></wm-label>
+                                        <wm-label padding="1em 0.5em unset 0.5em" id="peojfRedeem" caption="PEOJF" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="peojfRedeem" on-click="peojfRedeemClick($event, widget)"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn92">
+                                        <wm-text placeholder="Search By Email" class="text-search" name="searchReq"></wm-text>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow50">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn104_1">
+                                        <wm-container name="infRedeemContainer">
+                                            <wm-layoutgrid name="layoutgrid21">
+                                                <wm-gridrow name="gridrow51">
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn106">
+                                                        <wm-label padding="unset 0.5em" caption="Nama" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label67"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn110">
+                                                        <wm-label padding="unset 0.5em" caption="Email" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label68"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn111">
+                                                        <wm-label padding="unset 0.5em" caption="Redeem Options" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label69"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn112">
+                                                        <wm-label padding="unset 0.5em" caption="Points Redeem" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label70"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn107">
+                                                        <wm-label padding="unset 0.5em" caption="Actions" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label71_1"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow52">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn108">
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RedeemRequestList1" dataset="bind:Variables.getInfRedeemRequest.dataSet"
+                                                            navigation="Basic">
+                                                            <wm-listtemplate layout="inline" name="listtemplate7">
+                                                                <wm-layoutgrid name="layoutgrid20">
+                                                                    <wm-gridrow name="gridrow49">
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn99">
+                                                                            <wm-label padding="unset 0.5em unset unset" name="label73" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].users.fullName"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn103">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].users.email" name="label73_1"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn104">
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].rewardConfig.masterReward.name" name="label74"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn105">
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].rewardConfig.point" name="label75"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn100">
+                                                                            <wm-label padding="unset 1em 1em 1.25em" name="label76" caption="Confirm" color="#363636" fontsize="13" on-click="Widgets.updateInfFlagRedeem.open()" fontweight="bold"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow48">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn98">
+                                        <wm-container name="peojfRedeemContainer">
+                                            <wm-layoutgrid name="layoutgrid22">
+                                                <wm-gridrow name="gridrow53">
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn113">
+                                                        <wm-label padding="unset 0.5em" caption="Nama" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label77"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn117">
+                                                        <wm-label padding="unset 0.5em" caption="Email" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label78"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn118">
+                                                        <wm-label padding="unset 0.5em" caption="Redeem Options" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label79"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn119">
+                                                        <wm-label padding="unset 0.5em" caption="Points Redeem" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label80"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn114">
+                                                        <wm-label padding="unset 0.5em" caption="Actions" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label81"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow54">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn115">
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RedeemRequestList1_1" dataset="bind:Variables.getPeojfRedeemRequest.dataSet"
+                                                            navigation="Basic">
+                                                            <wm-listtemplate layout="inline" name="listtemplate8">
+                                                                <wm-layoutgrid name="layoutgrid23">
+                                                                    <wm-gridrow name="gridrow54_1">
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn112_1">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].users.fullName" name="label83"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn113_1">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].users.email" name="label84"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn114_1">
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].rewardConfig.masterReward.name" name="label85"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn115_1">
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].rewardConfig.point" name="label86"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn116">
+                                                                            <wm-label padding="unset 1em 1em 1.25em" caption="Confirm" color="#363636" fontsize="13" name="label87" on-click="Widgets.updatePeojfFlagRedeem.open()" fontweight="bold"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow55">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn117_1">
+                        <wm-container name="redeemHistoryContainer" padding="5%" backgroundcolor="#ffffff">
+                            <wm-layoutgrid name="layoutgrid24">
+                                <wm-gridrow name="gridrow56" padding="unset unset 48px unset">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn118_1">
+                                        <wm-label padding="1em 0.5em unset 0.5em" id="infHistory" caption="Informan" fontsize="16" color="#A7A7A7" class="point-menu clicked" fontfamily="Nunito" on-click="infHistoryClick($event, widget)" name="infHistory"></wm-label>
+                                        <wm-label padding="1em 0.5em unset 0.5em" id="peojfHistory" caption="PEOJF" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" on-click="peojfHistoryClick($event, widget)" name="peojfHistory"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn119_1">
+                                        <wm-text placeholder="Search By Email" class="text-search" name="searchHis"></wm-text>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow57">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn121">
+                                        <wm-container name="infHistoryContainer">
+                                            <wm-layoutgrid name="layoutgrid25">
+                                                <wm-gridrow name="gridrow58">
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn122">
+                                                        <wm-label padding="unset 0.5em" caption="Nama" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label90"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn123">
+                                                        <wm-label padding="unset 0.5em" caption="Email" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label91"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn124">
+                                                        <wm-label padding="unset 0.5em" caption="Redeem Options" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label92"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn125">
+                                                        <wm-label padding="unset 0.5em" caption="Points Redeem" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label93"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn126">
+                                                        <wm-label padding="unset 0.5em" caption="Exchange Date" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label94"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow59">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn127">
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.getInfHistory.dataSet"
+                                                            navigation="Basic" name="list9">
+                                                            <wm-listtemplate layout="inline" name="listtemplate9">
+                                                                <wm-layoutgrid name="layoutgrid26">
+                                                                    <wm-gridrow name="gridrow60">
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn128">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfHistory.dataSet[$i].users.fullName" name="label95"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn129">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfHistory.dataSet[$i].users.email" name="label96"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn130">
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getInfHistory.dataSet[$i].rewardConfig.masterReward.name" name="label97"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn131">
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getInfHistory.dataSet[$i].rewardConfig.point" name="label98"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn132">
+                                                                            <wm-datetime name="datetime1" datavalue="bind:Variables.getInfHistory.dataSet[$i].confirmedAt" width="100%" margin="-0.75em unset unset 0.5em" showweeks="false" readonly="false" outputformat="timestamp"
+                                                                                disabled="true" class="date-conf"></wm-datetime>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow61">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn132_1">
+                                        <wm-container name="peojfHistoryContainer">
+                                            <wm-layoutgrid name="layoutgrid27">
+                                                <wm-gridrow name="gridrow62">
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn133">
+                                                        <wm-label padding="unset 0.5em" caption="Nama" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label100"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn134">
+                                                        <wm-label padding="unset 0.5em" caption="Email" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label101"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn135">
+                                                        <wm-label padding="unset 0.5em" caption="Redeem Options" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label102"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="2" name="gridcolumn136">
+                                                        <wm-label padding="unset 0.5em" caption="Points Redeem" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label103"></wm-label>
+                                                    </wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="3" name="gridcolumn137">
+                                                        <wm-label padding="unset 0.5em" caption="Exchange Date" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="label104"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow63">
+                                                    <wm-gridcolumn columnwidth="12" name="gridcolumn138">
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.getPeojfHistory.dataSet"
+                                                            navigation="Basic" name="list10">
+                                                            <wm-listtemplate layout="inline" name="listtemplate10">
+                                                                <wm-layoutgrid name="layoutgrid28">
+                                                                    <wm-gridrow name="gridrow64">
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn139">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getPeojfHistory.dataSet[$i].users.fullName" name="label105"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn140">
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfHistory.dataSet[$i].users.email" name="label106"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn141">
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getPeojfHistory.dataSet[$i].rewardConfig.masterReward.name" name="label107"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn142">
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getPeojfHistory.dataSet[$i].rewardConfig.point" name="label108"></wm-label>
+                                                                        </wm-gridcolumn>
+                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn143">
+                                                                            <wm-datetime datavalue="bind:Variables.getPeojfHistory.dataSet[$i].confirmedAt" width="100%" margin="-0.75em unset unset 0.5em" showweeks="false" readonly="true" name="datetime2"
+                                                                                disabled="false"></wm-datetime>
+                                                                        </wm-gridcolumn>
+                                                                    </wm-gridrow>
+                                                                </wm-layoutgrid>
+                                                            </wm-listtemplate>
+                                                        </wm-list>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Reward" iconclass="" name="addRewardDialog" width="60%" on-close="addRewardDialogClose($event, widget)">
+        <wm-message name="messageAddReward" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Reward" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="text1" class="input" height="48" color="#565656" placeholder=""></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow28_1" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn59_1" padding="unset 3%">
+                    <wm-fileupload name="fileupload1" on-select="Variables.FileServiceUploadFile1.invoke()" width="108px" height="108px" backgroundimage="resources/images/imagelists/addImage.svg" backgroundrepeat="no-repeat" backgroundposition="0,1em" caption=""
+                        iconclass="" contenttype=".jpeg .jpg .png" maxfilesize="5"></wm-fileupload>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn60_1">
+                    <wm-list listclass="list-group image-list" itemclass="list-group-item item-image" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="imageListList1" dataset="bind:Variables.imageList.dataSet"
+                        navigation="None" show="bind:Variables.imageList.dataSet.length!=0" disableitem="true">
+                        <wm-listtemplate layout="inline" name="listtemplate4">
+                            <wm-container name="container20_1" width="108px" height="108px">
+                                <wm-picture width="98px" height="98px" name="Picture" shape="rounded" picturesource="bind:Variables.imageList.dataSet[$i].dataValue" class="media-object"></wm-picture>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                    <wm-label padding="unset 0.5em" name="resetImage" caption="Reset Image" on-click="resetImageClick($event, widget)" show="bind:Variables.imageList.dataSet.length!=0"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow29">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn61" padding="unset 3%">
+                    <wm-composite name="composite11">
+                        <wm-label class="col-md-3 control-label" name="label42" width="100%" color="#999C9F" caption="Deskripsi"></wm-label>
+                        <wm-container class="col-md-9" name="container20">
+                            <wm-textarea name="textarea1" placeholder="" class="text-area"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" on-click="button1Click($event, widget)" name="button1" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Reward" iconclass="" name="editReward" width="60%" on-close="editRewardClose($event, widget)">
+        <wm-message name="messageEditReward" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Reward" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="text3" class="input" height="48" color="#565656" placeholder="" datavalue="bind:Widgets.MasterRewardList1.selecteditem.name"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow28_1" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn59_1" padding="unset 3%">
+                    <wm-fileupload name="fileupload" on-select="Variables.FileServiceUploadFile.invoke()" width="108px" height="108px" backgroundimage="resources/images/imagelists/addImage.svg" backgroundrepeat="no-repeat" backgroundposition="0,1em" caption=""
+                        iconclass="" contenttype=".jpeg .jpg .png" maxfilesize="5"></wm-fileupload>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn60_1">
+                    <wm-list listclass="list-group image-list" itemclass="list-group-item item-image" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="imageListList1" dataset="bind:Variables.imageList.dataSet"
+                        navigation="None" show="bind:Variables.imageList.dataSet.length!=0" disableitem="true">
+                        <wm-listtemplate layout="inline" name="listtemplate4">
+                            <wm-container name="container20_1" width="108px" height="108px">
+                                <wm-picture width="98px" height="98px" name="Picture" shape="rounded" picturesource="bind:Variables.imageList.dataSet[$i].dataValue" class="media-object"></wm-picture>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                    <wm-label padding="unset 0.5em" name="resetImage" caption="Reset Image" on-click="resetImageClick($event, widget)" show="bind:Variables.imageList.dataSet.length!=0"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow29">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn61" padding="unset 3%">
+                    <wm-composite name="composite11">
+                        <wm-label class="col-md-3 control-label" name="label42" width="100%" color="#999C9F" caption="Deskripsi"></wm-label>
+                        <wm-container class="col-md-9" name="container20">
+                            <wm-textarea name="textarea2" placeholder="" class="text-area" datavalue="bind:Widgets.MasterRewardList1.selecteditem.deskripsi"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" on-click="button6Click($event, widget)" name="button6" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Reward" iconclass="" name="deleteReward" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Reward ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button7" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.delMasterReward.invoke();Widgets.deleteReward.close()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="addRewardConfig" width="60%">
+        <wm-message name="messageAddConfig" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid14">
+            <wm-gridrow name="gridrow36" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn77" padding="unset 2em">
+                    <wm-composite captionposition="top" name="composite11_1">
+                        <wm-label class="col-md-3 control-label" caption="Reward" color="#999C9F" name="label59"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container26">
+                            <wm-select name="select5" class="input" color="#565656" backgroundcolor="#ffffff" height="48" placeholder="Select Reward" dataset="bind:Variables.getMasterReward.dataSet" datafield="id" displayfield="name"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn78" padding="unset 2em">
+                    <wm-composite name="composite12">
+                        <wm-label class="col-md-3 control-label" name="label57" caption="Points" width="100%" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container25">
+                            <wm-text class="input" height="48" color="#565656" placeholder="" name="text2" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow37" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn79" padding="unset 2em">
+                    <wm-composite captionposition="top" name="composite13">
+                        <wm-label class="col-md-3 control-label" caption="Availability" color="#999C9F" name="label58"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container26_1">
+                            <wm-select class="input" color="#565656" backgroundcolor="#ffffff" height="48" placeholder="Select Availability" dataset="INF, PEOJF, ALL" datafield="All Fields" name="select6"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn80"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions2">
+            <wm-button class="btn-save-badge" caption="Simpan" on-click="button4Click($event, widget)" name="button4" width="12em" height="4em" backgroundcolor="#0F358E" color="#F7F8FB" margin="unset 1.5em unset unset"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Config Reward" iconclass="" name="editRewardConfig" width="60%">
+        <wm-message name="messageEditConfig" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid15">
+            <wm-gridrow name="gridrow38" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn81" padding="unset 2em">
+                    <wm-composite captionposition="top" name="composite16">
+                        <wm-label class="col-md-3 control-label" caption="Reward" color="#999C9F" name="label64"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container30">
+                            <wm-select class="input" color="#565656" backgroundcolor="#ffffff" height="48" placeholder="Select Reward" dataset="bind:Variables.getMasterReward.dataSet" datafield="id" displayfield="name" name="select7" datavalue="bind:Widgets.RewardConfigList1.selecteditem.idReward"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn82" padding="unset 2em">
+                    <wm-composite name="composite17">
+                        <wm-label class="col-md-3 control-label" caption="Points" width="100%" color="#999C9F" name="label65"></wm-label>
+                        <wm-container class="col-md-9" name="container31">
+                            <wm-text class="input" height="48" color="#565656" placeholder="" type="number" name="text4" datavalue="bind:Widgets.RewardConfigList1.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow39" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn83" padding="unset 2em">
+                    <wm-composite captionposition="top" name="composite18">
+                        <wm-label class="col-md-3 control-label" caption="Availability" color="#999C9F" name="label66"></wm-label>
+                        <wm-container class="col-md-9" width="100%" name="container32">
+                            <wm-select class="input" color="#565656" backgroundcolor="#ffffff" height="48" placeholder="Select Availability" dataset="INF, PEOJF, ALL" datafield="All Fields" name="select8" datavalue="bind:Widgets.RewardConfigList1.selecteditem.availability"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn84"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions3">
+            <wm-button class="btn-save-badge" caption="SimPan" on-click="button5Click($event, widget)" name="button5" backgroundcolor="#0F358E" margin="unset 1.5em unset unset" width="12em" height="4em" color="#F7F8FB"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="deleteRewardConfiguration" width="60%">
+        <wm-layoutgrid name="layoutgrid18">
+            <wm-gridrow name="gridrow44" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn91" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18" name="label71"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions6">
+            <wm-button class="btn-save-badge" caption="Hapus" on-click="closeDialog();Variables.delRewardConfig.invoke()" name="button8" width="12em" height="4em" margin="unset 1.5em unset unset" color="#F7F8FB" backgroundcolor="red"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Konfirmasi Redeem" iconclass="" name="updateInfFlagRedeem" width="60%">
+        <wm-layoutgrid name="layoutgrid18">
+            <wm-gridrow name="gridrow44" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn91" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" caption="Apakah Anda yakin ingin mengkonfirmasi Redeem ini?" color="#999C9F" width="100%" fontsize="18" name="label71"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow67">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn146">
+                    <wm-label class="col-md-3 control-label" caption="Nama" color="#999C9F" width="100%" fontsize="12" name="label110"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn147">
+                    <wm-label class="col-md-3 control-label" caption="Email" color="#999C9F" width="100%" fontsize="12" name="label112"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow68">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn148">
+                    <wm-text class="input" color="#565656" placeholder="" type="text" name="text7" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.users.fullName"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn149">
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" name="text8" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.users.email"></wm-text>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow69" padding="1em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn150">
+                    <wm-label class="col-md-3 control-label" caption="Poin" color="#999C9F" width="100%" fontsize="12" name="label112_1"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn151"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow70">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn152">
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Variables.GetRecentPointInf.firstRecord.point" name="text9"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn153"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow71" padding="2em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn154">
+                    <wm-label class="col-md-3 control-label" caption="Redeem Request" color="#565656" width="100%" fontsize="18" name="label113"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn155"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow72">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn156">
+                    <wm-label class="col-md-3 control-label" caption="Item" color="#999C9F" width="100%" fontsize="12" name="label114"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn157">
+                    <wm-label class="col-md-3 control-label" caption="Point Deducted" color="#999C9F" width="100%" fontsize="12" name="label115"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow73">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn158">
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.rewardConfig.masterReward.name" name="text10"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn159">
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.rewardConfig.point" name="text11"></wm-text>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow74" padding="1em unset unset unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn160">
+                    <wm-label class="col-md-3 control-label" caption="Remaining Point" color="#999C9F" width="100%" fontsize="12" name="label116"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn161"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow75">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn162">
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:((Widgets.text9.datavalue | stringToNumber) - (Widgets.text11.datavalue | stringToNumber))" name="text12"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn163"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions6">
+            <wm-button class="btn-save-badge" caption="Ya" on-click="closeDialog();Variables.updInfFlagRedeem.invoke();Variables.insNotificationInf.createRecord();Variables.insertKreditInf.createRecord()" name="button99" width="12em" height="4em" margin="unset 1.5em unset unset"
+                color="#F7F8FB" backgroundcolor="#0F358E" disabled="bind:(Widgets.text12.datavalue | stringToNumber) < 0"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Konfirmasi Redeem" iconclass="" name="updatePeojfFlagRedeem" width="60%">
+        <wm-dialogactions name="dialogactions6">
+            <wm-button class="btn-save-badge" caption="Ya" on-click="closeDialog();Variables.updPeojfFlagRedeem.invoke();Variables.insNotificationPeojf.createRecord();Variables.insertKreditPeojf.createRecord()" name="button98" width="12em" height="4em" margin="unset 1.5em unset unset"
+                color="#F7F8FB" backgroundcolor="#0F358E" disabled="bind:(Widgets.text18.datavalue | stringToNumber) < 0"></wm-button>
+        </wm-dialogactions>
+        <wm-layoutgrid name="layoutgrid31">
+            <wm-gridrow padding="2em unset" name="gridrow76">
+                <wm-gridcolumn columnwidth="12" horizontalalign="center" name="gridcolumn164">
+                    <wm-label class="col-md-3 control-label" caption="Apakah Anda yakin ingin mengkonfirmasi Redeem ini?" color="#999C9F" width="100%" fontsize="18" name="label117"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow77">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn165">
+                    <wm-label class="col-md-3 control-label" caption="Nama" color="#999C9F" width="100%" fontsize="12" name="label118"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn166">
+                    <wm-label class="col-md-3 control-label" caption="Email" color="#999C9F" width="100%" fontsize="12" name="label119"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow78">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn167">
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.users.fullName" name="text13"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn168">
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.users.email" name="text14"></wm-text>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="1em unset unset unset" name="gridrow79">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn169">
+                    <wm-label class="col-md-3 control-label" caption="Poin" color="#999C9F" width="100%" fontsize="12" name="label120"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn170"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow80">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn171">
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Variables.GetRecentPointPeojf.firstRecord.point" name="text15"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn172"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="2em unset unset unset" name="gridrow81">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn173">
+                    <wm-label class="col-md-3 control-label" caption="Redeem Request" color="#565656" width="100%" fontsize="18" name="label121"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn174"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow82">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn175">
+                    <wm-label class="col-md-3 control-label" caption="Item" color="#999C9F" width="100%" fontsize="12" name="label122"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn176">
+                    <wm-label class="col-md-3 control-label" caption="Point Deducted" color="#999C9F" width="100%" fontsize="12" name="label123"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow83">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn177">
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.rewardConfig.masterReward.name" name="text16"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn178">
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.rewardConfig.point" name="text17"></wm-text>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow padding="1em unset unset unset" name="gridrow84">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn179">
+                    <wm-label class="col-md-3 control-label" caption="Remaining Point" color="#999C9F" width="100%" fontsize="12" name="label124"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn180"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow85">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn181">
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:((Widgets.text15.datavalue | stringToNumber) - (Widgets.text17.datavalue | stringToNumber))" name="text18"></wm-text>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn182"></wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+    </wm-dialog>
+</wm-page>

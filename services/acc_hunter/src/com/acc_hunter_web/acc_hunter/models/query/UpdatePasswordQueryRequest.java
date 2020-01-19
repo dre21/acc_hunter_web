@@ -7,6 +7,7 @@ package com.acc_hunter_web.acc_hunter.models.query;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 import javax.validation.constraints.NotNull;

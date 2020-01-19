@@ -36,7 +36,8 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
 import com.acc_hunter_web.acc_hunter.Appointments;
-import com.acc_hunter_web.acc_hunter.LelangSkParticipants;
+import com.acc_hunter_web.acc_hunter.RedeemRequest;
+import com.acc_hunter_web.acc_hunter.Sayembara;
 import com.acc_hunter_web.acc_hunter.SkRequests;
 import com.acc_hunter_web.acc_hunter.UserRequestUpgrades;
 import com.acc_hunter_web.acc_hunter.Users;
@@ -224,13 +225,13 @@ public class UsersController {
         return usersService.findAssociatedAppointmentses(id, pageable);
     }
 
-    @RequestMapping(value="/{id:.+}/lelangSkParticipantses", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the lelangSkParticipantses instance associated with the given id.")
+    @RequestMapping(value="/{id:.+}/sayembaras", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the sayembaras instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(@PathVariable("id") Integer id, Pageable pageable) {
+    public Page<Sayembara> findAssociatedSayembaras(@PathVariable("id") Integer id, Pageable pageable) {
 
-        LOGGER.debug("Fetching all associated lelangSkParticipantses");
-        return usersService.findAssociatedLelangSkParticipantses(id, pageable);
+        LOGGER.debug("Fetching all associated sayembaras");
+        return usersService.findAssociatedSayembaras(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/skRequestses", method=RequestMethod.GET)
@@ -249,6 +250,15 @@ public class UsersController {
 
         LOGGER.debug("Fetching all associated userRequestUpgradeses");
         return usersService.findAssociatedUserRequestUpgradeses(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/redeemRequests", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the redeemRequests instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<RedeemRequest> findAssociatedRedeemRequests(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated redeemRequests");
+        return usersService.findAssociatedRedeemRequests(id, pageable);
     }
 
     /**

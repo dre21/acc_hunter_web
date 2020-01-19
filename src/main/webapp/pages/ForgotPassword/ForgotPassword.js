@@ -35,5 +35,22 @@ Page.picture4Click = function($event, widget) {
 Page.button1Click = function($event, widget) {
     App.Variables.userEmail.dataSet.dataValue = Page.Widgets.emailAddr.datavalue;
     //temporary Action
-    App.Actions.goToPage_ChangePassword.invoke();
+    // App.Actions.goToPage_ChangePassword.invoke();
+};
+
+Page.CheckEmailAvailableonSuccess = function(variable, data) {
+    if (data[0]._count === 0) {
+        Page.Actions.notFoundEmail.invoke();
+    } else {
+        App.Actions.goToPage_ForgotPasswordLinkSent.invoke();
+        Page.Variables.sendEmailToUser.invoke();
+    }
+};
+
+Page.sendEmailToUseronBeforeUpdate = function(variable, inputData, options) {
+    inputData.emailMessage = "<p>Anda telah mencoba merubah kata sandi pada sistem ACC Hunter. Silahkan klik link dibawah ini untuk mengubah password.</p><p>http://209.97.175.242/ACC_Hunter_Web/#/ChangePassword?email=" + Page.Widgets.emailAddr.datavalue + "</p>";
+};
+
+Page.sendEmailToUseronSuccess = function(variable, data) {
+    console.log(data)
 };

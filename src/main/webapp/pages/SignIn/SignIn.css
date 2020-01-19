@@ -32,6 +32,7 @@
 .show-password {
     position: absolute;
     top: 13px;
+    right: 15px;
     bottom: 21px;
 }
 
@@ -54,4 +55,20 @@
     text-align: center;
     color: #285073;
     cursor:pointer;
+}
+
+.footer {
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+}
+
+.header {
+    top: 0px;
+    right: 0px;
+    position: fixed;
+}
+
+.middle {
+    top: 15em;
 }

@@ -60,7 +60,7 @@
   "httpMethod" : null
 }, {
   "urlPattern" : "/services/acc_hunter/**",
-  "permission" : "Authenticated",
+  "permission" : "PermitAll",
   "roles" : [ ],
   "httpMethod" : null
 }, {
@@ -68,4 +68,19 @@
   "permission" : "PermitAll",
   "roles" : [ ],
   "httpMethod" : "PUT"
+}, {
+  "urlPattern" : "/services/file/downloadFile",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : "GET"
+}, {
+  "urlPattern" : "/services/file/downloadFileAsInline",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : "GET"
+}, {
+  "urlPattern" : "/services/acc_hunter/Users/**",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : null
 } ]

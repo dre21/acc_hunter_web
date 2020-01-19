@@ -35,6 +35,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import com.acc_hunter_web.acc_hunter.LelangParticipants;
 import com.acc_hunter_web.acc_hunter.LelangSk;
 import com.acc_hunter_web.acc_hunter.LelangSkDetail;
 import com.acc_hunter_web.acc_hunter.service.LelangSkService;
@@ -118,14 +119,6 @@ public class LelangSkController {
         return deletedLelangSk != null;
     }
 
-    @RequestMapping(value = "/remoId/{remoId}", method = RequestMethod.GET)
-    @ApiOperation(value = "Returns the matching LelangSk with given unique key values.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public LelangSk getByRemoId(@PathVariable("remoId") int remoId) {
-        LOGGER.debug("Getting LelangSk with uniques key RemoId");
-        return lelangSkService.getByRemoId(remoId);
-    }
-
     /**
      * @deprecated Use {@link #findLelangSks(String, Pageable)} instead.
      */
@@ -203,6 +196,15 @@ public class LelangSkController {
 
         LOGGER.debug("Fetching all associated lelangSkDetails");
         return lelangSkService.findAssociatedLelangSkDetails(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/lelangParticipantses", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the lelangParticipantses instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<LelangParticipants> findAssociatedLelangParticipantses(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated lelangParticipantses");
+        return lelangSkService.findAssociatedLelangParticipantses(id, pageable);
     }
 
     /**

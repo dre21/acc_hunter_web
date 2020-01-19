@@ -7,7 +7,6 @@ package com.acc_hunter_web.acc_hunter.service;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +33,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
+import com.acc_hunter_web.acc_hunter.LelangParticipants;
 import com.acc_hunter_web.acc_hunter.LelangSk;
 import com.acc_hunter_web.acc_hunter.LelangSkDetail;
 
@@ -48,6 +48,11 @@ import com.acc_hunter_web.acc_hunter.LelangSkDetail;
 public class LelangSkServiceImpl implements LelangSkService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LelangSkServiceImpl.class);
+
+    @Lazy
+    @Autowired
+    @Qualifier("acc_hunter.LelangParticipantsService")
+    private LelangParticipantsService lelangParticipantsService;
 
     @Lazy
     @Autowired
@@ -104,15 +109,6 @@ public class LelangSkServiceImpl implements LelangSkService {
         return this.wmGenericDao.findByMultipleIds(lelangskIds, orderedReturn);
     }
 
-    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
-    @Override
-    public LelangSk getByRemoId(int remoId) {
-        Map<String, Object> remoIdMap = new HashMap<>();
-        remoIdMap.put("remoId", remoId);
-
-        LOGGER.debug("Finding LelangSk by unique keys: {}", remoIdMap);
-        return this.wmGenericDao.findByUniqueKey(remoIdMap);
-    }
 
     @Transactional(rollbackFor = EntityNotFoundException.class, value = "acc_hunterTransactionManager")
     @Override
@@ -214,6 +210,26 @@ public class LelangSkServiceImpl implements LelangSkService {
         queryBuilder.append("lelangSk.id = '" + id + "'");
 
         return lelangSkDetailService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
+    @Override
+    public Page<LelangParticipants> findAssociatedLelangParticipantses(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated lelangParticipantses");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("lelangSk.id = '" + id + "'");
+
+        return lelangParticipantsService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
+     * @param service LelangParticipantsService instance
+     */
+    protected void setLelangParticipantsService(LelangParticipantsService service) {
+        this.lelangParticipantsService = service;
     }
 
     /**

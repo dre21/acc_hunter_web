@@ -35,7 +35,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.LelangSkDetail;
-import com.acc_hunter_web.acc_hunter.MasterArea;
 import com.acc_hunter_web.acc_hunter.RemoRegions;
 
 
@@ -49,11 +48,6 @@ import com.acc_hunter_web.acc_hunter.RemoRegions;
 public class RemoRegionsServiceImpl implements RemoRegionsService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RemoRegionsServiceImpl.class);
-
-    @Lazy
-    @Autowired
-    @Qualifier("acc_hunter.MasterAreaService")
-    private MasterAreaService masterAreaService;
 
     @Lazy
     @Autowired
@@ -220,26 +214,6 @@ public class RemoRegionsServiceImpl implements RemoRegionsService {
         queryBuilder.append("remoRegions.id = '" + id + "'");
 
         return lelangSkDetailService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
-    @Override
-    public Page<MasterArea> findAssociatedMasterAreas(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated masterAreas");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("remoRegions.id = '" + id + "'");
-
-        return masterAreaService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service MasterAreaService instance
-     */
-    protected void setMasterAreaService(MasterAreaService service) {
-        this.masterAreaService = service;
     }
 
     /**

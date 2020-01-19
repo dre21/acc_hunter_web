@@ -16,21 +16,12 @@ Page.onReady = function() {
      */
 };
 
-Page.ReportsTable2_updaterowAction = function($event, row) {
-    var img = Page.Variables.getReportImagesByReportId;
-    img.setInput({
-        "id": row.id
-    });
-    var sv = Page.Variables.getSubmittedInfoDetail;
-    sv.setInput({
-        "id": row.id
-    });
-    sv.invoke(
-        function(data) {
-            // Success Callback
-            console.log("success", data);
-        },
-        function(error) {
-            console.log("error", error);
-        });
+Page.updateBadgesonBeforeUpdateRecord = function(variable, inputData, options) {
+    inputData.updatedAt = new Date()
+};
+
+Page.GetReportsListonBeforeDatasetReady = function(variable, data) {
+    for (var i = 0; i < data.length; i++) {
+        data[i].number = i + 1;
+    }
 };

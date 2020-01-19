@@ -1,0 +1,1878 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="MANAGE POINT CONFIGURATION" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="right" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="Manage Gamification" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="Manage Point" class="breadcumb" color="#565656"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 7% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 3% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn18_2">
+                        <wm-label name="peojf" id="peojf" caption="PEOJF" class="point-menu clicked" color="#A7A7A7" on-click="peojfClick($event, widget)" on-tap="peojfTap($event, widget)"></wm-label>
+                        <wm-label padding="unset 0.5em unset 1em" id="informan" name="informan" caption="Informan" class="point-menu" color="#A7A7A7" on-click="informanClick($event, widget)" on-tap="informanTap($event, widget)"></wm-label>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow5_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10_1" horizontalalign="center">
+                        <wm-container name="informanContainer" width="100%" horizontalalign="center" padding="5%" backgroundcolor="#ffffff" class="informan-cont" show="true">
+                            <wm-message name="messageInforman"></wm-message>
+                            <wm-layoutgrid name="layoutgrid4">
+                                <wm-gridrow name="gridrow9">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn14" horizontalalign="left" padding="unset unset 1em unset">
+                                        <wm-label padding="unset 0.5em unset unset" name="label10" caption="Sukses Tarik" class="item-conf" color="#285073"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow10_1">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn16" horizontalalign="left">
+                                        <wm-composite name="composite3" captionposition="top" horizontalalign="left">
+                                            <wm-label class="col-md-3 control-label" name="label11" caption="Jumlah Maks. Selisih Hari" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container5_1" width="100%">
+                                                <wm-text name="text3" height="48px" class="informan-form" readonly="true" disabled="true" placeholder="" color="#565656" datavalue="bind:Variables.GetGamificationInformanSuksesTarik.firstRecord.maxAmountOfDayDifference"
+                                                    type="number" autocomplete="false"></wm-text>
+                                            </wm-container>
+                                        </wm-composite>
+                                        <wm-label padding="unset 0.5em unset unset" name="label17_1" caption="Dihitung dari tanggal lapor sampai sukses tarik" class="info" color="#999C9F"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn17_1" padding="unset unset unset 5%">
+                                        <wm-composite name="composite4" captionposition="top" horizontalalign="left">
+                                            <wm-label class="col-md-3 control-label" name="label12" caption="Jumlah Poin" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container6" width="100%">
+                                                <wm-text name="text4" height="48px" readonly="true" disabled="true" class="informan-form" placeholder="" color="#565656" datavalue="bind:Variables.GetGamificationInformanSuksesTarik.firstRecord.point" type="number"
+                                                    autocomplete="false"></wm-text>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn18" horizontalalign="center" padding="unset unset unset 5%">
+                                        <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                                            <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                                                <wm-checkbox caption="Toggle" type="toggle" name="toggle1" height="48px" width="99px" readonly="true" disabled="true" datavalue="bind:Variables.GetGamificationInformanSuksesTarik.firstRecord.status"></wm-checkbox>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow11_1">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn19" horizontalalign="left" padding="1% unset 6% unset">
+                                        <wm-button caption="Edit" type="button" name="button2" iconclass="wi wi-pencil" iconposition="right" height="64px" class="btn-informan" color="#FFFFFF" on-click="button2Click($event, widget)" on-tap="button2Tap($event, widget)"></wm-button>
+                                        <wm-button caption="Simpan" type="button" name="button3" height="64px" class="btn-informan" color="#FFFFFF" show="true" on-click="button3Click1($event, widget)"></wm-button>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow12">
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn22" horizontalalign="left" padding="unset unset 1em unset">
+                                        <wm-label padding="unset 0.5em unset unset" caption="Seasonal Point" name="label15" color="#285073" class="item-conf"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow13">
+                                    <wm-gridcolumn columnwidth="5" name="gridcolumn23">
+                                        <wm-composite name="composite3" captionposition="top" horizontalalign="left">
+                                            <wm-label class="col-md-3 control-label" name="label11" caption="Bonus Multiplication" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container5_1" width="100%">
+                                                <wm-text name="text5" height="48px" readonly="true" disabled="true" class="informan-form" placeholder="" color="#565656" datavalue="bind:Variables.GetGamificationInformanSeasonalPoint.firstRecord.bonusMultiplication"
+                                                    type="number" autocomplete="false"></wm-text>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn25" padding="unset unset unset 5%">
+                                        <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                                            <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                                            <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                                                <wm-checkbox caption="Toggle" type="toggle" name="toggle2" height="48px" width="99px" readonly="true" disabled="true" datavalue="bind:Variables.GetGamificationInformanSeasonalPoint.firstRecord.status"></wm-checkbox>
+                                            </wm-container>
+                                        </wm-composite>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow14">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn24" horizontalalign="left" padding="1% unset unset unset">
+                                        <wm-button caption="Edit" type="button" name="button4" iconclass="wi wi-pencil" iconposition="right" height="64px" class="btn-informan" color="#FFFFFF" on-click="button4Click($event, widget)" on-tap="button4Tap($event, widget)"></wm-button>
+                                        <wm-button caption="Simpan" type="button" name="button5" height="64px" class="btn-informan" color="#FFFFFF" show="true" on-click="button5Click1($event, widget)"></wm-button>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow11">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn20">
+                        <wm-container name="peojfContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%">
+                            <wm-layoutgrid name="layoutgrid5_1">
+                                <wm-gridrow name="gridrow15">
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn23_1" padding="unset 2em unset unset">
+                                        <wm-layoutgrid name="layoutgrid7">
+                                            <wm-gridrow name="gridrow26">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn38" padding="unset unset 1em unset">
+                                                    <wm-container name="container11" id="con11" width="100%" class="menu-peojf menu-peojf-clicked" on-click="container11Click($event, widget);Variables.GetGamificationPeojfPaketKredit.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label18_1" caption="Paket Kredit" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow27">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn40" padding="unset unset 1em unset">
+                                                    <wm-container name="container12" id="con12" width="100%" class="menu-peojf" on-click="container12Click($event, widget);Variables.GetGamificationPeojfSaldoAr.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label19" caption="Saldo AR" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow28">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn42" padding="unset unset 1em unset">
+                                                    <wm-container name="container13" id="con13" width="100%" class="menu-peojf" on-click="container13Click($event, widget);Variables.GetGamificationPeojfBtToSaldo.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label20" caption="% BT to Saldo" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow29">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn43" padding="unset unset 1em unset">
+                                                    <wm-container name="container14" id="con14" width="100%" class="menu-peojf" on-click="container14Click($event, widget);Variables.GetGamificationPeojfEfficiencySk.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label21" caption="Efficiency SK" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow30">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn44" padding="unset unset 1em unset">
+                                                    <wm-container name="container15" id="con15" width="100%" class="menu-peojf" on-click="container15Click($event, widget);Variables.GetGamificationPeojfUrutanSk.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label22" caption="Urutan SK" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow31">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn45" padding="unset unset 1em unset">
+                                                    <wm-container name="container16" id="con16" width="100%" class="menu-peojf" on-click="container16Click($event, widget);Variables.GetGamificationPeojfJenisSk.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label23" caption="Jenis SK" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow32">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn46" padding="unset unset 1em unset">
+                                                    <wm-container name="container17" id="con17" width="100%" class="menu-peojf" on-click="container17Click($event, widget);Variables.GetGamificationPeojfBadgesBonus.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label24" caption="Badges Bonus" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow33">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn47">
+                                                    <wm-container name="container18" id="con18" width="100%" class="menu-peojf" on-click="container18Click($event, widget);Variables.GetGamificationPeojfSeasonalPoint.listRecords()">
+                                                        <wm-label padding="unset 0.5em unset 1em" name="label25" caption="Seasonal Point" margin="0.8em unset unset unset"></wm-label>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="9" name="gridcolumn24_1">
+                                        <wm-layoutgrid name="layoutgrid6">
+                                            <wm-gridrow name="gridrow17">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn27">
+                                                    <wm-container name="paketKredit" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid8">
+                                                            <wm-gridrow name="gridrow32_1" padding="unset unset 2em unset">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn41">
+                                                                    <wm-layoutgrid name="layoutgrid9">
+                                                                        <wm-gridrow name="gridrow34">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn45_1">
+                                                                                <wm-label name="label26" caption="Indikator" class="indicator-label"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow35">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn47_1">
+                                                                                <wm-label name="label27" class="selected-menu" caption="Paket Kredit"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn42_1" horizontalalign="right">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" name="button6" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right"
+                                                                        textalign="center" on-click="Widgets.AddPaketKreditDialog.open()" show="false"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow36" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn49">
+                                                                    <wm-label name="label28" caption="Poin Indikator" class="theader"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn50">
+                                                                    <wm-label name="label29" caption="Value" class="theader"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn51">
+                                                                    <wm-label name="label30" caption="Poin" class="theader"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn52">
+                                                                    <wm-label name="label31" caption="Status" class="theader"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn53">
+                                                                    <wm-label name="label32" caption="Action" class="theader" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow37">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn54">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="PaketKredit" navigation="Basic" nodatamessage="Tidak ada paket kredit yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfPaketKredit.dataSet" navigationalign="right" showrecordcount="false">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Poin Kredit" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfPaketKredit.dataSet[$i].value" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfPaketKredit.dataSet[$i].point" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfPaketKredit.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditPaketKreditDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeletePaketKredit.open()" on-tap="Widgets.DeletePaketKredit.open()" show="false">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow19">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn31">
+                                                    <wm-container name="saldoAR" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid10">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow37_1">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn51_1">
+                                                                    <wm-layoutgrid name="layoutgrid11">
+                                                                        <wm-gridrow name="gridrow38">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn52_1">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label33"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow39">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn53_1">
+                                                                                <wm-label class="selected-menu" name="label34" caption="Saldo AR"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn54_1">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button7" on-click="Widgets.AddSaldoArDialog.open()"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow40" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn55">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label35"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn56">
+                                                                    <wm-label caption="Value" class="theader" name="label36"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn57">
+                                                                    <wm-label caption="Poin" class="theader" name="label37"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn58">
+                                                                    <wm-label caption="Status" class="theader" name="label38"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn59">
+                                                                    <wm-label caption="Action" class="theader" name="label39" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow41">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn60">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="SaldoAR" navigation="Basic" nodatamessage="Tidak ada saldo AR yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfSaldoAr.dataSet" navigationalign="right">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Saldo AR" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:currencyConversion(Variables.GetGamificationPeojfSaldoAr.dataSet[$i].mathOperator, (Variables.GetGamificationPeojfSaldoAr.dataSet[$i].value1 | toCurrency: ''), (Variables.GetGamificationPeojfSaldoAr.dataSet[$i].value2 | toCurrency: ''))"
+                                                                                                color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfSaldoAr.dataSet[$i].point" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfSaldoAr.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditSaldoArDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteSaldoAr.open()" on-tap="Widgets.DeleteSaldoAr.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow20">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn32">
+                                                    <wm-container name="btToSaldo" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid12">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow42">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn61">
+                                                                    <wm-layoutgrid name="layoutgrid13">
+                                                                        <wm-gridrow name="gridrow43">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn62">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label40"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow44">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn63">
+                                                                                <wm-label class="selected-menu" name="label41" caption="% BT to Saldo"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn64">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button8" on-click="Widgets.AddBTToSaldoDialog.open()"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow45" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn65">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label42"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn66">
+                                                                    <wm-label caption="Value" class="theader" name="label43"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn67">
+                                                                    <wm-label caption="Poin" class="theader" name="label44"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn68">
+                                                                    <wm-label caption="Status" class="theader" name="label45"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn69">
+                                                                    <wm-label caption="Action" class="theader" name="label46" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow46">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn70">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="BTToSaldo" navigation="Basic" nodatamessage="Tidak ada % BT to Saldo yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfBtToSaldo.dataSet" navigationalign="right">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="% BT to Saldo" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:percentageConversion(Variables.GetGamificationPeojfBtToSaldo.dataSet[$i].mathOperator, Variables.GetGamificationPeojfBtToSaldo.dataSet[$i].value1, Variables.GetGamificationPeojfBtToSaldo.dataSet[$i].value2)"
+                                                                                                color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfBtToSaldo.dataSet[$i].point" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfBtToSaldo.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditBTToSaldoDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteBTToSaldo.open()" on-tap="Widgets.DeleteBTToSaldo.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow21">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn33">
+                                                    <wm-container name="efisiensiSK" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid14">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow47">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn71">
+                                                                    <wm-layoutgrid name="layoutgrid15">
+                                                                        <wm-gridrow name="gridrow48">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn72">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label47"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow49">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn73">
+                                                                                <wm-label class="selected-menu" name="label48" caption="Efficiency SK"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn74">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button9" on-click="Widgets.AddEfficiencySKDialog.open()"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow50" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn75">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label49"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn76">
+                                                                    <wm-label caption="Value" class="theader" name="label50"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn77">
+                                                                    <wm-label caption="Poin" class="theader" name="label51"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn78">
+                                                                    <wm-label caption="Status" class="theader" name="label52"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn79">
+                                                                    <wm-label caption="Action" class="theader" name="label53" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow51">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn80">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="EfficiencySK" navigation="Basic" nodatamessage="Tidak ada efisiensi SK yang ditemukan"
+                                                                        navigationalign="right" dataset="bind:Variables.GetGamificationPeojfEfficiencySk.dataSet">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Efficiency SK" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:percentageConversion(Variables.GetGamificationPeojfEfficiencySk.dataSet[$i].mathOperator, Variables.GetGamificationPeojfEfficiencySk.dataSet[$i].value1, Variables.GetGamificationPeojfEfficiencySk.dataSet[$i].value2)"
+                                                                                                color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfEfficiencySk.dataSet[$i].point" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfEfficiencySk.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditEfficiencySKDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteEfficiencySK.open()" on-tap="Widgets.DeleteEfficiencySK.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow22">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn34">
+                                                    <wm-container name="urutanSK" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid16">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow52">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn81">
+                                                                    <wm-layoutgrid name="layoutgrid17">
+                                                                        <wm-gridrow name="gridrow53">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn82">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label54"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow54">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn83">
+                                                                                <wm-label class="selected-menu" name="label55" caption="Urutan SK"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn84">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button10" on-click="Widgets.AddUrutanSKDialog.open()" show="false"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow55" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn85">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label56"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn86">
+                                                                    <wm-label caption="Value" class="theader" name="label57"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn87">
+                                                                    <wm-label caption="Poin" class="theader" name="label58"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn88">
+                                                                    <wm-label caption="Status" class="theader" name="label59"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn89">
+                                                                    <wm-label caption="Action" class="theader" name="label60" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow56">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn90">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="UrutanSK" navigation="Basic" nodatamessage="Tidak ada urutan SK yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfUrutanSk.dataSet" navigationalign="right">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Urutan SK" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfUrutanSk.dataSet[$i].value" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfUrutanSk.dataSet[$i].point" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfUrutanSk.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditUrutanSKDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteUrutanSk.open()" on-tap="Widgets.DeleteUrutanSk.open()" show="false">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow23">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn35">
+                                                    <wm-container name="jenisSK" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid18">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow57">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn91">
+                                                                    <wm-layoutgrid name="layoutgrid19">
+                                                                        <wm-gridrow name="gridrow58">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn92">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label61"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow59">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn93">
+                                                                                <wm-label class="selected-menu" name="label62" caption="Jenis SK"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn94">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button11" on-click="Widgets.AddJenisSKDialog.open()" show="false"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow60" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn95">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label63"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn96">
+                                                                    <wm-label caption="Value" class="theader" name="label64"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn97">
+                                                                    <wm-label caption="Poin" class="theader" name="label65"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn98">
+                                                                    <wm-label caption="Status" class="theader" name="label66"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn99">
+                                                                    <wm-label caption="Action" class="theader" name="label67" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow61">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn100">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="JenisSK" navigation="Basic" nodatamessage="Tidak ada jenis SK yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfJenisSk.dataSet" navigationalign="right">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Jenis SK" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfJenisSk.dataSet[$i].value" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfJenisSk.dataSet[$i].point" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfJenisSk.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditJenisSKDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteJenisSK.open()" on-tap="Widgets.DeleteJenisSK.open()" show="false">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow24">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn36">
+                                                    <wm-container name="badgesBonus" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid20">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow62">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn101">
+                                                                    <wm-layoutgrid name="layoutgrid21">
+                                                                        <wm-gridrow name="gridrow63">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn102">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label68"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow64">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn103">
+                                                                                <wm-label class="selected-menu" name="label69" caption="Badges Bonus"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn104">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button12" on-click="Widgets.AddBadgeBonusDialog.open()" show="false"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow65" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn105">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label70"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn106">
+                                                                    <wm-label caption="Value" class="theader" name="label71"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn107">
+                                                                    <wm-label caption="Poin Multiplication" class="theader" name="label72"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn108">
+                                                                    <wm-label caption="Status" class="theader" name="label73"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn109">
+                                                                    <wm-label caption="Action" class="theader" name="label74" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow66">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn110">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="BadgesBonus" navigation="Basic" nodatamessage="Tidak ada bonus badges yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfBadgesBonus.dataSet" navigationalign="right">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Badge Bonus" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfBadgesBonus.dataSet[$i].value" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfBadgesBonus.dataSet[$i].pointMultiplication" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfBadgesBonus.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditBadgeBonusDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteBadgesBonus.open()" on-tap="Widgets.DeleteBadgesBonus.open()" show="false">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow25">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn37">
+                                                    <wm-container name="seasonalPoint" width="100%">
+                                                        <wm-layoutgrid name="layoutgrid22">
+                                                            <wm-gridrow padding="unset unset 2em unset" name="gridrow67">
+                                                                <wm-gridcolumn columnwidth="6" name="gridcolumn111">
+                                                                    <wm-layoutgrid name="layoutgrid23">
+                                                                        <wm-gridrow name="gridrow68">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn112">
+                                                                                <wm-label caption="Indikator" class="indicator-label" name="label75"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                        <wm-gridrow name="gridrow69">
+                                                                            <wm-gridcolumn columnwidth="12" name="gridcolumn113">
+                                                                                <wm-label class="selected-menu" name="label76" caption="Seasonal Point"></wm-label>
+                                                                            </wm-gridcolumn>
+                                                                        </wm-gridrow>
+                                                                    </wm-layoutgrid>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="6" horizontalalign="right" name="gridcolumn114">
+                                                                    <wm-button class="add-button" caption="Tambah Konfigurasi" type="button" margin="unset 0.5em" height="4em" width="70%" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center"
+                                                                        name="button13" on-click="Widgets.AddSeasonalPointDialog.open()" show="false"></wm-button>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow70" padding="unset unset 1% unset">
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn115">
+                                                                    <wm-label caption="Poin Indikator" class="theader" name="label77"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="2" name="gridcolumn116">
+                                                                    <wm-label caption="Value" class="theader" name="label78"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn117">
+                                                                    <wm-label caption="Poin Multiplication" class="theader" name="label79"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="1" name="gridcolumn118">
+                                                                    <wm-label caption="Status" class="theader" name="label80"></wm-label>
+                                                                </wm-gridcolumn>
+                                                                <wm-gridcolumn columnwidth="3" name="gridcolumn119">
+                                                                    <wm-label caption="Action" class="theader" name="label81" padding="unset unset unset 1em"></wm-label>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                            <wm-gridrow name="gridrow71">
+                                                                <wm-gridcolumn columnwidth="12" name="gridcolumn120">
+                                                                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="SeasonalPoint" navigation="Basic" nodatamessage="Tidak ada seasonal point yang ditemukan"
+                                                                        dataset="bind:Variables.GetGamificationPeojfSeasonalPoint.dataSet" navigationalign="right">
+                                                                        <wm-listtemplate layout="inline" name="listtemplate1">
+                                                                            <wm-container class="media-body" name="container3" height="64px">
+                                                                                <wm-layoutgrid name="layoutgrid3">
+                                                                                    <wm-gridrow name="gridrow7">
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="Seasonal" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="2" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfSeasonalPoint.dataSet[$i].value" color="#404C59" class="content-label" width="100%"
+                                                                                                margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:Variables.GetGamificationPeojfSeasonalPoint.dataSet[$i].pointMultiplication" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="1" name="gridcolumn14">
+                                                                                            <wm-label padding="unset 0.5pt" name="label11" caption="bind:statusConversion(Variables.GetGamificationPeojfSeasonalPoint.dataSet[$i].status)" color="#404C59" class="content-label"
+                                                                                                width="100%" margin="1em unset unset unset"></wm-label>
+                                                                                        </wm-gridcolumn>
+                                                                                        <wm-gridcolumn columnwidth="3" name="gridcolumn18" padding="1em unset unset 1.5em">
+                                                                                            <wm-layoutgrid name="layoutgrid4">
+                                                                                                <wm-gridrow name="gridrow9">
+                                                                                                    <wm-gridcolumn columnwidth="5" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.EditSeasonalPointDialog.open()" on-tap="Widgets.EditSeasonalPointDialog.open()">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/edit-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Edit" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19">
+                                                                                                        <wm-container name="container5" width="100%" on-click="Widgets.DeleteSeasonal.open()" on-tap="Widgets.DeleteSeasonal.open()" show="false">
+                                                                                                            <wm-picture name="picture3" width="14px" picturesource="resources/images/imagelists/delete-table-hd.png" margin="unset unset 1.7em unset"></wm-picture>
+                                                                                                            <wm-label padding="unset 0.5em" name="label14" caption="Delete" color="#98A9BC" class="action-label"></wm-label>
+                                                                                                        </wm-container>
+                                                                                                    </wm-gridcolumn>
+                                                                                                </wm-gridrow>
+                                                                                            </wm-layoutgrid>
+                                                                                        </wm-gridcolumn>
+                                                                                    </wm-gridrow>
+                                                                                </wm-layoutgrid>
+                                                                            </wm-container>
+                                                                        </wm-listtemplate>
+                                                                    </wm-list>
+                                                                </wm-gridcolumn>
+                                                            </wm-gridrow>
+                                                        </wm-layoutgrid>
+                                                    </wm-container>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditSaldoArDialog" width="60%">
+        <wm-message name="messageSaldoAR" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="saldoArIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Saldo AR"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow117" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="5" name="gridcolumn227" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="saldoArOperatorEdit" class="input" color="#565656" height="48" dataset="bind:Variables.mathOperator.dataSet" datafield="dataValue" displayfield="name" backgroundcolor="#ffffff" datavalue="bind:Widgets.SaldoAR.selecteditem.mathOperator"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn228">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%" margin="1.75em unset unset unset">
+                            <wm-currency textalign="left" name="saldoArValue1Edit" currency="IDR" height="48" minvalue="0" class="input" datavalue="bind:Widgets.SaldoAR.selecteditem.value1"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn230">
+                    <wm-label padding="unset 0.5em" name="label180" width="100%" textalign="center" caption="to" margin="2.75em unset unset unset" color="#565656" fontfamily="Nunito Sans" fontsize="14" show="bind:(Widgets.saldoArOperatorEdit.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn229">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%" margin="1.75em unset unset unset">
+                            <wm-currency textalign="left" currency="IDR" height="48" name="saldoArValue2Edit" minvalue="0" class="input" show="bind:(Widgets.saldoArOperatorEdit.datavalue == &quot;-&quot; ? true : false)" datavalue="bind:Widgets.SaldoAR.selecteditem.value2"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="saldoArPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.SaldoAR.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="saldoArStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.SaldoAR.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveSaldoAr" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveSaldoArClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditBTToSaldoDialog" width="60%">
+        <wm-message name="messageBTToSaldo" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="btToSaldoIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="% BT To Saldo"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow117" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="5" name="gridcolumn227" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="btToSaldoOperatorEdit" class="input" color="#565656" height="48" dataset="bind:Variables.mathOperator.dataSet" datafield="dataValue" displayfield="name" backgroundcolor="#ffffff" datavalue="bind:Widgets.BTToSaldo.selecteditem.mathOperator"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn228">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="btToSaldoValue1Edit" type="number" class="input" height="48" color="#565656" datavalue="bind:Widgets.BTToSaldo.selecteditem.value1" margin="1.75em unset unset unset" placeholder="Input Percentage" minvalue="0" maxvalue="100"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" class="percent" name="label208"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn230">
+                    <wm-label padding="unset 0.5em" name="label180" width="100%" textalign="center" caption="to" margin="2.75em unset unset unset" color="#565656" fontfamily="Nunito Sans" fontsize="14" show="bind:(Widgets.btToSaldoOperatorEdit.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn229">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="btToSaldoValue2Edit" type="number" class="input" height="48" color="#565656" datavalue="bind:Widgets.BTToSaldo.selecteditem.value2" margin="1.75em unset unset unset" show="bind:(Widgets.btToSaldoOperatorEdit.datavalue == &quot;-&quot; ? true : false)"
+                                placeholder="Input Percentage" minvalue="0" maxvalue="100" on-keypress="btToSaldoValue2EditKeypress($event, widget)"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" class="percent" name="label209" show="bind:(Widgets.btToSaldoOperatorEdit.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="btToSaldoPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.BTToSaldo.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="btToSaldoStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.BTToSaldo.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveBTToSaldo" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveBTToSaldoClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditEfficiencySKDialog" width="60%">
+        <wm-message name="messageEfficiencySK" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="efficiencySKIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Efficiency SK"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow117" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="5" name="gridcolumn227" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="efficiencySKOperatorEdit" class="input" color="#565656" height="48" dataset="bind:Variables.mathOperator.dataSet" datafield="dataValue" displayfield="name" backgroundcolor="#ffffff" datavalue="bind:Widgets.EfficiencySK.selecteditem.mathOperator"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn228">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="efficiencySKValue1Edit" type="number" class="input" height="48" color="#565656" datavalue="bind:Widgets.EfficiencySK.selecteditem.value1" margin="1.75em unset unset unset" placeholder="Input Percentage" minvalue="0"
+                                maxvalue="100" on-keypress="efficiencySKValue1EditKeypress($event, widget)"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" name="label206" caption="%" class="percent"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn230">
+                    <wm-label padding="unset 0.5em" name="label180" width="100%" textalign="center" caption="to" margin="2.75em unset unset unset" color="#565656" fontfamily="Nunito Sans" fontsize="14" show="bind:(Widgets.efficiencySKOperatorEdit.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn229">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="efficiencySKValue2Edit" type="number" class="input" height="48" color="#565656" datavalue="bind:Widgets.EfficiencySK.selecteditem.value2" margin="1.75em unset unset unset" show="bind:(Widgets.efficiencySKOperatorEdit.datavalue == &quot;-&quot; ? true : false)"
+                                placeholder="Input Percentege" minvalue="0" maxvalue="100"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" name="label207" class="percent" show="bind:(Widgets.efficiencySKOperatorEdit.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="efficiencySKPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.EfficiencySK.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="efficiencySKStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.EfficiencySK.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveEfficiencySK" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveEfficiencySKClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditPaketKreditDialog" width="60%">
+        <wm-message name="messagePaketKredit" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="paketKreditIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Paket Kredit"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="paketKreditValueEdit" class="input" color="#565656" backgroundcolor="#FFFFFF" height="48" dataset="NEW, MGU, Used" datafield="All Fields" datavalue="bind:Widgets.PaketKredit.selecteditem.value"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="paketKreditPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.PaketKredit.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="paketKreditStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.PaketKredit.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="savePaketKredit" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="savePaketKreditClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditUrutanSKDialog" width="60%">
+        <wm-message name="messageUrutanSK" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="urutanSKIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Urutan SK"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="urutanSKValueEdit" class="input" height="48" dataset="SK Pertama, SK Perpanjang" datavalue="bind:Widgets.UrutanSK.selecteditem.value" datafield="All Fields" backgroundcolor="#ffffff" color="#565656"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="urutanSKPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.UrutanSK.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="urutanSKStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.UrutanSK.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveUrutanSK" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveUrutanSKClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditJenisSKDialog" width="60%">
+        <wm-message name="messageJenisSK" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="jenisSKIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Jenis SK"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="jenisSKValueEdit" class="input" height="48" dataset="SK BAL60, SK WO" datavalue="bind:Widgets.JenisSK.selecteditem.value" datafield="All Fields" backgroundcolor="#ffffff" color="#565656"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="jenisSKPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.JenisSK.selecteditem.point"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="jenisSKStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.JenisSK.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveJenisSK" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveJenisSKClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditBadgeBonusDialog" width="60%">
+        <wm-message name="messageBadgeBonus" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="badgesBonusIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Badges Bonus"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="badgesBonusValueEdit" class="input" height="48" dataset="bind:Variables.BadgesData.dataSet" datavalue="bind:Widgets.BadgesBonus.selecteditem.value" datafield="badgeType" backgroundcolor="#ffffff" color="#565656"
+                                displayfield="badgeType"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Multiplication" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="badgesBonusPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.BadgesBonus.selecteditem.pointMultiplication"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="badgesBonusStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.BadgesBonus.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveBadge" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveBadgeClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Edit Konfigurasi" iconclass="" name="EditSeasonalPointDialog" width="60%">
+        <wm-message name="messageSeasonalPoint" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="seasonalIndikatorEdit" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Seasonal"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="seasonalValueEdit" type="text" class="input" height="48" color="#565656" datavalue="bind:Widgets.SeasonalPoint.selecteditem.value"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Multiplication" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="seasonalPoinEdit" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number" datavalue="bind:Widgets.SeasonalPoint.selecteditem.pointMultiplication"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="seasonalStatusEdit" height="48px" width="99px" readonly="false" disabled="false" datavalue="bind:Widgets.SeasonalPoint.selecteditem.status"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveSeasonal" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveSeasonalClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddSaldoArDialog" width="60%">
+        <wm-message name="messageAddSaldoAR" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="saldoArIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Saldo AR"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow117" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="5" name="gridcolumn227" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="saldoArOperatorAdd" class="input" color="#565656" height="48" dataset="bind:Variables.mathOperator.dataSet" datafield="dataValue" displayfield="name" backgroundcolor="#ffffff" placeholder="Select Operator"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn228">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%" margin="1.75em unset unset unset">
+                            <wm-currency textalign="left" currency="IDR" height="48" minvalue="0" class="input" name="saldoArValue1Add"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn230">
+                    <wm-label padding="unset 0.5em" name="label180" width="100%" textalign="center" caption="to" margin="2.75em unset unset unset" color="#565656" fontfamily="Nunito Sans" fontsize="14" show="bind:(Widgets.saldoArOperatorAdd.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn229">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%" margin="1.75em unset unset unset">
+                            <wm-currency textalign="left" currency="IDR" height="48" minvalue="0" class="input" name="saldoArValue2Add" show="bind:(Widgets.saldoArOperatorAdd.datavalue == &quot;-&quot; ? true : false)"></wm-currency>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="saldoArPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="saldoArStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddSaldoAr" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddSaldoArClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddBTToSaldoDialog" width="60%">
+        <wm-message name="messageAddBTToSaldo" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="btToSaldoIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="% BT To Saldo"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow117" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="5" name="gridcolumn227" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="btToSaldoOperatorAdd" class="input" color="#565656" height="48" dataset="bind:Variables.mathOperator.dataSet" datafield="dataValue" displayfield="name" backgroundcolor="#ffffff" placeholder="Select Operator"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn228">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="btToSaldoValue1Add" type="number" class="input" height="48" color="#565656" margin="1.75em unset unset unset" placeholder="Input Percentage" minvalue="0" maxvalue="100"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" class="percent" name="label214"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn230">
+                    <wm-label padding="unset 0.5em" name="label180" width="100%" textalign="center" caption="to" margin="2.75em unset unset unset" color="#565656" fontfamily="Nunito Sans" fontsize="14" show="bind:(Widgets.btToSaldoOperatorAdd.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn229">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="btToSaldoValue2Add" type="number" class="input" height="48" color="#565656" margin="1.75em unset unset unset" show="bind:(Widgets.btToSaldoOperatorAdd.datavalue == &quot;-&quot; ? true : false)" placeholder="Input Percentage"
+                                minvalue="0" maxvalue="100"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" class="percent" name="label211" show="bind:(Widgets.btToSaldoOperatorAdd.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="btToSaldoPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="btToSaldoStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddBTToSaldo" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddBTToSaldoClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddEfficiencySKDialog" width="60%">
+        <wm-message name="messageAddEfficiencySK" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="efficiencySKIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Efficiency SK"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%"></wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow117" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="5" name="gridcolumn227" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="efficiencySKOperatorAdd" class="input" color="#565656" height="48" dataset="bind:Variables.mathOperator.dataSet" datafield="dataValue" displayfield="name" backgroundcolor="#ffffff" placeholder="Select Operator"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn228">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="efficiencySKValue1Add" type="number" class="input" height="48" color="#565656" margin="1.75em unset unset unset" placeholder="Input Percentage" minvalue="0" maxvalue="100"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" class="percent" name="label212"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="1" name="gridcolumn230">
+                    <wm-label padding="unset 0.5em" name="label180" width="100%" textalign="center" caption="to" margin="2.75em unset unset unset" color="#565656" fontfamily="Nunito Sans" fontsize="14" show="bind:(Widgets.efficiencySKOperatorAdd.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="3" name="gridcolumn229">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="efficiencySKValue2Add" type="number" class="input" height="48" color="#565656" margin="1.75em unset unset unset" show="bind:(Widgets.efficiencySKOperatorAdd.datavalue == &quot;-&quot; ? true : false)" placeholder="Input Percentege"
+                                minvalue="0" maxvalue="100"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                    <wm-label padding="unset 0.5em" caption="%" class="percent" name="label213" show="bind:(Widgets.efficiencySKOperatorAdd.datavalue == &quot;-&quot; ? true : false)"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="efficiencySKPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="efficiencySKStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddEfficiencySK" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddEfficiencySKClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddPaketKreditDialog" width="60%">
+        <wm-message name="messageAddPaketKredit" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="paketKreditIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Paket Kredit"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" height="48" dataset="NEW, MGU, Used" datafield="All Fields" name="paketKreditValueAdd"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="paketKreditPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="paketKreditStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddPaketKredit" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddPaketKreditClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddUrutanSKDialog" width="60%">
+        <wm-message name="messageAddUrutanSK" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="urutanSKIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Urutan SK"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="urutanSKValueAdd" class="input" height="48" dataset="SK Pertama, SK Perpanjang" datafield="All Fields" backgroundcolor="#ffffff" color="#565656"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="urutanSKPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="urutanSKStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddUrutanSK" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddUrutanSKClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddJenisSKDialog" width="60%">
+        <wm-message name="messageAddJenisSK" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="jenisSKIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Jenis SK"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="jenisSKValueAdd" class="input" height="48" dataset="SK BAL60, SK WO" datafield="All Fields" backgroundcolor="#ffffff" color="#565656"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="jenisSKPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="jenisSKStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddJenisSK" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddJenisSKClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddBadgeBonusDialog" width="60%">
+        <wm-message name="messageAddBadgeBonus" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="badgesBonusIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Badges Bonus"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-select name="badgesBonusValueAdd" class="input" height="48" dataset="bind:Variables.BadgesData.dataSet" datafield="badgeType" backgroundcolor="#ffffff" color="#565656" displayfield="badgeType"></wm-select>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Multiplication" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="badgesBonusPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="badgesBonusStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddBadge" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddBadgeClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah Konfigurasi" iconclass="" name="AddSeasonalPointDialog" width="60%">
+        <wm-message name="messageAddSeasonalPoint" type="error" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Indikator" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="seasonalIndikatorAdd" class="input" height="48" color="#565656" readonly="true" disabled="true" datavalue="Seasonal"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite2" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label18" caption="Value" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container4" width="100%">
+                            <wm-text name="seasonalValueAdd" type="text" class="input" height="48" color="#565656"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow9_2" padding="unset unset 2em unset">
+                <wm-gridcolumn columnwidth="6" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Poin Multiplication" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="seasonalPoinAdd" class="input" height="48" color="#565656" readonly="false" disabled="false" type="number"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+                <wm-gridcolumn columnwidth="6" name="gridcolumn18_1" padding="unset 3%">
+                    <wm-composite name="composite5" captionposition="top" horizontalalign="left">
+                        <wm-label class="col-md-3 control-label" name="label13" caption="Status" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container7" width="100%" horizontalalign="left">
+                            <wm-checkbox caption="Toggle" type="toggle" name="seasonalStatusAdd" height="48px" width="99px" readonly="false" disabled="false"></wm-checkbox>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="saveAddSeasonal" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="saveAddSeasonalClick($event, widget)"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeletePaketKredit" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfPaketKredit.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteSaldoAr" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfSaldoAr.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteBTToSaldo" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfBtToSaldo.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteEfficiencySK" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfEfficiencySk.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteUrutanSk" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfUrutanSk.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteJenisSK" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfJenisSk.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteBadgesBonus" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfBadgesBonus.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Konfigurasi" iconclass="" name="DeleteSeasonal" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus Konfigurasi ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button1" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteGamificationPeojfSeasonalPoint.invoke()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+</wm-page>

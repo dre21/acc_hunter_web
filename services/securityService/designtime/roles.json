@@ -16,4 +16,10 @@
   "roleConfig" : {
     "landingPage" : "UserManagementInformant"
   }
+}, {
+  "name" : "SUPER ADMIN",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "MainPage"
+  }
 } ]

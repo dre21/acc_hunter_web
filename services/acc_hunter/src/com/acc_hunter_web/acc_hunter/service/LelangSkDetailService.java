@@ -206,18 +206,6 @@ public interface LelangSkDetailService {
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
 
     /*
-     * Returns the associated lelangSkParticipantses for given LelangSkDetail id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated LelangSkParticipants instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(Integer id, Pageable pageable);
-
-    /*
      * Returns the associated lelangSkDetailImageses for given LelangSkDetail id.
      *
      * @param id value of id; value cannot be null
@@ -228,5 +216,17 @@ public interface LelangSkDetailService {
      * @see Page
      */
     Page<LelangSkDetailImages> findAssociatedLelangSkDetailImageses(Integer id, Pageable pageable);
+
+    /*
+     * Returns the associated lelangSkParticipantses for given LelangSkDetail id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated LelangSkParticipants instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<LelangSkParticipants> findAssociatedLelangSkParticipantses(Integer id, Pageable pageable);
 
 }

@@ -12,70 +12,145 @@
   "port" : "5432",
   "schemaName" : "public",
   "tableFilter" : [ {
-    "table" : "lelang_sk_detail",
+    "table" : "appointments",
     "schema" : "public"
   }, {
-    "table" : "btmk",
-    "schema" : "public"
-  }, {
-    "table" : "lelang_sk",
-    "schema" : "public"
-  }, {
-    "table" : "user_request_upgrades",
+    "table" : "badges",
     "schema" : "public"
   }, {
     "table" : "banks",
     "schema" : "public"
   }, {
-    "table" : "sk_requests",
+    "table" : "bast",
     "schema" : "public"
   }, {
-    "table" : "roles",
+    "table" : "branches",
     "schema" : "public"
   }, {
-    "table" : "vehicles",
-    "schema" : "public"
-  }, {
-    "table" : "otp",
-    "schema" : "public"
-  }, {
-    "table" : "appointments",
-    "schema" : "public"
-  }, {
-    "table" : "remo_regions",
-    "schema" : "public"
-  }, {
-    "table" : "user_bank_info",
-    "schema" : "public"
-  }, {
-    "table" : "faq",
-    "schema" : "public"
-  }, {
-    "table" : "user_categories",
-    "schema" : "public"
-  }, {
-    "table" : "lelang_sk_detail_images",
-    "schema" : "public"
-  }, {
-    "table" : "reports",
-    "schema" : "public"
-  }, {
-    "table" : "master_area",
-    "schema" : "public"
-  }, {
-    "table" : "report_images",
-    "schema" : "public"
-  }, {
-    "table" : "users",
-    "schema" : "public"
-  }, {
-    "table" : "lelang_sk_participants",
+    "table" : "btmk",
     "schema" : "public"
   }, {
     "table" : "city_provinces",
     "schema" : "public"
   }, {
+    "table" : "faq",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_informan_seasonal_point",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_informan_sukses_tarik",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_badges_bonus",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_bt_to_saldo",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_efficiency_sk",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_jenis_sk",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_paket_kredit",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_saldo_ar",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_seasonal_point",
+    "schema" : "public"
+  }, {
+    "table" : "gamification_peojf_urutan_sk",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_participants",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk_detail",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk_detail_images",
+    "schema" : "public"
+  }, {
+    "table" : "lelang_sk_participants",
+    "schema" : "public"
+  }, {
+    "table" : "master_area",
+    "schema" : "public"
+  }, {
+    "table" : "master_reward",
+    "schema" : "public"
+  }, {
+    "table" : "notification_categories",
+    "schema" : "public"
+  }, {
+    "table" : "notification_templates",
+    "schema" : "public"
+  }, {
+    "table" : "notification_users",
+    "schema" : "public"
+  }, {
+    "table" : "otp",
+    "schema" : "public"
+  }, {
+    "table" : "payment_schedule",
+    "schema" : "public"
+  }, {
+    "table" : "pools",
+    "schema" : "public"
+  }, {
+    "table" : "redeem_request",
+    "schema" : "public"
+  }, {
+    "table" : "remo_regions",
+    "schema" : "public"
+  }, {
+    "table" : "report_images",
+    "schema" : "public"
+  }, {
+    "table" : "reports",
+    "schema" : "public"
+  }, {
+    "table" : "reward_config",
+    "schema" : "public"
+  }, {
+    "table" : "roles",
+    "schema" : "public"
+  }, {
+    "table" : "sayembara",
+    "schema" : "public"
+  }, {
+    "table" : "sk_request_and_sayembara",
+    "schema" : "public"
+  }, {
+    "table" : "sk_requests",
+    "schema" : "public"
+  }, {
+    "table" : "user_bank_info",
+    "schema" : "public"
+  }, {
+    "table" : "user_categories",
+    "schema" : "public"
+  }, {
     "table" : "user_details",
+    "schema" : "public"
+  }, {
+    "table" : "user_point",
+    "schema" : "public"
+  }, {
+    "table" : "user_request_upgrades",
+    "schema" : "public"
+  }, {
+    "table" : "users",
+    "schema" : "public"
+  }, {
+    "table" : "vehicles",
     "schema" : "public"
   } ],
   "schemaFilter" : [ ],

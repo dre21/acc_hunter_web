@@ -2,32 +2,760 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <sql-query name="getAllUsersRemo">
+    <sql-query name="insertNewEfficiencySK">
         <![CDATA[
-        select 
-        u.full_name,
-        u.email,
-        r.name as role_type,
-        u.province,
-        u.city,
-        case when u.status = true then 'Active' else 'Non-Active' end as status
-    from users u
-    join roles r on u.role_id = r.id and r.name = 'REMO HEAD'
+        insert into gamification_peojf_efficiency_sk (math_operator, value_1, value_2, point, status, created_at, created_by)
+values (:operator, :value1, :value2, :point, :status, :created_at, :created_by)
+        ]]>
+    <query-param name="operator" type="java.lang.String"/>
+    <query-param name="value1" type="java.lang.Double"/>
+    <query-param name="value2" type="java.lang.Double"/>
+    <query-param name="point" type="java.lang.Integer"/>
+    <query-param name="status" type="java.lang.Boolean"/>
+    <query-param name="created_at" type="java.sql.Timestamp"/>
+    <query-param name="created_by" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetParticipantLelangDetail">
+        <![CDATA[
+        select 1 as number, a.*, b.full_name
+from lelang_sk_participants a
+left join users b on a.cd_coll = b.cd_coll
+where lelang_sk_detail_id = :idLelang
+        ]]>
+    <query-param name="idLelang" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="GetParticipantLelangDetail__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.*, b.full_name
+from lelang_sk_participants a
+left join users b on a.cd_coll = b.cd_coll
+where lelang_sk_detail_id = :idLelang) wmTempTable
+        ]]>
+    <query-param name="idLelang" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfUrutanSk">
+        <![CDATA[
+        delete from gamification_peojf_urutan_sk
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfBadgesBonus">
+        <![CDATA[
+        delete from gamification_peojf_badges_bonus
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfJenisSk">
+        <![CDATA[
+        delete from gamification_peojf_jenis_sk
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="GetNoAggrListLelang">
+        <![CDATA[
+        select no_aggr
+from vehicles where no_aggr not in (
+	select no_aggr
+    from sk_request_and_sayembara
+    where app_date is null or (app_date >= now() + interval '7 hour')
+    union
+    select agreement_no as no_aggr
+    from lelang_sk_detail
+) and lower(no_aggr) like lower(:search)
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetNoAggrListLelang__count">
+        <![CDATA[
+        select count(*) from (select no_aggr
+from vehicles where no_aggr not in (
+	select no_aggr
+    from sk_request_and_sayembara
+    where app_date is null or (app_date >= now() + interval '7 hour')
+    union
+    select agreement_no as no_aggr
+    from lelang_sk_detail
+) and lower(no_aggr) like lower(:search)) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getDetailLaporanByAgreementNo">
+        <![CDATA[
+        select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr
+from reports h
+join users u on h.created_by = u.email
+where h.vehicle_no_aggr = :agreement_no
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getDetailLaporanByAgreementNo__count">
+        <![CDATA[
+        select count(*) from (select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr
+from reports h
+join users u on h.created_by = u.email
+where h.vehicle_no_aggr = :agreement_no) wmTempTable
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getReqSKDetail">
+        <![CDATA[
+        select r.id as id_permintaan_sk,
+r.no_aggr as nomor_agreement,
+u.full_name as nama_lengkap,
+r.req_sk_bt as bto_request,
+r.req_sk_date as waktu,
+case when r.renewal_status = 'false' then 'Menunggu Persetujuan' else 'Disetujui' end as status,
+u.id as id_requestor,
+u.identity_number as no_ktp,
+u.phone_number,
+u.role_name,
+u.address as alamat,
+u.created_at as terdaftar_sejak,
+v.no_car_police as nomor_polisi,
+v.dt_golive as tanggal_golive,
+v.st_aggr as status_kontrak,
+v.type_desc,
+v.model_desc,
+v.brand_desc,
+v.category_desc,
+v.color
+from sk_requests r
+join vehicles v on r.no_aggr = v.no_aggr and r.no_aggr = :no_aggr
+join (select u.id, u.full_name, u.identity_number,
+u.phone_number, u.address, u.created_at, r.name as role_name
+from users u
+join roles r on r.id = u.role_id) u on r.requestor_id = u.id
+        ]]>
+    <query-param name="no_aggr" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getReqSKDetail__count">
+        <![CDATA[
+        select count(*) from (select r.id as id_permintaan_sk,
+r.no_aggr as nomor_agreement,
+u.full_name as nama_lengkap,
+r.req_sk_bt as bto_request,
+r.req_sk_date as waktu,
+case when r.renewal_status = 'false' then 'Menunggu Persetujuan' else 'Disetujui' end as status,
+u.id as id_requestor,
+u.identity_number as no_ktp,
+u.phone_number,
+u.role_name,
+u.address as alamat,
+u.created_at as terdaftar_sejak,
+v.no_car_police as nomor_polisi,
+v.dt_golive as tanggal_golive,
+v.st_aggr as status_kontrak,
+v.type_desc,
+v.model_desc,
+v.brand_desc,
+v.category_desc,
+v.color
+from sk_requests r
+join vehicles v on r.no_aggr = v.no_aggr and r.no_aggr = :no_aggr
+join (select u.id, u.full_name, u.identity_number,
+u.phone_number, u.address, u.created_at, r.name as role_name
+from users u
+join roles r on r.id = u.role_id) u on r.requestor_id = u.id) wmTempTable
+        ]]>
+    <query-param name="no_aggr" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="checkEmailAvailable">
+        <![CDATA[
+        select count(*) from users u 
+where u.email = :email
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="checkEmailAvailable__count">
+        <![CDATA[
+        select count(*) from (select count(*) from users u 
+where u.email = :email) wmTempTable
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetReportsList">
+        <![CDATA[
+        select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id
+from reports a
+left join vehicles b on a.vehicle_no_aggr = b.no_aggr
+left join users c on a.created_by = c.email
+where lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))
+order by a.created_at desc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetReportsList__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id
+from reports a
+left join vehicles b on a.vehicle_no_aggr = b.no_aggr
+left join users c on a.created_by = c.email
+where lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))
+order by a.created_at desc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetCountDashboardSK">
+        <![CDATA[
+        select * from 
+    (select count(*) as sk_aktif from sk_request_and_sayembara a
+    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,
+    (select count(*) as permohonan_sk from sk_request_and_sayembara a
+    where sk_parent is null and a.flag_sk = 'NRM') b,
+    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a
+    where sk_parent is not null and a.flag_sk = 'NRM') c,
+    (select count(*) as lelang_sk from lelang_sk_detail a) d,
+    (select count(*) as sayembara_sk from sk_request_and_sayembara a 
+    where a.flag_sk = 'SYB') e
         ]]>
     </sql-query>
 
-    <sql-query name="getAllUsersRemo__count">
+    <sql-query name="GetCountDashboardSK__count">
         <![CDATA[
-        select count(*) from (select 
-        u.full_name,
+        select count(*) from (select * from 
+    (select count(*) as sk_aktif from sk_request_and_sayembara a
+    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,
+    (select count(*) as permohonan_sk from sk_request_and_sayembara a
+    where sk_parent is null and a.flag_sk = 'NRM') b,
+    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a
+    where sk_parent is not null and a.flag_sk = 'NRM') c,
+    (select count(*) as lelang_sk from lelang_sk_detail a) d,
+    (select count(*) as sayembara_sk from sk_request_and_sayembara a 
+    where a.flag_sk = 'SYB') e) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfSaldoAr">
+        <![CDATA[
+        delete from gamification_peojf_saldo_ar
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="updateFlagShowUsers">
+        <![CDATA[
+        update users
+set 
+flag_show = false
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getMitraLeaderboards">
+        <![CDATA[
+        select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin
+from (select u.email, u.full_name, u.city, u.badge_type, r."name" as role_name, coalesce(c.total_poin, 0.0) as poin
+	from users u
+	left join roles r on u.role_id = r.id
+	left join (select created_by as email, sum(amount) as total_poin
+		from user_point
+		where point_type = 'debet' and (date(created_at) between :startDate and :endDate)
+		group by created_by) c on u.email = c.email
+	where r."name" = 'REGISTERED MITRA'
+	and (
+		case when(:city = 'default') then 
+			'1' 
+		else 
+			city = :city
+		end
+	) and (
+		case when(:badgeType = 'default') then 
+			'1' 
+		else 
+			badge_type = :badgeType
+		end
+	)) res
+order by res.poin desc, res.full_name asc
+        ]]>
+    <query-param name="startDate" type="java.sql.Date"/>
+    <query-param name="endDate" type="java.sql.Date"/>
+    <query-param name="city" type="java.lang.String"/>
+    <query-param name="badgeType" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getMitraLeaderboards__count">
+        <![CDATA[
+        select count(*) from (select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin
+from (select u.email, u.full_name, u.city, u.badge_type, r."name" as role_name, coalesce(c.total_poin, 0.0) as poin
+	from users u
+	left join roles r on u.role_id = r.id
+	left join (select created_by as email, sum(amount) as total_poin
+		from user_point
+		where point_type = 'debet' and (date(created_at) between :startDate and :endDate)
+		group by created_by) c on u.email = c.email
+	where r."name" = 'REGISTERED MITRA'
+	and (
+		case when(:city = 'default') then 
+			'1' 
+		else 
+			city = :city
+		end
+	) and (
+		case when(:badgeType = 'default') then 
+			'1' 
+		else 
+			badge_type = :badgeType
+		end
+	)) res
+order by res.poin desc, res.full_name asc) wmTempTable
+        ]]>
+    <query-param name="startDate" type="java.sql.Date"/>
+    <query-param name="endDate" type="java.sql.Date"/>
+    <query-param name="city" type="java.lang.String"/>
+    <query-param name="badgeType" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfBtToSaldo">
+        <![CDATA[
+        delete from gamification_peojf_bt_to_saldo
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfEfficiencySk">
+        <![CDATA[
+        delete from gamification_peojf_efficiency_sk
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="GetReportListByNoAggr">
+        <![CDATA[
+        select 1 as number, *
+from reports
+where vehicle_no_aggr = :noAggr
+order by created_at desc
+        ]]>
+    <query-param name="noAggr" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetReportListByNoAggr__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, *
+from reports
+where vehicle_no_aggr = :noAggr
+order by created_at desc) wmTempTable
+        ]]>
+    <query-param name="noAggr" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SetPemenangLelang">
+        <![CDATA[
+        update lelang_sk_detail
+set winner_id = :cdColl, winner_name = :winName
+where id = :id
+        ]]>
+    <query-param name="cdColl" type="java.lang.String"/>
+    <query-param name="winName" type="java.lang.String"/>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="DeleteRewardConfig">
+        <![CDATA[
+        delete from reward_config
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="DeleteMasterReward">
+        <![CDATA[
+        delete from master_reward
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="GetLelangTidakAktif">
+        <![CDATA[
+        select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+left join master_area c on a.area = c.area_code
+where a.end_date <= (now() + interval '7 hour') and winner_id is not null
+and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetLelangTidakAktif__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+left join master_area c on a.area = c.area_code
+where a.end_date <= (now() + interval '7 hour') and winner_id is not null
+and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="DeleteGamificationPeojfPaketKredit">
+        <![CDATA[
+        delete from gamification_peojf_paket_kredit
+where id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="updatePasswordQuery">
+        <![CDATA[
+        update users set password = :pwd where email = :email
+        ]]>
+    <query-param name="pwd" type="java.lang.String"/>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetAllListPesertaLelang">
+        <![CDATA[
+        select res.* from
+(select cd_coll, full_name, branch_id, badge_type, b.area_name, false as participant from users
+left join branches a on branch_id = cast(a.cd_sp as varchar)
+left join master_area b on a.cd_area = b.area_code
+left join roles c on role_id = c.id
+where c."name" = 'REGISTERED MITRA' and cd_coll not in (select cd_coll from lelang_participants
+	where lelang_sk_id = :idLelang)) as res
+where res.badge_type like :badge and res.area_name like :area
+order by participant desc, full_name asc, cd_coll desc
+        ]]>
+    <query-param name="idLelang" type="java.lang.Integer"/>
+    <query-param name="badge" type="java.lang.String"/>
+    <query-param name="area" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetAllListPesertaLelang__count">
+        <![CDATA[
+        select count(*) from (select res.* from
+(select cd_coll, full_name, branch_id, badge_type, b.area_name, false as participant from users
+left join branches a on branch_id = cast(a.cd_sp as varchar)
+left join master_area b on a.cd_area = b.area_code
+left join roles c on role_id = c.id
+where c."name" = 'REGISTERED MITRA' and cd_coll not in (select cd_coll from lelang_participants
+	where lelang_sk_id = :idLelang)) as res
+where res.badge_type like :badge and res.area_name like :area
+order by participant desc, full_name asc, cd_coll desc) wmTempTable
+        ]]>
+    <query-param name="idLelang" type="java.lang.Integer"/>
+    <query-param name="badge" type="java.lang.String"/>
+    <query-param name="area" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="insertNewSaldoAR">
+        <![CDATA[
+        insert into gamification_peojf_saldo_ar (math_operator, value_1, value_2, point, status, created_at, created_by)
+values (:operator, :value1, :value2, :point, :status, :created_at, :created_by)
+        ]]>
+    <query-param name="operator" type="java.lang.String"/>
+    <query-param name="value1" type="java.math.BigInteger"/>
+    <query-param name="value2" type="java.math.BigInteger"/>
+    <query-param name="point" type="java.lang.Integer"/>
+    <query-param name="status" type="java.lang.Boolean"/>
+    <query-param name="created_at" type="java.sql.Timestamp"/>
+    <query-param name="created_by" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getAllUsersMitra">
+        <![CDATA[
+        select 
+        u.full_name as name,
         u.email,
         r.name as role_type,
         u.province,
         u.city,
         case when u.status = true then 'Active' else 'Non-Active' end as status
     from users u
-    join roles r on u.role_id = r.id and r.name = 'REMO HEAD') wmTempTable
+    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA'
         ]]>
+    </sql-query>
+
+    <sql-query name="getAllUsersMitra__count">
+        <![CDATA[
+        select count(*) from (select 
+        u.full_name as name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="GetParticipantLelangByLelangID">
+        <![CDATA[
+        select a.id as id_participant, a.lelang_sk_id, b.*, c.cd_area, d.area_name
+from lelang_participants a
+left join users b on b.cd_coll = a.cd_coll
+left join branches c on cast(c.cd_sp as varchar) = b.branch_id
+left join master_area d on c.cd_area = d.area_code
+where a.lelang_sk_id = :detailId and (
+lower(b.cd_coll) like lower(:search) or
+lower(b.full_name) like lower(:search) or
+lower(b.badge_type) like lower(:search) or
+lower(b.branch_id) like lower(:search) or
+lower(d.area_name) like lower(:search))
+        ]]>
+    <query-param name="detailId" type="java.lang.Integer"/>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetParticipantLelangByLelangID__count">
+        <![CDATA[
+        select count(*) from (select a.id as id_participant, a.lelang_sk_id, b.*, c.cd_area, d.area_name
+from lelang_participants a
+left join users b on b.cd_coll = a.cd_coll
+left join branches c on cast(c.cd_sp as varchar) = b.branch_id
+left join master_area d on c.cd_area = d.area_code
+where a.lelang_sk_id = :detailId and (
+lower(b.cd_coll) like lower(:search) or
+lower(b.full_name) like lower(:search) or
+lower(b.badge_type) like lower(:search) or
+lower(b.branch_id) like lower(:search) or
+lower(d.area_name) like lower(:search))) wmTempTable
+        ]]>
+    <query-param name="detailId" type="java.lang.Integer"/>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getRecentPointUser">
+        <![CDATA[
+        select t1.email, (t1.poin-t2.poin) as point from
+		(select u.email, coalesce(c.total_poin, 0.0) as poin
+		from users u
+		left join roles r on u.role_id = r.id
+		left join (select created_by as email, sum(amount) as total_poin
+			from user_point
+			where point_type = 'debet'
+			group by created_by) c on u.email = c.email
+		where (r."name" = 'INFORMAN' or r."name" = 'REGISTERED MITRA') and u.email = :email ) t1
+		join
+		(select u.email, coalesce(c.total_poin, 0.0) as poin
+		from users u
+		left join roles r on u.role_id = r.id
+		left join (select created_by as email, sum(amount) as total_poin
+			from user_point
+			where point_type = 'kredit'
+			group by created_by) c on u.email = c.email
+		where (r."name" = 'INFORMAN' or r."name" = 'REGISTERED MITRA') and u.email = :email ) t2
+		on (t1.email = t2.email)
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getRecentPointUser__count">
+        <![CDATA[
+        select count(*) from (select t1.email, (t1.poin-t2.poin) as point from
+		(select u.email, coalesce(c.total_poin, 0.0) as poin
+		from users u
+		left join roles r on u.role_id = r.id
+		left join (select created_by as email, sum(amount) as total_poin
+			from user_point
+			where point_type = 'debet'
+			group by created_by) c on u.email = c.email
+		where (r."name" = 'INFORMAN' or r."name" = 'REGISTERED MITRA') and u.email = :email ) t1
+		join
+		(select u.email, coalesce(c.total_poin, 0.0) as poin
+		from users u
+		left join roles r on u.role_id = r.id
+		left join (select created_by as email, sum(amount) as total_poin
+			from user_point
+			where point_type = 'kredit'
+			group by created_by) c on u.email = c.email
+		where (r."name" = 'INFORMAN' or r."name" = 'REGISTERED MITRA') and u.email = :email ) t2
+		on (t1.email = t2.email)) wmTempTable
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="insertNewEfficiencySKNoValue2">
+        <![CDATA[
+        insert into gamification_peojf_efficiency_sk (math_operator, value_1, point, status, created_at, created_by)
+values (:operator, :value1, :point, :status, :created_at, :created_by)
+        ]]>
+    <query-param name="operator" type="java.lang.String"/>
+    <query-param name="value1" type="java.lang.Double"/>
+    <query-param name="point" type="java.lang.Integer"/>
+    <query-param name="status" type="java.lang.Boolean"/>
+    <query-param name="created_at" type="java.sql.Timestamp"/>
+    <query-param name="created_by" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="updateRoleUsers">
+        <![CDATA[
+        update users
+set 
+role_id = :roleId
+where id = :id
+        ]]>
+    <query-param name="roleId" type="java.lang.Integer"/>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="viewLelangSKAktif">
+        <![CDATA[
+        select 
+sd.agreement_no as nomor_agreement,
+sd.title as judul,
+sd.bto_limit as batas_bto,
+sd.lowest_bid as tawaran_terendah,
+sd.description as deskripsi,
+sh.start_date as tanggal_mulai,
+sh.end_date as tanggal_berakhir,
+r.region as remo,
+u.full_name as pemenang,
+sd.id
+from lelang_sk_detail sd
+join lelang_sk sh on sd.lelang_sk_id = sh.id
+join remo_regions r on r.id = sh.remo_id
+left join users u on sd.winner_id = u.id
+where sd.agreement_no = :agreement_no
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="viewLelangSKAktif__count">
+        <![CDATA[
+        select count(*) from (select 
+sd.agreement_no as nomor_agreement,
+sd.title as judul,
+sd.bto_limit as batas_bto,
+sd.lowest_bid as tawaran_terendah,
+sd.description as deskripsi,
+sh.start_date as tanggal_mulai,
+sh.end_date as tanggal_berakhir,
+r.region as remo,
+u.full_name as pemenang,
+sd.id
+from lelang_sk_detail sd
+join lelang_sk sh on sd.lelang_sk_id = sh.id
+join remo_regions r on r.id = sh.remo_id
+left join users u on sd.winner_id = u.id
+where sd.agreement_no = :agreement_no) wmTempTable
+        ]]>
+    <query-param name="agreement_no" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getPesertaLelangData">
+        <![CDATA[
+        select 
+    u.id as id_peserta,
+    u.full_name as nama_lengkap,
+    c.category_name as kategori,
+    a.area_code as kode_area,
+    a.area_name as remo,
+    d.*
+from (
+    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya
+    from lelang_sk_participants sk
+    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id 
+    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d
+join users u on d.user_id = u.id
+left join user_categories c on u.category_id = c.id
+left join master_area a on u.area_id = a.id
+        ]]>
+    <query-param name="lelang_sk_detail_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getPesertaLelangData__count">
+        <![CDATA[
+        select count(*) from (select 
+    u.id as id_peserta,
+    u.full_name as nama_lengkap,
+    c.category_name as kategori,
+    a.area_code as kode_area,
+    a.area_name as remo,
+    d.*
+from (
+    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya
+    from lelang_sk_participants sk
+    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id 
+    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d
+join users u on d.user_id = u.id
+left join user_categories c on u.category_id = c.id
+left join master_area a on u.area_id = a.id) wmTempTable
+        ]]>
+    <query-param name="lelang_sk_detail_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="updateFlagSayembara">
+        <![CDATA[
+        update sk_request_and_sayembara
+set 
+flag_digisign = :digisign,
+flag_econtract = :contract,
+flag_trnschedule = :schedule,
+flag_fidusia = :fidusia
+where flag_sk = 'SYB' and no_aggr = :noAggr
+        ]]>
+    <query-param name="digisign" type="java.lang.String"/>
+    <query-param name="contract" type="java.lang.String"/>
+    <query-param name="schedule" type="java.lang.String"/>
+    <query-param name="fidusia" type="java.lang.String"/>
+    <query-param name="noAggr" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetSKRequestApprovedList">
+        <![CDATA[
+        select res.* from (
+    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,
+        case
+        	when a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'
+        	else 'Not Ready'
+        end as dokumen
+    from sk_request_and_sayembara a
+    left join users b on a.coll_cd = b.cd_coll
+    order by a.app_date desc) res
+    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)
+        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) 
+        and res.sk_parent is null and res.is_show = true
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    <query-param name="select" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetSKRequestApprovedList__count">
+        <![CDATA[
+        select count(*) from (select res.* from (
+    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,
+        case
+        	when a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'
+        	else 'Not Ready'
+        end as dokumen
+    from sk_request_and_sayembara a
+    left join users b on a.coll_cd = b.cd_coll
+    order by a.app_date desc) res
+    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)
+        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) 
+        and res.sk_parent is null and res.is_show = true) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    <query-param name="select" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getLelangSKAktif">
@@ -72,6 +800,364 @@ where r.id = :id) wmTempTable
     <query-param name="id" type="java.math.BigInteger"/>
     </sql-query>
 
+    <sql-query name="getInformanLeaderboards">
+        <![CDATA[
+        select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin
+from (select u.email, u.full_name, u.city, u.badge_type, r."name" as role_name, coalesce(c.total_poin, 0.0) as poin
+	from users u
+	left join roles r on u.role_id = r.id
+	left join (select created_by as email, sum(amount) as total_poin
+		from user_point
+		where point_type = 'debet' and (date(created_at) between :startDate and :endDate)
+		group by created_by) c on u.email = c.email
+	where r."name" = 'INFORMAN'
+	and (
+		case when(:city = 'default') then 
+			'1' 
+		else 
+			city = :city
+		end
+	) and (
+		case when(:badgeType = 'default') then 
+			'1' 
+		else 
+			badge_type = :badgeType
+		end
+	)) res
+order by res.poin desc, res.full_name asc
+        ]]>
+    <query-param name="startDate" type="java.sql.Date"/>
+    <query-param name="endDate" type="java.sql.Date"/>
+    <query-param name="city" type="java.lang.String"/>
+    <query-param name="badgeType" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getInformanLeaderboards__count">
+        <![CDATA[
+        select count(*) from (select res.email, res.full_name, res.city, res.badge_type, res.role_name, res.poin
+from (select u.email, u.full_name, u.city, u.badge_type, r."name" as role_name, coalesce(c.total_poin, 0.0) as poin
+	from users u
+	left join roles r on u.role_id = r.id
+	left join (select created_by as email, sum(amount) as total_poin
+		from user_point
+		where point_type = 'debet' and (date(created_at) between :startDate and :endDate)
+		group by created_by) c on u.email = c.email
+	where r."name" = 'INFORMAN'
+	and (
+		case when(:city = 'default') then 
+			'1' 
+		else 
+			city = :city
+		end
+	) and (
+		case when(:badgeType = 'default') then 
+			'1' 
+		else 
+			badge_type = :badgeType
+		end
+	)) res
+order by res.poin desc, res.full_name asc) wmTempTable
+        ]]>
+    <query-param name="startDate" type="java.sql.Date"/>
+    <query-param name="endDate" type="java.sql.Date"/>
+    <query-param name="city" type="java.lang.String"/>
+    <query-param name="badgeType" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetSKRequestPendingList">
+        <![CDATA[
+        select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt
+from sk_request_and_sayembara a
+left join users b on a.coll_cd = b.cd_coll
+where a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+order by a.req_sk_date desc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetSKRequestPendingList__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt
+from sk_request_and_sayembara a
+left join users b on a.coll_cd = b.cd_coll
+where a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+order by a.req_sk_date desc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetLelangSKDetailByIDLelangList">
+        <![CDATA[
+        select 1 as number, *
+from lelang_sk_detail
+where lelang_sk_id = :lelangId and (
+lower(agreement_no) like lower(:search) or
+CAST(bto_limit AS varchar) like lower(:search))
+        ]]>
+    <query-param name="lelangId" type="java.lang.Integer"/>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetLelangSKDetailByIDLelangList__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, *
+from lelang_sk_detail
+where lelang_sk_id = :lelangId and (
+lower(agreement_no) like lower(:search) or
+CAST(bto_limit AS varchar) like lower(:search))) wmTempTable
+        ]]>
+    <query-param name="lelangId" type="java.lang.Integer"/>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="DeleteLelangParticipants">
+        <![CDATA[
+        delete from lelang_sk_participants
+where lelang_sk_detail_id = :detailLelang
+        ]]>
+    <query-param name="detailLelang" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getAllSKNew">
+        <![CDATA[
+        select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir
+from sk_new s
+join remo_regions r on r.id = s.remo_id
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllSKNew__count">
+        <![CDATA[
+        select count(*) from (select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir
+from sk_new s
+join remo_regions r on r.id = s.remo_id) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="GetSayembaraList">
+        <![CDATA[
+        select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date
+from sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc
+        ]]>
+    </sql-query>
+
+    <sql-query name="GetSayembaraList__count">
+        <![CDATA[
+        select count(*) from (select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date
+from sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="GetLelangAktif">
+        <![CDATA[
+        select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+left join master_area c on a.area = c.area_code
+where (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))
+and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetLelangAktif__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+left join master_area c on a.area = c.area_code
+where (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))
+and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetPilihWinnerSKList">
+        <![CDATA[
+        select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+left join master_area c on a.area = c.area_code
+left join vehicles d on b.agreement_no = d.no_aggr
+where winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))
+and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetPilihWinnerSKList__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+left join master_area c on a.area = c.area_code
+left join vehicles d on b.agreement_no = d.no_aggr
+where winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))
+and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="UpdateFlagSKRequest">
+        <![CDATA[
+        update sk_request_and_sayembara
+set 
+flag_digisign = :digisign,
+flag_econtract = :contract,
+flag_trnschedule = :schedule,
+flag_fidusia = :fidusia
+where flag_sk = 'NRM' and no_aggr = :noAggr and no_sr = :noSr
+        ]]>
+    <query-param name="digisign" type="java.lang.String"/>
+    <query-param name="contract" type="java.lang.String"/>
+    <query-param name="schedule" type="java.lang.String"/>
+    <query-param name="fidusia" type="java.lang.String"/>
+    <query-param name="noAggr" type="java.lang.String"/>
+    <query-param name="noSr" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="deleteLelangImages">
+        <![CDATA[
+        delete from lelang_sk_detail_images
+where sk_list_auction_id = :id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getLelangSKDetailByRemoId">
+        <![CDATA[
+        select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah 
+from lelang_sk_detail d
+where d.remo_id = :remo_id
+        ]]>
+    <query-param name="remo_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getLelangSKDetailByRemoId__count">
+        <![CDATA[
+        select count(*) from (select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah 
+from lelang_sk_detail d
+where d.remo_id = :remo_id) wmTempTable
+        ]]>
+    <query-param name="remo_id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="getUserByEmailQuery">
+        <![CDATA[
+        select u.*
+from users u
+where u.email = :email
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getUserByEmailQuery__count">
+        <![CDATA[
+        select count(*) from (select u.*
+from users u
+where u.email = :email) wmTempTable
+        ]]>
+    <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="insertNewBTToSaldoNoValue2">
+        <![CDATA[
+        insert into gamification_peojf_bt_to_saldo (math_operator, value_1, point, status, created_at, created_by)
+values (:operator, :value1, :point, :status, :created_at, :created_by)
+        ]]>
+    <query-param name="operator" type="java.lang.String"/>
+    <query-param name="value1" type="java.lang.Double"/>
+    <query-param name="point" type="java.lang.Integer"/>
+    <query-param name="status" type="java.lang.Boolean"/>
+    <query-param name="created_at" type="java.sql.Timestamp"/>
+    <query-param name="created_by" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getCItyByProvince">
+        <![CDATA[
+        select id, city_name
+from city_provinces
+where province_name = :province_name
+        ]]>
+    <query-param name="province_name" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getCItyByProvince__count">
+        <![CDATA[
+        select count(*) from (select id, city_name
+from city_provinces
+where province_name = :province_name) wmTempTable
+        ]]>
+    <query-param name="province_name" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetLelangList">
+        <![CDATA[
+        select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name
+from lelang_sk a
+left join master_area b on a.area = b.area_code
+where lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')
+order by start_date desc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetLelangList__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name
+from lelang_sk a
+left join master_area b on a.area = b.area_code
+where lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')
+order by start_date desc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getAllUsersRemo">
+        <![CDATA[
+        select 
+        u.full_name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REMO HEAD'
+        ]]>
+    </sql-query>
+
+    <sql-query name="getAllUsersRemo__count">
+        <![CDATA[
+        select count(*) from (select 
+        u.full_name,
+        u.email,
+        r.name as role_type,
+        u.province,
+        u.city,
+        case when u.status = true then 'Active' else 'Non-Active' end as status
+    from users u
+    join roles r on u.role_id = r.id and r.name = 'REMO HEAD') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="insertNewSaldoARNoValue2">
+        <![CDATA[
+        insert into gamification_peojf_saldo_ar (math_operator, value_1, point, status, created_at, created_by)
+values (:operator, :value1, :point, :status, :created_at, :created_by)
+        ]]>
+    <query-param name="operator" type="java.lang.String"/>
+    <query-param name="value1" type="java.math.BigInteger"/>
+    <query-param name="point" type="java.lang.Integer"/>
+    <query-param name="status" type="java.lang.Boolean"/>
+    <query-param name="created_at" type="java.sql.Timestamp"/>
+    <query-param name="created_by" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="getUserIdByEmail">
         <![CDATA[
         select id from users where email = :email
@@ -106,14 +1192,6 @@ where u.email = :email) wmTempTable
     <query-param name="email" type="java.lang.String"/>
     </sql-query>
 
-    <sql-query name="updatePasswordQuery">
-        <![CDATA[
-        update users set password = :pwd where email = :email
-        ]]>
-    <query-param name="pwd" type="java.lang.String"/>
-    <query-param name="email" type="java.lang.String"/>
-    </sql-query>
-
     <sql-query name="getAllUsersPool">
         <![CDATA[
         select 
@@ -142,6 +1220,28 @@ where u.email = :email) wmTempTable
         ]]>
     </sql-query>
 
+    <sql-query name="GetDocumentLelang">
+        <![CDATA[
+        select 1 as number, a.*, b.agreement_no
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+where cast(a.id as varchar) like lower(:search) or cast(b.agreement_no as varchar) like lower(:search)
+order by end_date desc, a.id desc, b.agreement_no asc
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetDocumentLelang__count">
+        <![CDATA[
+        select count(*) from (select 1 as number, a.*, b.agreement_no
+from lelang_sk a
+join lelang_sk_detail b on a.id = b.lelang_sk_id
+where cast(a.id as varchar) like lower(:search) or cast(b.agreement_no as varchar) like lower(:search)
+order by end_date desc, a.id desc, b.agreement_no asc) wmTempTable
+        ]]>
+    <query-param name="search" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="getLelangSKTidakAktif">
         <![CDATA[
         select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id
@@ -164,68 +1264,46 @@ or h.end_date < now()) wmTempTable
         ]]>
     </sql-query>
 
-    <sql-query name="getAllSKNew">
+    <sql-query name="updateFlagRedeem">
         <![CDATA[
-        select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir
-from sk_new s
-join remo_regions r on r.id = s.remo_id
+        update redeem_request
+set 
+is_confirmed = true,
+confirmed_at = :date_confirm
+where id = :id
         ]]>
+    <query-param name="date_confirm" type="java.sql.Timestamp"/>
+    <query-param name="id" type="java.lang.Integer"/>
     </sql-query>
 
-    <sql-query name="getAllSKNew__count">
+    <sql-query name="DeleteGamificationPeojfSeasonalPoint">
         <![CDATA[
-        select count(*) from (select r.region as remo, s.start_date as tanggal_mulai, s.end_date as tanggal_berakhir
-from sk_new s
-join remo_regions r on r.id = s.remo_id) wmTempTable
+        delete from gamification_peojf_seasonal_point
+where id = :id
         ]]>
+    <query-param name="id" type="java.lang.Integer"/>
     </sql-query>
 
-    <sql-query name="getDetailLaporanByAgreementNo">
+    <sql-query name="GetSKRequestPerpanjangApprovedList">
         <![CDATA[
-        select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr
-from reports h
-join users u on h.created_by = u.email
-where h.vehicle_no_aggr = :agreement_no
+        select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date
+from sk_request_and_sayembara a
+left join users b on a.coll_cd = b.cd_coll
+where a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true
+order by a.app_date desc
         ]]>
-    <query-param name="agreement_no" type="java.lang.String"/>
+    <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
-    <sql-query name="getDetailLaporanByAgreementNo__count">
+    <sql-query name="GetSKRequestPerpanjangApprovedList__count">
         <![CDATA[
-        select count(*) from (select h.id as id_lapor, u.id as id_pelapor, h.description as deskripsi, h.vehicle_no_aggr
-from reports h
-join users u on h.created_by = u.email
-where h.vehicle_no_aggr = :agreement_no) wmTempTable
+        select count(*) from (select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date
+from sk_request_and_sayembara a
+left join users b on a.coll_cd = b.cd_coll
+where a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true
+order by a.app_date desc) wmTempTable
         ]]>
-    <query-param name="agreement_no" type="java.lang.String"/>
-    </sql-query>
-
-    <sql-query name="getAllUsersMitra">
-        <![CDATA[
-        select 
-        u.full_name as name,
-        u.email,
-        r.name as role_type,
-        u.province,
-        u.city,
-        case when u.status = true then 'Active' else 'Non-Active' end as status
-    from users u
-    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA'
-        ]]>
-    </sql-query>
-
-    <sql-query name="getAllUsersMitra__count">
-        <![CDATA[
-        select count(*) from (select 
-        u.full_name as name,
-        u.email,
-        r.name as role_type,
-        u.province,
-        u.city,
-        case when u.status = true then 'Active' else 'Non-Active' end as status
-    from users u
-    join roles r on u.role_id = r.id and r.name = 'REGISTERED MITRA') wmTempTable
-        ]]>
+    <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getSKRequestDetail">
@@ -276,29 +1354,11 @@ join roles r on u.role_id = r.id and r.name = 'INFORMAN') wmTempTable
         ]]>
     </sql-query>
 
-    <sql-query name="getLelangSKDetailByRemoId">
-        <![CDATA[
-        select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah 
-from lelang_sk_detail d
-where d.remo_id = :remo_id
-        ]]>
-    <query-param name="remo_id" type="java.lang.Integer"/>
-    </sql-query>
-
-    <sql-query name="getLelangSKDetailByRemoId__count">
-        <![CDATA[
-        select count(*) from (select d.agreement_no as nomor_agreement, d.title as judul, d.bto_limit as batas_BTO, d.lowest_bid as tawaran_terendah 
-from lelang_sk_detail d
-where d.remo_id = :remo_id) wmTempTable
-        ]]>
-    <query-param name="remo_id" type="java.lang.Integer"/>
-    </sql-query>
-
     <sql-query name="getReportImagesById">
         <![CDATA[
         select url
 from report_images
-where report_id = :id
+where report_id = :id and deleted_at is null
         ]]>
     <query-param name="id" type="java.math.BigInteger"/>
     </sql-query>
@@ -307,130 +1367,66 @@ where report_id = :id
         <![CDATA[
         select count(*) from (select url
 from report_images
-where report_id = :id) wmTempTable
+where report_id = :id and deleted_at is null) wmTempTable
         ]]>
     <query-param name="id" type="java.math.BigInteger"/>
     </sql-query>
 
-    <sql-query name="getUserByEmailQuery">
+    <sql-query name="GetSKRequestPerpanjangPendingList">
         <![CDATA[
-        select u.*
-from users u
-where u.email = :email
+        select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt
+from sk_request_and_sayembara a
+left join users b on a.coll_cd = b.cd_coll
+where a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+order by a.req_sk_date desc
         ]]>
-    <query-param name="email" type="java.lang.String"/>
+    <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
-    <sql-query name="getUserByEmailQuery__count">
+    <sql-query name="GetSKRequestPerpanjangPendingList__count">
         <![CDATA[
-        select count(*) from (select u.*
-from users u
-where u.email = :email) wmTempTable
+        select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt
+from sk_request_and_sayembara a
+left join users b on a.coll_cd = b.cd_coll
+where a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+order by a.req_sk_date desc) wmTempTable
         ]]>
-    <query-param name="email" type="java.lang.String"/>
+    <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
-    <sql-query name="viewLelangSKAktif">
+    <sql-query name="insertNewBTToSaldo">
         <![CDATA[
-        select 
-sd.agreement_no as nomor_agreement,
-sd.title as judul,
-sd.bto_limit as batas_bto,
-sd.lowest_bid as tawaran_terendah,
-sd.description as deskripsi,
-sh.start_date as tanggal_mulai,
-sh.end_date as tanggal_berakhir,
-r.region as remo,
-u.full_name as pemenang,
-sd.id
-from lelang_sk_detail sd
-join lelang_sk sh on sd.lelang_sk_id = sh.id
-join remo_regions r on r.id = sh.remo_id
-left join users u on sd.winner_id = u.id
-where sd.agreement_no = :agreement_no
+        insert into gamification_peojf_bt_to_saldo (math_operator, value_1, value_2, point, status, created_at, created_by)
+values (:operator, :value1, :value2, :point, :status, :created_at, :created_by)
         ]]>
-    <query-param name="agreement_no" type="java.lang.String"/>
+    <query-param name="operator" type="java.lang.String"/>
+    <query-param name="value1" type="java.lang.Double"/>
+    <query-param name="value2" type="java.lang.Double"/>
+    <query-param name="point" type="java.lang.Integer"/>
+    <query-param name="status" type="java.lang.Boolean"/>
+    <query-param name="created_at" type="java.sql.Timestamp"/>
+    <query-param name="created_by" type="java.lang.String"/>
     </sql-query>
 
-    <sql-query name="viewLelangSKAktif__count">
+    <sql-query name="GetUserParticipantLelang">
         <![CDATA[
-        select count(*) from (select 
-sd.agreement_no as nomor_agreement,
-sd.title as judul,
-sd.bto_limit as batas_bto,
-sd.lowest_bid as tawaran_terendah,
-sd.description as deskripsi,
-sh.start_date as tanggal_mulai,
-sh.end_date as tanggal_berakhir,
-r.region as remo,
-u.full_name as pemenang,
-sd.id
-from lelang_sk_detail sd
-join lelang_sk sh on sd.lelang_sk_id = sh.id
-join remo_regions r on r.id = sh.remo_id
-left join users u on sd.winner_id = u.id
-where sd.agreement_no = :agreement_no) wmTempTable
+        select a.cd_coll, b.full_name 
+from lelang_sk_participants a
+left join users b on a.cd_coll = b.cd_coll
+where lelang_sk_detail_id = :idLelang
+order by b.full_name asc
         ]]>
-    <query-param name="agreement_no" type="java.lang.String"/>
+    <query-param name="idLelang" type="java.lang.Integer"/>
     </sql-query>
 
-    <sql-query name="getCItyByProvince">
+    <sql-query name="GetUserParticipantLelang__count">
         <![CDATA[
-        select id, city_name
-from city_provinces
-where province_name = :province_name
+        select count(*) from (select a.cd_coll, b.full_name 
+from lelang_sk_participants a
+left join users b on a.cd_coll = b.cd_coll
+where lelang_sk_detail_id = :idLelang
+order by b.full_name asc) wmTempTable
         ]]>
-    <query-param name="province_name" type="java.lang.String"/>
-    </sql-query>
-
-    <sql-query name="getCItyByProvince__count">
-        <![CDATA[
-        select count(*) from (select id, city_name
-from city_provinces
-where province_name = :province_name) wmTempTable
-        ]]>
-    <query-param name="province_name" type="java.lang.String"/>
-    </sql-query>
-
-    <sql-query name="getPesertaLelangData">
-        <![CDATA[
-        select 
-    u.id as id_peserta,
-    u.full_name as nama_lengkap,
-    c.category_name as kategori,
-    a.area_code as kode_area,
-    a.area_name as remo,
-    d.*
-from (
-    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya
-    from lelang_sk_participants sk
-    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id 
-    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d
-join users u on d.user_id = u.id
-left join user_categories c on u.category_id = c.id
-left join master_area a on u.area_id = a.id
-        ]]>
-    <query-param name="lelang_sk_detail_id" type="java.lang.Integer"/>
-    </sql-query>
-
-    <sql-query name="getPesertaLelangData__count">
-        <![CDATA[
-        select count(*) from (select 
-    u.id as id_peserta,
-    u.full_name as nama_lengkap,
-    c.category_name as kategori,
-    a.area_code as kode_area,
-    a.area_name as remo,
-    d.*
-from (
-    select sk.user_id, sk.lelang_sk_detail_id, sk.bid as biaya
-    from lelang_sk_participants sk
-    join lelang_sk_detail sd on sk.lelang_sk_detail_id = sd.id 
-    where sk.lelang_sk_detail_id = :lelang_sk_detail_id) as d
-join users u on d.user_id = u.id
-left join user_categories c on u.category_id = c.id
-left join master_area a on u.area_id = a.id) wmTempTable
-        ]]>
-    <query-param name="lelang_sk_detail_id" type="java.lang.Integer"/>
+    <query-param name="idLelang" type="java.lang.Integer"/>
     </sql-query>
 </hibernate-mapping>
