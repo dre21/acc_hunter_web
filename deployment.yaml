@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: acchunterweb
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 8080
@@ -33,3 +34,11 @@ spec:
         image: dre21/acc-hunter-web:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - mountPath: /root/WaveMaker/appdata/
+          name: vol1
+      volumes:
+      - name: vol1
+        persistentVolumeClaim:
+        claimName: acc-hunter
+          
