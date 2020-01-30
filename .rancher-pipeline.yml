@@ -1,0 +1,15 @@
+stages:
+- name: Build war
+  steps:
+  - runScriptConfig:
+      image: maven:alpine
+      shellScript: mvn package -Pdevelopment
+- name: Create & Publish Image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: dre21/acc-hunter-web:${CICD_GIT_TAG}
+      pushRemote: true
+      registry: index.docker.io
+timeout: 60
