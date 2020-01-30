@@ -40,5 +40,5 @@ spec:
       volumes:
       - name: vol1
         persistentVolumeClaim:
-        claimName: acc-hunter
+          claimName: acc-hunter
           
