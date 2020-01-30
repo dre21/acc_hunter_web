@@ -9,7 +9,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: dre21/acc-hunter-web:${CICD_GIT_TAG}
+      tag: dre21/acc-hunter-web:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
 timeout: 60
