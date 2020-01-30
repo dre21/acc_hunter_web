@@ -13,7 +13,7 @@
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.GetUser.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -315,7 +315,9 @@
                                         <wm-text placeholder="Search here..." class="search-btn" height="48" name="searchLelangAktif"></wm-text>
                                         <wm-picture picturesource="resources/images/search-icon.png" width="1em" class="search-icon" on-click="Variables.GetSKRequestPendingList.invoke()" name="picture4"></wm-picture>
                                     </wm-gridcolumn>
-                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26"></wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn26">
+                                        <wm-select name="filterSKAktif" margin="unset unset unset 30%" width="70%" height="48" dataset="All,Berakhir,Belum Berakhir" placeholder="" datafield="All Fields" class="search-btn" backgroundcolor="#ffffff" datavalue="All"></wm-select>
+                                    </wm-gridcolumn>
                                 </wm-gridrow>
                                 <wm-gridrow padding="unset unset 1% unset" name="gridrow14">
                                     <wm-gridcolumn columnwidth="1" name="gridcolumn27_1">
@@ -368,8 +370,9 @@
                                                                     name="label25"></wm-label>
                                                             </wm-gridcolumn>
                                                             <wm-gridcolumn columnwidth="2" name="gridcolumn36">
-                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetLelangAktif.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm'" textalign="left" color="#404C59" class="content-label" width="100%" margin="1em unset unset unset"
-                                                                    name="label26"></wm-label>
+                                                                <wm-label padding="unset 0.5em" caption="bind:Variables.GetLelangAktif.dataSet[$i].status" textalign="left" color="#404C59" class="content-label" width="100%" name="label26"></wm-label>
+                                                                <wm-label padding="unset 0.5em" caption="bind:(Variables.GetLelangAktif.dataSet[$i].endDate | toDate: 'yyyy-MM-dd HH:mm')" textalign="left" color="#404C59" class="content-label"
+                                                                    width="100%" name="label190"></wm-label>
                                                             </wm-gridcolumn>
                                                             <wm-gridcolumn columnwidth="2" name="gridcolumn39">
                                                                 <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetLelangAktif.dataSet[$i].lowestBid | toCurrency: 'Rp'" textalign="left" color="#404C59" class="content-label" width="100%"
@@ -685,7 +688,7 @@
                     <wm-composite captionposition="top" name="composite11">
                         <wm-label class="col-md-3 control-label" caption="Wilayah" color="#999C9F" name="label80"></wm-label>
                         <wm-container class="col-md-9" width="100%" name="container29">
-                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaRemo.dataSet" datafield="areaCode" displayfield="areaName" disabled="false" readonly="false" name="areaRemo" placeholder="Pilih Wilayah REMO"
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaList.dataSet" datafield="areaCode" displayfield="areaName" disabled="false" readonly="false" name="areaRemo" placeholder="Pilih Wilayah REMO"
                                 height="48"></wm-select>
                         </wm-container>
                     </wm-composite>
@@ -735,7 +738,7 @@
                     <wm-composite captionposition="top" name="composite10_1">
                         <wm-label class="col-md-3 control-label" caption="Wilayah" color="#999C9F" name="label83"></wm-label>
                         <wm-container class="col-md-9" width="100%" name="container28_1">
-                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaRemo.dataSet" datafield="areaCode" displayfield="areaName" disabled="false" readonly="false" placeholder="Pilih Wilayah REMO" height="48"
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetAreaList.dataSet" datafield="areaCode" displayfield="areaName" disabled="false" readonly="false" placeholder="Pilih Wilayah REMO" height="48"
                                 name="editAreaLelang" datavalue="bind:Widgets.newLelangArea.selecteditem.area"></wm-select>
                         </wm-container>
                     </wm-composite>
@@ -879,7 +882,7 @@
                     <wm-composite captionposition="top" name="composite13">
                         <wm-label class="col-md-3 control-label" caption="No Aggreement" color="#999C9F" name="label87"></wm-label>
                         <wm-container class="col-md-9" width="100%" name="container31">
-                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetNoAggrList.dataSet" datafield="noAggr" displayfield="noAggr" disabled="false" readonly="false" placeholder="Pilih No Aggreement" height="48"
+                            <wm-select class="input" color="#565656" backgroundcolor="#FFFFFF" dataset="bind:Variables.GetNoAggrList.dataSet" datafield="noAggr" displayfield="noAggr" disabled="true" readonly="true" placeholder="Pilih No Aggreement" height="48"
                                 name="noAggrEditLelang" datavalue="bind:Widgets.noAggrList.selecteditem.agreementNo"></wm-select>
                         </wm-container>
                     </wm-composite>
@@ -1068,7 +1071,8 @@
                     <wm-composite captionposition="top" name="composite37">
                         <wm-label class="col-md-3 control-label" color="#999C9F" caption="Pemenang" name="label135"></wm-label>
                         <wm-container class="col-md-9" width="100%" name="container56">
-                            <wm-select name="winnerSelect" class="input" height="48" dataset="bind:Variables.GetUserParticipantLelang.dataSet" datafield="cdColl" displayfield="fullName" placeholder="Pilih Pemenang" disabled="true"></wm-select>
+                            <wm-text height="48" class="input" datavalue="bind:Widgets.list2.selecteditem.winnerName == null || Widgets.list2.selecteditem.winnerName == '' ? 'Pemenang belum terpilih' : Widgets.list2.selecteditem.winnerName" readonly="true"
+                                disabled="false" placeholder="" autocomplete="false" name="text27"></wm-text>
                         </wm-container>
                     </wm-composite>
                 </wm-gridcolumn>

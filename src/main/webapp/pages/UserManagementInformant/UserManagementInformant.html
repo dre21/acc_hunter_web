@@ -6,14 +6,14 @@
             <wm-layoutgrid name="layoutgrid1">
                 <wm-gridrow name="gridrow1">
                     <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
-                        <wm-label padding="unset 0.5em" name="label1" class="menu-title" caption="Manage User Accounts"></wm-label>
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="MANAGE USER ACCOUNTS" color="#404C59"></wm-label>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right">
-                        <wm-container name="container1" class="box-profile" padding="12px unset unset unset">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label padding="1.5em 0.5em unset 0.5em" name="fullName" caption="Mariesta R Ayuningsih"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -23,9 +23,11 @@
                         </wm-container>
                     </wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow2">
+                <wm-gridrow name="gridrow2" padding="unset unset 2em unset">
                     <wm-gridcolumn columnwidth="6" name="gridcolumn3">
-                        <wm-breadcrumb dataset="User Management, Informan" name="breadcrumb1"></wm-breadcrumb>
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="User Management" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="Informan" class="breadcumb" color="#565656"></wm-label>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
                 </wm-gridrow>
@@ -42,7 +44,7 @@
                 <wm-gridrow name="gridrow5_1">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn9_1"></wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow6_1">
+                <wm-gridrow name="gridrow6_1" padding="unset unset 2em unset">
                     <wm-gridcolumn columnwidth="2" name="gridcolumn10_1">
                         <wm-label padding="unset 0.5em unset 1em" name="label3" fontsize="16" color="#98A9BC" caption="ACC Name"></wm-label>
                     </wm-gridcolumn>
@@ -62,7 +64,7 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow7">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn15">
-                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="UsersList1" dataset="bind:Variables.getUsersData.dataSet" navigation="Basic" on-select="UsersList1Select(widget, $data)">
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="UsersList1" dataset="bind:Variables.getUsersData.dataSet" navigation="Basic">
                             <wm-listtemplate layout="media" name="listtemplate1">
                                 <wm-layoutgrid name="layoutgrid3">
                                     <wm-gridrow name="gridrow8">

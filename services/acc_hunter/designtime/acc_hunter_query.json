@@ -1,4 +1,88 @@
 {
+  "DashboardSuratKuasa" : {
+    "name" : "DashboardSuratKuasa",
+    "description" : "DashboardSuratKuasa",
+    "version" : "V2",
+    "queryString" : "select approved.month, coalesce(approved.approved, 0) as Approved, coalesce(pending.pending, 0) as Requested, approved.month_no from (\r\n\t(select count(*) as approved, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no\r\n\tfrom sk_request_and_sayembara a\r\n\twhere a.status = 3 and a.flag_sk = 'NRM' and extract(year from a.req_sk_date) = :year\r\n\tand (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n    \t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\r\n    \t\t\t\t\t\t\t\t\t\telse true end)\r\n\tgroup by month, month_no) approved\r\n\tleft join\r\n\t(select count(*) as pending, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no\r\n\tfrom sk_request_and_sayembara a\r\n\twhere a.status = 1 and a.flag_sk = 'NRM' and a.app_date is null and extract(year from a.req_sk_date) = :year\r\n\tand (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n    \t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\r\n    \t\t\t\t\t\t\t\t\t\telse true end)\r\n\tgroup by month, month_no) pending\r\n\ton approved.month = pending.month ) order by month_no asc",
+    "countQueryString" : "select count(*) from (select approved.month, coalesce(approved.approved, 0) as Approved, coalesce(pending.pending, 0) as Requested, approved.month_no from (\r\n\t(select count(*) as approved, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no\r\n\tfrom sk_request_and_sayembara a\r\n\twhere a.status = 3 and a.flag_sk = 'NRM' and extract(year from a.req_sk_date) = :year\r\n\tand (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n    \t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\r\n    \t\t\t\t\t\t\t\t\t\telse true end)\r\n\tgroup by month, month_no) approved\r\n\tleft join\r\n\t(select count(*) as pending, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no\r\n\tfrom sk_request_and_sayembara a\r\n\twhere a.status = 1 and a.flag_sk = 'NRM' and a.app_date is null and extract(year from a.req_sk_date) = :year\r\n\tand (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n    \t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n    \t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\r\n    \t\t\t\t\t\t\t\t\t\telse true end)\r\n\tgroup by month, month_no) pending\r\n\ton approved.month = pending.month ) order by month_no asc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "year",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2020",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO STAFF",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100102",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.DashboardSuratKuasaResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "month",
+        "fieldName" : "month",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "approved",
+        "fieldName" : "approved",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "requested",
+        "fieldName" : "requested",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "month_no",
+        "fieldName" : "monthNo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "DeleteGamificationPeojfBadgesBonus" : {
     "name" : "DeleteGamificationPeojfBadgesBonus",
     "description" : "DeleteGamificationPeojfBadgesBonus",
@@ -340,6 +424,55 @@
       "responseType" : "SINGLE"
     }
   },
+  "GetActiveUsersAdmin" : {
+    "name" : "GetActiveUsersAdmin",
+    "description" : "GetActiveUsersAdmin",
+    "version" : "V2",
+    "queryString" : "select count(*) as jumlah from users where status != false \nand ((case when :role = 'REMO HEAD' then branch_id in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then branch_id = :branch_id\n\telse true end) or branch_id is null)",
+    "countQueryString" : "select count(*) from (select count(*) as jumlah from users where status != false \nand ((case when :role = 'REMO HEAD' then branch_id in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then branch_id = :branch_id\n\telse true end) or branch_id is null)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO HEAD",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetActiveUsersAdminResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "jumlah",
+        "fieldName" : "jumlah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "GetAllListPesertaLelang" : {
     "name" : "GetAllListPesertaLelang",
     "description" : "GetAllListPesertaLelang",
@@ -442,17 +575,117 @@
       } ]
     }
   },
-  "GetCountDashboardSK" : {
-    "name" : "GetCountDashboardSK",
-    "description" : "GetCountDashboardSK",
+  "GetAreaList" : {
+    "name" : "GetAreaList",
+    "description" : "GetAreaList",
     "version" : "V2",
-    "queryString" : "select * from \r\n    (select count(*) as sk_aktif from sk_request_and_sayembara a\r\n    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,\r\n    (select count(*) as permohonan_sk from sk_request_and_sayembara a\r\n    where sk_parent is null and a.flag_sk = 'NRM') b,\r\n    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a\r\n    where sk_parent is not null and a.flag_sk = 'NRM') c,\r\n    (select count(*) as lelang_sk from lelang_sk_detail a) d,\r\n    (select count(*) as sayembara_sk from sk_request_and_sayembara a \r\n    where a.flag_sk = 'SYB') e",
-    "countQueryString" : "select count(*) from (select * from \r\n    (select count(*) as sk_aktif from sk_request_and_sayembara a\r\n    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,\r\n    (select count(*) as permohonan_sk from sk_request_and_sayembara a\r\n    where sk_parent is null and a.flag_sk = 'NRM') b,\r\n    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a\r\n    where sk_parent is not null and a.flag_sk = 'NRM') c,\r\n    (select count(*) as lelang_sk from lelang_sk_detail a) d,\r\n    (select count(*) as sayembara_sk from sk_request_and_sayembara a \r\n    where a.flag_sk = 'SYB') e) wmTempTable",
+    "queryString" : "select *\nfrom master_area where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then area_code in (select cd_area\tfrom branches where cast(cd_sp as varchar) = :branch_id) else true end)",
+    "countQueryString" : "select count(*) from (select *\nfrom master_area where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then area_code in (select cd_area\tfrom branches where cast(cd_sp as varchar) = :branch_id) else true end)) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO STAFF",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetAreaListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "area_code",
+        "fieldName" : "areaCode",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "area_name",
+        "fieldName" : "areaName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "date_added",
+        "fieldName" : "dateAdded",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetCountDashboardSK" : {
+    "name" : "GetCountDashboardSK",
+    "description" : "GetCountDashboardSK",
+    "version" : "V2",
+    "queryString" : "select * from \r\n    (select count(*) as sk_aktif from sk_request_and_sayembara a\r\n    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) a,\r\n    (select count(*) as permohonan_sk from sk_request_and_sayembara a\r\n    where sk_parent is null and a.flag_sk = 'NRM'\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) b,\r\n    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a\r\n    where sk_parent is not null and a.flag_sk = 'NRM'\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) c,\r\n    (select count(*) as lelang_sk from lelang_sk_detail lsd\r\n    left join lelang_sk ls on lsd.lelang_sk_id=ls.id\r\n    where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then cast(ls.area as varchar) = (select cast(cd_area as varchar) from branches where cast(cd_sp as varchar) = :branch_id)\r\n    \t\telse true end)) d,\r\n    (select count(*) as sayembara_sk from sk_request_and_sayembara a \r\n    where a.flag_sk = 'SYB'\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) e",
+    "countQueryString" : "select count(*) from (select * from \r\n    (select count(*) as sk_aktif from sk_request_and_sayembara a\r\n    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) a,\r\n    (select count(*) as permohonan_sk from sk_request_and_sayembara a\r\n    where sk_parent is null and a.flag_sk = 'NRM'\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) b,\r\n    (select count(*) as perpanjangan_sk from sk_request_and_sayembara a\r\n    where sk_parent is not null and a.flag_sk = 'NRM'\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) c,\r\n    (select count(*) as lelang_sk from lelang_sk_detail lsd\r\n    left join lelang_sk ls on lsd.lelang_sk_id=ls.id\r\n    where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then cast(ls.area as varchar) = (select cast(cd_area as varchar) from branches where cast(cd_sp as varchar) = :branch_id)\r\n    \t\telse true end)) d,\r\n    (select count(*) as sayembara_sk from sk_request_and_sayembara a \r\n    where a.flag_sk = 'SYB'\r\n    and extract(year from req_sk_date) = :year\r\n    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) e) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "year",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2020",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO STAFF",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
     "request" : {
       "wrapped" : false,
       "typeRef" : null,
@@ -597,23 +830,291 @@
       } ]
     }
   },
-  "GetLelangAktif" : {
-    "name" : "GetLelangAktif",
-    "description" : "GetLelangAktif",
+  "GetInfRedeemHistoryList" : {
+    "name" : "GetInfRedeemHistoryList",
+    "description" : "GetInfRedeemHistoryList",
     "version" : "V2",
-    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
-    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
+    "queryString" : "--Informan History Redeem\r\nselect b.full_name, b.email, d.\"name\", c.point, a.confirmed_at from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 1 and a.is_confirmed = true \r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.branch_id in \r\n\t\t\t(select city as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.city in\r\n\t\t\t\t\t\t\t\t\t\t\t(select city from branches where cast(cd_sp as varchar) = :branch_id)\r\n\t\t\t\t\t\t\t\t\t\telse true end)",
+    "countQueryString" : "select count(*) from (--Informan History Redeem\r\nselect b.full_name, b.email, d.\"name\", c.point, a.confirmed_at from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 1 and a.is_confirmed = true \r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.branch_id in \r\n\t\t\t(select city as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.city in\r\n\t\t\t\t\t\t\t\t\t\t\t(select city from branches where cast(cd_sp as varchar) = :branch_id)\r\n\t\t\t\t\t\t\t\t\t\telse true end)) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
     "parameters" : [ {
+      "name" : "keyword",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetInfRedeemHistoryListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "point",
+        "fieldName" : "point",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "confirmed_at",
+        "fieldName" : "confirmedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetInfRedeemRequestList" : {
+    "name" : "GetInfRedeemRequestList",
+    "description" : "GetInfRedeemRequestList",
+    "version" : "V2",
+    "queryString" : "--Informan Redeem Request\r\nselect a.id, b.id as id_user, b.full_name, b.email, d.\"name\", c.point from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 1 and a.is_confirmed = false \r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.city in \r\n\t\t\t(select city as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.city in\r\n\t\t\t\t\t\t\t\t\t\t\t(select city from branches where cast(cd_sp as varchar) = :branch_id)\r\n\t\t\t\t\t\t\t\t\t\telse true end)",
+    "countQueryString" : "select count(*) from (--Informan Redeem Request\r\nselect a.id, b.id as id_user, b.full_name, b.email, d.\"name\", c.point from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 1 and a.is_confirmed = false \r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.city in \r\n\t\t\t(select city as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.city in\r\n\t\t\t\t\t\t\t\t\t\t\t(select city from branches where cast(cd_sp as varchar) = :branch_id)\r\n\t\t\t\t\t\t\t\t\t\telse true end)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "keyword",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetInfRedeemRequestListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id_user",
+        "fieldName" : "idUser",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "point",
+        "fieldName" : "point",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetJumlahSubmitInformationAdmin" : {
+    "name" : "GetJumlahSubmitInformationAdmin",
+    "description" : "GetJumlahSubmitInformationAdmin",
+    "version" : "V2",
+    "queryString" : "select count(a.*) as jumlah\nfrom reports a\njoin vehicles b on a.vehicle_no_aggr = b.no_aggr \n    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then b.sp_coll = :branch_id\n\telse true end)\nwhere is_draft = false",
+    "countQueryString" : "select count(*) from (select count(a.*) as jumlah\nfrom reports a\njoin vehicles b on a.vehicle_no_aggr = b.no_aggr \n    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then b.sp_coll = :branch_id\n\telse true end)\nwhere is_draft = false) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetJumlahSubmitInformationAdminResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "jumlah",
+        "fieldName" : "jumlah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetLelangAktif" : {
+    "name" : "GetLelangAktif",
+    "description" : "GetLelangAktif",
+    "version" : "V2",
+    "queryString" : "select res.* from(select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name,\r\n    case when a.end_date < (now() + interval '7 hour') then 'Berakhir' else 'Belum Berakhir' end as status\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\njoin vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nwhere (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) res\r\nwhere case when :select = 'All' then true else res.status = :select end",
+    "countQueryString" : "select count(*) from (select res.* from(select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name,\r\n    case when a.end_date < (now() + interval '7 hour') then 'Berakhir' else 'Belum Berakhir' end as status\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\njoin vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nwhere (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) res\r\nwhere case when :select = 'All' then true else res.status = :select end) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "600103",
+      "required" : true
+    }, {
       "name" : "search",
       "type" : "string",
       "list" : false,
       "variableType" : "PROMPT",
       "variableName" : "",
       "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "select",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "Belum Berakhir",
       "required" : true
     } ],
     "request" : {
@@ -743,6 +1244,15 @@
           "typeRef" : "java.lang.String",
           "list" : false
         }
+      }, {
+        "name" : "status",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
       } ]
     }
   },
@@ -750,8 +1260,8 @@
     "name" : "GetLelangList",
     "description" : "GetLelangList",
     "version" : "V2",
-    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name\nfrom lelang_sk a\nleft join master_area b on a.area = b.area_code\nwhere lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')\norder by start_date desc",
-    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name\nfrom lelang_sk a\nleft join master_area b on a.area = b.area_code\nwhere lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')\norder by start_date desc) wmTempTable",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name\nfrom lelang_sk a\nleft join master_area b on a.area = b.area_code\nwhere lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour') and (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then a.area in (select cd_area\tfrom branches where cast(cd_sp as varchar) = :branch_id)\telse true end)\norder by start_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name\nfrom lelang_sk a\nleft join master_area b on a.area = b.area_code\nwhere lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour') and (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then a.area in (select cd_area\tfrom branches where cast(cd_sp as varchar) = :branch_id)\telse true end)\norder by start_date desc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -763,6 +1273,22 @@
       "variableType" : "PROMPT",
       "variableName" : "",
       "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "600103",
       "required" : true
     } ],
     "request" : {
@@ -845,19 +1371,35 @@
     "name" : "GetLelangSKDetailByIDLelangList",
     "description" : "GetLelangSKDetailByIDLelangList",
     "version" : "V2",
-    "queryString" : "select 1 as number, *\nfrom lelang_sk_detail\nwhere lelang_sk_id = :lelangId and (\nlower(agreement_no) like lower(:search) or\nCAST(bto_limit AS varchar) like lower(:search))",
-    "countQueryString" : "select count(*) from (select 1 as number, *\nfrom lelang_sk_detail\nwhere lelang_sk_id = :lelangId and (\nlower(agreement_no) like lower(:search) or\nCAST(bto_limit AS varchar) like lower(:search))) wmTempTable",
+    "queryString" : "select 1 as number, a.*\nfrom lelang_sk_detail a\njoin vehicles d on a.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\nwhere lelang_sk_id = :lelangId and (\nlower(agreement_no) like lower(:search) or\nCAST(bto_limit AS varchar) like lower(:search))",
+    "countQueryString" : "select count(*) from (select 1 as number, a.*\nfrom lelang_sk_detail a\njoin vehicles d on a.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\nwhere lelang_sk_id = :lelangId and (\nlower(agreement_no) like lower(:search) or\nCAST(bto_limit AS varchar) like lower(:search))) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
     "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO STAFF",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    }, {
       "name" : "lelangId",
       "type" : "integer",
       "list" : false,
       "variableType" : "PROMPT",
       "variableName" : "",
-      "testValue" : "40",
+      "testValue" : "136",
       "required" : true
     }, {
       "name" : "search",
@@ -984,13 +1526,29 @@
     "name" : "GetLelangTidakAktif",
     "description" : "GetLelangTidakAktif",
     "version" : "V2",
-    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere a.end_date <= (now() + interval '7 hour') and winner_id is not null\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
-    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nwhere a.end_date <= (now() + interval '7 hour') and winner_id is not null\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\njoin vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nwhere a.end_date <= (now() + interval '7 hour') and winner_id is not null\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\njoin vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nwhere a.end_date <= (now() + interval '7 hour') and winner_id is not null\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
     "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO HEAD",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    }, {
       "name" : "search",
       "type" : "string",
       "list" : false,
@@ -1129,12 +1687,385 @@
       } ]
     }
   },
+  "GetMapListAdmin" : {
+    "name" : "GetMapListAdmin",
+    "description" : "GetMapListAdmin",
+    "version" : "V2",
+    "queryString" : "select * from reports a\njoin vehicles b on a.vehicle_no_aggr = b.no_aggr \n    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then b.sp_coll = :branch_id\n\telse true end)\nwhere is_draft = false\norder by created_at desc",
+    "countQueryString" : "select count(*) from (select * from reports a\njoin vehicles b on a.vehicle_no_aggr = b.no_aggr \n    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then b.sp_coll = :branch_id\n\telse true end)\nwhere is_draft = false\norder by created_at desc) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetMapListAdminResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "vehicle_no_aggr",
+        "fieldName" : "vehicleNoAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "description",
+        "fieldName" : "description",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "latitude",
+        "fieldName" : "latitude",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "longitute",
+        "fieldName" : "longitute",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      }, {
+        "name" : "is_draft",
+        "fieldName" : "isDraft",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "created_at",
+        "fieldName" : "createdAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "created_by",
+        "fieldName" : "createdBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "updated_at",
+        "fieldName" : "updatedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "updated_by",
+        "fieldName" : "updatedBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "deleted_at",
+        "fieldName" : "deletedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
+        "name" : "deleted_by",
+        "fieldName" : "deletedBy",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "image_header",
+        "fieldName" : "imageHeader",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_aggr",
+        "fieldName" : "noAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_sp",
+        "fieldName" : "cdSp",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "sp_coll",
+        "fieldName" : "spColl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "dt_golive",
+        "fieldName" : "dtGolive",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "st_aggr",
+        "fieldName" : "stAggr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "day_overdue",
+        "fieldName" : "dayOverdue",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_new_used",
+        "fieldName" : "flagNewUsed",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "flag_mgu",
+        "fieldName" : "flagMgu",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "saldo_ar",
+        "fieldName" : "saldoAr",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_brand",
+        "fieldName" : "cdVehicleBrand",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "brand_desc",
+        "fieldName" : "brandDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_type",
+        "fieldName" : "cdVehicleType",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "type_desc",
+        "fieldName" : "typeDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_model",
+        "fieldName" : "cdVehicleModel",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "model_desc",
+        "fieldName" : "modelDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "cd_vehicle_kind",
+        "fieldName" : "cdVehicleKind",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "category_desc",
+        "fieldName" : "categoryDesc",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "year_of_mfg",
+        "fieldName" : "yearOfMfg",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "no_car_police",
+        "fieldName" : "noCarPolice",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_chasis",
+        "fieldName" : "noChasis",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_engine",
+        "fieldName" : "noEngine",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "color",
+        "fieldName" : "color",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "no_bpkb",
+        "fieldName" : "noBpkb",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name_bpkb",
+        "fieldName" : "nameBpkb",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "GetNoAggrListLelang" : {
     "name" : "GetNoAggrListLelang",
     "description" : "GetNoAggrListLelang",
     "version" : "V2",
-    "queryString" : "select no_aggr\r\nfrom vehicles where no_aggr not in (\r\n\tselect no_aggr\r\n    from sk_request_and_sayembara\r\n    where app_date is null or (app_date >= now() + interval '7 hour')\r\n    union\r\n    select agreement_no as no_aggr\r\n    from lelang_sk_detail\r\n) and lower(no_aggr) like lower(:search)",
-    "countQueryString" : "select count(*) from (select no_aggr\r\nfrom vehicles where no_aggr not in (\r\n\tselect no_aggr\r\n    from sk_request_and_sayembara\r\n    where app_date is null or (app_date >= now() + interval '7 hour')\r\n    union\r\n    select agreement_no as no_aggr\r\n    from lelang_sk_detail\r\n) and lower(no_aggr) like lower(:search)) wmTempTable",
+    "queryString" : "select no_aggr\r\nfrom vehicles where no_aggr not in (\r\n\tselect no_aggr\r\n    from sk_request_and_sayembara\r\n    where app_date is null or (app_date >= now() + interval '7 hour')\r\n    union\r\n    select agreement_no as no_aggr\r\n    from lelang_sk_detail\r\n) and lower(no_aggr) like lower(:search) and (case when :role = 'REMO HEAD' then sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)",
+    "countQueryString" : "select count(*) from (select no_aggr\r\nfrom vehicles where no_aggr not in (\r\n\tselect no_aggr\r\n    from sk_request_and_sayembara\r\n    where app_date is null or (app_date >= now() + interval '7 hour')\r\n    union\r\n    select agreement_no as no_aggr\r\n    from lelang_sk_detail\r\n) and lower(no_aggr) like lower(:search) and (case when :role = 'REMO HEAD' then sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -1145,7 +2076,23 @@
       "list" : false,
       "variableType" : "PROMPT",
       "variableName" : "",
-      "testValue" : "%tes%",
+      "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
       "required" : true
     } ],
     "request" : {
@@ -1165,6 +2112,201 @@
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetPEOJFRedeemHistoryList" : {
+    "name" : "GetPEOJFRedeemHistoryList",
+    "description" : "GetPEOJFRedeemHistoryList",
+    "version" : "V2",
+    "queryString" : "--PEOJF History Redeem\r\nselect b.full_name, b.email, d.\"name\", c.point, a.confirmed_at from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 2 and a.is_confirmed = true \r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.branch_id in \r\n\t\t\t(select city as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.branch_id = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)",
+    "countQueryString" : "select count(*) from (--PEOJF History Redeem\r\nselect b.full_name, b.email, d.\"name\", c.point, a.confirmed_at from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 2 and a.is_confirmed = true \r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.branch_id in \r\n\t\t\t(select city as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.branch_id = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "keyword",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetPeojfredeemHistoryListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "point",
+        "fieldName" : "point",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "confirmed_at",
+        "fieldName" : "confirmedAt",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetPEOJFRedeemRequestList" : {
+    "name" : "GetPEOJFRedeemRequestList",
+    "description" : "GetPEOJFRedeemRequestList",
+    "version" : "V2",
+    "queryString" : "--PEOJF Redeem Request\r\nselect a.id, b.id as id_user, b.full_name, b.email, d.\"name\", c.point from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 2 and a.is_confirmed = false\r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.branch_id in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.branch_id = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)",
+    "countQueryString" : "select count(*) from (--PEOJF Redeem Request\r\nselect a.id, b.id as id_user, b.full_name, b.email, d.\"name\", c.point from redeem_request a\r\nleft join users b on a.id_user = b.id\r\nleft join reward_config c on a.id_reward_config = c.id\r\nleft join master_reward d on c.id_reward = d.id\r\nwhere b.role_id = 2 and a.is_confirmed = false\r\nand (b.email like :keyword or b.full_name like :keyword)\r\nand (case when :role = 'REMO HEAD' then b.branch_id in \r\n\t\t\t(select cast(cd_sp as varchar) as data from branches where cd_area in \r\n\t\t\t\t(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.branch_id = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "keyword",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetPeojfredeemRequestListResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "id_user",
+        "fieldName" : "idUser",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "full_name",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "email",
+        "fieldName" : "email",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "point",
+        "fieldName" : "point",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
           "list" : false
         }
       } ]
@@ -1642,13 +2784,29 @@
     "name" : "GetPilihWinnerSKList",
     "description" : "GetPilihWinnerSKList",
     "version" : "V2",
-    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nleft join vehicles d on b.agreement_no = d.no_aggr\r\nwhere winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
-    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\nleft join vehicles d on b.agreement_no = d.no_aggr\r\nwhere winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
+    "queryString" : "select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\njoin vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nwhere (winner_name is null or winner_name = '') and (a.start_date <= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name, d.no_car_police\r\nfrom lelang_sk a\r\njoin lelang_sk_detail b on a.id = b.lelang_sk_id\r\nleft join master_area c on a.area = c.area_code\r\njoin vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then d.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nwhere (winner_name is null or winner_name = '') and (a.start_date <= (now() + interval '7 hour'))\r\nand (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))\r\norder by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
     "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    }, {
       "name" : "search",
       "type" : "string",
       "list" : false,
@@ -1958,13 +3116,29 @@
     "name" : "GetReportsList",
     "description" : "GetReportsList",
     "version" : "V2",
-    "queryString" : "select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id\nfrom reports a\nleft join vehicles b on a.vehicle_no_aggr = b.no_aggr\nleft join users c on a.created_by = c.email\nwhere lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))\norder by a.created_at desc",
-    "countQueryString" : "select count(*) from (select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id\nfrom reports a\nleft join vehicles b on a.vehicle_no_aggr = b.no_aggr\nleft join users c on a.created_by = c.email\nwhere lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))\norder by a.created_at desc) wmTempTable",
+    "queryString" : "select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id\r\nfrom reports a\r\njoin vehicles b on a.vehicle_no_aggr = b.no_aggr \r\n                                        and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nleft join users c on a.created_by = c.email\r\nwhere lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', '')) \r\norder by a.created_at desc",
+    "countQueryString" : "select count(*) from (select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id\r\nfrom reports a\r\njoin vehicles b on a.vehicle_no_aggr = b.no_aggr \r\n                                        and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\r\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\r\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then b.sp_coll = :branch_id\r\n\t\t\t\t\t\t\t\t\t\telse true end)\r\nleft join users c on a.created_by = c.email\r\nwhere lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', '')) \r\norder by a.created_at desc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
     "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    }, {
       "name" : "search",
       "type" : "string",
       "list" : false,
@@ -2359,8 +3533,8 @@
     "name" : "GetSKRequestApprovedList",
     "description" : "GetSKRequestApprovedList",
     "version" : "V2",
-    "queryString" : "select res.* from (\n    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,\n        case\n        \twhen a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'\n        \telse 'Not Ready'\n        end as dokumen\n    from sk_request_and_sayembara a\n    left join users b on a.coll_cd = b.cd_coll\n    order by a.app_date desc) res\n    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)\n        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) \n        and res.sk_parent is null and res.is_show = true",
-    "countQueryString" : "select count(*) from (select res.* from (\n    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,\n        case\n        \twhen a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'\n        \telse 'Not Ready'\n        end as dokumen\n    from sk_request_and_sayembara a\n    left join users b on a.coll_cd = b.cd_coll\n    order by a.app_date desc) res\n    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)\n        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) \n        and res.sk_parent is null and res.is_show = true) wmTempTable",
+    "queryString" : "select res.* from (\n    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,\n        case\n        \twhen a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'\n        \telse 'Not Ready'\n        end as dokumen\n    from sk_request_and_sayembara a\n    left join users b on a.coll_cd = b.cd_coll\n    order by a.app_date desc) res\n    where res.flag_sk = 'NRM' and res.status = 3 \n    and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search) or LOWER(res.dokumen) like LOWER(:search)) \n    and (res.dokumen like :select) \n        and res.sk_parent is null and res.req_sk_date_parent is null and res.is_show = true\n        and (case when :role = 'REMO HEAD' then res.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then res.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)",
+    "countQueryString" : "select count(*) from (select res.* from (\n    select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date,\n        case\n        \twhen a.flag_econtract = 'Y' or a.flag_fidusia = 'Y' or a.flag_trnschedule = 'Y' or a.flag_digisign = 'Y' then 'Ready'\n        \telse 'Not Ready'\n        end as dokumen\n    from sk_request_and_sayembara a\n    left join users b on a.coll_cd = b.cd_coll\n    order by a.app_date desc) res\n    where res.flag_sk = 'NRM' and res.status = 3 \n    and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search) or LOWER(res.dokumen) like LOWER(:search)) \n    and (res.dokumen like :select) \n        and res.sk_parent is null and res.req_sk_date_parent is null and res.is_show = true\n        and (case when :role = 'REMO HEAD' then res.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then res.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -2371,7 +3545,7 @@
       "list" : false,
       "variableType" : "PROMPT",
       "variableName" : "",
-      "testValue" : "%not ready%",
+      "testValue" : "%Not Ready%",
       "required" : true
     }, {
       "name" : "select",
@@ -2379,7 +3553,23 @@
       "list" : false,
       "variableType" : "PROMPT",
       "variableName" : "",
-      "testValue" : "%ready%",
+      "testValue" : "%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "600102",
       "required" : true
     } ],
     "request" : {
@@ -2699,6 +3889,24 @@
           "list" : false
         }
       }, {
+        "name" : "sk_file_name",
+        "fieldName" : "skFileName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date_parent",
+        "fieldName" : "reqSkDateParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
         "name" : "expired_date",
         "fieldName" : "expiredDate",
         "optional" : false,
@@ -2723,8 +3931,8 @@
     "name" : "GetSKRequestPendingList",
     "description" : "GetSKRequestPendingList",
     "version" : "V2",
-    "queryString" : "select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc",
-    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc) wmTempTable",
+    "queryString" : "select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\n    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by a.req_sk_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\n    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by a.req_sk_date desc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -2736,6 +3944,22 @@
       "variableType" : "PROMPT",
       "variableName" : "",
       "testValue" : "%tra 1%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "600102",
       "required" : true
     } ],
     "request" : {
@@ -2944,8 +4168,8 @@
     "name" : "GetSKRequestPerpanjangApprovedList",
     "description" : "GetSKRequestPerpanjangApprovedList",
     "version" : "V2",
-    "queryString" : "select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true\norder by a.app_date desc",
-    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true\norder by a.app_date desc) wmTempTable",
+    "queryString" : "select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and req_sk_date_parent is not null and is_show = true\n    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by a.app_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and req_sk_date_parent is not null and is_show = true\n    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by a.app_date desc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -2957,6 +4181,22 @@
       "variableType" : "PROMPT",
       "variableName" : "",
       "testValue" : "%%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "600103",
       "required" : true
     } ],
     "request" : {
@@ -3267,6 +4507,33 @@
           "list" : false
         }
       }, {
+        "name" : "is_signed",
+        "fieldName" : "isSigned",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_file_name",
+        "fieldName" : "skFileName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "req_sk_date_parent",
+        "fieldName" : "reqSkDateParent",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      }, {
         "name" : "expired_date",
         "fieldName" : "expiredDate",
         "optional" : false,
@@ -3282,8 +4549,8 @@
     "name" : "GetSKRequestPerpanjangPendingList",
     "description" : "GetSKRequestPerpanjangPendingList",
     "version" : "V2",
-    "queryString" : "select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc",
-    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\norder by a.req_sk_date desc) wmTempTable",
+    "queryString" : "select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\n    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by a.req_sk_date desc",
+    "countQueryString" : "select count(*) from (select 1 as number, b.full_name as name, a.no_sr, a.no_aggr, a.no_police, a.no_sp_coll, a.coll_cd, a.req_sk_bt, (a.req_sk_date - interval '7 hour') as req_sk_date, a.flag_sk, a.flag_econtract, a.flag_fidusia, a.flag_trnschedule, a.flag_digisign, a.app_date, a.add_uid, a.add_date, a.status, a.sk_parent, a.is_show, a.app_sk_bt\nfrom sk_request_and_sayembara a\nleft join users b on a.coll_cd = b.cd_coll\nwhere a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true\n    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by a.req_sk_date desc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
@@ -3295,6 +4562,22 @@
       "variableType" : "PROMPT",
       "variableName" : "",
       "testValue" : "%tra 1%",
+      "required" : true
+    }, {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "600103",
       "required" : true
     } ],
     "request" : {
@@ -3503,13 +4786,29 @@
     "name" : "GetSayembaraList",
     "description" : "GetSayembaraList",
     "version" : "V2",
-    "queryString" : "select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date\nfrom sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc",
-    "countQueryString" : "select count(*) from (select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date\nfrom sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc) wmTempTable",
+    "queryString" : "select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date\nfrom sk_request_and_sayembara a where flag_sk = 'SYB' \nand (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by app_date desc, no_aggr asc",
+    "countQueryString" : "select count(*) from (select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date\nfrom sk_request_and_sayembara a where flag_sk = 'SYB' \nand (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data\n\t\t\t\t\t\t\t\t\t\tfrom branches where cd_area in (select cd_area\n\t\t\t\t\t\t\t\t\t\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\t\t\t\t\t\t\t\t\t\twhen :role = 'REMO STAFF' then a.no_sp_coll = :branch_id\n\t\t\t\t\t\t\t\t\t\telse true end)\norder by app_date desc, no_aggr asc) wmTempTable",
     "offlineQueryString" : null,
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "REMO HEAD",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
     "request" : {
       "wrapped" : false,
       "typeRef" : null,
@@ -3809,12 +5108,79 @@
           "list" : false
         }
       }, {
+        "name" : "is_signed",
+        "fieldName" : "isSigned",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "sk_file_name",
+        "fieldName" : "skFileName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
         "name" : "end_date",
         "fieldName" : "endDate",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.sql.Timestamp",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "GetTotalSkRequestedAdmin" : {
+    "name" : "GetTotalSkRequestedAdmin",
+    "description" : "GetTotalSkRequestedAdmin",
+    "version" : "V2",
+    "queryString" : "select count(*) as jumlah from sk_request_and_sayembara\nwhere flag_sk = 'NRM' and sk_parent is null\nand (case when :role = 'REMO HEAD' then no_sp_coll in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\n\telse true end)",
+    "countQueryString" : "select count(*) from (select count(*) as jumlah from sk_request_and_sayembara\nwhere flag_sk = 'NRM' and sk_parent is null\nand (case when :role = 'REMO HEAD' then no_sp_coll in (select cast(cd_sp as varchar) as data\n\tfrom branches where cd_area in (select cd_area\n\tfrom branches where cast(cd_sp as varchar) = :branch_id))\n\twhen :role = 'REMO STAFF' then no_sp_coll = :branch_id\n\telse true end)) wmTempTable",
+    "offlineQueryString" : null,
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "role",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "ADMIN",
+      "required" : true
+    }, {
+      "name" : "branch_id",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "100103",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.acc_hunter_web.acc_hunter.models.query.GetTotalSkRequestedAdminResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "jumlah",
+        "fieldName" : "jumlah",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
           "list" : false
         }
       } ]

@@ -13,7 +13,7 @@
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.getUsersBranch.firstRecord.fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -116,6 +116,38 @@
                         </wm-container>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="1" name="gridcolumn25"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow16">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn24_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn25_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn26"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn27"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn28"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn29"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow17">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn35" padding="24px">
+                        <wm-container name="container7" backgroundcolor="#ffffff">
+                            <wm-layoutgrid name="layoutgrid8" columns="1">
+                                <wm-gridrow name="gridrow21" padding="24px unset unset unset">
+                                    <wm-gridcolumn columnwidth="1" name="gridcolumn38" padding="unset unset unset 23px">
+                                        <wm-label class="year" name="label16" caption="Year" padding="unset unset unset 0.5em"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="2" name="gridcolumn42">
+                                        <wm-select name="year" dataset="2019, 2020" datafield="All Fields" datavalue="2020" on-change="yearChange($event, widget, newVal, oldVal)"></wm-select>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="9" name="gridcolumn43"></wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow22" padding="32px unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn39">
+                                        <wm-chart type="Column" title="" height="500px" iconclass="wi wi-bar-chart" name="chart1" dataset="bind:Variables.DashboardSuratKuasa.dataSet" xaxisdatakey="month" yaxisdatakey="approved,requested" showlegend="bottom"
+                                            customcolors="#B9C3C9, #285073" staggerlabels="true" reducexticks="false" showyaxis="true" show="false"></wm-chart>
+                                        <wm-container name="container8"><canvas id="myChart"></canvas></wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
         </wm-page-content>

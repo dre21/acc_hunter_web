@@ -17,7 +17,6 @@ Page.onReady = function() {
 };
 
 Page.picture4Click = function($event, widget) {
-    console.log("Clicked show password");
     var elem = document.getElementsByClassName("login-password")
     if (Page.Variables.passTypeText.dataSet.dataValue === "password") {
         $(elem).attr({
@@ -49,8 +48,4 @@ Page.CheckEmailAvailableonSuccess = function(variable, data) {
 
 Page.sendEmailToUseronBeforeUpdate = function(variable, inputData, options) {
     inputData.emailMessage = "<p>Anda telah mencoba merubah kata sandi pada sistem ACC Hunter. Silahkan klik link dibawah ini untuk mengubah password.</p><p>http://209.97.175.242/ACC_Hunter_Web/#/ChangePassword?email=" + Page.Widgets.emailAddr.datavalue + "</p>";
-};
-
-Page.sendEmailToUseronSuccess = function(variable, data) {
-    console.log(data)
 };

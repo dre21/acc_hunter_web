@@ -48,6 +48,35 @@ public class QueryExecutionController {
     @Autowired
 	private ExportedFileManager exportedFileManager;
 
+    @RequestMapping(value = "/queries/GetTotalSkRequestedAdmin", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetTotalSkRequestedAdmin")
+    public Page<GetTotalSkRequestedAdminResponse> executeGetTotalSkRequestedAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetTotalSkRequestedAdmin");
+        Page<GetTotalSkRequestedAdminResponse> _result = queryService.executeGetTotalSkRequestedAdmin(role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetTotalSkRequestedAdmin, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetTotalSkRequestedAdmin")
+    @RequestMapping(value = "/queries/GetTotalSkRequestedAdmin/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetTotalSkRequestedAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetTotalSkRequestedAdmin");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetTotalSkRequestedAdmin";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetTotalSkRequestedAdmin(role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/insertNewEfficiencySK", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "insertNewEfficiencySK")
@@ -120,9 +149,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetNoAggrListLelang", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetNoAggrListLelang")
-    public Page<GetNoAggrListLelangResponse> executeGetNoAggrListLelang(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetNoAggrListLelangResponse> executeGetNoAggrListLelang(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetNoAggrListLelang");
-        Page<GetNoAggrListLelangResponse> _result = queryService.executeGetNoAggrListLelang(search, pageable);
+        Page<GetNoAggrListLelangResponse> _result = queryService.executeGetNoAggrListLelang(search, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetNoAggrListLelang, result:{}", _result);
         return _result;
     }
@@ -131,7 +160,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetNoAggrListLelang/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetNoAggrListLelang(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetNoAggrListLelang(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetNoAggrListLelang");
 
         String exportedFileName = exportOptions.getFileName();
@@ -141,7 +170,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetNoAggrListLelang(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetNoAggrListLelang(search, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -236,9 +265,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetReportsList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetReportsList")
-    public Page<GetReportsListResponse> executeGetReportsList(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetReportsListResponse> executeGetReportsList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetReportsList");
-        Page<GetReportsListResponse> _result = queryService.executeGetReportsList(search, pageable);
+        Page<GetReportsListResponse> _result = queryService.executeGetReportsList(role, branchId, search, pageable);
         LOGGER.debug("got the result for named query: GetReportsList, result:{}", _result);
         return _result;
     }
@@ -247,7 +276,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetReportsList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetReportsList(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetReportsList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetReportsList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -257,7 +286,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetReportsList(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetReportsList(role, branchId, search,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -265,9 +294,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetCountDashboardSK", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetCountDashboardSK")
-    public Page<GetCountDashboardSkResponse> executeGetCountDashboardSK(Pageable pageable, HttpServletRequest _request) {
+    public Page<GetCountDashboardSkResponse> executeGetCountDashboardSK(@RequestParam(value = "year") Integer year, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetCountDashboardSK");
-        Page<GetCountDashboardSkResponse> _result = queryService.executeGetCountDashboardSK(pageable);
+        Page<GetCountDashboardSkResponse> _result = queryService.executeGetCountDashboardSK(year, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetCountDashboardSK, result:{}", _result);
         return _result;
     }
@@ -276,7 +305,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetCountDashboardSK/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetCountDashboardSK(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetCountDashboardSK(@RequestParam(value = "year") Integer year, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetCountDashboardSK");
 
         String exportedFileName = exportOptions.getFileName();
@@ -286,7 +315,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetCountDashboardSK( exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetCountDashboardSK(year, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -409,6 +438,35 @@ public class QueryExecutionController {
         return new IntegerWrapper(_result);
     }
 
+    @RequestMapping(value = "/queries/GetActiveUsersAdmin", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetActiveUsersAdmin")
+    public Page<GetActiveUsersAdminResponse> executeGetActiveUsersAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetActiveUsersAdmin");
+        Page<GetActiveUsersAdminResponse> _result = queryService.executeGetActiveUsersAdmin(role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetActiveUsersAdmin, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetActiveUsersAdmin")
+    @RequestMapping(value = "/queries/GetActiveUsersAdmin/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetActiveUsersAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetActiveUsersAdmin");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetActiveUsersAdmin";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetActiveUsersAdmin(role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/DeleteMasterReward", method = RequestMethod.DELETE)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "DeleteMasterReward")
@@ -422,9 +480,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangTidakAktif", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetLelangTidakAktif")
-    public Page<GetLelangTidakAktifResponse> executeGetLelangTidakAktif(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetLelangTidakAktifResponse> executeGetLelangTidakAktif(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetLelangTidakAktif");
-        Page<GetLelangTidakAktifResponse> _result = queryService.executeGetLelangTidakAktif(search, pageable);
+        Page<GetLelangTidakAktifResponse> _result = queryService.executeGetLelangTidakAktif(role, branchId, search, pageable);
         LOGGER.debug("got the result for named query: GetLelangTidakAktif, result:{}", _result);
         return _result;
     }
@@ -433,7 +491,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangTidakAktif/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetLelangTidakAktif(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetLelangTidakAktif(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetLelangTidakAktif");
 
         String exportedFileName = exportOptions.getFileName();
@@ -443,7 +501,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetLelangTidakAktif(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetLelangTidakAktif(role, branchId, search,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -466,6 +524,35 @@ public class QueryExecutionController {
         Integer _result = queryService.executeUpdatePasswordQuery(updatePasswordQueryRequest);
         LOGGER.debug("got the result for named query: updatePasswordQuery, result:{}", _result);
         return new IntegerWrapper(_result);
+    }
+
+    @RequestMapping(value = "/queries/DashboardSuratKuasa", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "DashboardSuratKuasa")
+    public Page<DashboardSuratKuasaResponse> executeDashboardSuratKuasa(@RequestParam(value = "year") Integer year, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: DashboardSuratKuasa");
+        Page<DashboardSuratKuasaResponse> _result = queryService.executeDashboardSuratKuasa(year, role, branchId, pageable);
+        LOGGER.debug("got the result for named query: DashboardSuratKuasa, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query DashboardSuratKuasa")
+    @RequestMapping(value = "/queries/DashboardSuratKuasa/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportDashboardSuratKuasa(@RequestParam(value = "year") Integer year, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: DashboardSuratKuasa");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "DashboardSuratKuasa";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportDashboardSuratKuasa(year, role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
     }
 
     @RequestMapping(value = "/queries/GetAllListPesertaLelang", method = RequestMethod.GET)
@@ -594,6 +681,35 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/GetPEOJFRedeemRequestList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetPEOJFRedeemRequestList")
+    public Page<GetPeojfredeemRequestListResponse> executeGetPEOJFRedeemRequestList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetPEOJFRedeemRequestList");
+        Page<GetPeojfredeemRequestListResponse> _result = queryService.executeGetPEOJFRedeemRequestList(keyword, role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetPEOJFRedeemRequestList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetPEOJFRedeemRequestList")
+    @RequestMapping(value = "/queries/GetPEOJFRedeemRequestList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetPEOJFRedeemRequestList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetPEOJFRedeemRequestList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetPEOJFRedeemRequestList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetPEOJFRedeemRequestList(keyword, role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/insertNewEfficiencySKNoValue2", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "insertNewEfficiencySKNoValue2")
@@ -602,6 +718,35 @@ public class QueryExecutionController {
         Integer _result = queryService.executeInsertNewEfficiencySKNoValue2(insertNewEfficiencySknoValue2request);
         LOGGER.debug("got the result for named query: insertNewEfficiencySKNoValue2, result:{}", _result);
         return new IntegerWrapper(_result);
+    }
+
+    @RequestMapping(value = "/queries/GetInfRedeemHistoryList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetInfRedeemHistoryList")
+    public Page<GetInfRedeemHistoryListResponse> executeGetInfRedeemHistoryList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetInfRedeemHistoryList");
+        Page<GetInfRedeemHistoryListResponse> _result = queryService.executeGetInfRedeemHistoryList(keyword, role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetInfRedeemHistoryList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetInfRedeemHistoryList")
+    @RequestMapping(value = "/queries/GetInfRedeemHistoryList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetInfRedeemHistoryList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetInfRedeemHistoryList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetInfRedeemHistoryList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetInfRedeemHistoryList(keyword, role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
     }
 
     @RequestMapping(value = "/queries/updateRoleUsers", method = RequestMethod.PUT)
@@ -682,12 +827,41 @@ public class QueryExecutionController {
         return new IntegerWrapper(_result);
     }
 
+    @RequestMapping(value = "/queries/GetPEOJFRedeemHistoryList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetPEOJFRedeemHistoryList")
+    public Page<GetPeojfredeemHistoryListResponse> executeGetPEOJFRedeemHistoryList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetPEOJFRedeemHistoryList");
+        Page<GetPeojfredeemHistoryListResponse> _result = queryService.executeGetPEOJFRedeemHistoryList(keyword, role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetPEOJFRedeemHistoryList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetPEOJFRedeemHistoryList")
+    @RequestMapping(value = "/queries/GetPEOJFRedeemHistoryList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetPEOJFRedeemHistoryList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetPEOJFRedeemHistoryList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetPEOJFRedeemHistoryList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetPEOJFRedeemHistoryList(keyword, role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/GetSKRequestApprovedList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetSKRequestApprovedList")
-    public Page<GetSkrequestApprovedListResponse> executeGetSKRequestApprovedList(@RequestParam(value = "search") String search, @RequestParam(value = "select") String _select, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetSkrequestApprovedListResponse> executeGetSKRequestApprovedList(@RequestParam(value = "search") String search, @RequestParam(value = "select") String _select, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetSKRequestApprovedList");
-        Page<GetSkrequestApprovedListResponse> _result = queryService.executeGetSKRequestApprovedList(search, _select, pageable);
+        Page<GetSkrequestApprovedListResponse> _result = queryService.executeGetSKRequestApprovedList(search, _select, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetSKRequestApprovedList, result:{}", _result);
         return _result;
     }
@@ -696,7 +870,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestApprovedList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetSKRequestApprovedList(@RequestParam(value = "search") String search, @RequestParam(value = "select") String _select, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetSKRequestApprovedList(@RequestParam(value = "search") String search, @RequestParam(value = "select") String _select, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetSKRequestApprovedList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -706,7 +880,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetSKRequestApprovedList(search, _select,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetSKRequestApprovedList(search, _select, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -769,6 +943,35 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/GetInfRedeemRequestList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetInfRedeemRequestList")
+    public Page<GetInfRedeemRequestListResponse> executeGetInfRedeemRequestList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetInfRedeemRequestList");
+        Page<GetInfRedeemRequestListResponse> _result = queryService.executeGetInfRedeemRequestList(keyword, role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetInfRedeemRequestList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetInfRedeemRequestList")
+    @RequestMapping(value = "/queries/GetInfRedeemRequestList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetInfRedeemRequestList(@RequestParam(value = "keyword") String keyword, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetInfRedeemRequestList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetInfRedeemRequestList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetInfRedeemRequestList(keyword, role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/getInformanLeaderboards", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "getInformanLeaderboards")
@@ -801,9 +1004,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestPendingList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetSKRequestPendingList")
-    public Page<GetSkrequestPendingListResponse> executeGetSKRequestPendingList(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetSkrequestPendingListResponse> executeGetSKRequestPendingList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetSKRequestPendingList");
-        Page<GetSkrequestPendingListResponse> _result = queryService.executeGetSKRequestPendingList(search, pageable);
+        Page<GetSkrequestPendingListResponse> _result = queryService.executeGetSKRequestPendingList(search, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetSKRequestPendingList, result:{}", _result);
         return _result;
     }
@@ -812,7 +1015,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestPendingList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetSKRequestPendingList(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetSKRequestPendingList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetSKRequestPendingList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -822,7 +1025,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetSKRequestPendingList(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetSKRequestPendingList(search, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -830,9 +1033,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangSKDetailByIDLelangList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetLelangSKDetailByIDLelangList")
-    public Page<GetLelangSkdetailByIdlelangListResponse> executeGetLelangSKDetailByIDLelangList(@RequestParam(value = "lelangId") Integer lelangId, @RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetLelangSkdetailByIdlelangListResponse> executeGetLelangSKDetailByIDLelangList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "lelangId") Integer lelangId, @RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetLelangSKDetailByIDLelangList");
-        Page<GetLelangSkdetailByIdlelangListResponse> _result = queryService.executeGetLelangSKDetailByIDLelangList(lelangId, search, pageable);
+        Page<GetLelangSkdetailByIdlelangListResponse> _result = queryService.executeGetLelangSKDetailByIDLelangList(role, branchId, lelangId, search, pageable);
         LOGGER.debug("got the result for named query: GetLelangSKDetailByIDLelangList, result:{}", _result);
         return _result;
     }
@@ -841,7 +1044,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangSKDetailByIDLelangList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetLelangSKDetailByIDLelangList(@RequestParam(value = "lelangId") Integer lelangId, @RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetLelangSKDetailByIDLelangList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "lelangId") Integer lelangId, @RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetLelangSKDetailByIDLelangList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -851,7 +1054,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetLelangSKDetailByIDLelangList(lelangId, search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetLelangSKDetailByIDLelangList(role, branchId, lelangId, search,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -895,12 +1098,41 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/GetAreaList", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetAreaList")
+    public Page<GetAreaListResponse> executeGetAreaList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetAreaList");
+        Page<GetAreaListResponse> _result = queryService.executeGetAreaList(role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetAreaList, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetAreaList")
+    @RequestMapping(value = "/queries/GetAreaList/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetAreaList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetAreaList");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetAreaList";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetAreaList(role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/GetSayembaraList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetSayembaraList")
-    public Page<GetSayembaraListResponse> executeGetSayembaraList(Pageable pageable, HttpServletRequest _request) {
+    public Page<GetSayembaraListResponse> executeGetSayembaraList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetSayembaraList");
-        Page<GetSayembaraListResponse> _result = queryService.executeGetSayembaraList(pageable);
+        Page<GetSayembaraListResponse> _result = queryService.executeGetSayembaraList(role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetSayembaraList, result:{}", _result);
         return _result;
     }
@@ -909,7 +1141,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSayembaraList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetSayembaraList(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetSayembaraList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetSayembaraList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -919,7 +1151,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetSayembaraList( exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetSayembaraList(role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -927,9 +1159,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangAktif", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetLelangAktif")
-    public Page<GetLelangAktifResponse> executeGetLelangAktif(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetLelangAktifResponse> executeGetLelangAktif(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, @RequestParam(value = "select") String _select, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetLelangAktif");
-        Page<GetLelangAktifResponse> _result = queryService.executeGetLelangAktif(search, pageable);
+        Page<GetLelangAktifResponse> _result = queryService.executeGetLelangAktif(role, branchId, search, _select, pageable);
         LOGGER.debug("got the result for named query: GetLelangAktif, result:{}", _result);
         return _result;
     }
@@ -938,7 +1170,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangAktif/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetLelangAktif(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetLelangAktif(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, @RequestParam(value = "select") String _select, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetLelangAktif");
 
         String exportedFileName = exportOptions.getFileName();
@@ -948,7 +1180,36 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetLelangAktif(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetLelangAktif(role, branchId, search, _select,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/GetJumlahSubmitInformationAdmin", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetJumlahSubmitInformationAdmin")
+    public Page<GetJumlahSubmitInformationAdminResponse> executeGetJumlahSubmitInformationAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetJumlahSubmitInformationAdmin");
+        Page<GetJumlahSubmitInformationAdminResponse> _result = queryService.executeGetJumlahSubmitInformationAdmin(role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetJumlahSubmitInformationAdmin, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetJumlahSubmitInformationAdmin")
+    @RequestMapping(value = "/queries/GetJumlahSubmitInformationAdmin/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetJumlahSubmitInformationAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetJumlahSubmitInformationAdmin");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetJumlahSubmitInformationAdmin";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetJumlahSubmitInformationAdmin(role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -956,9 +1217,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetPilihWinnerSKList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetPilihWinnerSKList")
-    public Page<GetPilihWinnerSklistResponse> executeGetPilihWinnerSKList(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetPilihWinnerSklistResponse> executeGetPilihWinnerSKList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetPilihWinnerSKList");
-        Page<GetPilihWinnerSklistResponse> _result = queryService.executeGetPilihWinnerSKList(search, pageable);
+        Page<GetPilihWinnerSklistResponse> _result = queryService.executeGetPilihWinnerSKList(role, branchId, search, pageable);
         LOGGER.debug("got the result for named query: GetPilihWinnerSKList, result:{}", _result);
         return _result;
     }
@@ -967,7 +1228,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetPilihWinnerSKList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetPilihWinnerSKList(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetPilihWinnerSKList(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetPilihWinnerSKList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -977,7 +1238,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetPilihWinnerSKList(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetPilihWinnerSKList(role, branchId, search,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -1102,9 +1363,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetLelangList")
-    public Page<GetLelangListResponse> executeGetLelangList(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetLelangListResponse> executeGetLelangList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetLelangList");
-        Page<GetLelangListResponse> _result = queryService.executeGetLelangList(search, pageable);
+        Page<GetLelangListResponse> _result = queryService.executeGetLelangList(search, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetLelangList, result:{}", _result);
         return _result;
     }
@@ -1113,7 +1374,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetLelangList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetLelangList(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetLelangList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetLelangList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -1123,7 +1384,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetLelangList(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetLelangList(search, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -1283,6 +1544,35 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/GetMapListAdmin", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "GetMapListAdmin")
+    public Page<GetMapListAdminResponse> executeGetMapListAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: GetMapListAdmin");
+        Page<GetMapListAdminResponse> _result = queryService.executeGetMapListAdmin(role, branchId, pageable);
+        LOGGER.debug("got the result for named query: GetMapListAdmin, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query GetMapListAdmin")
+    @RequestMapping(value = "/queries/GetMapListAdmin/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
+    public StringWrapper exportGetMapListAdmin(@RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: GetMapListAdmin");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "GetMapListAdmin";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportGetMapListAdmin(role, branchId,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/getLelangSKTidakAktif", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "A query to retrieve all inactive SK which either already have a winner or the end date have expired")
@@ -1335,9 +1625,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestPerpanjangApprovedList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetSKRequestPerpanjangApprovedList")
-    public Page<GetSkrequestPerpanjangApprovedListResponse> executeGetSKRequestPerpanjangApprovedList(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetSkrequestPerpanjangApprovedListResponse> executeGetSKRequestPerpanjangApprovedList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetSKRequestPerpanjangApprovedList");
-        Page<GetSkrequestPerpanjangApprovedListResponse> _result = queryService.executeGetSKRequestPerpanjangApprovedList(search, pageable);
+        Page<GetSkrequestPerpanjangApprovedListResponse> _result = queryService.executeGetSKRequestPerpanjangApprovedList(search, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetSKRequestPerpanjangApprovedList, result:{}", _result);
         return _result;
     }
@@ -1346,7 +1636,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestPerpanjangApprovedList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetSKRequestPerpanjangApprovedList(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetSKRequestPerpanjangApprovedList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetSKRequestPerpanjangApprovedList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -1356,7 +1646,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetSKRequestPerpanjangApprovedList(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetSKRequestPerpanjangApprovedList(search, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }
@@ -1451,9 +1741,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestPerpanjangPendingList", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "GetSKRequestPerpanjangPendingList")
-    public Page<GetSkrequestPerpanjangPendingListResponse> executeGetSKRequestPerpanjangPendingList(@RequestParam(value = "search") String search, Pageable pageable, HttpServletRequest _request) {
+    public Page<GetSkrequestPerpanjangPendingListResponse> executeGetSKRequestPerpanjangPendingList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: GetSKRequestPerpanjangPendingList");
-        Page<GetSkrequestPerpanjangPendingListResponse> _result = queryService.executeGetSKRequestPerpanjangPendingList(search, pageable);
+        Page<GetSkrequestPerpanjangPendingListResponse> _result = queryService.executeGetSKRequestPerpanjangPendingList(search, role, branchId, pageable);
         LOGGER.debug("got the result for named query: GetSKRequestPerpanjangPendingList, result:{}", _result);
         return _result;
     }
@@ -1462,7 +1752,7 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/GetSKRequestPerpanjangPendingList/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @XssDisable
-    public StringWrapper exportGetSKRequestPerpanjangPendingList(@RequestParam(value = "search") String search, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportGetSKRequestPerpanjangPendingList(@RequestParam(value = "search") String search, @RequestParam(value = "role") String role, @RequestParam(value = "branch_id") String branchId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: GetSKRequestPerpanjangPendingList");
 
         String exportedFileName = exportOptions.getFileName();
@@ -1472,7 +1762,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportGetSKRequestPerpanjangPendingList(search,  exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportGetSKRequestPerpanjangPendingList(search, role, branchId,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }

@@ -13,7 +13,7 @@
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.getUsersBranch.firstRecord.fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -30,10 +30,13 @@
                     <wm-gridcolumn columnwidth="11" name="gridcolumn18_2">
                         <wm-label name="peojf" id="peojf" caption="PEOJF" class="point-menu" color="#A7A7A7" on-click="peojfClick($event, widget)" show="false"></wm-label>
                         <wm-label padding="unset 0.5em unset 1em" id="informan" name="informan" caption="Informan" class="point-menu" color="#A7A7A7" on-click="informanClick($event, widget)" show="false"></wm-label>
-                        <wm-label padding="unset 1em unset 0em" id="rewardMaster" caption="Reward Master List" class="point-menu clicked" color="#A7A7A7" on-click="rewardMasterClick($event, widget)" name="rewardMaster" show="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;ADMIN&quot; || Variables.loggedInUser.dataSet.roles[0]==&quot;SUPER ADMIN&quot;"></wm-label>
-                        <wm-label id="rewardConfiguration" caption="Reward Configuration" class="point-menu" color="#A7A7A7" name="rewardConfiguration" on-click="rewardConfigurationClick($event, widget)" padding="unset 1em unset unset" show="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;ADMIN&quot; || Variables.loggedInUser.dataSet.roles[0]==&quot;SUPER ADMIN&quot;"></wm-label>
-                        <wm-label id="redeemRequest" caption="Redeem Request" class="point-menu" color="#A7A7A7" name="redeemRequest" on-click="redeemRequestClick($event, widget)" padding="unset 1em unset unset" conditionalclass="bind:(Variables.loggedInUser.dataSet.roles[0]==&quot;REMO HEAD&quot;)? &quot;point-menu clicked&quot; : &quot;point-menu&quot;"></wm-label>
-                        <wm-label id="redeemHistory" caption="Redeem History" class="point-menu" color="#A7A7A7" on-click="redeemHistoryClick($event, widget)" padding="unset 1em unset unset" name="redeemHistory"></wm-label>
+                        <wm-label padding="unset 1em unset 0em" id="rewardMaster" caption="Reward Master List" class="point-menu clicked" color="#A7A7A7" on-click="rewardMasterClick($event, widget)" name="rewardMaster" show="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;ADMIN&quot; || Variables.loggedInUser.dataSet.roles[0]==&quot;SUPER ADMIN&quot;"
+                            accessroles="ADMIN,SUPER ADMIN"></wm-label>
+                        <wm-label id="rewardConfiguration" caption="Reward Configuration" class="point-menu" color="#A7A7A7" name="rewardConfiguration" on-click="rewardConfigurationClick($event, widget)" padding="unset 1em unset unset" show="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;ADMIN&quot; || Variables.loggedInUser.dataSet.roles[0]==&quot;SUPER ADMIN&quot;"
+                            accessroles="ADMIN,SUPER ADMIN"></wm-label>
+                        <wm-label id="redeemRequest" caption="Redeem Request" class="point-menu" color="#A7A7A7" name="redeemRequest" on-click="redeemRequestClick($event, widget)" padding="unset 1em unset unset" conditionalclass="bind:(Variables.loggedInUser.dataSet.roles[0]==&quot;REMO HEAD&quot;)? &quot;point-menu clicked&quot; : &quot;point-menu&quot;"
+                            accessroles="ADMIN,REMO HEAD,REMO STAFF,SUPER ADMIN"></wm-label>
+                        <wm-label id="redeemHistory" caption="Redeem History" class="point-menu" color="#A7A7A7" on-click="redeemHistoryClick($event, widget)" padding="unset 1em unset unset" name="redeemHistory" accessroles="ADMIN,REMO HEAD,REMO STAFF,SUPER ADMIN"></wm-label>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="1" name="gridcolumn62"></wm-gridcolumn>
                 </wm-gridrow>
@@ -238,7 +241,7 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow22">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn47">
-                        <wm-container name="rewardsContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%">
+                        <wm-container name="rewardsContainer" class="informan-cont" backgroundcolor="#ffffff" padding="5%" width="100%" accessroles="ADMIN,SUPER ADMIN">
                             <wm-layoutgrid name="layoutgrid8">
                                 <wm-gridrow name="gridrow23" padding="unset unset 48px unset">
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn48"></wm-gridcolumn>
@@ -303,7 +306,7 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow30">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn63">
-                        <wm-container name="configContainer" width="100%" padding="5%" backgroundcolor="#ffffff" class="informan-cont">
+                        <wm-container name="configContainer" width="100%" padding="5%" backgroundcolor="#ffffff" class="informan-cont" accessroles="ADMIN,SUPER ADMIN">
                             <wm-layoutgrid name="layoutgrid11">
                                 <wm-gridrow name="gridrow31" padding="unset unset 48px unset">
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn64"></wm-gridcolumn>
@@ -372,7 +375,7 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow45">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn90">
-                        <wm-container name="redeemRequestContainer" width="100%" class="informan-cont" backgroundcolor="#ffffff" padding="5%">
+                        <wm-container name="redeemRequestContainer" width="100%" class="informan-cont" backgroundcolor="#ffffff" padding="5%" accessroles="ADMIN,REMO HEAD,REMO STAFF,SUPER ADMIN">
                             <wm-layoutgrid name="layoutgrid19">
                                 <wm-gridrow name="gridrow46" padding="unset unset 48px unset">
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn91_1">
@@ -380,7 +383,7 @@
                                         <wm-label padding="1em 0.5em unset 0.5em" id="peojfRedeem" caption="PEOJF" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" name="peojfRedeem" on-click="peojfRedeemClick($event, widget)"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn92">
-                                        <wm-text placeholder="Search By Email" class="text-search" name="searchReq"></wm-text>
+                                        <wm-text placeholder="Search By Email" class="text-search" name="searchReq" on-change="searchReqChange($event, widget, newVal, oldVal)"></wm-text>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                                 <wm-gridrow name="gridrow50">
@@ -406,22 +409,22 @@
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow52">
                                                     <wm-gridcolumn columnwidth="12" name="gridcolumn108">
-                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RedeemRequestList1" dataset="bind:Variables.getInfRedeemRequest.dataSet"
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RedeemRequestList1" dataset="bind:Variables.GetInfRedeemRequestList.dataSet"
                                                             navigation="Basic">
                                                             <wm-listtemplate layout="inline" name="listtemplate7">
                                                                 <wm-layoutgrid name="layoutgrid20">
                                                                     <wm-gridrow name="gridrow49">
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn99">
-                                                                            <wm-label padding="unset 0.5em unset unset" name="label73" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].users.fullName"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" name="label73" caption="bind:Variables.GetInfRedeemRequestList.dataSet[$i].fullName"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn103">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].users.email" name="label73_1"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetInfRedeemRequestList.dataSet[$i].email" name="label73_1"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn104">
-                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].rewardConfig.masterReward.name" name="label74"></wm-label>
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetInfRedeemRequestList.dataSet[$i].name" name="label74"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn105">
-                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getInfRedeemRequest.dataSet[$i].rewardConfig.point" name="label75"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetInfRedeemRequestList.dataSet[$i].point" name="label75"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn100">
                                                                             <wm-label padding="unset 1em 1em 1.25em" name="label76" caption="Confirm" color="#363636" fontsize="13" on-click="Widgets.updateInfFlagRedeem.open()" fontweight="bold"></wm-label>
@@ -459,22 +462,22 @@
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow54">
                                                     <wm-gridcolumn columnwidth="12" name="gridcolumn115">
-                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RedeemRequestList1_1" dataset="bind:Variables.getPeojfRedeemRequest.dataSet"
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RedeemRequestList1_1" dataset="bind:Variables.GetPEOJFRedeemRequestList.dataSet"
                                                             navigation="Basic">
                                                             <wm-listtemplate layout="inline" name="listtemplate8">
                                                                 <wm-layoutgrid name="layoutgrid23">
                                                                     <wm-gridrow name="gridrow54_1">
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn112_1">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].users.fullName" name="label83"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetPEOJFRedeemRequestList.dataSet[$i].fullName" name="label83"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn113_1">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].users.email" name="label84"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetPEOJFRedeemRequestList.dataSet[$i].email" name="label84"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn114_1">
-                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].rewardConfig.masterReward.name" name="label85"></wm-label>
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetPEOJFRedeemRequestList.dataSet[$i].name" name="label85"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn115_1">
-                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getPeojfRedeemRequest.dataSet[$i].rewardConfig.point" name="label86"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetPEOJFRedeemRequestList.dataSet[$i].point" name="label86"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn116">
                                                                             <wm-label padding="unset 1em 1em 1.25em" caption="Confirm" color="#363636" fontsize="13" name="label87" on-click="Widgets.updatePeojfFlagRedeem.open()" fontweight="bold"></wm-label>
@@ -495,7 +498,7 @@
                 </wm-gridrow>
                 <wm-gridrow name="gridrow55">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn117_1">
-                        <wm-container name="redeemHistoryContainer" padding="5%" backgroundcolor="#ffffff">
+                        <wm-container name="redeemHistoryContainer" padding="5%" backgroundcolor="#ffffff" accessroles="ADMIN,REMO HEAD,REMO STAFF,SUPER ADMIN">
                             <wm-layoutgrid name="layoutgrid24">
                                 <wm-gridrow name="gridrow56" padding="unset unset 48px unset">
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn118_1">
@@ -503,7 +506,7 @@
                                         <wm-label padding="1em 0.5em unset 0.5em" id="peojfHistory" caption="PEOJF" fontsize="16" color="#A7A7A7" class="point-menu" fontfamily="Nunito" on-click="peojfHistoryClick($event, widget)" name="peojfHistory"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn119_1">
-                                        <wm-text placeholder="Search By Email" class="text-search" name="searchHis"></wm-text>
+                                        <wm-text placeholder="Search By Email" class="text-search" name="searchHis" on-change="searchHisChange($event, widget, newVal, oldVal)"></wm-text>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                                 <wm-gridrow name="gridrow57">
@@ -529,26 +532,26 @@
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow59">
                                                     <wm-gridcolumn columnwidth="12" name="gridcolumn127">
-                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.getInfHistory.dataSet"
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.GetInfRedeemHistoryList.dataSet"
                                                             navigation="Basic" name="list9">
                                                             <wm-listtemplate layout="inline" name="listtemplate9">
                                                                 <wm-layoutgrid name="layoutgrid26">
                                                                     <wm-gridrow name="gridrow60">
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn128">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfHistory.dataSet[$i].users.fullName" name="label95"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetInfRedeemHistoryList.dataSet[$i].fullName" name="label95"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn129">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfHistory.dataSet[$i].users.email" name="label96"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetInfRedeemHistoryList.dataSet[$i].email" name="label96"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn130">
-                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getInfHistory.dataSet[$i].rewardConfig.masterReward.name" name="label97"></wm-label>
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetInfRedeemHistoryList.dataSet[$i].name" name="label97"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn131">
-                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getInfHistory.dataSet[$i].rewardConfig.point" name="label98"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetInfRedeemHistoryList.dataSet[$i].point" name="label98"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn132">
-                                                                            <wm-datetime name="datetime1" datavalue="bind:Variables.getInfHistory.dataSet[$i].confirmedAt" width="100%" margin="-0.75em unset unset 0.5em" showweeks="false" readonly="false" outputformat="timestamp"
-                                                                                disabled="true" class="date-conf"></wm-datetime>
+                                                                            <wm-datetime name="datetime1" datavalue="bind:Variables.GetInfRedeemHistoryList.dataSet[$i].confirmedAt | toDate: 'dd-MMM-yyyy HH:mm:ss'" width="100%" margin="-0.75em unset unset 0.5em"
+                                                                                showweeks="false" readonly="false" outputformat="timestamp" disabled="true" class="date-conf"></wm-datetime>
                                                                         </wm-gridcolumn>
                                                                     </wm-gridrow>
                                                                 </wm-layoutgrid>
@@ -583,26 +586,26 @@
                                                 </wm-gridrow>
                                                 <wm-gridrow name="gridrow63">
                                                     <wm-gridcolumn columnwidth="12" name="gridcolumn138">
-                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.getPeojfHistory.dataSet"
+                                                        <wm-list listclass="list-group" itemclass="list-group-item item-config" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" dataset="bind:Variables.GetPEOJFRedeemHistoryList.dataSet"
                                                             navigation="Basic" name="list10">
                                                             <wm-listtemplate layout="inline" name="listtemplate10">
                                                                 <wm-layoutgrid name="layoutgrid28">
                                                                     <wm-gridrow name="gridrow64">
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn139">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getPeojfHistory.dataSet[$i].users.fullName" name="label105"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetPEOJFRedeemHistoryList.dataSet[$i].fullName" name="label105"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn140">
-                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.getInfHistory.dataSet[$i].users.email" name="label106"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset unset" caption="bind:Variables.GetPEOJFRedeemHistoryList.dataSet[$i].email" name="label106"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn141">
-                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.getPeojfHistory.dataSet[$i].rewardConfig.masterReward.name" name="label107"></wm-label>
+                                                                            <wm-label padding="unset 0.5em" caption="bind:Variables.GetPEOJFRedeemHistoryList.dataSet[$i].name" name="label107"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="2" name="gridcolumn142">
-                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.getPeojfHistory.dataSet[$i].rewardConfig.point" name="label108"></wm-label>
+                                                                            <wm-label padding="unset 0.5em unset 1em" caption="bind:Variables.GetPEOJFRedeemHistoryList.dataSet[$i].point" name="label108"></wm-label>
                                                                         </wm-gridcolumn>
                                                                         <wm-gridcolumn columnwidth="3" name="gridcolumn143">
-                                                                            <wm-datetime datavalue="bind:Variables.getPeojfHistory.dataSet[$i].confirmedAt" width="100%" margin="-0.75em unset unset 0.5em" showweeks="false" readonly="true" name="datetime2"
-                                                                                disabled="false"></wm-datetime>
+                                                                            <wm-datetime datavalue="bind:Variables.GetPEOJFRedeemHistoryList.dataSet[$i].confirmedAt  | toDate: 'dd-MMM-yyyy HH:mm:ss'" width="100%" margin="-0.75em unset unset 0.5em" showweeks="false"
+                                                                                readonly="true" name="datetime2" disabled="false"></wm-datetime>
                                                                         </wm-gridcolumn>
                                                                     </wm-gridrow>
                                                                 </wm-layoutgrid>
@@ -638,8 +641,8 @@
             </wm-gridrow>
             <wm-gridrow name="gridrow28_1" padding="unset unset 2em unset">
                 <wm-gridcolumn columnwidth="6" name="gridcolumn59_1" padding="unset 3%">
-                    <wm-fileupload name="fileupload1" on-select="Variables.FileServiceUploadFile1.invoke()" width="108px" height="108px" backgroundimage="resources/images/imagelists/addImage.svg" backgroundrepeat="no-repeat" backgroundposition="0,1em" caption=""
-                        iconclass="" contenttype=".jpeg .jpg .png" maxfilesize="5"></wm-fileupload>
+                    <wm-fileupload name="fileupload1" on-select="Variables.FileServiceUploadFile1.invoke();fileupload1Select($event, widget, selectedFiles)" width="108px" height="108px" backgroundimage="resources/images/imagelists/addImage.svg" backgroundrepeat="no-repeat"
+                        backgroundposition="0,1em" caption="" iconclass="" contenttype=".jpeg .jpg .png" maxfilesize="5"></wm-fileupload>
                 </wm-gridcolumn>
                 <wm-gridcolumn columnwidth="6" name="gridcolumn60_1">
                     <wm-list listclass="list-group image-list" itemclass="list-group-item item-image" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="imageListList1" dataset="bind:Variables.imageList.dataSet"
@@ -829,10 +832,10 @@
             </wm-gridrow>
             <wm-gridrow name="gridrow68">
                 <wm-gridcolumn columnwidth="6" name="gridcolumn148">
-                    <wm-text class="input" color="#565656" placeholder="" type="text" name="text7" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.users.fullName"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="text" name="text7" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.fullName"></wm-text>
                 </wm-gridcolumn>
                 <wm-gridcolumn columnwidth="6" name="gridcolumn149">
-                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" name="text8" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.users.email"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" name="text8" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.email"></wm-text>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow name="gridrow69" padding="1em unset unset unset">
@@ -863,10 +866,10 @@
             </wm-gridrow>
             <wm-gridrow name="gridrow73">
                 <wm-gridcolumn columnwidth="6" name="gridcolumn158">
-                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.rewardConfig.masterReward.name" name="text10"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.name" name="text10"></wm-text>
                 </wm-gridcolumn>
                 <wm-gridcolumn columnwidth="6" name="gridcolumn159">
-                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.rewardConfig.point" name="text11"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1.selecteditem.point" name="text11"></wm-text>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow name="gridrow74" padding="1em unset unset unset">
@@ -908,10 +911,10 @@
             </wm-gridrow>
             <wm-gridrow name="gridrow78">
                 <wm-gridcolumn columnwidth="6" name="gridcolumn167">
-                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.users.fullName" name="text13"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.fullName" name="text13"></wm-text>
                 </wm-gridcolumn>
                 <wm-gridcolumn columnwidth="6" name="gridcolumn168">
-                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.users.email" name="text14"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.email" name="text14"></wm-text>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow padding="1em unset unset unset" name="gridrow79">
@@ -942,10 +945,10 @@
             </wm-gridrow>
             <wm-gridrow name="gridrow83">
                 <wm-gridcolumn columnwidth="6" name="gridcolumn177">
-                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.rewardConfig.masterReward.name" name="text16"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="text" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.name" name="text16"></wm-text>
                 </wm-gridcolumn>
                 <wm-gridcolumn columnwidth="6" name="gridcolumn178">
-                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.rewardConfig.point" name="text17"></wm-text>
+                    <wm-text class="input" color="#565656" placeholder="" type="number" width="90%" disabled="true" datavalue="bind:Widgets.RedeemRequestList1_1.selecteditem.point" name="text17"></wm-text>
                 </wm-gridcolumn>
             </wm-gridrow>
             <wm-gridrow padding="1em unset unset unset" name="gridrow84">

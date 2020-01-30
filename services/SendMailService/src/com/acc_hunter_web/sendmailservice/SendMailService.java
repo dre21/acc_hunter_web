@@ -61,17 +61,17 @@ public class SendMailService {
     // @Value("${app.environment.username}") private String username;
     // @Value("${app.environment.password}") private String password;
     
-    // private String host = "smtp.gmail.com";
-    // private String port = "587";
-    // private String username="acchunter2019@gmail.com";
-    // private String password="ACCHunter2019";
-    // private String fromEmailAddress = "acchunter2019@gmail.com";
+    private String host = "smtp.gmail.com";
+    private String port = "587";
+    private String username="acchunter2019@gmail.com";
+    private String password="ACCHunter2019";
+    private String fromEmailAddress = "acchunter2019@gmail.com";
     
-    private String host = "smail.acc.co.id";
-    private String port = "465";
-    private String username = "hunter_noreply@acc.co.id";
-    private String password = "Hunter2019#!";
-    private String fromEmailAddress = "hunter_noreply@acc.co.id";
+    // private String host = "smail.acc.co.id";
+    // private String port = "465";
+    // private String username = "hunter_noreply@acc.co.id";
+    // private String password = "Hunter2019#!";
+    // private String fromEmailAddress = "hunter_noreply@acc.co.id";
     
     @PostConstruct
     public void init() throws Exception {
@@ -104,12 +104,12 @@ public class SendMailService {
             props.put("mail.smtp.host", host);
             props.put("mail.smtp.user", username);
             props.put("mail.smtp.password", password);
-            props.put("mail.smtp.port", 465);
+            props.put("mail.smtp.port", 587);
             props.put("mail.smtp.auth", "true");
             Session session = Session.getDefaultInstance(props);
              
              Transport tr = session.getTransport("smtp");
-             tr.connect(host, 465, username, password);
+             tr.connect(host, 587, username, password);
              String[] listemails = toEmailAddress.split(",");
              
              for (int i = 0; i < listemails.length; i++) {

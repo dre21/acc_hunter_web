@@ -70,6 +70,7 @@ public class Users implements Serializable {
     private String rekeningPhoto;
     private String displayPicture;
     private String cdPool;
+    private Date dateAdded;
     private MasterArea masterArea;
     private Roles roles;
     private UserCategories userCategories;
@@ -382,6 +383,15 @@ public class Users implements Serializable {
 
     public void setCdPool(String cdPool) {
         this.cdPool = cdPool;
+    }
+
+    @Column(name = "`date_added`", nullable = true)
+    public Date getDateAdded() {
+        return this.dateAdded;
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

@@ -36,8 +36,6 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.Appointments;
 import com.acc_hunter_web.acc_hunter.RedeemRequest;
-import com.acc_hunter_web.acc_hunter.Sayembara;
-import com.acc_hunter_web.acc_hunter.SkRequests;
 import com.acc_hunter_web.acc_hunter.UserRequestUpgrades;
 import com.acc_hunter_web.acc_hunter.Users;
 
@@ -67,16 +65,6 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     @Qualifier("acc_hunter.AppointmentsService")
     private AppointmentsService appointmentsService;
-
-    @Lazy
-    @Autowired
-    @Qualifier("acc_hunter.SayembaraService")
-    private SayembaraService sayembaraService;
-
-    @Lazy
-    @Autowired
-    @Qualifier("acc_hunter.SkRequestsService")
-    private SkRequestsService skRequestsService;
 
     @Autowired
     @Qualifier("acc_hunter.UsersDao")
@@ -262,28 +250,6 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
     @Override
-    public Page<Sayembara> findAssociatedSayembaras(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated sayembaras");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("users.id = '" + id + "'");
-
-        return sayembaraService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
-    @Override
-    public Page<SkRequests> findAssociatedSkRequestses(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated skRequestses");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("users.id = '" + id + "'");
-
-        return skRequestsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
-    @Override
     public Page<UserRequestUpgrades> findAssociatedUserRequestUpgradeses(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated userRequestUpgradeses");
 
@@ -329,24 +295,6 @@ public class UsersServiceImpl implements UsersService {
      */
     protected void setAppointmentsService(AppointmentsService service) {
         this.appointmentsService = service;
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service SayembaraService instance
-     */
-    protected void setSayembaraService(SayembaraService service) {
-        this.sayembaraService = service;
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service SkRequestsService instance
-     */
-    protected void setSkRequestsService(SkRequestsService service) {
-        this.skRequestsService = service;
     }
 
 }

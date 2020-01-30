@@ -202,7 +202,6 @@ Page.getInformanLeaderboardsonBeforeUpdate = function(variable, inputData, optio
 };
 
 Page.getMitraLeaderboardsonBeforeUpdate = function(variable, inputData, options) {
-    console.log(inputData);
     if (inputData.startDate != "" && inputData.endDate != "") {
         var date2 = new Date(inputData.endDate);
         var date1 = new Date(inputData.startDate);
@@ -225,11 +224,9 @@ Page.getMitraLeaderboardsonBeforeUpdate = function(variable, inputData, options)
     if (inputData.badgeType == null || inputData.badgeType == "") {
         inputData.badgeType = "default"
     }
-    console.log(inputData)
 };
 
 Page.FileServiceUploadFile1onSuccess = function(variable, data) {
-    console.log(data);
     $('.file-upload').remove();
     Page.Variables.imageList.removeItem(0);
     for (var i = 0; i < data.length; i++) {
@@ -239,7 +236,6 @@ Page.FileServiceUploadFile1onSuccess = function(variable, data) {
             thumbnailUrlVal: data[i].inlinePath
         });
     }
-    console.log(Page.Variables.imageList.dataSet)
 };
 Page.FileServiceUploadFileonSuccess = function(variable, data) {
     $('.file-upload').remove();
@@ -251,7 +247,6 @@ Page.FileServiceUploadFileonSuccess = function(variable, data) {
             thumbnailUrlVal: data[i].inlinePath
         });
     }
-    console.log(Page.Variables.imageList.dataSet)
 };
 
 Page.resetImageClick = function($event, widget) {
@@ -259,12 +254,10 @@ Page.resetImageClick = function($event, widget) {
 };
 
 Page.MasterRewardList1Select = function(widget, $data) {
-    console.log($data)
     Page.Variables.imageList.removeItem(0);
     Page.Variables.imageList.addItem({
         dataValue: $data.picReward
     })
-    console.log(Page.Variables.imageList.dataSet)
 };
 
 Page.addRewardDialogClose = function($event, widget) {
@@ -277,12 +270,10 @@ Page.editRewardClose = function($event, widget) {
 //#####INSERT ON BEFORE######//
 Page.insMasterRewardonBeforeInsertRecord = function(variable, inputData, options) {
     inputData.createdAt = new Date();
-    console.log(inputData)
 };
 
 Page.insRewardConfigonBeforeInsertRecord = function(variable, inputData, options) {
     inputData.createdAt = new Date();
-    console.log(inputData)
 };
 
 
@@ -400,7 +391,6 @@ Page.button5Click = function($event, widget) {
 
 Page.updInfFlagRedeemonBeforeUpdate = function(variable, inputData, options) {
     inputData.date_confirm = new Date();
-    console.log(inputData)
 };
 Page.updPeojfFlagRedeemonBeforeUpdate = function(variable, inputData, options) {
     inputData.date_confirm = new Date();
@@ -418,4 +408,19 @@ Page.insNotificationPeojfonBeforeInsertRecord = function(variable, inputData, op
 };
 Page.insNotificationInfonBeforeInsertRecord = function(variable, inputData, options) {
     inputData.createdAt = new Date();
+};
+
+
+Page.fileupload1Select = function($event, widget, selectedFiles) {
+    var reader = new FileReader();
+    reader.readAsDataURL(selectedFiles[0]);
+};
+
+Page.searchReqChange = function($event, widget, newVal, oldVal) {
+    Page.Variables.GetInfRedeemRequestList.invoke();
+    Page.Variables.GetPEOJFRedeemRequestList.invoke();
+};
+Page.searchHisChange = function($event, widget, newVal, oldVal) {
+    Page.Variables.GetInfRedeemHistoryList.invoke();
+    Page.Variables.GetPEOJFRedeemHistoryList.invoke();
 };

@@ -99,6 +99,9 @@
     "table" : "otp",
     "schema" : "public"
   }, {
+    "table" : "otp_bast",
+    "schema" : "public"
+  }, {
     "table" : "payment_schedule",
     "schema" : "public"
   }, {
@@ -123,13 +126,7 @@
     "table" : "roles",
     "schema" : "public"
   }, {
-    "table" : "sayembara",
-    "schema" : "public"
-  }, {
     "table" : "sk_request_and_sayembara",
-    "schema" : "public"
-  }, {
-    "table" : "sk_requests",
     "schema" : "public"
   }, {
     "table" : "user_bank_info",

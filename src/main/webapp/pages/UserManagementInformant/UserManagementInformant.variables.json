@@ -174,6 +174,18 @@
           "isRelated" : false,
           "defaultValue" : "",
           "scale" : 0
+        }, {
+          "fieldName" : "dateAdded",
+          "type" : "date",
+          "fullyQualifiedType" : "date",
+          "columnName" : "date_added",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
         } ]
       }, {
         "fieldName" : "roles",
@@ -660,6 +672,90 @@
         "generator" : "assigned",
         "isRelated" : false,
         "defaultValue" : "true",
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningBank",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "rekening_bank",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningNo",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "rekening_no",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "rekening_name",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "rekeningPhoto",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "rekening_photo",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "displayPicture",
+        "type" : "text",
+        "fullyQualifiedType" : "text",
+        "columnName" : "display_picture",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 2147483647,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "cdPool",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "cd_pool",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateAdded",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "date_added",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
         "scale" : 0
       } ],
       "entityName" : "Users",

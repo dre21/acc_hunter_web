@@ -36,7 +36,6 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
 import com.acc_hunter_web.acc_hunter.Reports;
-import com.acc_hunter_web.acc_hunter.Sayembara;
 import com.acc_hunter_web.acc_hunter.Vehicles;
 import com.acc_hunter_web.acc_hunter.service.VehiclesService;
 
@@ -187,15 +186,6 @@ public class VehiclesController {
 	public Page<Map<String, Object>> getVehiclesAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return vehiclesService.getAggregatedValues(aggregationInfo, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/sayembaras", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the sayembaras instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Sayembara> findAssociatedSayembaras(@PathVariable("id") String id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated sayembaras");
-        return vehiclesService.findAssociatedSayembaras(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/reportses", method=RequestMethod.GET)

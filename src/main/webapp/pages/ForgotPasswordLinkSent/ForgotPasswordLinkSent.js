@@ -17,8 +17,6 @@ Page.onReady = function() {
 };
 
 Page.resetPassButtonClick = function($event, widget) {
-    console.log("Reset password clicked");
-    console.log("Set new generated password ");
     Page.Variables.serviceUpdPass.setInput("email", Page.Widgets.emailAddress.datavalue);
     Page.Variables.serviceUpdPass.setInput("pwd", Page.Widgets.emailAddress.datavalue);
 };

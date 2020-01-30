@@ -37,8 +37,6 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.acc_hunter_web.acc_hunter.Appointments;
 import com.acc_hunter_web.acc_hunter.RedeemRequest;
-import com.acc_hunter_web.acc_hunter.Sayembara;
-import com.acc_hunter_web.acc_hunter.SkRequests;
 import com.acc_hunter_web.acc_hunter.UserRequestUpgrades;
 import com.acc_hunter_web.acc_hunter.Users;
 import com.acc_hunter_web.acc_hunter.service.UsersService;
@@ -223,24 +221,6 @@ public class UsersController {
 
         LOGGER.debug("Fetching all associated appointmentses");
         return usersService.findAssociatedAppointmentses(id, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/sayembaras", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the sayembaras instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Sayembara> findAssociatedSayembaras(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated sayembaras");
-        return usersService.findAssociatedSayembaras(id, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/skRequestses", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the skRequestses instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<SkRequests> findAssociatedSkRequestses(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated skRequestses");
-        return usersService.findAssociatedSkRequestses(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/userRequestUpgradeses", method=RequestMethod.GET)

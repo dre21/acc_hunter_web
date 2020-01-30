@@ -102,12 +102,18 @@
         <security:intercept-url pattern="/pages/ForgotPassword/**" access="permitAll"/>
         <security:intercept-url pattern="/pages/ForgotPasswordLinkSent/**" access="permitAll"/>
         <security:intercept-url pattern="/pages/Login/**" access="permitAll"/>
-        <security:intercept-url pattern="/pages/Main/**" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/pages/Main/**" access="hasAnyRole('ROLE_SUPER+ADMIN')"/>
+        <security:intercept-url pattern="/pages/MainAdmin/**" access="hasAnyRole('ROLE_ADMIN')"/>
         <security:intercept-url pattern="/pages/MainPage/**" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/pages/MainRemo/**" access="hasAnyRole('ROLE_REMO+STAFF','ROLE_REMO+HEAD')"/>
+        <security:intercept-url pattern="/pages/ManageBadgesConfiguration/**" access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER+ADMIN')"/>
+        <security:intercept-url pattern="/pages/ManagePointConfiguration/**" access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER+ADMIN')"/>
         <security:intercept-url pattern="/pages/SignIn/**" access="permitAll"/>
+        <security:intercept-url pattern="/services/acc_hunter/Users/*" access="isAuthenticated()" method="GET"/>
         <security:intercept-url pattern="/services/acc_hunter/Users/**" access="permitAll"/>
+        <security:intercept-url pattern="/services/acc_hunter/queryExecutor/queries/checkEmailAvailable" access="permitAll" method="GET"/>
         <security:intercept-url pattern="/services/acc_hunter/queryExecutor/queries/updatePasswordQuery" access="permitAll" method="PUT"/>
-        <security:intercept-url pattern="/services/acc_hunter/**" access="permitAll"/>
+        <security:intercept-url pattern="/services/acc_hunter/**" access="isAuthenticated()"/>
         <security:intercept-url pattern="/services/application/i18n/**" access="permitAll"/>
         <security:intercept-url pattern="/services/file/downloadFile" access="permitAll" method="GET"/>
         <security:intercept-url pattern="/services/file/downloadFileAsInline" access="permitAll" method="GET"/>
@@ -233,24 +239,24 @@
         <property name="roleMap">
             <description>Roles based landing page definitions</description>
             <map key-type="java.lang.String" value-type="com.wavemaker.commons.model.security.RoleConfig">
+                <entry key="SUPER ADMIN">
+                    <bean class="com.wavemaker.commons.model.security.RoleConfig">
+                        <property name="landingPage" value="Main"/>
+                    </bean>
+                </entry>
                 <entry key="ADMIN">
                     <bean class="com.wavemaker.commons.model.security.RoleConfig">
-                        <property name="landingPage" value="MainPage"/>
+                        <property name="landingPage" value="MainAdmin"/>
                     </bean>
                 </entry>
                 <entry key="REMO HEAD">
                     <bean class="com.wavemaker.commons.model.security.RoleConfig">
-                        <property name="landingPage" value="MainPage"/>
+                        <property name="landingPage" value="MainRemo"/>
                     </bean>
                 </entry>
-                <entry key="admin">
+                <entry key="REMO STAFF">
                     <bean class="com.wavemaker.commons.model.security.RoleConfig">
-                        <property name="landingPage" value="UserManagementInformant"/>
-                    </bean>
-                </entry>
-                <entry key="SUPER ADMIN">
-                    <bean class="com.wavemaker.commons.model.security.RoleConfig">
-                        <property name="landingPage" value="MainPage"/>
+                        <property name="landingPage" value="MainRemo"/>
                     </bean>
                 </entry>
             </map>
@@ -308,7 +314,7 @@
         <property name="authoritiesByUsernameQuery">
             <value>select r.name
 from roles r
-join users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD', 'SUPER ADMIN')
+join users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD', 'SUPER ADMIN', 'REMO STAFF')
 where u.email = :LOGGED_IN_USERNAME</value>
         </property>
         <property name="rolesByQuery" value="true"/>

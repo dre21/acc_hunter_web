@@ -1,0 +1,137 @@
+<wm-page pagetitle="Dashboard" name="page1">
+    <wm-header name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftPanel" name="left_panel1" backgroundcolor="#FFFFFF"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1" backgroundcolor="#F3F5F6">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="FAQ" color="#404C59"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
+                            <wm-layoutgrid name="layoutgrid2">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="8" name="gridcolumn5">
+                                        <wm-label name="fullName" caption="bind:Variables.GetUser.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
+                                        <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow6" padding="unset unset 5% unset">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn10"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="unset unset 4% unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn18_2">
+                        <wm-text name="search" placeholder="search..." height="64px" class="search"></wm-text>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn20" horizontalalign="right">
+                        <wm-button class="add-button" caption="Tambah FAQ" type="button" margin="unset 0.5em" height="64px" width="186px" color="#ffffff" iconclass="wi wi-plus" iconposition="right" textalign="center" on-click="Widgets.tambahFaq.open()" name="button1"></wm-button>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10_1">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn26">
+                        <wm-accordion name="accordion1">
+                            <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="FaqList1" dataset="bind:Variables.FaqList.dataSet" navigation="Basic"
+                                navigationalign="right">
+                                <wm-listtemplate layout="inline" name="listtemplate2">
+                                    <wm-accordionpane name="accordionpane1" title="bind:Variables.FaqList.dataSet[$i].question" padding="unset unset 1em unset">
+                                        <wm-layoutgrid name="layoutgrid4">
+                                            <wm-gridrow name="gridrow9">
+                                                <wm-gridcolumn columnwidth="11" name="gridcolumn13">
+                                                    <wm-label padding="unset 0.5em" name="label3" caption="bind:Variables.FaqList.dataSet[$i].answer"></wm-label>
+                                                </wm-gridcolumn>
+                                                <wm-gridcolumn columnwidth="1" name="gridcolumn14" horizontalalign="right">
+                                                    <wm-picture name="picture2" height="15px" picturesource="resources/images/imagelists/edit-table-hd.png" class="button" hint="Edit" on-click="Widgets.ubahFaq.open()"></wm-picture>
+                                                    <wm-picture height="15px" picturesource="resources/images/imagelists/delete-table-hd.png" name="picture3" margin="unset unset unset 0.5em" class="button" hint="Delete" on-click="Widgets.deleteFAQ.open()"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-accordionpane>
+                                </wm-listtemplate>
+                            </wm-list>
+                        </wm-accordion>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer name="footer1"></wm-footer>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Tambah FAQ" iconclass="wi wi-plus" name="tambahFaq" width="60%" on-close="addRewardDialogClose($event, widget)">
+        <wm-message name="messageAddReward" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Question" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="text1" class="input" height="48" color="#565656" placeholder=""></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow29">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn61" padding="unset 3%">
+                    <wm-composite name="composite11">
+                        <wm-label class="col-md-3 control-label" name="label42" width="100%" color="#999C9F" caption="Answer"></wm-label>
+                        <wm-container class="col-md-9" name="container20" width="100%">
+                            <wm-textarea name="textarea1" placeholder="" class="text-area input" width="100%"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Tambah" name="addButton" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.InsertFAQ.createRecord()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Ubah FAQ" iconclass="wi wi-plus" name="ubahFaq" width="60%" on-close="addRewardDialogClose($event, widget)">
+        <wm-message name="messageAddReward" show="false"></wm-message>
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%">
+                    <wm-composite name="composite1" captionposition="top">
+                        <wm-label class="col-md-3 control-label" name="label17" caption="Question" color="#999C9F"></wm-label>
+                        <wm-container class="col-md-9" name="container3_1" width="100%">
+                            <wm-text name="editQuestion" class="input" height="48" color="#565656" placeholder="" datavalue="bind:Widgets.FaqList1.selecteditem.question"></wm-text>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+            <wm-gridrow name="gridrow29">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn61" padding="unset 3%">
+                    <wm-composite name="composite11">
+                        <wm-label class="col-md-3 control-label" name="label42" width="100%" color="#999C9F" caption="Answer"></wm-label>
+                        <wm-container class="col-md-9" name="container20" width="100%">
+                            <wm-textarea name="editAns" placeholder="" class="text-area input" width="100%" datavalue="bind:Widgets.FaqList1.selecteditem.answer"></wm-textarea>
+                        </wm-container>
+                    </wm-composite>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Simpan" name="editButton" backgroundcolor="#0F358E" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.EditFAQ.updateRecord()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+    <wm-dialog dialogtype="design-dialog" modal="true" title="Hapus Pertanyaan" iconclass="" name="deleteFAQ" width="60%">
+        <wm-layoutgrid name="layoutgrid5">
+            <wm-gridrow name="gridrow9_1" padding="2em unset">
+                <wm-gridcolumn columnwidth="12" name="gridcolumn17" padding="unset 3%" horizontalalign="center">
+                    <wm-label class="col-md-3 control-label" name="label17" caption="Apakah Anda yakin ingin menghapus pertanyaan ini?" color="#999C9F" width="100%" fontsize="18"></wm-label>
+                </wm-gridcolumn>
+            </wm-gridrow>
+        </wm-layoutgrid>
+        <wm-dialogactions name="dialogactions1">
+            <wm-button class="btn-save-badge" caption="Hapus" name="button7" backgroundcolor="red" color="#F7F8FB" height="4em" width="12em" margin="unset 1.5em unset unset" on-click="Variables.DeleteFAQ.deleteRecord()"></wm-button>
+        </wm-dialogactions>
+    </wm-dialog>
+</wm-page>

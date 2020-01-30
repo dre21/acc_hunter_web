@@ -14,6 +14,8 @@ Page.onReady = function() {
      * e.g. to get value of text widget named 'username' use following script
      * 'Page.Widgets.username.datavalue'
      */
+    Page.Widgets.messageLoginFailed.show = true;
+    Page.Widgets.messageLoginFailed.hideMessage();
 };
 
 Page.picture4Click = function($event, widget) {
@@ -40,31 +42,48 @@ Page.picture4Click = function($event, widget) {
     }
 };
 
-Page.serviceEncryptPassonResult = function(variable, data) {
-    console.log("On Result", data);
-};
-
-Page.serviceEncryptPassonSuccess = function(variable, data) {
-    console.log("On Success", data);
-};
-
-Page.serviceEncryptPassonBeforeUpdate = function(variable, inputData, options) {
-    console.log("Before update", inputData);
-};
-
-Page.serviceEncryptPassonError = function(variable, data) {
-    console.log("On Error", data);
-};
-
-Page.loginActiononResult = function(variable, data) {
-    console.log("Login Action Result", data);
-};
-
-Page.loginActiononSuccess = function(variable, data) {
-    console.log("Login Action Success");
-};
 Page.button1Click = function($event, widget) {
     // assign password to be encrypted here
-    App.Variables.loginEncryptPass.setInput(Page.Widgets.j_password.datavalue);
-    App.Variables.loginEncryptPass.invoke();
+    // App.Variables.loginEncryptPass.setInput(Page.Widgets.j_password.datavalue);
+
+    App.Actions.loginAction.invoke({
+        inputFields: {
+            "j_username": Page.Widgets.j_username.datavalue,
+            "j_password": "App.Variables.encryptedPassword.dataSet.dataValue",
+            "j_rememberme": false
+        }
+    }, function(dataLogin) {
+        //when success
+    }, function(error) {
+        //when failed
+        loginFailed();
+    });
+
+    var loginFailed = function() {
+        countFailedLogin = Page.Variables.countFailed.dataSet.dataValue;
+        Page.Variables.countFailed.dataSet.dataValue += 1;
+
+        if (countFailedLogin === 3 || countFailedLogin >= 5) {
+            var timeLeft = 60;
+            Page.Widgets.messageLoginFailed.showMessage();
+            Page.Widgets.messageLoginFailed.caption = "Anda terlalu banyak gagal login. Silakan coba beberapa saat lagi (" + timeLeft + "s)";
+            Page.Widgets.button1.disabled = true;
+
+            var timerId = setInterval(function() {
+                if (timeLeft === -1) {
+                    clearTimeout(timerId);
+                    Page.Widgets.messageLoginFailed.hideMessage();
+                    Page.Widgets.button1.disabled = false;
+                } else {
+                    Page.Widgets.messageLoginFailed.caption = "Anda terlalu banyak gagal login. Silakan coba beberapa saat lagi (" + timeLeft + "s)";
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+    }
+};
+
+Page.j_passwordChange = function($event, widget, newVal, oldVal) {
+    let password = CryptoJS.MD5(newVal).toString();
+    App.Variables.encryptedPassword.dataSet.dataValue = password;
 };

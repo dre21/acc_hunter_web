@@ -16,18 +16,6 @@ Page.onReady = function() {
      */
 };
 
-
-Page.Acc_hunterExecuteGetAllUsersInformantonError = function(variable, data) {
-    console.log("Acc_hunterExecuteGetAllUsersInformantonError", data);
-};
-
-Page.Acc_hunterExecuteGetAllUsersInformantonBeforeUpdate = function(variable, inputData, options) {
-    console.log("Before", inputData);
-};
-Page.UsersList1Select = function(widget, $data) {
-    console.log($data);
-};
-
 Page.picture4Click = function($event, widget, item, currentItemWidgets) {
     if (currentItemWidgets.pictureDelete.show == false && currentItemWidgets.pictureEdit.show == false) {
         currentItemWidgets.pictureDelete.show = true;

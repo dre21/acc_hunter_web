@@ -34,7 +34,6 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.acc_hunter_web.acc_hunter.Reports;
-import com.acc_hunter_web.acc_hunter.Sayembara;
 import com.acc_hunter_web.acc_hunter.Vehicles;
 
 
@@ -53,11 +52,6 @@ public class VehiclesServiceImpl implements VehiclesService {
     @Autowired
     @Qualifier("acc_hunter.ReportsService")
     private ReportsService reportsService;
-
-    @Lazy
-    @Autowired
-    @Qualifier("acc_hunter.SayembaraService")
-    private SayembaraService sayembaraService;
 
     @Autowired
     @Qualifier("acc_hunter.VehiclesDao")
@@ -203,17 +197,6 @@ public class VehiclesServiceImpl implements VehiclesService {
 
     @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
     @Override
-    public Page<Sayembara> findAssociatedSayembaras(String noAggr, Pageable pageable) {
-        LOGGER.debug("Fetching all associated sayembaras");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("vehicles.noAggr = '" + noAggr + "'");
-
-        return sayembaraService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
-    @Override
     public Page<Reports> findAssociatedReportses(String noAggr, Pageable pageable) {
         LOGGER.debug("Fetching all associated reportses");
 
@@ -230,15 +213,6 @@ public class VehiclesServiceImpl implements VehiclesService {
      */
     protected void setReportsService(ReportsService service) {
         this.reportsService = service;
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service SayembaraService instance
-     */
-    protected void setSayembaraService(SayembaraService service) {
-        this.sayembaraService = service;
     }
 
 }

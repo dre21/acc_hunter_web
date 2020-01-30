@@ -13,7 +13,7 @@
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.GetUser.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -39,7 +39,7 @@
                 <wm-gridrow name="gridrow11" padding="unset unset 5% unset">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn19_1">
                         <wm-container name="container7">
-                            <wm-prefab prefabname="googlemaps" name="locationInformation" zoom="NaN" locations="bind:Variables.GetReportListMap.dataSet" lat="latitude" lng="longitute" apikey="AIzaSyCrFzKbllFhq3-wLNhDF23Lt2UCgigMjuE" viewtype="Hybrid" height="500px"></wm-prefab>
+                            <wm-prefab prefabname="googlemaps" name="locationInformation" zoom="NaN" locations="bind:Variables.GetReportListMap.dataSet" lat="latitude" lng="longitute" viewtype="Hybrid" height="500px" apikey="AIzaSyCrFzKbllFhq3-wLNhDF23Lt2UCgigMjuE"></wm-prefab>
                         </wm-container>
                     </wm-gridcolumn>
                 </wm-gridrow>

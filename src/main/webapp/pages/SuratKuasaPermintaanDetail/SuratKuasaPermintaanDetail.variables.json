@@ -12,7 +12,6 @@
     "saveInPhonegap" : false,
     "maxResults" : 20,
     "designMaxResults" : 10,
-    "onSuccess" : "GetReportImagesByReportIDonSuccess(variable, data, options)",
     "inFlightBehavior" : "executeLast",
     "startUpdate" : false,
     "autoUpdate" : true,
@@ -733,6 +732,43 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "isSigned",
+        "type" : "boolean",
+        "fullyQualifiedType" : "boolean",
+        "columnName" : "is_signed",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "false",
+        "scale" : 0
+      }, {
+        "fieldName" : "skFileName",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "sk_file_name",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "reqSkDateParent",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "req_sk_date_parent",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "SkRequestAndSayembara",
       "fullyQualifiedName" : "com.acc_hunter_web.acc_hunter.SkRequestAndSayembara",
@@ -853,6 +889,18 @@
           "generator" : "assigned",
           "isRelated" : false,
           "defaultValue" : "",
+          "scale" : 0
+        }, {
+          "fieldName" : "dateAdded",
+          "type" : "date",
+          "fullyQualifiedType" : "date",
+          "columnName" : "date_added",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
           "scale" : 0
         } ]
       }, {
@@ -1409,6 +1457,18 @@
         "isPrimaryKey" : false,
         "notNull" : false,
         "length" : 10,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateAdded",
+        "type" : "date",
+        "fullyQualifiedType" : "date",
+        "columnName" : "date_added",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
         "precision" : 0,
         "generator" : "assigned",
         "isRelated" : false,

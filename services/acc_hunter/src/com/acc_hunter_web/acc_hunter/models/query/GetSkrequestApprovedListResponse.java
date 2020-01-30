@@ -118,6 +118,12 @@ public class GetSkrequestApprovedListResponse implements Serializable {
     @ColumnAlias("is_signed")
     private Boolean isSigned;
 
+    @ColumnAlias("sk_file_name")
+    private String skFileName;
+
+    @ColumnAlias("req_sk_date_parent")
+    private Timestamp reqSkDateParent;
+
     @ColumnAlias("expired_date")
     private Timestamp expiredDate;
 
@@ -396,6 +402,22 @@ public class GetSkrequestApprovedListResponse implements Serializable {
         this.isSigned = isSigned;
     }
 
+    public String getSkFileName() {
+        return this.skFileName;
+    }
+
+    public void setSkFileName(String skFileName) {
+        this.skFileName = skFileName;
+    }
+
+    public Timestamp getReqSkDateParent() {
+        return this.reqSkDateParent;
+    }
+
+    public void setReqSkDateParent(Timestamp reqSkDateParent) {
+        this.reqSkDateParent = reqSkDateParent;
+    }
+
     public Timestamp getExpiredDate() {
         return this.expiredDate;
     }
@@ -451,6 +473,8 @@ public class GetSkrequestApprovedListResponse implements Serializable {
                 Objects.equals(getIsShow(), getSkrequestApprovedListResponse.getIsShow()) &&
                 Objects.equals(getAppSkBt(), getSkrequestApprovedListResponse.getAppSkBt()) &&
                 Objects.equals(getIsSigned(), getSkrequestApprovedListResponse.getIsSigned()) &&
+                Objects.equals(getSkFileName(), getSkrequestApprovedListResponse.getSkFileName()) &&
+                Objects.equals(getReqSkDateParent(), getSkrequestApprovedListResponse.getReqSkDateParent()) &&
                 Objects.equals(getExpiredDate(), getSkrequestApprovedListResponse.getExpiredDate()) &&
                 Objects.equals(getDokumen(), getSkrequestApprovedListResponse.getDokumen());
     }
@@ -491,6 +515,8 @@ public class GetSkrequestApprovedListResponse implements Serializable {
                 getIsShow(),
                 getAppSkBt(),
                 getIsSigned(),
+                getSkFileName(),
+                getReqSkDateParent(),
                 getExpiredDate(),
                 getDokumen());
     }

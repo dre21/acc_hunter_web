@@ -26,7 +26,3 @@ Partial.GetReportListByNoAggronBeforeDatasetReady = function(variable, data) {
 Partial.CutMessage = function(x) {
     return x.substring(0, 27) + "...";
 }
-
-Partial.GetReportImagesByReportIDonSuccess = function(variable, data) {
-    console.log(data);
-};

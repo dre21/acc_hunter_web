@@ -81,7 +81,6 @@ Page.getInformanLeaderboardsonBeforeUpdate = function(variable, inputData, optio
 };
 
 Page.getMitraLeaderboardsonBeforeUpdate = function(variable, inputData, options) {
-    console.log(inputData);
     if (inputData.startDate != "" && inputData.endDate != "") {
         var date2 = new Date(inputData.endDate);
         var date1 = new Date(inputData.startDate);
@@ -104,5 +103,4 @@ Page.getMitraLeaderboardsonBeforeUpdate = function(variable, inputData, options)
     if (inputData.badgeType == null || inputData.badgeType == "") {
         inputData.badgeType = "default"
     }
-    console.log(inputData)
 };

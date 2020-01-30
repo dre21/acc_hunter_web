@@ -2,6 +2,34 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="GetTotalSkRequestedAdmin">
+        <![CDATA[
+        select count(*) as jumlah from sk_request_and_sayembara
+where flag_sk = 'NRM' and sk_parent is null
+and (case when :role = 'REMO HEAD' then no_sp_coll in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+	else true end)
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetTotalSkRequestedAdmin__count">
+        <![CDATA[
+        select count(*) from (select count(*) as jumlah from sk_request_and_sayembara
+where flag_sk = 'NRM' and sk_parent is null
+and (case when :role = 'REMO HEAD' then no_sp_coll in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+	else true end)) wmTempTable
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="insertNewEfficiencySK">
         <![CDATA[
         insert into gamification_peojf_efficiency_sk (math_operator, value_1, value_2, point, status, created_at, created_by)
@@ -70,9 +98,15 @@ from vehicles where no_aggr not in (
     union
     select agreement_no as no_aggr
     from lelang_sk_detail
-) and lower(no_aggr) like lower(:search)
+) and lower(no_aggr) like lower(:search) and (case when :role = 'REMO HEAD' then sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then sp_coll = :branch_id
+										else true end)
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetNoAggrListLelang__count">
@@ -85,9 +119,15 @@ from vehicles where no_aggr not in (
     union
     select agreement_no as no_aggr
     from lelang_sk_detail
-) and lower(no_aggr) like lower(:search)) wmTempTable
+) and lower(no_aggr) like lower(:search) and (case when :role = 'REMO HEAD' then sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then sp_coll = :branch_id
+										else true end)) wmTempTable
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getDetailLaporanByAgreementNo">
@@ -194,11 +234,18 @@ where u.email = :email) wmTempTable
         <![CDATA[
         select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id
 from reports a
-left join vehicles b on a.vehicle_no_aggr = b.no_aggr
+join vehicles b on a.vehicle_no_aggr = b.no_aggr 
+                                        and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.sp_coll = :branch_id
+										else true end)
 left join users c on a.created_by = c.email
-where lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))
+where lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', '')) 
 order by a.created_at desc
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
@@ -206,11 +253,18 @@ order by a.created_at desc
         <![CDATA[
         select count(*) from (select 1 as number, a.*, b.*, c.full_name, c.cd_coll, c.peojf_id
 from reports a
-left join vehicles b on a.vehicle_no_aggr = b.no_aggr
+join vehicles b on a.vehicle_no_aggr = b.no_aggr 
+                                        and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.sp_coll = :branch_id
+										else true end)
 left join users c on a.created_by = c.email
-where lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', ''))
+where lower(c.full_name) like lower(:search) or UPPER(REPLACE(b.no_car_police, ' ', '')) like UPPER(REPLACE(:search, ' ', '')) 
 order by a.created_at desc) wmTempTable
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
@@ -218,30 +272,90 @@ order by a.created_at desc) wmTempTable
         <![CDATA[
         select * from 
     (select count(*) as sk_aktif from sk_request_and_sayembara a
-    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,
+    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) a,
     (select count(*) as permohonan_sk from sk_request_and_sayembara a
-    where sk_parent is null and a.flag_sk = 'NRM') b,
+    where sk_parent is null and a.flag_sk = 'NRM'
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) b,
     (select count(*) as perpanjangan_sk from sk_request_and_sayembara a
-    where sk_parent is not null and a.flag_sk = 'NRM') c,
-    (select count(*) as lelang_sk from lelang_sk_detail a) d,
+    where sk_parent is not null and a.flag_sk = 'NRM'
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) c,
+    (select count(*) as lelang_sk from lelang_sk_detail lsd
+    left join lelang_sk ls on lsd.lelang_sk_id=ls.id
+    where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then cast(ls.area as varchar) = (select cast(cd_area as varchar) from branches where cast(cd_sp as varchar) = :branch_id)
+    		else true end)) d,
     (select count(*) as sayembara_sk from sk_request_and_sayembara a 
-    where a.flag_sk = 'SYB') e
+    where a.flag_sk = 'SYB'
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) e
         ]]>
+    <query-param name="year" type="java.lang.Integer"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetCountDashboardSK__count">
         <![CDATA[
         select count(*) from (select * from 
     (select count(*) as sk_aktif from sk_request_and_sayembara a
-    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true) a,
+    where a.status = 3 and ((a.app_date + INTERVAL '7 day') >= (now() - INTERVAL '7 hour')) and a.is_show = true
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) a,
     (select count(*) as permohonan_sk from sk_request_and_sayembara a
-    where sk_parent is null and a.flag_sk = 'NRM') b,
+    where sk_parent is null and a.flag_sk = 'NRM'
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) b,
     (select count(*) as perpanjangan_sk from sk_request_and_sayembara a
-    where sk_parent is not null and a.flag_sk = 'NRM') c,
-    (select count(*) as lelang_sk from lelang_sk_detail a) d,
+    where sk_parent is not null and a.flag_sk = 'NRM'
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) c,
+    (select count(*) as lelang_sk from lelang_sk_detail lsd
+    left join lelang_sk ls on lsd.lelang_sk_id=ls.id
+    where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then cast(ls.area as varchar) = (select cast(cd_area as varchar) from branches where cast(cd_sp as varchar) = :branch_id)
+    		else true end)) d,
     (select count(*) as sayembara_sk from sk_request_and_sayembara a 
-    where a.flag_sk = 'SYB') e) wmTempTable
+    where a.flag_sk = 'SYB'
+    and extract(year from req_sk_date) = :year
+    and (case when :role = 'REMO HEAD' then cast(no_sp_coll as varchar) in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then no_sp_coll = :branch_id
+										else true end)) e) wmTempTable
         ]]>
+    <query-param name="year" type="java.lang.Integer"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="DeleteGamificationPeojfSaldoAr">
@@ -381,6 +495,32 @@ where id = :id
     <query-param name="id" type="java.lang.Integer"/>
     </sql-query>
 
+    <sql-query name="GetActiveUsersAdmin">
+        <![CDATA[
+        select count(*) as jumlah from users where status != false 
+and ((case when :role = 'REMO HEAD' then branch_id in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then branch_id = :branch_id
+	else true end) or branch_id is null)
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetActiveUsersAdmin__count">
+        <![CDATA[
+        select count(*) from (select count(*) as jumlah from users where status != false 
+and ((case when :role = 'REMO HEAD' then branch_id in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then branch_id = :branch_id
+	else true end) or branch_id is null)) wmTempTable
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="DeleteMasterReward">
         <![CDATA[
         delete from master_reward
@@ -395,10 +535,17 @@ where id = :id
 from lelang_sk a
 join lelang_sk_detail b on a.id = b.lelang_sk_id
 left join master_area c on a.area = c.area_code
+join vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
 where a.end_date <= (now() + interval '7 hour') and winner_id is not null
 and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
 order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
@@ -408,10 +555,17 @@ order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
 from lelang_sk a
 join lelang_sk_detail b on a.id = b.lelang_sk_id
 left join master_area c on a.area = c.area_code
+join vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
 where a.end_date <= (now() + interval '7 hour') and winner_id is not null
 and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
 order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
@@ -429,6 +583,64 @@ where id = :id
         ]]>
     <query-param name="pwd" type="java.lang.String"/>
     <query-param name="email" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="DashboardSuratKuasa">
+        <![CDATA[
+        select approved.month, coalesce(approved.approved, 0) as Approved, coalesce(pending.pending, 0) as Requested, approved.month_no from (
+	(select count(*) as approved, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no
+	from sk_request_and_sayembara a
+	where a.status = 3 and a.flag_sk = 'NRM' and extract(year from a.req_sk_date) = :year
+	and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+    										from branches where cd_area in (select cd_area
+    										from branches where cast(cd_sp as varchar) = :branch_id))
+    										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+    										else true end)
+	group by month, month_no) approved
+	left join
+	(select count(*) as pending, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no
+	from sk_request_and_sayembara a
+	where a.status = 1 and a.flag_sk = 'NRM' and a.app_date is null and extract(year from a.req_sk_date) = :year
+	and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+    										from branches where cd_area in (select cd_area
+    										from branches where cast(cd_sp as varchar) = :branch_id))
+    										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+    										else true end)
+	group by month, month_no) pending
+	on approved.month = pending.month ) order by month_no asc
+        ]]>
+    <query-param name="year" type="java.lang.Integer"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="DashboardSuratKuasa__count">
+        <![CDATA[
+        select count(*) from (select approved.month, coalesce(approved.approved, 0) as Approved, coalesce(pending.pending, 0) as Requested, approved.month_no from (
+	(select count(*) as approved, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no
+	from sk_request_and_sayembara a
+	where a.status = 3 and a.flag_sk = 'NRM' and extract(year from a.req_sk_date) = :year
+	and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+    										from branches where cd_area in (select cd_area
+    										from branches where cast(cd_sp as varchar) = :branch_id))
+    										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+    										else true end)
+	group by month, month_no) approved
+	left join
+	(select count(*) as pending, to_char(req_sk_date, 'Month') AS month, extract(month from req_sk_date) as month_no
+	from sk_request_and_sayembara a
+	where a.status = 1 and a.flag_sk = 'NRM' and a.app_date is null and extract(year from a.req_sk_date) = :year
+	and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+    										from branches where cd_area in (select cd_area
+    										from branches where cast(cd_sp as varchar) = :branch_id))
+    										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+    										else true end)
+	group by month, month_no) pending
+	on approved.month = pending.month ) order by month_no asc) wmTempTable
+        ]]>
+    <query-param name="year" type="java.lang.Integer"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetAllListPesertaLelang">
@@ -593,6 +805,46 @@ lower(d.area_name) like lower(:search))) wmTempTable
     <query-param name="email" type="java.lang.String"/>
     </sql-query>
 
+    <sql-query name="GetPEOJFRedeemRequestList">
+        <![CDATA[
+        --PEOJF Redeem Request
+select a.id, b.id as id_user, b.full_name, b.email, d."name", c.point from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 2 and a.is_confirmed = false
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.branch_id in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.branch_id = :branch_id
+										else true end)
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetPEOJFRedeemRequestList__count">
+        <![CDATA[
+        select count(*) from (--PEOJF Redeem Request
+select a.id, b.id as id_user, b.full_name, b.email, d."name", c.point from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 2 and a.is_confirmed = false
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.branch_id in 
+			(select cast(cd_sp as varchar) as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.branch_id = :branch_id
+										else true end)) wmTempTable
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="insertNewEfficiencySKNoValue2">
         <![CDATA[
         insert into gamification_peojf_efficiency_sk (math_operator, value_1, point, status, created_at, created_by)
@@ -604,6 +856,48 @@ values (:operator, :value1, :point, :status, :created_at, :created_by)
     <query-param name="status" type="java.lang.Boolean"/>
     <query-param name="created_at" type="java.sql.Timestamp"/>
     <query-param name="created_by" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetInfRedeemHistoryList">
+        <![CDATA[
+        --Informan History Redeem
+select b.full_name, b.email, d."name", c.point, a.confirmed_at from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 1 and a.is_confirmed = true 
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.branch_id in 
+			(select city as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.city in
+											(select city from branches where cast(cd_sp as varchar) = :branch_id)
+										else true end)
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetInfRedeemHistoryList__count">
+        <![CDATA[
+        select count(*) from (--Informan History Redeem
+select b.full_name, b.email, d."name", c.point, a.confirmed_at from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 1 and a.is_confirmed = true 
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.branch_id in 
+			(select city as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.city in
+											(select city from branches where cast(cd_sp as varchar) = :branch_id)
+										else true end)) wmTempTable
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="updateRoleUsers">
@@ -720,6 +1014,46 @@ where flag_sk = 'SYB' and no_aggr = :noAggr
     <query-param name="noAggr" type="java.lang.String"/>
     </sql-query>
 
+    <sql-query name="GetPEOJFRedeemHistoryList">
+        <![CDATA[
+        --PEOJF History Redeem
+select b.full_name, b.email, d."name", c.point, a.confirmed_at from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 2 and a.is_confirmed = true 
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.branch_id in 
+			(select city as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.branch_id = :branch_id
+										else true end)
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetPEOJFRedeemHistoryList__count">
+        <![CDATA[
+        select count(*) from (--PEOJF History Redeem
+select b.full_name, b.email, d."name", c.point, a.confirmed_at from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 2 and a.is_confirmed = true 
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.branch_id in 
+			(select city as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.branch_id = :branch_id
+										else true end)) wmTempTable
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="GetSKRequestApprovedList">
         <![CDATA[
         select res.* from (
@@ -731,12 +1065,20 @@ where flag_sk = 'SYB' and no_aggr = :noAggr
     from sk_request_and_sayembara a
     left join users b on a.coll_cd = b.cd_coll
     order by a.app_date desc) res
-    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)
-        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) 
-        and res.sk_parent is null and res.is_show = true
+    where res.flag_sk = 'NRM' and res.status = 3 
+    and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search) or LOWER(res.dokumen) like LOWER(:search)) 
+    and (res.dokumen like :select) 
+        and res.sk_parent is null and res.req_sk_date_parent is null and res.is_show = true
+        and (case when :role = 'REMO HEAD' then res.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then res.no_sp_coll = :branch_id
+										else true end)
         ]]>
     <query-param name="search" type="java.lang.String"/>
     <query-param name="select" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetSKRequestApprovedList__count">
@@ -750,12 +1092,20 @@ where flag_sk = 'SYB' and no_aggr = :noAggr
     from sk_request_and_sayembara a
     left join users b on a.coll_cd = b.cd_coll
     order by a.app_date desc) res
-    where res.flag_sk = 'NRM' and res.status = 3 and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search)
-        or LOWER(res.dokumen) like LOWER(:search)) and (LOWER(res.dokumen) like LOWER(:select)) 
-        and res.sk_parent is null and res.is_show = true) wmTempTable
+    where res.flag_sk = 'NRM' and res.status = 3 
+    and (LOWER(res.name) like LOWER(:search) or LOWER(res.no_aggr) like LOWER(:search) or LOWER(res.dokumen) like LOWER(:search)) 
+    and (res.dokumen like :select) 
+        and res.sk_parent is null and res.req_sk_date_parent is null and res.is_show = true
+        and (case when :role = 'REMO HEAD' then res.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then res.no_sp_coll = :branch_id
+										else true end)) wmTempTable
         ]]>
     <query-param name="search" type="java.lang.String"/>
     <query-param name="select" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getLelangSKAktif">
@@ -798,6 +1148,48 @@ join users u on r.created_by = u.email
 where r.id = :id) wmTempTable
         ]]>
     <query-param name="id" type="java.math.BigInteger"/>
+    </sql-query>
+
+    <sql-query name="GetInfRedeemRequestList">
+        <![CDATA[
+        --Informan Redeem Request
+select a.id, b.id as id_user, b.full_name, b.email, d."name", c.point from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 1 and a.is_confirmed = false 
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.city in 
+			(select city as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.city in
+											(select city from branches where cast(cd_sp as varchar) = :branch_id)
+										else true end)
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetInfRedeemRequestList__count">
+        <![CDATA[
+        select count(*) from (--Informan Redeem Request
+select a.id, b.id as id_user, b.full_name, b.email, d."name", c.point from redeem_request a
+left join users b on a.id_user = b.id
+left join reward_config c on a.id_reward_config = c.id
+left join master_reward d on c.id_reward = d.id
+where b.role_id = 1 and a.is_confirmed = false 
+and (b.email like :keyword or b.full_name like :keyword)
+and (case when :role = 'REMO HEAD' then b.city in 
+			(select city as data from branches where cd_area in 
+				(select cd_area from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then b.city in
+											(select city from branches where cast(cd_sp as varchar) = :branch_id)
+										else true end)) wmTempTable
+        ]]>
+    <query-param name="keyword" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getInformanLeaderboards">
@@ -870,9 +1262,16 @@ order by res.poin desc, res.full_name asc) wmTempTable
 from sk_request_and_sayembara a
 left join users b on a.coll_cd = b.cd_coll
 where a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
 order by a.req_sk_date desc
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetSKRequestPendingList__count">
@@ -881,31 +1280,52 @@ order by a.req_sk_date desc
 from sk_request_and_sayembara a
 left join users b on a.coll_cd = b.cd_coll
 where a.flag_sk = 'NRM' and a.status = 1 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
 order by a.req_sk_date desc) wmTempTable
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetLelangSKDetailByIDLelangList">
         <![CDATA[
-        select 1 as number, *
-from lelang_sk_detail
+        select 1 as number, a.*
+from lelang_sk_detail a
+join vehicles d on a.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
 where lelang_sk_id = :lelangId and (
 lower(agreement_no) like lower(:search) or
 CAST(bto_limit AS varchar) like lower(:search))
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="lelangId" type="java.lang.Integer"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetLelangSKDetailByIDLelangList__count">
         <![CDATA[
-        select count(*) from (select 1 as number, *
-from lelang_sk_detail
+        select count(*) from (select 1 as number, a.*
+from lelang_sk_detail a
+join vehicles d on a.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
 where lelang_sk_id = :lelangId and (
 lower(agreement_no) like lower(:search) or
 CAST(bto_limit AS varchar) like lower(:search))) wmTempTable
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="lelangId" type="java.lang.Integer"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
@@ -934,44 +1354,130 @@ join remo_regions r on r.id = s.remo_id) wmTempTable
         ]]>
     </sql-query>
 
+    <sql-query name="GetAreaList">
+        <![CDATA[
+        select *
+from master_area where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then area_code in (select cd_area	from branches where cast(cd_sp as varchar) = :branch_id) else true end)
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetAreaList__count">
+        <![CDATA[
+        select count(*) from (select *
+from master_area where (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then area_code in (select cd_area	from branches where cast(cd_sp as varchar) = :branch_id) else true end)) wmTempTable
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="GetSayembaraList">
         <![CDATA[
         select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date
-from sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc
+from sk_request_and_sayembara a where flag_sk = 'SYB' 
+and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
+order by app_date desc, no_aggr asc
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetSayembaraList__count">
         <![CDATA[
         select count(*) from (select 1 as value, a.*, (a.app_date + INTERVAL '7 day') as end_date
-from sk_request_and_sayembara a where flag_sk = 'SYB' order by app_date desc, no_aggr asc) wmTempTable
+from sk_request_and_sayembara a where flag_sk = 'SYB' 
+and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
+order by app_date desc, no_aggr asc) wmTempTable
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetLelangAktif">
         <![CDATA[
-        select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name
+        select res.* from(select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name,
+    case when a.end_date < (now() + interval '7 hour') then 'Berakhir' else 'Belum Berakhir' end as status
 from lelang_sk a
 join lelang_sk_detail b on a.id = b.lelang_sk_id
 left join master_area c on a.area = c.area_code
+join vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
 where (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))
 and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
-order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) res
+where case when :select = 'All' then true else res.status = :select end
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="select" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetLelangAktif__count">
         <![CDATA[
-        select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name
+        select count(*) from (select res.* from(select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.id as detil_id, c.area_name, b.agreement_no, b.bto_limit, b.lowest_bid, b.description, b.winner_name,
+    case when a.end_date < (now() + interval '7 hour') then 'Berakhir' else 'Belum Berakhir' end as status
 from lelang_sk a
 join lelang_sk_detail b on a.id = b.lelang_sk_id
 left join master_area c on a.area = c.area_code
+join vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
 where (a.start_date <= (now() + interval '7 hour') and a.end_date >= (now() + interval '7 hour'))
 and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
-order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable
+order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) res
+where case when :select = 'All' then true else res.status = :select end) wmTempTable
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="select" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetJumlahSubmitInformationAdmin">
+        <![CDATA[
+        select count(a.*) as jumlah
+from reports a
+join vehicles b on a.vehicle_no_aggr = b.no_aggr 
+    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then b.sp_coll = :branch_id
+	else true end)
+where is_draft = false
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetJumlahSubmitInformationAdmin__count">
+        <![CDATA[
+        select count(*) from (select count(a.*) as jumlah
+from reports a
+join vehicles b on a.vehicle_no_aggr = b.no_aggr 
+    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then b.sp_coll = :branch_id
+	else true end)
+where is_draft = false) wmTempTable
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetPilihWinnerSKList">
@@ -980,11 +1486,17 @@ order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wm
 from lelang_sk a
 join lelang_sk_detail b on a.id = b.lelang_sk_id
 left join master_area c on a.area = c.area_code
-left join vehicles d on b.agreement_no = d.no_aggr
-where winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))
+join vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
+where (winner_name is null or winner_name = '') and (a.start_date <= (now() + interval '7 hour'))
 and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
 order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
@@ -994,11 +1506,17 @@ order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc
 from lelang_sk a
 join lelang_sk_detail b on a.id = b.lelang_sk_id
 left join master_area c on a.area = c.area_code
-left join vehicles d on b.agreement_no = d.no_aggr
-where winner_name is null and (a.start_date <= (now() + interval '7 hour') and a.end_date <= (now() + interval '7 hour'))
+join vehicles d on b.agreement_no = d.no_aggr and (case when :role = 'REMO HEAD' then d.sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then d.sp_coll = :branch_id
+										else true end)
+where (winner_name is null or winner_name = '') and (a.start_date <= (now() + interval '7 hour'))
 and (lower(c.area_name) like lower(:search) or lower(b.agreement_no) like lower(:search) or lower(a.title) like lower(:search) or lower(cast(b.lowest_bid as varchar)) like lower(:search))
 order by a.start_date desc, c.area_name asc, b.agreement_no asc, a.title asc) wmTempTable
         ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
@@ -1100,10 +1618,12 @@ where province_name = :province_name) wmTempTable
         select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name
 from lelang_sk a
 left join master_area b on a.area = b.area_code
-where lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')
+where lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour') and (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then a.area in (select cd_area	from branches where cast(cd_sp as varchar) = :branch_id)	else true end)
 order by start_date desc
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetLelangList__count">
@@ -1111,10 +1631,12 @@ order by start_date desc
         select count(*) from (select 1 as number, a.id, a.area, (a.start_date - interval '7 hour') as start_date, (a.end_date - interval '7 hour') as end_date, a.title, b.area_name
 from lelang_sk a
 left join master_area b on a.area = b.area_code
-where lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour')
+where lower(b.area_name) like lower(:search) and a.start_date > (now() + interval '7 hour') and (case when :role = 'REMO HEAD' or :role = 'REMO STAFF' then a.area in (select cd_area	from branches where cast(cd_sp as varchar) = :branch_id)	else true end)
 order by start_date desc) wmTempTable
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getAllUsersRemo">
@@ -1242,6 +1764,38 @@ order by end_date desc, a.id desc, b.agreement_no asc) wmTempTable
     <query-param name="search" type="java.lang.String"/>
     </sql-query>
 
+    <sql-query name="GetMapListAdmin">
+        <![CDATA[
+        select * from reports a
+join vehicles b on a.vehicle_no_aggr = b.no_aggr 
+    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then b.sp_coll = :branch_id
+	else true end)
+where is_draft = false
+order by created_at desc
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="GetMapListAdmin__count">
+        <![CDATA[
+        select count(*) from (select * from reports a
+join vehicles b on a.vehicle_no_aggr = b.no_aggr 
+    and (case when :role = 'REMO HEAD' then b.sp_coll in (select cast(cd_sp as varchar) as data
+	from branches where cd_area in (select cd_area
+	from branches where cast(cd_sp as varchar) = :branch_id))
+	when :role = 'REMO STAFF' then b.sp_coll = :branch_id
+	else true end)
+where is_draft = false
+order by created_at desc) wmTempTable
+        ]]>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="getLelangSKTidakAktif">
         <![CDATA[
         select r.region as remo, d.agreement_no as nomor_agreement, d.title as judul, d.lowest_bid as tawaran_terendah,  h.start_date as tanggal_mulai, h.end_date as tanggal_berakhir, d.id as lelang_sk_detail_id
@@ -1289,10 +1843,17 @@ where id = :id
         select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date
 from sk_request_and_sayembara a
 left join users b on a.coll_cd = b.cd_coll
-where a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true
+where a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and req_sk_date_parent is not null and is_show = true
+    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
 order by a.app_date desc
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetSKRequestPerpanjangApprovedList__count">
@@ -1300,10 +1861,17 @@ order by a.app_date desc
         select count(*) from (select 1 as number, b.full_name as name, a.*, a.app_date + INTERVAL '7 day' as expired_date
 from sk_request_and_sayembara a
 left join users b on a.coll_cd = b.cd_coll
-where a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and is_show = true
+where a.flag_sk = 'NRM' and a.status = 3 and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and sk_parent is not null and req_sk_date_parent is not null and is_show = true
+    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
 order by a.app_date desc) wmTempTable
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="getSKRequestDetail">
@@ -1378,9 +1946,16 @@ where report_id = :id and deleted_at is null) wmTempTable
 from sk_request_and_sayembara a
 left join users b on a.coll_cd = b.cd_coll
 where a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
 order by a.req_sk_date desc
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="GetSKRequestPerpanjangPendingList__count">
@@ -1389,9 +1964,16 @@ order by a.req_sk_date desc
 from sk_request_and_sayembara a
 left join users b on a.coll_cd = b.cd_coll
 where a.flag_sk = 'NRM' and a.status = 2 and a.app_date is null and (LOWER(b.full_name) like LOWER(:search) or LOWER(a.no_aggr) like LOWER(:search)) and is_show = true
+    and (case when :role = 'REMO HEAD' then a.no_sp_coll in (select cast(cd_sp as varchar) as data
+										from branches where cd_area in (select cd_area
+										from branches where cast(cd_sp as varchar) = :branch_id))
+										when :role = 'REMO STAFF' then a.no_sp_coll = :branch_id
+										else true end)
 order by a.req_sk_date desc) wmTempTable
         ]]>
     <query-param name="search" type="java.lang.String"/>
+    <query-param name="role" type="java.lang.String"/>
+    <query-param name="branch_id" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="insertNewBTToSaldo">

@@ -2,6 +2,7 @@
     background: #EEF2F6;
     border-radius: 21px;
     box-sizing: border-radius;
+    z-index: 999;
 }
 
 .heading1 {
@@ -70,5 +71,5 @@
 }
 
 .middle {
-    top: 15em;
+    top: 10em;
 }

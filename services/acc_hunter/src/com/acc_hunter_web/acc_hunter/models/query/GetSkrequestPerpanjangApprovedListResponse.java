@@ -115,6 +115,15 @@ public class GetSkrequestPerpanjangApprovedListResponse implements Serializable 
     @ColumnAlias("app_sk_bt")
     private Long appSkBt;
 
+    @ColumnAlias("is_signed")
+    private Boolean isSigned;
+
+    @ColumnAlias("sk_file_name")
+    private String skFileName;
+
+    @ColumnAlias("req_sk_date_parent")
+    private Timestamp reqSkDateParent;
+
     @ColumnAlias("expired_date")
     private Timestamp expiredDate;
 
@@ -382,6 +391,30 @@ public class GetSkrequestPerpanjangApprovedListResponse implements Serializable 
         this.appSkBt = appSkBt;
     }
 
+    public Boolean getIsSigned() {
+        return this.isSigned;
+    }
+
+    public void setIsSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
+    }
+
+    public String getSkFileName() {
+        return this.skFileName;
+    }
+
+    public void setSkFileName(String skFileName) {
+        this.skFileName = skFileName;
+    }
+
+    public Timestamp getReqSkDateParent() {
+        return this.reqSkDateParent;
+    }
+
+    public void setReqSkDateParent(Timestamp reqSkDateParent) {
+        this.reqSkDateParent = reqSkDateParent;
+    }
+
     public Timestamp getExpiredDate() {
         return this.expiredDate;
     }
@@ -428,6 +461,9 @@ public class GetSkrequestPerpanjangApprovedListResponse implements Serializable 
                 Objects.equals(getSkParent(), getSkrequestPerpanjangApprovedListResponse.getSkParent()) &&
                 Objects.equals(getIsShow(), getSkrequestPerpanjangApprovedListResponse.getIsShow()) &&
                 Objects.equals(getAppSkBt(), getSkrequestPerpanjangApprovedListResponse.getAppSkBt()) &&
+                Objects.equals(getIsSigned(), getSkrequestPerpanjangApprovedListResponse.getIsSigned()) &&
+                Objects.equals(getSkFileName(), getSkrequestPerpanjangApprovedListResponse.getSkFileName()) &&
+                Objects.equals(getReqSkDateParent(), getSkrequestPerpanjangApprovedListResponse.getReqSkDateParent()) &&
                 Objects.equals(getExpiredDate(), getSkrequestPerpanjangApprovedListResponse.getExpiredDate());
     }
 
@@ -466,6 +502,9 @@ public class GetSkrequestPerpanjangApprovedListResponse implements Serializable 
                 getSkParent(),
                 getIsShow(),
                 getAppSkBt(),
+                getIsSigned(),
+                getSkFileName(),
+                getReqSkDateParent(),
                 getExpiredDate());
     }
 }

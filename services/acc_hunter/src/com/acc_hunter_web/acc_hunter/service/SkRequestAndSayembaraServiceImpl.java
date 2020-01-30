@@ -7,6 +7,7 @@ package com.acc_hunter_web.acc_hunter.service;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -98,6 +99,15 @@ public class SkRequestAndSayembaraServiceImpl implements SkRequestAndSayembaraSe
         return this.wmGenericDao.findByMultipleIds(skrequestandsayembaraIds, orderedReturn);
     }
 
+    @Transactional(readOnly = true, value = "acc_hunterTransactionManager")
+    @Override
+    public SkRequestAndSayembara getBySkFileName(String skFileName) {
+        Map<String, Object> skFileNameMap = new HashMap<>();
+        skFileNameMap.put("skFileName", skFileName);
+
+        LOGGER.debug("Finding SkRequestAndSayembara by unique keys: {}", skFileNameMap);
+        return this.wmGenericDao.findByUniqueKey(skFileNameMap);
+    }
 
     @Transactional(rollbackFor = EntityNotFoundException.class, value = "acc_hunterTransactionManager")
     @Override

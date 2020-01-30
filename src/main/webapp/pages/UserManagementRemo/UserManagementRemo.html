@@ -6,14 +6,14 @@
             <wm-layoutgrid name="layoutgrid1">
                 <wm-gridrow name="gridrow1">
                     <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding="4.5em unset unset unset">
-                        <wm-label padding="unset 0.5em" name="label1" class="menu-title" caption="Manage User Accounts"></wm-label>
+                        <wm-label padding="unset 0.5px unset unset" name="label1" class="page-title" caption="MANAGE USER ACCOUNTS" color="#404C59"></wm-label>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right">
-                        <wm-container name="container1" class="box-profile" padding="12px unset unset unset">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2" horizontalalign="right" padding="3% unset unset unset">
+                        <wm-container name="container1" class="box-profile" padding="4% unset" horizontalalign="center" width="25em">
                             <wm-layoutgrid name="layoutgrid2">
                                 <wm-gridrow name="gridrow3">
                                     <wm-gridcolumn columnwidth="8" name="gridcolumn5">
-                                        <wm-label padding="1.5em 0.5em unset 0.5em" name="fullName" caption="Mariesta R Ayuningsih"></wm-label>
+                                        <wm-label name="fullName" caption="bind:Variables.GetUsersByEmail.dataSet[$i].fullName" width="100%" textalign="center" class="name-label" color="#404C59" margin="1.5em unset unset unset"></wm-label>
                                     </wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn6" horizontalalign="center">
                                         <wm-picture name="profileAvatar" width="56" height="56" picturesource="resources/images/imagelists/Ellipse_18.png"></wm-picture>
@@ -23,10 +23,13 @@
                         </wm-container>
                     </wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow5_1">
-                    <wm-gridcolumn columnwidth="12" name="gridcolumn9_1">
-                        <wm-breadcrumb dataset="User Management, Remo" name="breadcrumb1"></wm-breadcrumb>
+                <wm-gridrow name="gridrow2" padding="unset unset 2em unset">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn3">
+                        <wm-label padding="unset 0.5em unset unset" name="label3" caption="User Management" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label4" caption="bind:&quot; > &quot;" color="#8997A7" class="breadcumb"></wm-label>
+                        <wm-label padding="unset 0.5em" name="label5" caption="REMO" class="breadcumb" color="#565656"></wm-label>
                     </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn4"></wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow4">
                     <wm-gridcolumn columnwidth="6" name="gridcolumn6_1">
@@ -52,7 +55,7 @@
                         </wm-table>
                     </wm-gridcolumn>
                 </wm-gridrow>
-                <wm-gridrow name="gridrow12">
+                <wm-gridrow name="gridrow12" padding="unset unset 2em unset">
                     <wm-gridcolumn columnwidth="2" name="gridcolumn19">
                         <wm-label padding="unset 0.5em unset 1em" fontsize="16" color="#98A9BC" caption="ACC Name" name="label8"></wm-label>
                     </wm-gridcolumn>

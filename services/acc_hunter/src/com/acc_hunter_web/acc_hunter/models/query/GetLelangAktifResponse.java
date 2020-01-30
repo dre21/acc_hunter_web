@@ -54,6 +54,9 @@ public class GetLelangAktifResponse implements Serializable {
     @ColumnAlias("winner_name")
     private String winnerName;
 
+    @ColumnAlias("status")
+    private String status;
+
     public Integer getNumber() {
         return this.number;
     }
@@ -158,6 +161,14 @@ public class GetLelangAktifResponse implements Serializable {
         this.winnerName = winnerName;
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -175,7 +186,8 @@ public class GetLelangAktifResponse implements Serializable {
                 Objects.equals(getBtoLimit(), getLelangAktifResponse.getBtoLimit()) &&
                 Objects.equals(getLowestBid(), getLelangAktifResponse.getLowestBid()) &&
                 Objects.equals(getDescription(), getLelangAktifResponse.getDescription()) &&
-                Objects.equals(getWinnerName(), getLelangAktifResponse.getWinnerName());
+                Objects.equals(getWinnerName(), getLelangAktifResponse.getWinnerName()) &&
+                Objects.equals(getStatus(), getLelangAktifResponse.getStatus());
     }
 
     @Override
@@ -192,6 +204,7 @@ public class GetLelangAktifResponse implements Serializable {
                 getBtoLimit(),
                 getLowestBid(),
                 getDescription(),
-                getWinnerName());
+                getWinnerName(),
+                getStatus());
     }
 }

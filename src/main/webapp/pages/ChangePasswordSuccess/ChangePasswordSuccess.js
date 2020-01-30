@@ -17,7 +17,6 @@ Page.onReady = function() {
 };
 
 Page.picture4Click = function($event, widget) {
-    console.log("Clicked show password");
     var elem = document.getElementsByClassName("login-password")
     if (Page.Variables.passTypeText.dataSet.dataValue === "password") {
         $(elem).attr({
@@ -30,28 +29,4 @@ Page.picture4Click = function($event, widget) {
         });
         Page.Variables.passTypeText.dataSet.dataValue = "password";
     }
-};
-
-Page.serviceEncryptPassonResult = function(variable, data) {
-    console.log("On Result", data);
-};
-
-Page.serviceEncryptPassonSuccess = function(variable, data) {
-    console.log("On Success", data);
-};
-
-Page.serviceEncryptPassonBeforeUpdate = function(variable, inputData, options) {
-    console.log("Before update", inputData);
-};
-
-Page.serviceEncryptPassonError = function(variable, data) {
-    console.log("On Error", data);
-};
-
-Page.loginActiononResult = function(variable, data) {
-    console.log("Login Action Result", data);
-};
-
-Page.loginActiononSuccess = function(variable, data) {
-    console.log("Login Action Success");
 };

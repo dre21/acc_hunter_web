@@ -92,7 +92,6 @@ Page.GetLelangListonBeforeDatasetReady = function(variable, data) {
 };
 
 Page.AddLelangSKonBeforeInsertRecord = function(variable, inputData, options) {
-    console.log(inputData);
     if (inputData.area == null || inputData.area == "") {
         Page.Widgets.addLelangMessage.caption = "Silahkan pilih wilayah yang ingin dibuatkan lelang";
         Page.Widgets.addLelangMessage.showMessage();
@@ -357,14 +356,12 @@ Page.button12Click = function($event, widget) {
 };
 
 Page.GetLelangSKDetailByIDLelangListonBeforeUpdate = function(variable, inputData, options) {
-    console.log(inputData)
     if (inputData.lelangId == null) {
         return false;
     }
 };
 
 Page.SetPemenangLelangonBeforeUpdate = function(variable, inputData, options) {
-    console.log(inputData);
     if (inputData.cdColl == null || inputData.cdColl == "" || inputData.cdColl == undefined) {
         Page.Actions.winnerNotSelected.invoke();
         return false;

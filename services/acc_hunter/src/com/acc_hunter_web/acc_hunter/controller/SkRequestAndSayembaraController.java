@@ -139,6 +139,14 @@ public class SkRequestAndSayembaraController {
     }
 
 
+    @RequestMapping(value = "/skFileName/{skFileName}", method = RequestMethod.GET)
+    @ApiOperation(value = "Returns the matching SkRequestAndSayembara with given unique key values.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public SkRequestAndSayembara getBySkFileName(@PathVariable("skFileName") String skFileName) {
+        LOGGER.debug("Getting SkRequestAndSayembara with uniques key SkFileName");
+        return skRequestAndSayembaraService.getBySkFileName(skFileName);
+    }
+
     /**
      * @deprecated Use {@link #findSkRequestAndSayembaras(String, Pageable)} instead.
      */

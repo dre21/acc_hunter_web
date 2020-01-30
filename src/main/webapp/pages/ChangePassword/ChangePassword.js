@@ -17,21 +17,40 @@ Page.onReady = function() {
 };
 
 Page.resetPassButtonClick = function($event, widget) {
-    console.log("Reset password clicked");
-    console.log("Set new generated password ");
     Page.Variables.serviceUpdPass.setInput("email", Page.Widgets.emailAddress.datavalue);
     Page.Variables.serviceUpdPass.setInput("pwd", Page.Widgets.emailAddress.datavalue);
 };
 
 Page.buttonResetClick = function($event, widget) {
     if (Page.Widgets.password.datavalue !== Page.Widgets.confPassword.datavalue) {
-        Page.Actions.passNotMatch.invoke();
+        Page.Actions.passNotMatch.invoke({
+            "class": "Error",
+            "message": "Password dan konfirmasi password tidak sama",
+            "position": "top center"
+        })
+    } else if (Page.Widgets.password.datavalue.length < 8) {
+        Page.Actions.passNotMatch.invoke({
+            "class": "Error",
+            "message": "Password minimal 8 digit dan harus mengandung huruf kapital serta angka",
+            "position": "top center"
+        })
     } else if (/\d/.test(Page.Widgets.password.datavalue) == false || /[a-zA-Z]/.test(Page.Widgets.password.datavalue) == false) {
         Page.Actions.errorNumeric.invoke();
     } else {
         Page.Variables.changePassEncrypt.invoke();
+        Page.Variables.serviceUpdPass.invoke({
+            "inputFields": {
+                "email": Page.pageParams.email,
+                "pwd": CryptoJS.MD5(Page.Widgets.confPassword.datavalue).toString()
+            }
+        }, function(data) {
+            App.Actions.goToPage_ChangePasswordSuccess.invoke();
+        }, function(error) {
+
+        })
     }
 };
+
 Page.eyeConfPasswordClick = function($event, widget) {
     var elem = document.getElementsByClassName("conf-password")
     if (Page.Variables.passTypeText.dataSet.dataValue === "password") {
@@ -54,6 +73,7 @@ Page.eyeConfPasswordClick = function($event, widget) {
         Page.Variables.passTypeText.dataSet.dataValue = "password";
     }
 };
+
 Page.eyePasswordClick = function($event, widget) {
     var elem = document.getElementsByClassName("password")
     if (Page.Variables.passTypeText.dataSet.dataValue === "password") {
@@ -75,8 +95,4 @@ Page.eyePasswordClick = function($event, widget) {
 
         Page.Variables.passTypeText.dataSet.dataValue = "password";
     }
-};
-
-Page.serviceUpdPassonError = function(variable, data) {
-    console.log("serviceUpdPassonError", data);
 };

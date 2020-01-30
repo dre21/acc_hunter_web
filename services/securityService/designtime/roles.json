@@ -1,25 +1,25 @@
 [ {
+  "name" : "SUPER ADMIN",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
+}, {
   "name" : "ADMIN",
   "description" : null,
   "roleConfig" : {
-    "landingPage" : "MainPage"
+    "landingPage" : "MainAdmin"
   }
 }, {
   "name" : "REMO HEAD",
   "description" : null,
   "roleConfig" : {
-    "landingPage" : "MainPage"
+    "landingPage" : "MainRemo"
   }
 }, {
-  "name" : "admin",
+  "name" : "REMO STAFF",
   "description" : null,
   "roleConfig" : {
-    "landingPage" : "UserManagementInformant"
-  }
-}, {
-  "name" : "SUPER ADMIN",
-  "description" : null,
-  "roleConfig" : {
-    "landingPage" : "MainPage"
+    "landingPage" : "MainRemo"
   }
 } ]

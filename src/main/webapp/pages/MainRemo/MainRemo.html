@@ -1,0 +1,197 @@
+<wm-page name="mainpage" pagetitle="Main">
+    <wm-content name="content">
+        <wm-page-content columnwidth="12" name="mainContent" padding="unset 15px" backgroundimage="resources/images/imagelists/Dashboard-background.png">
+            <wm-layoutgrid name="layoutgrid1" height="100%">
+                <wm-gridrow name="gridrow1" height="100%">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1" padding="unset 10%">
+                        <wm-container name="container5" width="100%" height="100%">
+                            <wm-layoutgrid name="layoutgrid6">
+                                <wm-gridrow name="gridrow12" padding="4em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn21" padding="unset unset unset 0.5em">
+                                        <wm-label padding="unset 0.5em unset unset" name="label9" color="#ffffff" caption="bind:&quot;Hi, &quot; + Variables.GetUser.dataSet[$i].fullName" fontsize="48" class="header-name"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow14">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn25" padding="unset unset unset 0.5em">
+                                        <wm-label padding="unset 0.5em unset unset" color="#ffffff" name="label10" caption="Selamat datang kembali di dashboard kamu, apa yang ingin kamu lakukan hari ini" class="welcoming"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow15" padding="4em unset 2em unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn26">
+                                        <wm-label padding="unset 0.5em" color="#ffffff" name="label11" caption="Menu" class="menu"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow13" padding="unset unset 2em unset">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn23" padding="unset 1em" horizontalalign="center">
+                                        <wm-layoutgrid name="layoutgrid7">
+                                            <wm-gridrow name="gridrow18">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn33_1">
+                                                    <wm-picture name="picture2" width="100%" picturesource="resources/images/logos/dashboard.png" class="pointer" on-click="Actions.goToPage_DashboardGeneral.invoke()"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow19">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn35">
+                                                    <wm-label padding="1em 0.5em unset 0.5em" name="label13" class="name-menu pointer" caption="Dashboard" textalign="center" on-click="Actions.goToPage_DashboardGeneral.invoke()"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn24" padding="unset 1em" horizontalalign="center">
+                                        <wm-layoutgrid name="layoutgrid8">
+                                            <wm-gridrow name="gridrow20">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn37">
+                                                    <wm-picture width="100%" name="picture3" picturesource="resources/images/logos/submit-info.png" on-click="Actions.goToPage_SubmittedInformation.invoke()" class="pointer"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow21">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn38">
+                                                    <wm-label padding="1em 0.5em unset 0.5em" class="name-menu pointer" name="label14" caption="Submitted Information" textalign="center" on-click="Actions.goToPage_SubmittedInformation.invoke()"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn27" horizontalalign="center" padding="unset 1em">
+                                        <wm-layoutgrid name="layoutgrid9">
+                                            <wm-gridrow name="gridrow22">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn39">
+                                                    <wm-picture width="100%" name="picture4" picturesource="resources/images/logos/reward.png" on-click="Actions.goToPage_RewardManagement.invoke()" class="pointer"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow23">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn40">
+                                                    <wm-label padding="1em 0.5em unset 0.5em" class="name-menu pointer" name="label15" caption="Reward Management" textalign="center" on-click="Actions.goToPage_RewardManagement.invoke()"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow16" padding="unset unset 2em unset">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn28" horizontalalign="center" padding="unset 1em">
+                                        <wm-layoutgrid name="layoutgrid10">
+                                            <wm-gridrow name="gridrow24">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn41">
+                                                    <wm-picture width="100%" name="picture5" picturesource="resources/images/logos/surat-kuasa.png" on-click="Actions.goToPage_DashboardSuratKuasa.invoke()" class="pointer"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow25">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn42">
+                                                    <wm-label padding="1em 0.5em unset 0.5em" class="name-menu pointer" name="label16" caption="Surat Kuasa" on-click="Actions.goToPage_DashboardSuratKuasa.invoke()"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn30" horizontalalign="center" padding="unset 1em">
+                                        <wm-layoutgrid name="layoutgrid12">
+                                            <wm-gridrow name="gridrow28">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn45">
+                                                    <wm-picture width="100%" name="picture7" picturesource="resources/images/logos/gamification.png" on-click="Actions.goToPage_ManagePointConfiguration.invoke()" class="pointer"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow29">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn46">
+                                                    <wm-label padding="1em 0.5em unset 0.5em" class="name-menu pointer" name="label18" caption="Manage Gamification" on-click="Actions.goToPage_ManagePointConfiguration.invoke()"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn32" horizontalalign="center" padding="unset 1em">
+                                        <wm-layoutgrid name="layoutgrid14">
+                                            <wm-gridrow name="gridrow32">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn49">
+                                                    <wm-picture width="100%" name="picture9" picturesource="resources/images/logos/sign-out.png" on-click="Actions.logoutAction.invoke()" class="pointer"></wm-picture>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                            <wm-gridrow name="gridrow33">
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn50">
+                                                    <wm-label padding="1em 0.5em unset 0.5em" class="name-menu pointer" name="label20" caption="Sign Out" on-click="Actions.logoutAction.invoke()"></wm-label>
+                                                </wm-gridcolumn>
+                                            </wm-gridrow>
+                                        </wm-layoutgrid>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2" height="100%">
+                        <wm-container name="container1" backgroundcolor="#ffffff" class="container-map" width="100%" height="100%">
+                            <wm-layoutgrid name="layoutgrid2" height="100%">
+                                <wm-gridrow name="gridrow3">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn5">
+                                        <wm-label padding="unset 1em unset 0.5em" margin="13% unset 3% unset" caption="bind:Variables.GetUser.dataSet[$i].fullName" width="86%" name="label1" textalign="right" fontfamily="Nunito Sans" fontsize="14" color="#404C59"></wm-label>
+                                        <wm-picture picturesource="resources/images/imagelists/Ellipse_18.png" width="5em" height="5em" name="picture1" margin="3em unset"></wm-picture>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow4_1">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn8_1">
+                                        <wm-prefab prefabname="googlemaps" name="googlemaps1" height="423px" width="100%" apikey="AIzaSyCrFzKbllFhq3-wLNhDF23Lt2UCgigMjuE" locations="bind:Variables.GetMapListAdmin.dataSet" lat="latitude" lng="longitute" zoom="NaN"></wm-prefab>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow4" padding="2em unset unset unset">
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn7" horizontalalign="center" padding="unset 3%">
+                                        <wm-container name="container2" width="100%" horizontalalign="center" class="sub-menu">
+                                            <wm-layoutgrid name="layoutgrid3">
+                                                <wm-gridrow name="gridrow6">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn10"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn15_1" horizontalalign="left">
+                                                        <wm-label padding="0.5em unset unset unset" caption="Active Users" class="container-info-head" name="label2" textalign="left" fontfamily="Nunito Sans" color="#8796A3" fontsize="13"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow7">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn12"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn16_1" horizontalalign="left">
+                                                        <wm-label caption="bind:Variables.GetActiveUsersAdmin.dataSet[$i].jumlah" class="container-info-value" name="label5" color="#404C59" fontweight="bold" fontfamily="Nunito Sans" fontsize="28"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn8" horizontalalign="center" padding="unset 3%">
+                                        <wm-container width="100%" horizontalalign="center" name="container3" class="sub-menu">
+                                            <wm-layoutgrid name="layoutgrid4">
+                                                <wm-gridrow name="gridrow8">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn14"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn17_1" horizontalalign="left">
+                                                        <wm-label padding="0.5em unset unset unset" caption="SK Requested" class="container-info-head" name="label3" textalign="left" fontfamily="Nunito Sans" color="#8796A3" fontsize="13"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow9">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn15"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn18" horizontalalign="left">
+                                                        <wm-label caption="bind:Variables.GetTotalSkRequestedAdmin.dataSet[$i].jumlah" class="container-info-value" name="label6" color="#404C59" fontfamily="Nunito Sans" fontweight="bold" fontsize="28"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                    <wm-gridcolumn columnwidth="4" name="gridcolumn7_1" horizontalalign="center" padding="unset 3%">
+                                        <wm-container width="100%" horizontalalign="center" name="container4" class="sub-menu">
+                                            <wm-layoutgrid name="layoutgrid5">
+                                                <wm-gridrow name="gridrow10">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn16"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn19" horizontalalign="left">
+                                                        <wm-label padding="0.5em unset unset unset" caption="Submitted Information" class="container-info-head" name="label4" textalign="left" fontfamily="Nunito Sans" color="#8796A3" fontsize="13"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                                <wm-gridrow name="gridrow11">
+                                                    <wm-gridcolumn columnwidth="1" name="gridcolumn17"></wm-gridcolumn>
+                                                    <wm-gridcolumn columnwidth="11" name="gridcolumn20" horizontalalign="left">
+                                                        <wm-label caption="bind:Variables.GetJumlahSubmitInformationAdmin.dataSet[$i].jumlah" class="container-info-value" name="label7" color="#404C59" fontfamily="Nunito Sans" fontweight="bold" fontsize="28"></wm-label>
+                                                    </wm-gridcolumn>
+                                                </wm-gridrow>
+                                            </wm-layoutgrid>
+                                        </wm-container>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                                <wm-gridrow name="gridrow5" padding="7em unset unset unset">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn11" horizontalalign="right">
+                                        <wm-label padding="unset unset unset 0.5em" caption="Go to Dashboard" class="pointer" margin="unset 2em 2em unset" name="label8" fontfamily="Nunito Sans" color="#007AFF" fontsize="16" fontweight="bold" on-click="Actions.goToPage_DashboardGeneral.invoke()"></wm-label>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-container>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+</wm-page>

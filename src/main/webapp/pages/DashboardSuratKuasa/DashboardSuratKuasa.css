@@ -180,3 +180,16 @@ button.app-dialog-close > span:hover {
     background: #FFFFFF;
     border-radius: 8px;
 }
+
+.year {
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 38px;
+    color: #999C9F;
+}
+
+.nv-axislabel {
+    display: none;
+}

@@ -21,9 +21,7 @@ Page.updateBadgesonBeforeUpdateRecord = function(variable, inputData, options) {
 };
 
 Page.GetSayembaraListonBeforeDatasetReady = function(variable, data) {
-    console.log(data);
     for (var i = 0; i < data.length; i++) {
         data[i].value = i + 1;
     }
-    console.log(data);
 };

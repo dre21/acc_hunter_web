@@ -16,31 +16,10 @@ Page.onReady = function() {
      */
 };
 
-
-Page.insertNewUserDetailonBeforeInsertRecord = function(variable, inputData, options) {
-    inputData.userId = App.Variables.userId;
-};
-
-Page.insertNewUserDetailonError = function(variable, data) {
-    console.log("Error", data);
-};
-
 Page.serviceGetUserByEmailonSuccess = function(variable, data) {
     App.Variables.userId = data.id;
     var p = Page.Variables.insertNewUserDetail;
     p.invoke();
-};
-
-Page.insertNewUserPoolonBeforeInsertRecord = function(variable, inputData, options) {
-    inputData.createdAt = new Date();
-    App.Variables.userEmail = inputData.email;
-};
-
-Page.insertNewUserDetailonSuccess = function(variable, data) {
-    Page.Actions.createUserSuccessNotification.invoke();
-    Page.Widgets.newUsersDialog.close();
-    Page.Actions.goToPage_UserManagementPool.invoke();
-
 };
 
 Page.picture6Click = function($event, widget, item, currentItemWidgets) {

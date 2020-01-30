@@ -73,6 +73,14 @@ public interface SkRequestAndSayembaraService {
      */
     List<SkRequestAndSayembara> findByMultipleIds(List<SkRequestAndSayembaraId> skrequestandsayembaraIds, boolean orderedReturn);
 
+    /**
+     * Find and return the SkRequestAndSayembara for given skFileName  if exists.
+     *
+     * @param skFileName value of skFileName; value cannot be null.
+     * @return SkRequestAndSayembara associated with the given inputs.
+     * @throws EntityNotFoundException if no matching SkRequestAndSayembara found.
+     */
+    SkRequestAndSayembara getBySkFileName(String skFileName);
 
     /**
      * Updates the details of an existing SkRequestAndSayembara. It replaces all fields of the existing SkRequestAndSayembara with the given skRequestAndSayembara.

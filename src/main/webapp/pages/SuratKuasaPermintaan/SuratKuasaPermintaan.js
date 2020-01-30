@@ -42,7 +42,3 @@ Page.GetSKRequestApprovedListonBeforeDatasetReady = function(variable, data) {
         data[i].number = i + 1;
     }
 };
-
-Page.GetSKRequestApprovedListonBeforeUpdate = function(variable, inputData, options) {
-    console.log(inputData)
-};

@@ -14,20 +14,17 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
+  "name" : "DashboardGeneral",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "DashboardSuratKuasa",
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "FAQ",
+  "name" : "FAQManagement",
   "type" : "PAGE",
   "params" : [ ]
-}, {
-  "name" : "FAQPartial",
-  "type" : "PARTIAL",
-  "params" : [ {
-    "name" : "id",
-    "type" : "integer"
-  } ]
 }, {
   "name" : "ForgotPassword",
   "type" : "PAGE",
@@ -49,7 +46,11 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "MainPage",
+  "name" : "MainAdmin",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "MainRemo",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -65,31 +66,6 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
-  "name" : "SKAuction",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "SKExtension",
-  "type" : "PAGE",
-  "params" : [ {
-    "name" : "idParam",
-    "type" : "integer"
-  } ]
-}, {
-  "name" : "SKReqDetail",
-  "type" : "PAGE",
-  "params" : [ {
-    "name" : "noAggr",
-    "type" : "string"
-  } ]
-}, {
-  "name" : "SKRequest",
-  "type" : "PAGE",
-  "params" : [ {
-    "name" : "idParam",
-    "type" : "integer"
-  } ]
-}, {
   "name" : "Sayembara",
   "type" : "PAGE",
   "params" : [ ]
@@ -101,13 +77,6 @@
   "name" : "SubmittedInformation",
   "type" : "PAGE",
   "params" : [ ]
-}, {
-  "name" : "SubmittedInformation1",
-  "type" : "PAGE",
-  "params" : [ {
-    "name" : "idParam",
-    "type" : "integer"
-  } ]
 }, {
   "name" : "SuratKuasaLelang",
   "type" : "PAGE",

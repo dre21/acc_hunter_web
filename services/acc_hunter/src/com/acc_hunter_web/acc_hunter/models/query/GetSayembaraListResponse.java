@@ -112,6 +112,12 @@ public class GetSayembaraListResponse implements Serializable {
     @ColumnAlias("app_sk_bt")
     private Long appSkBt;
 
+    @ColumnAlias("is_signed")
+    private Boolean isSigned;
+
+    @ColumnAlias("sk_file_name")
+    private String skFileName;
+
     @ColumnAlias("end_date")
     private Timestamp endDate;
 
@@ -371,6 +377,22 @@ public class GetSayembaraListResponse implements Serializable {
         this.appSkBt = appSkBt;
     }
 
+    public Boolean getIsSigned() {
+        return this.isSigned;
+    }
+
+    public void setIsSigned(Boolean isSigned) {
+        this.isSigned = isSigned;
+    }
+
+    public String getSkFileName() {
+        return this.skFileName;
+    }
+
+    public void setSkFileName(String skFileName) {
+        this.skFileName = skFileName;
+    }
+
     public Timestamp getEndDate() {
         return this.endDate;
     }
@@ -416,6 +438,8 @@ public class GetSayembaraListResponse implements Serializable {
                 Objects.equals(getSkParent(), getSayembaraListResponse.getSkParent()) &&
                 Objects.equals(getIsShow(), getSayembaraListResponse.getIsShow()) &&
                 Objects.equals(getAppSkBt(), getSayembaraListResponse.getAppSkBt()) &&
+                Objects.equals(getIsSigned(), getSayembaraListResponse.getIsSigned()) &&
+                Objects.equals(getSkFileName(), getSayembaraListResponse.getSkFileName()) &&
                 Objects.equals(getEndDate(), getSayembaraListResponse.getEndDate());
     }
 
@@ -453,6 +477,8 @@ public class GetSayembaraListResponse implements Serializable {
                 getSkParent(),
                 getIsShow(),
                 getAppSkBt(),
+                getIsSigned(),
+                getSkFileName(),
                 getEndDate());
     }
 }

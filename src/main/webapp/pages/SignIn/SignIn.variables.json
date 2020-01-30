@@ -1,4 +1,18 @@
 {
+  "countFailed" : {
+    "_id" : "wm-countFailed-wm.Variable-1579761981775",
+    "name" : "countFailed",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "dataValue" : 0
+    },
+    "type" : "number",
+    "isList" : false,
+    "twoWayBinding" : false,
+    "saveInPhonegap" : false
+  },
   "passTypeText" : {
     "_id" : "wm-passTypeText-wm.Variable-1574658910220",
     "name" : "passTypeText",

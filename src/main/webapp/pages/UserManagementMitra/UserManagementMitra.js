@@ -16,36 +16,8 @@ Page.onReady = function() {
      */
 };
 
-Page.insertNewUserMitraonBeforeInsertRecord = function(variable, inputData, options) {
-    inputData.createdAt = new Date();
-    App.Variables.userEmail = inputData.email;
-};
-
-Page.insertNewUserDetailonBeforeInsertRecord = function(variable, inputData, options) {
-    console.log("it is called", inputData);
-    inputData.userId = App.Variables.userId;
-};
-
-Page.insertNewUserBankInfoonSuccess = function(variable, data) {
-    Page.Actions.createUserSuccessNotification.invoke();
-    Page.Widgets.newUsersDialog.close();
-    Page.Actions.goToPage_UserManagementMitra.invoke();
-};
-
-Page.insertNewUserBankInfoonBeforeInsertRecord = function(variable, inputData, options) {
-    inputData.userId = App.Variables.userId;
-    console.log("inputDataBankInfo: ", inputData);
-};
-
-Page.insertNewUserDetailonError = function(variable, data) {
-    console.log("Error", data);
-};
-
 Page.serviceGetUserByEmailonSuccess = function(variable, data) {
-    console.log("success", data);
     App.Variables.userId = data.id;
-
-    console.log("App.Variables.userId", App.Variables.userId);
 
     var p = Page.Variables.insertNewUserDetail;
     p.invoke();

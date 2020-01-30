@@ -15,6 +15,7 @@
                                 <wm-gridrow name="gridrow9_1" padding="3em unset">
                                     <wm-gridcolumn columnwidth="12" name="gridcolumn20" horizontalalign="center">
                                         <wm-label padding="unset 0.5em" name="label2" caption="Sign In to your account" class="heading1"></wm-label>
+                                        <wm-message name="messageLoginFailed" type="error" hideclose="true" show="false"></wm-message>
                                     </wm-gridcolumn>
                                 </wm-gridrow>
                                 <wm-gridrow name="gridrow10_1" padding="unset unset 1em unset">
@@ -27,7 +28,7 @@
                                 <wm-gridrow name="gridrow11_1" padding="unset unset 2em unset">
                                     <wm-gridcolumn columnwidth="3" name="gridcolumn25_1"></wm-gridcolumn>
                                     <wm-gridcolumn columnwidth="6" name="gridcolumn26_1">
-                                        <wm-text placeholder="Password" fontsize="14" class="login-password" type="password" name="j_password" tabindex="2"></wm-text>
+                                        <wm-text placeholder="Password" fontsize="14" class="login-password" type="password" name="j_password" tabindex="2" on-change="j_passwordChange($event, widget, newVal, oldVal)" updateon="default"></wm-text>
                                         <wm-picture picturesource="resources/images/imagelists/Show-Password.png" class="show-password" name="picture4" margin="unset unset unset 20em" cursor="pointer" on-click="picture4Click($event, widget)"></wm-picture>
                                         <wm-picture picturesource="resources/images/imagelists/visibility-off.svg" class="show-password" margin="unset unset unset 20em" cursor="pointer" on-click="picture4Click($event, widget)" name="picture4_1"
                                             show="false"></wm-picture>

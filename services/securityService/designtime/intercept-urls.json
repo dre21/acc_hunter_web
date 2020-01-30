@@ -25,17 +25,37 @@
   "httpMethod" : null
 }, {
   "urlPattern" : "/pages/Main/**",
-  "permission" : "Authenticated",
+  "permission" : "Role",
+  "roles" : [ "SUPER ADMIN" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/MainAdmin/**",
+  "permission" : "Role",
+  "roles" : [ "ADMIN" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/MainRemo/**",
+  "permission" : "Role",
+  "roles" : [ "REMO STAFF", "REMO HEAD" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/ManageBadgesConfiguration/**",
+  "permission" : "Role",
+  "roles" : [ "ADMIN", "SUPER ADMIN" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/ManagePointConfiguration/**",
+  "permission" : "Role",
+  "roles" : [ "ADMIN", "SUPER ADMIN" ],
+  "httpMethod" : null
+}, {
+  "urlPattern" : "/pages/SignIn/**",
+  "permission" : "PermitAll",
   "roles" : [ ],
   "httpMethod" : null
 }, {
   "urlPattern" : "/pages/MainPage/**",
   "permission" : "Authenticated",
-  "roles" : [ ],
-  "httpMethod" : null
-}, {
-  "urlPattern" : "/pages/SignIn/**",
-  "permission" : "PermitAll",
   "roles" : [ ],
   "httpMethod" : null
 }, {
@@ -60,7 +80,7 @@
   "httpMethod" : null
 }, {
   "urlPattern" : "/services/acc_hunter/**",
-  "permission" : "PermitAll",
+  "permission" : "Authenticated",
   "roles" : [ ],
   "httpMethod" : null
 }, {
@@ -83,4 +103,14 @@
   "permission" : "PermitAll",
   "roles" : [ ],
   "httpMethod" : null
+}, {
+  "urlPattern" : "/services/acc_hunter/Users/{id}",
+  "permission" : "Authenticated",
+  "roles" : [ ],
+  "httpMethod" : "GET"
+}, {
+  "urlPattern" : "/services/acc_hunter/queryExecutor/queries/checkEmailAvailable",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : "GET"
 } ]

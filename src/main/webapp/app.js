@@ -44,58 +44,24 @@ App.onServiceError = function(errorMsg, xhrObj) {
     console.log(errorMsg);
 };
 
-App.serviceEncryptPassonSuccess = function(variable, data) {
-    console.log("encrypt password success", data);
-};
-
 App.loginActiononSuccess = function(variable, data) {
-    console.log("Start to login");
-    console.log(data);
-    App.Variables.getUserByEmail.invoke({
-        "inputFields": {
-            "email": data.userName
-        }
-    }, function(error) {
-        console.log("error", error)
-    });
+    if (data.userRoles[0] == "SUPER ADMIN") {
+        App.Actions.goToPage_Main.invoke();
+    } else if (data.userRoles[0] == "ADMIN") {
+        App.Actions.goToPage_MainAdmin.invoke();
+    } else if (data.userRoles[0] == "REMO HEAD") {
+        App.Actions.goToPage_MainRemo.invoke();
+    } else if (data.userRoles[0] == "REMO STAFF") {
+        App.Actions.goToPage_MainRemo.invoke();
+    }
 };
 
 App.serviceEncryptPassonBeforeUpdate = function(variable, inputData, options) {
-    console.log("Inside serviceEncryptPassword", inputData);
     if (inputData.text === "") {
         return false;
     }
 };
 
-App.loginActiononResult = function(variable, data) {
-    console.log("Inside loginActiononResult", data);
-};
-
-App.loginActiononError = function(variable, data) {
-    console.log("loginActiononError", data);
-};
-
-App.loginActiononBeforeUpdate = function(variable, inputData, options) {
-
-    console.log("loginActionBeforeUpdate", inputData);
-};
-
-App.sendMailServiceonResult = function(variable, data) {
-    console.log("sendEmailServiceonResult", data);
-};
-
-App.getNextUserIdonError = function(variable, data) {
-    console.log("error", data);
-};
-
 App.insertNewUseronBeforeInsertRecord = function(variable, inputData, options) {
     inputData.createdAt = new date();
-};
-
-App.insertNewUseronError = function(variable, data) {
-    console.log(data);
-};
-
-App.getNextUserIdonSuccess = function(variable, data) {
-    console.log("nextUserId", data);
 };

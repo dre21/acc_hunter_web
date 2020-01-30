@@ -50,7 +50,7 @@
       "rolePropertyName" : "",
       "roleColumnName" : "",
       "useRolesQuery" : true,
-      "rolesByUsernameQuery" : "select r.name\nfrom roles r\njoin users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD', 'SUPER ADMIN')\nwhere u.email = :LOGGED_IN_USERNAME",
+      "rolesByUsernameQuery" : "select r.name\nfrom roles r\njoin users u on r.id = u.role_id and r.name in('ADMIN','REMO HEAD', 'SUPER ADMIN', 'REMO STAFF')\nwhere u.email = :LOGGED_IN_USERNAME",
       "tenantIdField" : null,
       "defTenantId" : 0,
       "tenantIdPropertyName" : null,
