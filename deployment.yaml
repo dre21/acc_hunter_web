@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: acchunterweb
+spec:
+  selector:
+    app: acchunterweb
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: acchunterweb
+  labels:
+    app: acchunterweb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: acchunterweb
+  template:
+    metadata:
+      labels:
+        app: acchunterweb
+    spec:
+      imagePullSecrets:
+      - name: dockerhub
+      containers:
+      - name: acchunterweb
+        image: dre21/acc-hunter-web:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 8080
