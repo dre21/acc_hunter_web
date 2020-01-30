@@ -31,7 +31,7 @@ spec:
       - name: dockerhub
       containers:
       - name: acchunterweb
-        image: dre21/acc-hunter-web:${CICD_EXECUTION_SEQUENCE}
+        image: dre21/acc-hunter-web:6
         ports:
         - containerPort: 8080
         volumeMounts:
