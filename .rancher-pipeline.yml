@@ -1,17 +1,4 @@
 stages:
-- name: Build war
-  steps:
-  - runScriptConfig:
-      image: maven:alpine
-      shellScript: mvn package -Pdevelopment
-- name: Create & Publish Image
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: dre21/acc-hunter-web:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
-      registry: index.docker.io
 - name: Deploy
   steps:
   - applyYamlConfig:
